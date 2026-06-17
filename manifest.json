@@ -1,0 +1,12 @@
+{
+  "name": "ToolNest",
+  "short_name": "ToolNest",
+  "description": "19+ Free Online Developer & SEO Tools",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06060b",
+  "theme_color": "#06060b",
+  "icons": [
+    { "src": "favicon.ico", "sizes": "48x48 192x192 512x512", "type": "image/x-icon" }
+  ]
+}

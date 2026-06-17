@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /css/
+Disallow: /js/
+
+Sitemap: https://toolsforseo.free.nf/sitemap.xml
