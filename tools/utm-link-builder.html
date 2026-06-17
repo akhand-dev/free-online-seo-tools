@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://api.qrserver.com; connect-src 'self' https://region1.google-analytics.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTM Link Builder Online — Campaign URL Generator | ToolNest</title>
+    <meta name="description" content="Free online UTM link builder. Easily generate campaign URLs with UTM parameters to track your marketing campaigns in Google Analytics.">
+    <meta name="keywords" content="utm link builder online, custom utm parameter generator, campaign url builder, utm code generator, free utm builder">
+    <link rel="canonical" href="https://toolsforseo.free.nf/tools/utm-link-builder.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolsforseo.free.nf/tools/utm-link-builder.html">
+    <meta property="og:title" content="UTM Link Builder Online — Campaign URL Generator | ToolNest">
+    <meta property="og:description" content="Generate custom campaign URLs with UTM parameters instantly to track your marketing efforts.">
+    <meta property="og:site_name" content="ToolNest">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UTM Link Builder Online">
+    <meta name="twitter:description" content="Easily build trackable URLs for your marketing campaigns.">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            text-align: left;
+        }
+        .form-group label {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+        .form-group input {
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-main);
+            font-family: inherit;
+        }
+        .required::after {
+            content: " *";
+            color: #ff4757;
+        }
+        .help-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does UTM stand for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UTM stands for Urchin Tracking Module. It is a standard set of parameters initially created by Urchin, a company acquired by Google in 2005, whose software became the foundation for Google Analytics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do UTM parameters affect my website's SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, UTM parameters do not affect your SEO rankings. Search engines typically ignore UTM tags. However, to prevent any duplicate content issues, it's best practice to use canonical tags on your landing pages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use UTM links on social media?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! In fact, social media is one of the most common places to use UTM links. By appending tags like utm_source=twitter and utm_medium=social, you can track exactly how much traffic your tweets are generating in Google Analytics."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header>
+    <div class="container navbar">
+        <a href="/index.html" class="logo">🪺 Tool<span>Nest</span></a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li class="nav-search-wrapper">
+                <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                <div id="globalSearchResults" class="search-results-dropdown"></div>
+            </li>
+            <li><a href="/index.html">Tools</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+        </ul>
+    </div>
+</header>
+
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs"><a href="../index.html">Home</a><span class="separator">›</span><a href="../index.html">Tools</a><span class="separator">›</span><span class="current"><b>UTM Link Builder</b></span></nav>
+        
+        <div class="hero" style="margin-bottom:1.5rem;">
+            <h1>Free UTM Link Builder Online</h1>
+            <p>Add custom campaign parameters to your URLs so you can accurately track Custom Campaigns in Google Analytics.</p>
+        </div>
+
+        <div class="tool-interface">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="required" for="url">Website URL</label>
+                    <input type="url" id="url" placeholder="https://www.example.com" oninput="generateUrl()">
+                    <span class="help-text">The full website URL (e.g. https://www.example.com)</span>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="source">Campaign Source (utm_source)</label>
+                    <input type="text" id="source" placeholder="google, newsletter, facebook" oninput="generateUrl()">
+                    <span class="help-text">The referrer: (e.g. google, newsletter)</span>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="medium">Campaign Medium (utm_medium)</label>
+                    <input type="text" id="medium" placeholder="cpc, banner, email" oninput="generateUrl()">
+                    <span class="help-text">Marketing medium: (e.g. cpc, banner, email)</span>
+                </div>
+                <div class="form-group">
+                    <label class="required" for="campaign">Campaign Name (utm_campaign)</label>
+                    <input type="text" id="campaign" placeholder="spring_sale" oninput="generateUrl()">
+                    <span class="help-text">Product, promo code, or slogan (e.g. spring_sale)</span>
+                </div>
+                <div class="form-group">
+                    <label for="term">Campaign Term (utm_term)</label>
+                    <input type="text" id="term" placeholder="running+shoes" oninput="generateUrl()">
+                    <span class="help-text">Identify the paid keywords</span>
+                </div>
+                <div class="form-group">
+                    <label for="content">Campaign Content (utm_content)</label>
+                    <input type="text" id="content" placeholder="logolink" oninput="generateUrl()">
+                    <span class="help-text">Use to differentiate ads (e.g. logolink vs textlink)</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <textarea id="result-url" style="min-height:100px;resize:none;" readonly placeholder="Your generated campaign URL will appear here..."></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button onclick="copyToClipboard(document.getElementById('result-url').value, this)">Copy URL</button>
+                <button onclick="clearForm()" class="secondary">Clear Form</button>
+            </div>
+        </div>
+
+        <section class="seo-content">
+            <h2>What is a <strong>UTM Link Builder Online?</strong></h2>
+            <p>A <strong>UTM Link Builder online</strong> is an indispensable tool for digital marketers, social media managers, and campaign runners. When you share a link to your website, you want to know exactly how many people clicked it, where they came from, and which specific campaign drove them to your site. By appending UTM (Urchin Tracking Module) parameters to your URLs, you can send detailed tracking data directly to Google Analytics 4 (GA4) or other analytics platforms.</p>
+            
+            <h3>How to Generate Campaign URLs</h3>
+            <p>Our tool makes building error-free tracking links simple:</p>
+            <ul>
+                <li><strong>Enter Your URL:</strong> Start by pasting the full destination link (e.g., `https://www.yoursite.com/sale`).</li>
+                <li><strong>Define the Source:</strong> The <em>utm_source</em> tells you *where* the traffic is coming from (e.g., `google`, `facebook`, `newsletter`).</li>
+                <li><strong>Set the Medium:</strong> The <em>utm_medium</em> tells you *how* the traffic got there (e.g., `cpc` for paid ads, `social` for organic posts, `email`).</li>
+                <li><strong>Name the Campaign:</strong> The <em>utm_campaign</em> groups the efforts together (e.g., `spring_sale_2026`).</li>
+                <li><strong>Optional Tags:</strong> Use <em>utm_term</em> for paid search keywords and <em>utm_content</em> to differentiate between links in the same ad or email.</li>
+            </ul>
+
+            <h3>Why Use ToolNest's Free UTM Builder?</h3>
+            <ul>
+                <li><strong>Real-Time URL Generation:</strong> The final campaign link is generated instantly as you type, with no page reloads.</li>
+                <li><strong>Proper Encoding:</strong> It automatically encodes spaces and special characters, ensuring your links never break when users click them.</li>
+                <li><strong>100% Private:</strong> We do not track the URLs you generate. Your marketing campaigns remain entirely confidential.</li>
+            </ul>
+        </section>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question">What does UTM stand for?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        UTM stands for Urchin Tracking Module. It is a standard set of parameters initially created by Urchin, a company acquired by Google in 2005, whose software became the foundation for Google Analytics.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do UTM parameters affect my website's SEO?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No, UTM parameters do not affect your SEO rankings. Search engines typically ignore UTM tags. However, to prevent any duplicate content issues, it's best practice to use canonical tags on your landing pages.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I use UTM links on social media?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Absolutely! In fact, social media is one of the most common places to use UTM links. By appending tags like utm_source=twitter and utm_medium=social, you can track exactly how much traffic your tweets are generating in Google Analytics.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="/index.html" class="logo">🪺 Tool<span>Nest</span></a>
+                <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for
+                    simple, fast & free online utilities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Text Tools</h4>
+                <ul>
+                    <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                    <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                    <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                    <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                    <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Dev Tools</h4>
+                <ul>
+                    <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    <li><a href="/tools/base64-encoder-decoder.html">Base64</a></li>
+                    <li><a href="/tools/hash-generator.html">Hash Generator</a></li>
+                    <li><a href="/tools/timestamp-converter.html">Timestamp</a></li>
+                    <li><a href="/tools/color-picker.html">Color Picker</a></li>
+                    <li><a href="/tools/jwt-decoder.html">JWT Decoder</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/blog/index.html">Blog</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ToolNest — toolsforseo.free.nf | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function generateUrl() {
+            const url = document.getElementById('url').value.trim();
+            const source = document.getElementById('source').value.trim();
+            const medium = document.getElementById('medium').value.trim();
+            const campaign = document.getElementById('campaign').value.trim();
+            const term = document.getElementById('term').value.trim();
+            const content = document.getElementById('content').value.trim();
+            const resultBox = document.getElementById('result-url');
+
+            if (!url) {
+                resultBox.value = '';
+                return;
+            }
+
+            try {
+                // Ensure URL has a protocol
+                let finalUrlStr = url;
+                if (!/^https?:\/\//i.test(finalUrlStr)) {
+                    finalUrlStr = 'https://' + finalUrlStr;
+                }
+                
+                const urlObj = new URL(finalUrlStr);
+                const params = new URLSearchParams(urlObj.search);
+
+                if (source) params.set('utm_source', source);
+                if (medium) params.set('utm_medium', medium);
+                if (campaign) params.set('utm_campaign', campaign);
+                if (term) params.set('utm_term', term);
+                if (content) params.set('utm_content', content);
+
+                const queryString = params.toString();
+                resultBox.value = urlObj.origin + urlObj.pathname + (queryString ? '?' + queryString : '') + urlObj.hash;
+            } catch (e) {
+                // Invalid URL
+                resultBox.value = 'Please enter a valid URL.';
+            }
+        }
+
+        function clearForm() {
+            document.getElementById('url').value = '';
+            document.getElementById('source').value = '';
+            document.getElementById('medium').value = '';
+            document.getElementById('campaign').value = '';
+            document.getElementById('term').value = '';
+            document.getElementById('content').value = '';
+            document.getElementById('result-url').value = '';
+        }
+    </script>
+</body>
+</html>

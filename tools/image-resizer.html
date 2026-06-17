@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://api.qrserver.com; connect-src 'self' https://region1.google-analytics.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer & Compressor Online — Free & Private | ToolNest</title>
+    <meta name="description" content="Resize and compress images online for free. Change dimensions, format (JPG, PNG, WebP), and quality. 100% private — runs in your browser. No upload to servers.">
+    <meta name="keywords" content="image resizer, resize image online, compress image, image compressor, reduce image size, resize photo online free, image optimizer">
+    <link rel="canonical" href="https://toolsforseo.free.nf/tools/image-resizer.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="website"><meta property="og:url" content="https://toolsforseo.free.nf/tools/image-resizer.html"><meta property="og:title" content="Image Resizer & Compressor — Free Online Tool"><meta property="og:description" content="Resize, compress and convert images instantly. 100% private, runs in your browser."><meta property="og:site_name" content="ToolNest">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico"><meta name="theme-color" content="#06060b">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Resizer & Compressor","url":"https://toolsforseo.free.nf/tools/image-resizer.html","applicationCategory":"MultimediaApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this image resizer free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no sign-up, watermarks, or hidden fees."}},{"@type":"Question","name":"Is my image data private?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. All processing happens locally in your browser. Your images are never uploaded to any server."}},{"@type":"Question","name":"What image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"You can upload PNG, JPG, WebP, GIF, BMP, and SVG images. Output formats include JPEG, PNG, and WebP."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"No hard limit. Since everything runs in your browser, the only constraint is your device's available memory."}}]}</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://toolsforseo.free.nf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://toolsforseo.free.nf/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Image Resizer",
+          "item": "https://toolsforseo.free.nf/tools/image-resizer.html"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize and Compress Images",
+      "description": "Resize and compress images online for free. Change dimensions, format (JPG, PNG, WebP), and quality.",
+      "step": [
+        {"@type": "HowToStep", "name": "Upload Image", "text": "Drag and drop or browse to select your image file."},
+        {"@type": "HowToStep", "name": "Adjust Settings", "text": "Set target width, height, format, and quality to compress the file."},
+        {"@type": "HowToStep", "name": "Compress & Resize", "text": "Click the process button to compile the image locally using Canvas APIs."},
+        {"@type": "HowToStep", "name": "Download", "text": "Save the optimized image directly to your device."}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header>
+    <div class="container navbar">
+        <a href="/index.html" class="logo">🪺 Tool<span>Nest</span></a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li class="nav-search-wrapper">
+                <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                <div id="globalSearchResults" class="search-results-dropdown"></div>
+            </li>
+            <li><a href="/index.html">Tools</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+        </ul>
+    </div>
+</header>
+
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs"><a href="../index.html">Home</a><span class="separator">›</span><a href="../index.html">Tools</a><span class="separator">›</span><span class="current">Image Resizer</span></nav>
+        <div class="hero" style="margin-bottom:1.5rem;"><h1>Image Resizer & Compressor</h1><p>Resize, compress, and convert images instantly. All processing happens in your browser — your files never leave your device.</p></div>
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="tool-interface" style="max-width:900px;margin:0 auto;">
+            <!-- Upload Zone -->
+            <div id="drop-zone" style="border:2px dashed var(--border-light);border-radius:12px;padding:3rem;text-align:center;cursor:pointer;transition:var(--transition);margin-bottom:1.5rem;" onclick="document.getElementById('file-input').click();">
+                <div style="font-size:3rem;margin-bottom:1rem;">🖼️</div>
+                <p style="color:var(--text-primary);font-weight:600;margin:0;">Click to upload or drag & drop an image</p>
+                <p style="color:var(--text-secondary);font-size:0.8rem;margin-top:0.5rem;">PNG, JPG, WebP, GIF, BMP, SVG supported</p>
+                <input type="file" id="file-input" accept="image/*" style="display:none;">
+            </div>
+
+            <!-- Preview & Controls (hidden until image loaded) -->
+            <div id="editor-panel" style="display:none;">
+                <!-- Original Image Preview -->
+                <div style="text-align:center;margin-bottom:1.5rem;background:rgba(0,0,0,0.2);border-radius:var(--radius-md);padding:1rem;border:1px solid var(--border-light);">
+                    <img loading="lazy" decoding="async" id="img-preview" style="max-width:100%;max-height:300px;border-radius:8px;" alt="Original image preview">
+                    <p id="img-info" style="color:var(--text-secondary);font-size:0.85rem;margin:0.5rem 0 0;"></p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid" style="margin-bottom:1.5rem;">
+                    <div class="stat-box"><div class="stat-value" id="stat-orig-dims">—</div><div class="stat-label">Original Size</div></div>
+                    <div class="stat-box"><div class="stat-value" id="stat-orig-file">—</div><div class="stat-label">Original File</div></div>
+                    <div class="stat-box"><div class="stat-value" id="stat-new-dims">—</div><div class="stat-label">New Size</div></div>
+                    <div class="stat-box"><div class="stat-value" id="stat-new-file">—</div><div class="stat-label">New File</div></div>
+                    <div class="stat-box"><div class="stat-value" id="stat-savings" style="color:var(--success);">—</div><div class="stat-label">Savings</div></div>
+                </div>
+
+                <!-- Resize Controls -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                    <div class="input-group">
+                        <label for="resize-width">Width (px)</label>
+                        <input type="number" id="resize-width" min="1" max="10000" placeholder="Width">
+                    </div>
+                    <div class="input-group">
+                        <label for="resize-height">Height (px)</label>
+                        <input type="number" id="resize-height" min="1" max="10000" placeholder="Height">
+                    </div>
+                </div>
+                <div class="checkbox-group" style="margin-bottom:1rem;">
+                    <input type="checkbox" id="aspect-lock" checked>
+                    <label for="aspect-lock" style="cursor:pointer;">🔒 Lock Aspect Ratio</label>
+                </div>
+
+                <!-- Quick Presets -->
+                <div style="margin-bottom:1.5rem;">
+                    <label style="font-weight:500;font-size:0.95rem;margin-bottom:0.5rem;display:block;">Quick Resize</label>
+                    <div class="button-group">
+                        <button class="secondary" onclick="applyPercent(25)">25%</button>
+                        <button class="secondary" onclick="applyPercent(50)">50%</button>
+                        <button class="secondary" onclick="applyPercent(75)">75%</button>
+                        <button class="secondary" onclick="applyPercent(100)">100%</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:1.5rem;">
+                    <label style="font-weight:500;font-size:0.95rem;margin-bottom:0.5rem;display:block;">Common Widths</label>
+                    <div class="button-group">
+                        <button class="secondary" onclick="applyWidth(1920)">1920px</button>
+                        <button class="secondary" onclick="applyWidth(1280)">1280px</button>
+                        <button class="secondary" onclick="applyWidth(800)">800px</button>
+                        <button class="secondary" onclick="applyWidth(640)">640px</button>
+                        <button class="secondary" onclick="applyWidth(320)">320px</button>
+                    </div>
+                </div>
+
+                <!-- Format & Quality -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                    <div class="input-group">
+                        <label for="output-format">Output Format</label>
+                        <select id="output-format">
+                            <option value="image/jpeg">JPEG</option>
+                            <option value="image/png">PNG</option>
+                            <option value="image/webp">WebP</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="quality-group">
+                        <label for="quality-slider">Quality: <span id="quality-val">80</span>%</label>
+                        <input type="range" id="quality-slider" min="10" max="100" value="80" style="width:100%;accent-color:var(--accent-primary);margin-top:0.5rem;">
+                    </div>
+                </div>
+
+                <!-- Output Preview -->
+                <div id="output-preview" style="text-align:center;margin-bottom:1.5rem;background:rgba(0,0,0,0.2);border-radius:var(--radius-md);padding:1rem;border:1px solid var(--border-light);display:none;">
+                    <p style="font-weight:600;margin-bottom:0.5rem;">Resized Preview</p>
+                    <img loading="lazy" decoding="async" id="output-img" style="max-width:100%;max-height:300px;border-radius:8px;" alt="Resized image preview">
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group" style="justify-content:center;">
+                    <button onclick="processImage()" id="btn-resize" style="padding:0.8rem 2rem;font-size:1rem;">⚡ Resize & Compress</button>
+                    <button onclick="downloadImage()" id="btn-download" class="secondary" style="display:none;padding:0.8rem 2rem;font-size:1rem;">⬇ Download</button>
+                    <button onclick="resetTool()" class="secondary">🔄 Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content -->
+        <section class="seo-content">
+            <h2>Free Online Image Resizer & Compressor</h2>
+            <p>Need to quickly resize a photo for social media, compress a large image for your website, or convert between image formats? Our Image Resizer & Compressor does it all — instantly and privately in your browser.</p>
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Resize by pixels or percentage</strong> — Set exact dimensions or use quick presets (25%, 50%, 75%).</li>
+                <li><strong>Compress without quality loss</strong> — Fine-tune JPEG and WebP quality from 10% to 100%.</li>
+                <li><strong>Convert formats</strong> — Switch between JPEG, PNG, and WebP output formats.</li>
+                <li><strong>100% private</strong> — All processing happens in your browser. Your images never leave your device.</li>
+            </ul>
+            <p>Related: <a href="image-to-base64.html">Image to Base64</a> | <a href="file-converter.html">File Format Converter</a> | <a href="color-picker.html">Color Picker</a></p>
+
+            <div class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item"><button class="faq-question">Is this image resizer free?</button><div class="faq-answer"><div class="faq-answer-inner">Yes, completely free with no sign-up, watermarks, or hidden fees. Use it as many times as you need.</div></div></div>
+                <div class="faq-item"><button class="faq-question">Is my image data private?</button><div class="faq-answer"><div class="faq-answer-inner">Absolutely. All processing happens locally in your browser using the HTML5 Canvas API. Your images are never uploaded to any server.</div></div></div>
+                <div class="faq-item"><button class="faq-question">What image formats are supported?</button><div class="faq-answer"><div class="faq-answer-inner">You can upload PNG, JPG/JPEG, WebP, GIF, BMP, and SVG images. Output formats include JPEG, PNG, and WebP.</div></div></div>
+                <div class="faq-item"><button class="faq-question">Is there a file size limit?</button><div class="faq-answer"><div class="faq-answer-inner">No hard limit. Since everything runs in your browser, the only constraint is your device's available memory. Most modern devices handle images up to 50MB+ without issues.</div></div></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="/index.html" class="logo">🪺 Tool<span>Nest</span></a>
+                <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for
+                    simple, fast & free online utilities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Text Tools</h4>
+                <ul>
+                    <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                    <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                    <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                    <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                    <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Dev Tools</h4>
+                <ul>
+                    <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    <li><a href="/tools/base64-encoder-decoder.html">Base64</a></li>
+                    <li><a href="/tools/hash-generator.html">Hash Generator</a></li>
+                    <li><a href="/tools/timestamp-converter.html">Timestamp</a></li>
+                    <li><a href="/tools/color-picker.html">Color Picker</a></li>
+                    <li><a href="/tools/jwt-decoder.html">JWT Decoder</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/blog/index.html">Blog</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ToolNest — toolsforseo.free.nf | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+
+    <div class="cookie-banner">We use cookies to improve your experience. <a href="../privacy-policy.html">Privacy Policy</a> <button onclick="acceptCookies()">Accept</button></div>
+    <script src="../js/main.js" defer></script>
+    <script>
+    const fileIn=document.getElementById('file-input'),dropZone=document.getElementById('drop-zone'),editorPanel=document.getElementById('editor-panel'),imgPreview=document.getElementById('img-preview'),imgInfo=document.getElementById('img-info'),widthIn=document.getElementById('resize-width'),heightIn=document.getElementById('resize-height'),aspectLock=document.getElementById('aspect-lock'),formatSel=document.getElementById('output-format'),qualitySlider=document.getElementById('quality-slider'),qualityVal=document.getElementById('quality-val'),qualityGroup=document.getElementById('quality-group'),outputPreview=document.getElementById('output-preview'),outputImg=document.getElementById('output-img'),btnDownload=document.getElementById('btn-download');
+
+    let origImg=null,origW=0,origH=0,origFileSize=0,aspectRatio=1,outputBlob=null,origFileName='image';
+
+    // Drag & Drop
+    dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.style.borderColor='var(--accent-primary)';dropZone.style.background='rgba(99,102,241,0.05)';});
+    dropZone.addEventListener('dragleave',()=>{dropZone.style.borderColor='var(--border-light)';dropZone.style.background='';});
+    dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.style.borderColor='var(--border-light)';dropZone.style.background='';if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
+    fileIn.addEventListener('change',e=>{if(e.target.files[0])handleFile(e.target.files[0]);});
+
+    function handleFile(file){
+        if(!file.type.startsWith('image/')){showToast('Please select an image file','error');return;}
+        origFileSize=file.size;
+        origFileName=file.name.replace(/\.[^.]+$/,'');
+        const reader=new FileReader();
+        reader.onload=e=>{
+            const img=new Image();
+            img.onload=()=>{
+                origImg=img;origW=img.naturalWidth;origH=img.naturalHeight;aspectRatio=origW/origH;
+                imgPreview.src=e.target.result;
+                imgInfo.textContent=`${file.name} — ${origW} × ${origH}px — ${formatBytes(origFileSize)}`;
+                widthIn.value=origW;heightIn.value=origH;
+                updateStats();
+                dropZone.style.display='none';
+                editorPanel.style.display='block';
+                outputPreview.style.display='none';
+                btnDownload.style.display='none';
+                showToast('Image loaded successfully!','success');
+            };
+            img.src=e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Aspect Ratio Lock
+    widthIn.addEventListener('input',()=>{
+        if(aspectLock.checked&&origImg){
+            heightIn.value=Math.round(parseInt(widthIn.value)/aspectRatio)||'';
+        }
+        updateStats();
+    });
+    heightIn.addEventListener('input',()=>{
+        if(aspectLock.checked&&origImg){
+            widthIn.value=Math.round(parseInt(heightIn.value)*aspectRatio)||'';
+        }
+        updateStats();
+    });
+
+    // Quality slider
+    qualitySlider.addEventListener('input',()=>{qualityVal.textContent=qualitySlider.value;});
+    formatSel.addEventListener('change',()=>{
+        qualityGroup.style.display=(formatSel.value==='image/png')?'none':'block';
+    });
+
+    // Presets
+    function applyPercent(pct){
+        if(!origImg)return;
+        widthIn.value=Math.round(origW*pct/100);
+        heightIn.value=Math.round(origH*pct/100);
+        updateStats();
+    }
+    function applyWidth(w){
+        if(!origImg)return;
+        widthIn.value=w;
+        if(aspectLock.checked)heightIn.value=Math.round(w/aspectRatio);
+        updateStats();
+    }
+
+    function updateStats(){
+        const sOrigDims=document.getElementById('stat-orig-dims'),sOrigFile=document.getElementById('stat-orig-file'),sNewDims=document.getElementById('stat-new-dims'),sNewFile=document.getElementById('stat-new-file'),sSavings=document.getElementById('stat-savings');
+        if(!origImg){sOrigDims.textContent='—';sOrigFile.textContent='—';sNewDims.textContent='—';sNewFile.textContent='—';sSavings.textContent='—';return;}
+        sOrigDims.textContent=`${origW}×${origH}`;
+        sOrigFile.textContent=formatBytes(origFileSize);
+        const nw=parseInt(widthIn.value)||origW,nh=parseInt(heightIn.value)||origH;
+        sNewDims.textContent=`${nw}×${nh}`;
+        // Estimate file size based on pixel ratio and quality
+        const pixelRatio=(nw*nh)/(origW*origH);
+        const q=(formatSel.value==='image/png')?1:(parseInt(qualitySlider.value)/100);
+        const est=Math.round(origFileSize*pixelRatio*q);
+        sNewFile.textContent='~'+formatBytes(est);
+        const saved=origFileSize>0?Math.round((1-est/origFileSize)*100):0;
+        sSavings.textContent=(saved>0?'+':'')+saved+'%';
+        sSavings.style.color=saved>0?'var(--success)':'var(--error)';
+    }
+
+    function processImage(){
+        if(!origImg){showToast('Upload an image first','error');return;}
+        const nw=parseInt(widthIn.value)||origW,nh=parseInt(heightIn.value)||origH;
+        const canvas=document.createElement('canvas');canvas.width=nw;canvas.height=nh;
+        const ctx=canvas.getContext('2d');
+        // Use high quality rendering
+        ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+        ctx.drawImage(origImg,0,0,nw,nh);
+        const format=formatSel.value;
+        const quality=(format==='image/png')?undefined:parseInt(qualitySlider.value)/100;
+        canvas.toBlob(blob=>{
+            if(!blob){showToast('Failed to process image','error');return;}
+            outputBlob=blob;
+            const url=URL.createObjectURL(blob);
+            outputImg.src=url;
+            outputPreview.style.display='block';
+            btnDownload.style.display='inline-flex';
+            // Update actual stats
+            const sNewFile=document.getElementById('stat-new-file'),sSavings=document.getElementById('stat-savings');
+            sNewFile.textContent=formatBytes(blob.size);
+            const saved=origFileSize>0?Math.round((1-blob.size/origFileSize)*100):0;
+            sSavings.textContent=saved+'%';
+            sSavings.style.color=saved>0?'var(--success)':'var(--error)';
+            showToast('Image resized successfully!','success');
+        },format,quality);
+    }
+
+    function downloadImage(){
+        if(!outputBlob){showToast('Process an image first','error');return;}
+        const nw=parseInt(widthIn.value)||origW,nh=parseInt(heightIn.value)||origH;
+        const ext=formatSel.value==='image/png'?'png':formatSel.value==='image/webp'?'webp':'jpg';
+        const a=document.createElement('a');a.href=URL.createObjectURL(outputBlob);
+        a.download=`${origFileName}_${nw}x${nh}.${ext}`;a.click();
+        showToast('Download started!','success');
+    }
+
+    function resetTool(){
+        origImg=null;outputBlob=null;origW=0;origH=0;origFileSize=0;
+        dropZone.style.display='block';editorPanel.style.display='none';
+        fileIn.value='';outputPreview.style.display='none';btnDownload.style.display='none';
+        updateStats();
+    }
+
+    function formatBytes(b){if(b===0)return '0 B';const k=1024,s=['B','KB','MB','GB'];const i=Math.floor(Math.log(b)/Math.log(k));return parseFloat((b/Math.pow(k,i)).toFixed(1))+' '+s[i];}
+    </script>
+</body>
+</html>

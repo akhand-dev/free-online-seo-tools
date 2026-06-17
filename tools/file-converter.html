@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://api.qrserver.com; connect-src 'self' https://region1.google-analytics.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Format Converter Online — Convert Images, PDF & More Free | ToolNest</title>
+    <meta name="description" content="Convert between image formats (JPG, PNG, WebP, BMP), PDF to JPG, and images to PDF — all free and private. No upload to servers. Runs 100% in your browser.">
+    <meta name="keywords" content="file converter, image converter, pdf to jpg, jpg to png, convert image format, png to jpg, images to pdf, file format converter online free, webp to jpg">
+    <link rel="canonical" href="https://toolsforseo.free.nf/tools/file-converter.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="website"><meta property="og:url" content="https://toolsforseo.free.nf/tools/file-converter.html"><meta property="og:title" content="File Format Converter — Free Online Tool"><meta property="og:description" content="Convert images, PDFs and more between formats instantly. 100% private."><meta property="og:site_name" content="ToolNest">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico"><meta name="theme-color" content="#06060b">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .converter-tabs{display:flex;gap:0;border-bottom:2px solid var(--border-light);margin-bottom:1.5rem;overflow-x:auto;}
+        .converter-tab{padding:0.8rem 1.5rem;background:none;border:none;color:var(--text-secondary);font-weight:600;cursor:pointer;position:relative;transition:all .3s ease;font-family:var(--font-family);font-size:0.95rem;white-space:nowrap;}
+        .converter-tab:hover{color:var(--text-primary);background:none;transform:none;box-shadow:none;}
+        .converter-tab.active{color:var(--accent-primary);}
+        .converter-tab.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--accent-primary);}
+        .tab-content{display:none;}
+        .tab-content.active{display:block;}
+        .file-list{display:grid;gap:0.75rem;margin:1rem 0;}
+        .file-item{display:flex;align-items:center;gap:1rem;background:rgba(0,0,0,0.2);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:0.8rem 1rem;transition:var(--transition);}
+        .file-item:hover{border-color:var(--border-hover);}
+        .file-item .file-name{flex:1;font-size:0.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+        .file-item .file-badge{font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:50px;background:rgba(99,102,241,0.15);color:var(--accent-primary);font-weight:600;text-transform:uppercase;}
+        .file-item .file-size{color:var(--text-secondary);font-size:0.8rem;}
+        .page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin:1rem 0;}
+        .page-card{background:rgba(0,0,0,0.2);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:0.5rem;text-align:center;transition:var(--transition);}
+        .page-card:hover{border-color:var(--border-hover);}
+        .page-card img{max-width:100%;border-radius:4px;margin-bottom:0.5rem;}
+        .page-card canvas{max-width:100%;border-radius:4px;margin-bottom:0.5rem;}
+        .page-card .page-label{font-size:0.8rem;color:var(--text-secondary);}
+        .page-card button{font-size:0.75rem;padding:0.4rem 0.8rem;margin-top:0.3rem;}
+        .progress-bar-container{width:100%;background:rgba(255,255,255,0.08);border-radius:4px;height:8px;margin:1rem 0;overflow:hidden;}
+        .progress-bar-fill{height:100%;background:var(--accent-gradient);border-radius:4px;transition:width 0.3s ease;width:0%;}
+        .drop-zone-inner{border:2px dashed var(--border-light);border-radius:12px;padding:2.5rem;text-align:center;cursor:pointer;transition:var(--transition);}
+        .drop-zone-inner:hover,.drop-zone-inner.dragover{border-color:var(--accent-primary);background:rgba(99,102,241,0.05);}
+        .img-to-pdf-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:0.75rem;margin:1rem 0;}
+        .img-to-pdf-item{background:rgba(0,0,0,0.2);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:0.4rem;text-align:center;position:relative;}
+        .img-to-pdf-item img{max-width:100%;max-height:100px;border-radius:4px;}
+        .img-to-pdf-item .remove-btn{position:absolute;top:4px;right:4px;width:22px;height:22px;background:var(--error);color:#fff;border:none;border-radius:50%;font-size:0.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;}
+        .img-to-pdf-item .remove-btn:hover{transform:scale(1.1);box-shadow:none;}
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"File Format Converter","url":"https://toolsforseo.free.nf/tools/file-converter.html","applicationCategory":"MultimediaApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What file formats can I convert?","acceptedAnswer":{"@type":"Answer","text":"Images: JPG, PNG, WebP, BMP, GIF, SVG. You can also convert PDF to images (JPG/PNG) and combine multiple images into a single PDF."}},{"@type":"Question","name":"Is my data safe?","acceptedAnswer":{"@type":"Answer","text":"Yes. All processing happens 100% in your browser using JavaScript APIs. Your files are never uploaded to any server."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"No hard limit. The tool runs in your browser, so it depends on your device memory. Most modern devices handle files up to 100MB+."}},{"@type":"Question","name":"Can I convert multiple files at once?","acceptedAnswer":{"@type":"Answer","text":"Yes! Upload multiple files and convert them all at once. Download individually or use the Download All (ZIP) button."}},{"@type":"Question","name":"Do I need to install anything?","acceptedAnswer":{"@type":"Answer","text":"No. It works directly in any modern web browser — Chrome, Firefox, Safari, or Edge."}}]}</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://toolsforseo.free.nf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://toolsforseo.free.nf/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "File Format Converter",
+          "item": "https://toolsforseo.free.nf/tools/file-converter.html"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Convert File Formats",
+      "description": "Convert images, PDFs, and documents between formats instantly. Everything runs in your browser — your files stay private.",
+      "step": [
+        {"@type": "HowToStep", "name": "Select files", "text": "Click or drag files into the upload box."},
+        {"@type": "HowToStep", "name": "Choose format", "text": "Select the target output format for your conversion."},
+        {"@type": "HowToStep", "name": "Convert", "text": "Click convert to process files locally and securely in your browser."},
+        {"@type": "HowToStep", "name": "Download", "text": "Click the download button to save your converted files."}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header>
+    <div class="container navbar">
+        <a href="/index.html" class="logo">🪺 Tool<span>Nest</span></a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li class="nav-search-wrapper">
+                <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                <div id="globalSearchResults" class="search-results-dropdown"></div>
+            </li>
+            <li><a href="/index.html">Tools</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+        </ul>
+    </div>
+</header>
+
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs"><a href="../index.html">Home</a><span class="separator">›</span><a href="../index.html">Tools</a><span class="separator">›</span><span class="current">File Format Converter</span></nav>
+        <div class="hero" style="margin-bottom:1.5rem;"><h1>File Format Converter</h1><p>Convert images, PDFs, and documents between formats instantly. Everything runs in your browser — your files stay private.</p></div>
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="tool-interface" style="max-width:950px;margin:0 auto;">
+            <!-- Tabs -->
+            <div class="converter-tabs">
+                <button class="converter-tab active" data-tab="img-convert" onclick="switchTab('img-convert')">🖼️ Image Converter</button>
+                <button class="converter-tab" data-tab="pdf-to-img" onclick="switchTab('pdf-to-img')">📄 PDF to Image</button>
+                <button class="converter-tab" data-tab="img-to-pdf" onclick="switchTab('img-to-pdf')">📑 Images to PDF</button>
+            </div>
+
+            <!-- ==================== TAB 1: Image Converter ==================== -->
+            <div class="tab-content active" id="tab-img-convert">
+                <div class="drop-zone-inner" id="img-drop" onclick="document.getElementById('img-file-input').click();">
+                    <div style="font-size:2.5rem;margin-bottom:0.8rem;">🔄</div>
+                    <p style="color:var(--text-primary);font-weight:600;margin:0;">Drop images here or click to browse</p>
+                    <p style="color:var(--text-secondary);font-size:0.8rem;margin-top:0.4rem;">JPG, PNG, WebP, BMP, GIF, SVG — multiple files supported</p>
+                    <input type="file" id="img-file-input" accept="image/*" multiple style="display:none;">
+                </div>
+                <div id="img-files-list" class="file-list"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;" id="img-convert-controls" class="hidden-ctrl">
+                    <div class="input-group">
+                        <label for="img-target-format">Convert To</label>
+                        <select id="img-target-format">
+                            <option value="image/jpeg">JPEG (.jpg)</option>
+                            <option value="image/png">PNG (.png)</option>
+                            <option value="image/webp">WebP (.webp)</option>
+                            <option value="image/bmp">BMP (.bmp)</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="img-quality-group">
+                        <label for="img-quality">Quality: <span id="img-quality-val">85</span>%</label>
+                        <input type="range" id="img-quality" min="10" max="100" value="85" style="width:100%;accent-color:var(--accent-primary);margin-top:0.5rem;">
+                    </div>
+                </div>
+                <div class="button-group" id="img-action-btns" style="margin-top:1rem;display:none;">
+                    <button onclick="convertAllImages()">⚡ Convert All</button>
+                    <button onclick="downloadAllImgZip()" class="secondary" id="img-dl-all-btn" style="display:none;">⬇ Download All (ZIP)</button>
+                    <button onclick="resetImgTab()" class="secondary">🔄 Reset</button>
+                </div>
+                <div id="img-results" class="file-list" style="margin-top:1rem;"></div>
+            </div>
+
+            <!-- ==================== TAB 2: PDF to Image ==================== -->
+            <div class="tab-content" id="tab-pdf-to-img">
+                <div class="drop-zone-inner" id="pdf-drop" onclick="document.getElementById('pdf-file-input').click();">
+                    <div style="font-size:2.5rem;margin-bottom:0.8rem;">📄</div>
+                    <p style="color:var(--text-primary);font-weight:600;margin:0;">Drop a PDF file here or click to browse</p>
+                    <p style="color:var(--text-secondary);font-size:0.8rem;margin-top:0.4rem;">PDF documents up to any size</p>
+                    <input type="file" id="pdf-file-input" accept="application/pdf" style="display:none;">
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1rem 0;" id="pdf-controls" class="hidden-ctrl">
+                    <div class="input-group">
+                        <label for="pdf-dpi">Resolution</label>
+                        <select id="pdf-dpi">
+                            <option value="1">72 DPI — Draft</option>
+                            <option value="2" selected>150 DPI — Standard</option>
+                            <option value="2.78">200 DPI — High</option>
+                            <option value="4.17">300 DPI — Print</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="pdf-out-format">Output Format</label>
+                        <select id="pdf-out-format">
+                            <option value="image/jpeg">JPEG (.jpg)</option>
+                            <option value="image/png">PNG (.png)</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="pdf-quality-group">
+                        <label for="pdf-quality">Quality: <span id="pdf-quality-val">85</span>%</label>
+                        <input type="range" id="pdf-quality" min="10" max="100" value="85" style="width:100%;accent-color:var(--accent-primary);margin-top:0.5rem;">
+                    </div>
+                </div>
+                <div id="pdf-progress-wrap" style="display:none;">
+                    <p id="pdf-progress-text" style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.25rem;">Rendering pages...</p>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" id="pdf-progress-bar"></div></div>
+                </div>
+                <div class="button-group" id="pdf-action-btns" style="margin-top:1rem;display:none;">
+                    <button onclick="renderPdf()">⚡ Convert to Images</button>
+                    <button onclick="downloadAllPdfZip()" class="secondary" id="pdf-dl-all-btn" style="display:none;">⬇ Download All (ZIP)</button>
+                    <button onclick="resetPdfTab()" class="secondary">🔄 Reset</button>
+                </div>
+                <div id="pdf-pages" class="page-grid"></div>
+            </div>
+
+            <!-- ==================== TAB 3: Images to PDF ==================== -->
+            <div class="tab-content" id="tab-img-to-pdf">
+                <div class="drop-zone-inner" id="i2p-drop" onclick="document.getElementById('i2p-file-input').click();">
+                    <div style="font-size:2.5rem;margin-bottom:0.8rem;">📑</div>
+                    <p style="color:var(--text-primary);font-weight:600;margin:0;">Drop images here or click to browse</p>
+                    <p style="color:var(--text-secondary);font-size:0.8rem;margin-top:0.4rem;">JPG, PNG, WebP — multiple files supported. They will be combined into one PDF.</p>
+                    <input type="file" id="i2p-file-input" accept="image/*" multiple style="display:none;">
+                </div>
+                <div id="i2p-preview" class="img-to-pdf-list"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;" id="i2p-controls" class="hidden-ctrl">
+                    <div class="input-group">
+                        <label for="i2p-page-size">Page Size</label>
+                        <select id="i2p-page-size">
+                            <option value="a4" selected>A4 (210 × 297 mm)</option>
+                            <option value="letter">Letter (8.5 × 11 in)</option>
+                            <option value="original">Original (fit to image)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="i2p-orientation">Orientation</label>
+                        <select id="i2p-orientation">
+                            <option value="auto" selected>Auto (detect from image)</option>
+                            <option value="portrait">Portrait</option>
+                            <option value="landscape">Landscape</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="button-group" id="i2p-action-btns" style="margin-top:1rem;display:none;">
+                    <button onclick="generatePdf()">📄 Generate PDF</button>
+                    <button onclick="resetI2pTab()" class="secondary">🔄 Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content -->
+        <section class="seo-content">
+            <h2>Free Online File Format Converter</h2>
+            <p>Convert between dozens of file formats without installing any software. Our File Format Converter handles image conversions (JPG, PNG, WebP, BMP, GIF), PDF to image extraction, and combining images into PDF — all 100% privately in your browser.</p>
+            <h3>Supported Conversions</h3>
+            <ul>
+                <li><strong>Image to Image</strong> — Convert between JPG, PNG, WebP, BMP, and GIF formats with quality control.</li>
+                <li><strong>PDF to Image</strong> — Extract every page of a PDF as a high-quality JPG or PNG image.</li>
+                <li><strong>Images to PDF</strong> — Combine multiple images into a single PDF document with custom page size and orientation.</li>
+                <li><strong>Batch Processing</strong> — Upload and convert multiple files at once. Download all results as a ZIP.</li>
+            </ul>
+            <p>Related: <a href="image-resizer.html">Image Resizer</a> | <a href="image-to-base64.html">Image to Base64</a> | <a href="base64-encoder-decoder.html">Base64 Encoder</a></p>
+
+            <div class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item"><button class="faq-question">What file formats can I convert?</button><div class="faq-answer"><div class="faq-answer-inner">Images: JPG, PNG, WebP, BMP, GIF, SVG. You can also convert PDF to images (JPG/PNG) and combine multiple images into a single PDF.</div></div></div>
+                <div class="faq-item"><button class="faq-question">Is my data safe?</button><div class="faq-answer"><div class="faq-answer-inner">Yes. All processing happens 100% in your browser using JavaScript APIs. Your files are never uploaded to any server.</div></div></div>
+                <div class="faq-item"><button class="faq-question">Is there a file size limit?</button><div class="faq-answer"><div class="faq-answer-inner">No hard limit. The tool runs in your browser, so it depends on your device memory. Most modern devices handle files up to 100MB+ without issues.</div></div></div>
+                <div class="faq-item"><button class="faq-question">Can I convert multiple files at once?</button><div class="faq-answer"><div class="faq-answer-inner">Yes! Upload multiple files and convert them all at once. Download individually or use the "Download All (ZIP)" button for batch downloads.</div></div></div>
+                <div class="faq-item"><button class="faq-question">Do I need to install anything?</button><div class="faq-answer"><div class="faq-answer-inner">No. It works directly in any modern web browser — Chrome, Firefox, Safari, or Edge. No plugins or extensions needed.</div></div></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="/index.html" class="logo">🪺 Tool<span>Nest</span></a>
+                <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for
+                    simple, fast & free online utilities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Text Tools</h4>
+                <ul>
+                    <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                    <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                    <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                    <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                    <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Dev Tools</h4>
+                <ul>
+                    <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    <li><a href="/tools/base64-encoder-decoder.html">Base64</a></li>
+                    <li><a href="/tools/hash-generator.html">Hash Generator</a></li>
+                    <li><a href="/tools/timestamp-converter.html">Timestamp</a></li>
+                    <li><a href="/tools/color-picker.html">Color Picker</a></li>
+                    <li><a href="/tools/jwt-decoder.html">JWT Decoder</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/blog/index.html">Blog</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ToolNest — toolsforseo.free.nf | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+
+    <div class="cookie-banner">We use cookies to improve your experience. <a href="../privacy-policy.html">Privacy Policy</a> <button onclick="acceptCookies()">Accept</button></div>
+    <script src="../js/main.js" defer></script>
+    <!-- PDF.js (UMD) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+    <!-- JSZip -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script>
+    /* ======== HELPERS ======== */
+    function formatBytes(b){if(b===0)return '0 B';const k=1024,s=['B','KB','MB','GB'];const i=Math.floor(Math.log(b)/Math.log(k));return parseFloat((b/Math.pow(k,i)).toFixed(1))+' '+s[i];}
+    function getExt(mime){return{['image/jpeg']:'jpg',['image/png']:'png',['image/webp']:'webp',['image/bmp']:'bmp'}[mime]||'png';}
+    function baseName(f){return f.replace(/\.[^.]+$/,'');}
+
+    /* ======== TAB SWITCHING ======== */
+    function switchTab(id){
+        document.querySelectorAll('.converter-tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));
+        document.querySelectorAll('.tab-content').forEach(c=>c.classList.toggle('active',c.id==='tab-'+id));
+    }
+
+    /* ======== DRAG & DROP HELPERS ======== */
+    function initDrop(zoneId,inputId,handler){
+        const zone=document.getElementById(zoneId),inp=document.getElementById(inputId);
+        zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('dragover');});
+        zone.addEventListener('dragleave',()=>zone.classList.remove('dragover'));
+        zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('dragover');handler(e.dataTransfer.files);});
+        inp.addEventListener('change',e=>handler(e.target.files));
+    }
+
+    /* ================================================================
+       TAB 1: IMAGE CONVERTER
+       ================================================================ */
+    let imgFiles=[];
+    let imgConvertedBlobs=[];
+
+    initDrop('img-drop','img-file-input',files=>{
+        for(const f of files){if(f.type.startsWith('image/'))imgFiles.push(f);}
+        renderImgFileList();
+        if(imgFiles.length){document.getElementById('img-action-btns').style.display='flex';document.getElementById('img-convert-controls').style.display='grid';}
+        showToast(files.length+' file(s) added','success');
+    });
+
+    document.getElementById('img-quality').addEventListener('input',e=>document.getElementById('img-quality-val').textContent=e.target.value);
+    document.getElementById('img-target-format').addEventListener('change',()=>{
+        document.getElementById('img-quality-group').style.display=document.getElementById('img-target-format').value==='image/png'?'none':'block';
+    });
+
+    function renderImgFileList(){
+        const list=document.getElementById('img-files-list');
+        list.innerHTML=imgFiles.map((f,i)=>`<div class="file-item"><span class="file-badge">${f.type.split('/')[1]}</span><span class="file-name">${f.name}</span><span class="file-size">${formatBytes(f.size)}</span><button class="secondary" style="padding:0.3rem 0.6rem;font-size:0.75rem;" onclick="removeImgFile(${i})">✕</button></div>`).join('');
+    }
+    function removeImgFile(i){imgFiles.splice(i,1);renderImgFileList();if(!imgFiles.length){document.getElementById('img-action-btns').style.display='none';document.getElementById('img-convert-controls').style.display='none';}}
+
+    async function convertAllImages(){
+        if(!imgFiles.length){showToast('Add images first','error');return;}
+        const fmt=document.getElementById('img-target-format').value;
+        const q=fmt==='image/png'?undefined:parseInt(document.getElementById('img-quality').value)/100;
+        const results=document.getElementById('img-results');results.innerHTML='';
+        imgConvertedBlobs=[];
+        for(const file of imgFiles){
+            const blob=await convertImageFile(file,fmt,q);
+            imgConvertedBlobs.push({blob,name:baseName(file.name)+'.'+getExt(fmt)});
+            const url=URL.createObjectURL(blob);
+            results.innerHTML+=`<div class="file-item"><span class="file-badge">${getExt(fmt)}</span><span class="file-name">${baseName(file.name)+'.'+getExt(fmt)}</span><span class="file-size">${formatBytes(blob.size)}</span><a href="${url}" download="${baseName(file.name)+'.'+getExt(fmt)}" style="padding:0.3rem 0.8rem;font-size:0.75rem;" class="btn secondary">⬇</a></div>`;
+        }
+        if(imgConvertedBlobs.length>1)document.getElementById('img-dl-all-btn').style.display='inline-flex';
+        showToast(`${imgFiles.length} image(s) converted!`,'success');
+    }
+
+    function convertImageFile(file,fmt,quality){
+        return new Promise((resolve,reject)=>{
+            const reader=new FileReader();
+            reader.onload=e=>{
+                const img=new Image();
+                img.onload=()=>{
+                    const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;
+                    const ctx=c.getContext('2d');ctx.drawImage(img,0,0);
+                    c.toBlob(b=>{if(b)resolve(b);else reject(new Error('Conversion failed'));},fmt,quality);
+                };
+                img.onerror=()=>reject(new Error('Failed to load image'));
+                img.src=e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    async function downloadAllImgZip(){
+        if(!imgConvertedBlobs.length){showToast('Convert images first','error');return;}
+        showToast('Creating ZIP...','info');
+        const zip=new JSZip();
+        imgConvertedBlobs.forEach(({blob,name})=>zip.file(name,blob));
+        const content=await zip.generateAsync({type:'blob'});
+        const a=document.createElement('a');a.href=URL.createObjectURL(content);a.download='converted_images.zip';a.click();
+        showToast('ZIP download started!','success');
+    }
+
+    function resetImgTab(){
+        imgFiles=[];imgConvertedBlobs=[];
+        document.getElementById('img-files-list').innerHTML='';
+        document.getElementById('img-results').innerHTML='';
+        document.getElementById('img-action-btns').style.display='none';
+        document.getElementById('img-convert-controls').style.display='none';
+        document.getElementById('img-dl-all-btn').style.display='none';
+        document.getElementById('img-file-input').value='';
+    }
+
+    /* ================================================================
+       TAB 2: PDF TO IMAGE
+       ================================================================ */
+    let pdfFile=null;
+    let pdfPageBlobs=[];
+
+    initDrop('pdf-drop','pdf-file-input',files=>{
+        const f=files[0];
+        if(!f||f.type!=='application/pdf'){showToast('Please select a PDF file','error');return;}
+        pdfFile=f;
+        document.getElementById('pdf-action-btns').style.display='flex';
+        document.getElementById('pdf-controls').style.display='grid';
+        showToast('PDF loaded: '+f.name,'success');
+    });
+
+    document.getElementById('pdf-quality').addEventListener('input',e=>document.getElementById('pdf-quality-val').textContent=e.target.value);
+    document.getElementById('pdf-out-format').addEventListener('change',()=>{
+        document.getElementById('pdf-quality-group').style.display=document.getElementById('pdf-out-format').value==='image/png'?'none':'block';
+    });
+
+    async function renderPdf(){
+        if(!pdfFile){showToast('Upload a PDF first','error');return;}
+        const fmt=document.getElementById('pdf-out-format').value;
+        const q=fmt==='image/png'?undefined:parseInt(document.getElementById('pdf-quality').value)/100;
+        const scale=parseFloat(document.getElementById('pdf-dpi').value);
+        const pagesDiv=document.getElementById('pdf-pages');pagesDiv.innerHTML='';
+        pdfPageBlobs=[];
+
+        const progressWrap=document.getElementById('pdf-progress-wrap');
+        const progressBar=document.getElementById('pdf-progress-bar');
+        const progressText=document.getElementById('pdf-progress-text');
+        progressWrap.style.display='block';progressBar.style.width='0%';
+
+        try{
+            if(typeof pdfjsLib==='undefined'){showToast('PDF.js library not loaded. Please check your connection.','error');return;}
+            pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+            const arrayBuf=await pdfFile.arrayBuffer();
+            const pdf=await pdfjsLib.getDocument({data:arrayBuf}).promise;
+            const total=pdf.numPages;
+
+            for(let i=1;i<=total;i++){
+                progressText.textContent=`Rendering page ${i} of ${total}...`;
+                progressBar.style.width=Math.round(i/total*100)+'%';
+                const page=await pdf.getPage(i);
+                const vp=page.getViewport({scale});
+                const canvas=document.createElement('canvas');canvas.width=vp.width;canvas.height=vp.height;
+                const ctx=canvas.getContext('2d');
+                await page.render({canvasContext:ctx,viewport:vp}).promise;
+                const blob=await new Promise(res=>canvas.toBlob(res,fmt,q));
+                pdfPageBlobs.push({blob,name:`page_${i}.${getExt(fmt)}`});
+
+                const thumbCanvas=document.createElement('canvas');
+                const thumbScale=180/vp.width;
+                thumbCanvas.width=180;thumbCanvas.height=vp.height*thumbScale;
+                const thumbCtx=thumbCanvas.getContext('2d');
+                thumbCtx.drawImage(canvas,0,0,thumbCanvas.width,thumbCanvas.height);
+
+                const card=document.createElement('div');card.className='page-card';
+                card.appendChild(thumbCanvas);
+                const label=document.createElement('div');label.className='page-label';label.textContent=`Page ${i} — ${formatBytes(blob.size)}`;
+                card.appendChild(label);
+                const dlBtn=document.createElement('button');dlBtn.className='secondary';dlBtn.textContent='⬇ Download';
+                dlBtn.onclick=(()=>{const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`page_${i}.${getExt(fmt)}`;a.click();});
+                card.appendChild(dlBtn);
+                pagesDiv.appendChild(card);
+            }
+            progressText.textContent=`Done! ${total} page(s) rendered.`;
+            progressBar.style.width='100%';
+            if(total>1)document.getElementById('pdf-dl-all-btn').style.display='inline-flex';
+            showToast(`PDF converted — ${total} pages!`,'success');
+        }catch(err){
+            progressText.textContent='Error rendering PDF.';
+            showToast('Error processing PDF: '+err.message,'error');
+            console.error(err);
+        }
+    }
+
+    async function downloadAllPdfZip(){
+        if(!pdfPageBlobs.length){showToast('Convert a PDF first','error');return;}
+        showToast('Creating ZIP...','info');
+        const zip=new JSZip();
+        pdfPageBlobs.forEach(({blob,name})=>zip.file(name,blob));
+        const content=await zip.generateAsync({type:'blob'});
+        const a=document.createElement('a');a.href=URL.createObjectURL(content);a.download='pdf_pages.zip';a.click();
+        showToast('ZIP download started!','success');
+    }
+
+    function resetPdfTab(){
+        pdfFile=null;pdfPageBlobs=[];
+        document.getElementById('pdf-pages').innerHTML='';
+        document.getElementById('pdf-action-btns').style.display='none';
+        document.getElementById('pdf-controls').style.display='none';
+        document.getElementById('pdf-progress-wrap').style.display='none';
+        document.getElementById('pdf-dl-all-btn').style.display='none';
+        document.getElementById('pdf-file-input').value='';
+    }
+
+    /* ================================================================
+       TAB 3: IMAGES TO PDF
+       ================================================================ */
+    let i2pFiles=[];
+    let i2pDataUrls=[];
+
+    initDrop('i2p-drop','i2p-file-input',files=>{
+        for(const f of files){
+            if(f.type.startsWith('image/')){
+                const reader=new FileReader();
+                reader.onload=e=>{
+                    i2pFiles.push(f);
+                    i2pDataUrls.push(e.target.result);
+                    renderI2pPreview();
+                    document.getElementById('i2p-action-btns').style.display='flex';
+                    document.getElementById('i2p-controls').style.display='grid';
+                };
+                reader.readAsDataURL(f);
+            }
+        }
+        showToast(files.length+' image(s) added','success');
+    });
+
+    function renderI2pPreview(){
+        const div=document.getElementById('i2p-preview');
+        div.innerHTML=i2pDataUrls.map((src,i)=>`<div class="img-to-pdf-item"><button class="remove-btn" onclick="removeI2p(${i})">✕</button><img loading="lazy" decoding="async" src="${src}" alt="Page ${i+1}"><div style="font-size:0.7rem;color:var(--text-secondary);margin-top:0.3rem;">Page ${i+1}</div></div>`).join('');
+    }
+    function removeI2p(i){i2pFiles.splice(i,1);i2pDataUrls.splice(i,1);renderI2pPreview();if(!i2pFiles.length){document.getElementById('i2p-action-btns').style.display='none';document.getElementById('i2p-controls').style.display='none';}}
+
+    async function generatePdf(){
+        if(!i2pDataUrls.length){showToast('Add images first','error');return;}
+        if(typeof jspdf==='undefined'&&typeof window.jspdf==='undefined'){showToast('jsPDF library not loaded. Please check your connection.','error');return;}
+        const {jsPDF}=window.jspdf;
+        const pageSize=document.getElementById('i2p-page-size').value;
+        const orientPref=document.getElementById('i2p-orientation').value;
+
+        showToast('Generating PDF...','info');
+
+        // Process each image
+        let doc=null;
+        for(let i=0;i<i2pDataUrls.length;i++){
+            const imgData=i2pDataUrls[i];
+            // Get natural dimensions
+            const dims=await getImageDimensions(imgData);
+            const imgW=dims.width,imgH=dims.height;
+
+            let orient=orientPref;
+            if(orient==='auto')orient=imgW>imgH?'landscape':'portrait';
+
+            if(pageSize==='original'){
+                // Page fits image exactly (in mm, 1px ≈ 0.264583mm at 96dpi)
+                const pxToMm=0.264583;
+                const pw=imgW*pxToMm,ph=imgH*pxToMm;
+                if(i===0){doc=new jsPDF({orientation:orient,unit:'mm',format:[pw,ph]});}
+                else{doc.addPage([pw,ph],orient);}
+                doc.addImage(imgData,'JPEG',0,0,pw,ph);
+            }else{
+                if(i===0){doc=new jsPDF({orientation:orient,unit:'mm',format:pageSize});}
+                else{doc.addPage(pageSize,orient);}
+                const pageW=doc.internal.pageSize.getWidth();
+                const pageH=doc.internal.pageSize.getHeight();
+                const margin=10;
+                const maxW=pageW-margin*2,maxH=pageH-margin*2;
+                const ratio=Math.min(maxW/imgW,maxH/imgH);
+                const drawW=imgW*ratio,drawH=imgH*ratio;
+                const x=(pageW-drawW)/2,y=(pageH-drawH)/2;
+                doc.addImage(imgData,'JPEG',x,y,drawW,drawH);
+            }
+        }
+        doc.save('images_combined.pdf');
+        showToast('PDF generated and downloaded!','success');
+    }
+
+    function getImageDimensions(src){
+        return new Promise(resolve=>{
+            const img=new Image();
+            img.onload=()=>resolve({width:img.naturalWidth,height:img.naturalHeight});
+            img.src=src;
+        });
+    }
+
+    function resetI2pTab(){
+        i2pFiles=[];i2pDataUrls=[];
+        document.getElementById('i2p-preview').innerHTML='';
+        document.getElementById('i2p-action-btns').style.display='none';
+        document.getElementById('i2p-controls').style.display='none';
+        document.getElementById('i2p-file-input').value='';
+    }
+
+    /* ======== INIT: hide controls ======== */
+    document.querySelectorAll('.hidden-ctrl').forEach(el=>el.style.display='none');
+    </script>
+</body>
+</html>

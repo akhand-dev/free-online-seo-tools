@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://api.qrserver.com; connect-src 'self' https://region1.google-analytics.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Slug Converter Online — Free URL Slug Generator | ToolNest</title>
+    <meta name="description" content="Convert any text or title into a clean, SEO-friendly URL slug instantly. Removes special characters, replaces spaces with hyphens. Free online slug generator tool.">
+    <meta name="keywords" content="text to slug converter, url slug generator online free, seo friendly url converter tool, convert title to url slug online, permalink generator">
+    <link rel="canonical" href="https://toolsforseo.free.nf/tools/text-to-slug.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolsforseo.free.nf/tools/text-to-slug.html">
+    <meta property="og:title" content="Text to Slug Converter Online — Free URL Slug Generator | ToolNest">
+    <meta property="og:description" content="Generate clean URL slugs from any text. Removes special characters, lowercases, and hyphenates automatically.">
+    <meta property="og:site_name" content="ToolNest">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Text to Slug Converter — Free URL Slug Generator">
+    <meta name="twitter:description" content="Convert titles and headings into SEO-friendly URL slugs instantly. 100% free and private.">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolsforseo.free.nf/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://toolsforseo.free.nf/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Text to Slug Converter", "item": "https://toolsforseo.free.nf/tools/text-to-slug.html" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Text to URL Slug Converter",
+      "url": "https://toolsforseo.free.nf/tools/text-to-slug.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a URL slug and why does it matter for SEO?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A URL slug is the human-readable part of a web address that identifies a specific page (e.g. /seo-friendly-urls). Search engines use slugs to understand page content, so clean, keyword-rich slugs can improve your rankings and click-through rates in search results." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does this text to slug converter work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Paste any title or sentence into the input field and the tool instantly lowercases the text, strips diacritical marks (accents), removes special characters, replaces spaces with hyphens, and collapses consecutive hyphens — all in real-time as you type." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this slug generator remove stop words?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The tool preserves all words from your input to give you a faithful conversion. For best SEO results, we recommend manually removing stop words (a, the, and, or) from your title before generating the slug, keeping it under 5 words." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this tool for non-English text?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The converter uses Unicode NFD normalization to strip diacritical marks from accented characters (e.g. café becomes cafe), making it suitable for French, Spanish, German, Portuguese, and other Latin-script languages." }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header>
+    <div class="container navbar">
+        <a href="/index.html" class="logo">🪺 Tool<span>Nest</span></a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li class="nav-search-wrapper">
+                <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                <div id="globalSearchResults" class="search-results-dropdown"></div>
+            </li>
+            <li><a href="/index.html">Tools</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+        </ul>
+    </div>
+</header>
+
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs"><a href="../index.html">Home</a><span class="separator">›</span><a href="../index.html">Tools</a><span class="separator">›</span><span class="current">Text to Slug</span></nav>
+        <div class="hero" style="margin-bottom:1.5rem;"><h1>Text to URL Slug Converter</h1><p>Convert any text into a clean, SEO-friendly URL slug instantly.</p></div>
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+        <div class="tool-interface" style="max-width:700px;margin:0 auto;">
+            <div class="input-group"><label for="slug-input">Enter Your Title or Text</label><input type="text" id="slug-input" placeholder="e.g. How to Write SEO-Friendly URLs in 2026" oninput="generateSlug()"></div>
+            <div class="result-box success" style="margin-top:1rem;">
+                <label style="display:block;margin-bottom:0.5rem;font-size:0.85rem;color:var(--text-secondary);">Generated Slug:</label>
+                <div id="slug-output" style="font-family:monospace;font-size:1.2rem;color:var(--accent-secondary);word-break:break-all;">—</div>
+            </div>
+            <div class="button-group" style="margin-top:1.5rem;">
+                <button onclick="copyToClipboard(document.getElementById('slug-output').innerText,this)">Copy Slug</button>
+                <button onclick="document.getElementById('slug-input').value='';document.getElementById('slug-output').innerText='—';" class="secondary">Clear</button>
+            </div>
+        </div>
+        <section class="seo-content">
+            <h2>What Is a Text to Slug Converter?</h2>
+            <p>A <strong>text to slug converter</strong> transforms any title, heading, or sentence into a clean, URL-safe string called a "slug." Slugs are the human-readable portion of a web address that appears after the domain (e.g. <code>example.com/<strong>my-article-title</strong></code>). This <strong>url slug generator online free</strong> tool automatically lowercases your text, strips diacritical marks from accented characters, removes special symbols, replaces spaces with hyphens, and collapses consecutive hyphens — producing a perfectly formatted permalink in real-time.</p>
+            <h3>How to Generate SEO-Friendly URL Slugs:</h3>
+            <p>Using ToolNest's <strong>seo friendly url converter tool</strong> takes just seconds:</p>
+            <ul>
+                <li><strong>Enter Your Title:</strong> Type or paste any blog title, product name, or page heading into the input field above.</li>
+                <li><strong>Instant Slug Generation:</strong> The converter processes your text as you type, displaying the resulting slug immediately below.</li>
+                <li><strong>Copy with One Click:</strong> Click "Copy Slug" to send the formatted slug to your clipboard, ready to paste into your CMS, WordPress, or static site generator.</li>
+            </ul>
+            <h3>URL Slug Best Practices for SEO:</h3>
+            <ul>
+                <li><strong>Keep Slugs Short:</strong> Aim for 3–5 words. Shorter URLs are easier to read, share, and rank.</li>
+                <li><strong>Use Hyphens, Not Underscores:</strong> Google treats hyphens as word separators but underscores as joiners.</li>
+                <li><strong>Remove Stop Words:</strong> Omit articles like "a," "the," "and," "or" to keep slugs concise.</li>
+                <li><strong>Include Your Primary Keyword:</strong> Place your target keyword as early in the slug as possible.</li>
+                <li><strong>Always Use Lowercase:</strong> Mixed-case URLs can cause duplicate content issues on case-sensitive servers.</li>
+            </ul>
+            <p>Related: <a href="case-converter.html">Case Converter</a> | <a href="word-counter.html">Word Counter</a> | <a href="lorem-ipsum-generator.html">Lorem Ipsum Generator</a></p>
+        </section>
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question">What is a URL slug and why does it matter for SEO?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        A URL slug is the human-readable part of a web address that identifies a specific page (e.g. /seo-friendly-urls). Search engines use slugs to understand page content, so clean, keyword-rich slugs can improve your rankings and click-through rates in search results.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How does this text to slug converter work?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Paste any title or sentence into the input field and the tool instantly lowercases the text, strips diacritical marks (accents), removes special characters, replaces spaces with hyphens, and collapses consecutive hyphens — all in real-time as you type.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Does this slug generator remove stop words?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        The tool preserves all words from your input to give you a faithful conversion. For best SEO results, we recommend manually removing stop words (a, the, and, or) from your title before generating the slug, keeping it under 5 words.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I use this tool for non-English text?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes. The converter uses Unicode NFD normalization to strip diacritical marks from accented characters (e.g. café becomes cafe), making it suitable for French, Spanish, German, Portuguese, and other Latin-script languages.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="/index.html" class="logo">🪺 Tool<span>Nest</span></a>
+                <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for
+                    simple, fast & free online utilities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Text Tools</h4>
+                <ul>
+                    <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                    <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                    <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                    <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                    <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Dev Tools</h4>
+                <ul>
+                    <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    <li><a href="/tools/base64-encoder-decoder.html">Base64</a></li>
+                    <li><a href="/tools/hash-generator.html">Hash Generator</a></li>
+                    <li><a href="/tools/timestamp-converter.html">Timestamp</a></li>
+                    <li><a href="/tools/color-picker.html">Color Picker</a></li>
+                    <li><a href="/tools/jwt-decoder.html">JWT Decoder</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/blog/index.html">Blog</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ToolNest — toolsforseo.free.nf | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+
+    <div class="cookie-banner">We use cookies to improve your experience. <a href="../privacy-policy.html">Privacy Policy</a> <button onclick="acceptCookies()">Accept</button></div>
+    <script src="../js/main.js" defer></script>
+    <script>
+        function generateSlug(){const input=document.getElementById('slug-input').value;const slug=input.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'');document.getElementById('slug-output').innerText=slug||'—';}
+    </script>
+</body>
+</html>
