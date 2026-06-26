@@ -4,4 +4,4 @@ Allow: /
 Disallow: /css/
 Disallow: /js/
 
-Sitemap: https://toolsforseo.free.nf/sitemap.xml
+Sitemap: https://free-online-seo-tools.vercel.app/sitemap.xml
