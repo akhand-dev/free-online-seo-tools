@@ -404,9 +404,9 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://toolkit.free.nf/"},
-      {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://toolkit.free.nf/index.html"},
-      {"@type": "ListItem", "position": 3, "name": "Word Counter", "item": "https://toolkit.free.nf/tools/word-counter.html"}
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+      {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+      {"@type": "ListItem", "position": 3, "name": "Word Counter", "item": "https://free-online-seo-tools.vercel.app/tools/word-counter.html"}
     ]
   }
   </script>
