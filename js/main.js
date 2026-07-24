@@ -154,6 +154,23 @@ function initAdSense(publisherId) {
 }
 
 const toolsList = [
+    { title: "SIP Calculator", url: "/tools/sip-calculator.html" },
+    { title: "Income Tax Calculator India", url: "/tools/income-tax-calculator.html" },
+    { title: "Salary In-Hand Calculator", url: "/tools/salary-calculator.html" },
+    { title: "Loan Eligibility Calculator", url: "/tools/loan-eligibility-calculator.html" },
+    { title: "BMI Calculator", url: "/tools/bmi-calculator.html" },
+    { title: "Background Remover (transparent PNG)", url: "/tools/background-remover.html" },
+    { title: "Image to Text OCR Scanner", url: "/tools/image-to-text.html" },
+    { title: "Screenshot to PDF Converter", url: "/tools/screenshot-to-pdf.html" },
+    { title: "Bulk Image Compressor (ZIP)", url: "/tools/bulk-image-compressor.html" },
+    { title: "Meme Generator Maker", url: "/tools/meme-generator.html" },
+    { title: "Essay Expander (Word count expander)", url: "/tools/essay-expander.html" },
+    { title: "Age Calculator", url: "/tools/age-calculator.html" },
+    { title: "EMI Calculator", url: "/tools/emi-calculator.html" },
+    { title: "Percentage Calculator", url: "/tools/percentage-calculator.html" },
+    { title: "GST Calculator India & Gold", url: "/tools/gst-calculator.html" },
+    { title: "Time Zone Converter", url: "/tools/timezone-converter.html" },
+    { title: "Discount Calculator", url: "/tools/discount-calculator.html" },
     { title: "Image Compressor (KB reducer)", url: "/tools/image-compressor.html" },
     { title: "Image to PDF Converter", url: "/tools/image-to-pdf.html" },
     { title: "PDF to Word Converter", url: "/tools/pdf-to-word.html" },

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator Online — Calculate Exact Age & Birthday | RankifyTools</title>
+    <meta name="description" content="Free online Age Calculator. Calculate your exact age in years, months, weeks, days, hours, and seconds. Get countdowns to your next birthday instantly.">
+    <meta name="keywords" content="age calculator online, calculate exact age, date of birth calculator, how old am i, birthday countdown timer">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/age-calculator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/age-calculator.html">
+    <meta property="og:title" content="Age Calculator — Calculate Exact Age & Next Birthday | RankifyTools">
+    <meta property="og:description" content="Calculate your age down to the second. Find out your birthday weekday and view next birthday countdowns.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Age Calculator", "item": "https://free-online-seo-tools.vercel.app/tools/age-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Age Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/age-calculator.html",
+      "description": "Calculate your exact age in years, months, days, and seconds. View remaining time until your next birthday.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Age Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Age Calculator</h1>
+            <p>Calculate your exact age in years, months, weeks, days, and seconds. Calculate age differences between two dates and track your next birthday countdown.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Input Dates -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">1. Input Parameters</h2>
+                
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Date of Birth</label>
+                    <input type="date" id="birthDate" onchange="calculateAge()" style="width:100%; padding:0.7rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Age at the Date of</label>
+                    <input type="date" id="targetDate" onchange="calculateAge()" style="width:100%; padding:0.7rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+
+                <div>
+                    <button type="button" onclick="resetForm()" style="width:100%; padding:0.7rem; background:transparent; color:var(--text-secondary); border:1px solid var(--border-light); border-radius:var(--radius-md); font-weight:500; cursor:pointer;">Reset</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: Results Display -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin: 0;">2. Calculation Results</h2>
+
+                <div id="resultsContent" style="display: none; flex-direction: column; gap: 1.2rem;">
+                    <!-- Highlighted Age -->
+                    <div style="text-align: center; padding: 1rem; background: rgba(99, 102, 241, 0.1); border-radius: var(--radius-md); border: 1px solid var(--accent-primary);">
+                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Your Exact Age</div>
+                        <div id="exactAgeSummary" style="font-size: 1.6rem; font-weight: 700; color: var(--text-primary);">0 Years, 0 Months, 0 Days</div>
+                    </div>
+
+                    <!-- Countdown to Next Birthday -->
+                    <div style="text-align: center; padding: 0.8rem; background: rgba(236, 72, 153, 0.08); border-radius: var(--radius-md); border: 1px dashed #ec4899; color: #ec4899; font-weight: 600;">
+                        🎂 Next Birthday Countdown: <span id="birthdayCountdown">0 Months, 0 Days</span>
+                        <div style="font-size: 0.8rem; opacity: 0.8; font-weight: normal; margin-top: 0.2rem;" id="birthdayDayOfWeek"></div>
+                    </div>
+
+                    <!-- Alternate stats grid -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; font-size: 0.9rem;">
+                        <div style="padding: 0.6rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: var(--radius-sm);">
+                            <div style="color: var(--text-secondary); font-size: 0.8rem;">Total Months</div>
+                            <div id="totalMonths" style="font-weight: 700;">0</div>
+                        </div>
+                        <div style="padding: 0.6rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: var(--radius-sm);">
+                            <div style="color: var(--text-secondary); font-size: 0.8rem;">Total Weeks & Days</div>
+                            <div id="totalWeeks" style="font-weight: 700;">0</div>
+                        </div>
+                        <div style="padding: 0.6rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: var(--radius-sm);">
+                            <div style="color: var(--text-secondary); font-size: 0.8rem;">Total Days</div>
+                            <div id="totalDays" style="font-weight: 700;">0</div>
+                        </div>
+                        <div style="padding: 0.6rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: var(--radius-sm);">
+                            <div style="color: var(--text-secondary); font-size: 0.8rem;">Total Hours</div>
+                            <div id="totalHours" style="font-weight: 700;">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="emptyResults" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:var(--text-secondary); padding: 2rem;">
+                    <span style="font-size:3rem; margin-bottom:0.5rem;">📅</span>
+                    Select your birth date on the left panel to calculate your age.
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>How Is Your Age Calculated?</h2>
+            <p>Our online <strong>Age Calculator</strong> computes the precise duration between two dates. It counts leap years, varying monthly day spans (28, 30, or 31 days), and time zone differences, translating your lifespan into years, months, weeks, days, and seconds.</p>
+
+            <h3>How to Use the Date of Birth Calculator:</h3>
+            <ol>
+                <li>Select your <strong>Date of Birth</strong> using the date input.</li>
+                <li>Optionally configure the target date in the "Age at the Date of" field (defaults to today's local date).</li>
+                <li>The results grid instantly populates, listing your exact age, next birthday countdown metrics, and total aggregate stats (total months, weeks, days, and hours lived).</li>
+            </ol>
+        </article>
+
+        <!-- Related Tools -->
+        <section class="related-tools reveal" style="margin-top: 3rem; border-top: 1px solid var(--border-light); padding-top: 2rem; margin-bottom: 3rem;">
+            <h3>Related Math & Time Utilities</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <a href="timezone-converter.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">⏱️ Time Zone Converter</a>
+                <a href="percentage-calculator.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">📊 Percentage Calculator</a>
+                <a href="timestamp-converter.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">⏰ Timestamp Converter</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/age-calculator.html">Age Calculator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        const birthDateInput = document.getElementById('birthDate');
+        const targetDateInput = document.getElementById('targetDate');
+        
+        const resultsContent = document.getElementById('resultsContent');
+        const emptyResults = document.getElementById('emptyResults');
+
+        const exactAgeSummary = document.getElementById('exactAgeSummary');
+        const birthdayCountdown = document.getElementById('birthdayCountdown');
+        const birthdayDayOfWeek = document.getElementById('birthdayDayOfWeek');
+
+        const totalMonths = document.getElementById('totalMonths');
+        const totalWeeks = document.getElementById('totalWeeks');
+        const totalDays = document.getElementById('totalDays');
+        const totalHours = document.getElementById('totalHours');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().split('T')[0];
+            targetDateInput.value = today;
+        });
+
+        function calculateAge() {
+            const birthVal = birthDateInput.value;
+            const targetVal = targetDateInput.value;
+
+            if (!birthVal || !targetVal) {
+                resultsContent.style.display = 'none';
+                emptyResults.style.display = 'flex';
+                return;
+            }
+
+            const birth = new Date(birthVal);
+            const target = new Date(targetVal);
+
+            if (birth > target) {
+                alert('Birth date cannot be after target date.');
+                resetForm();
+                return;
+            }
+
+            resultsContent.style.display = 'flex';
+            emptyResults.style.display = 'none';
+
+            // Exact calculation
+            let years = target.getFullYear() - birth.getFullYear();
+            let months = target.getMonth() - birth.getMonth();
+            let days = target.getDate() - birth.getDate();
+
+            if (days < 0) {
+                months--;
+                // Get days in previous target month
+                const prevMonth = new Date(target.getFullYear(), target.getMonth(), 0);
+                days += prevMonth.getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            exactAgeSummary.textContent = `${years} Year${years !== 1 ? 's' : ''}, ${months} Month${months !== 1 ? 's' : ''}, ${days} Day${days !== 1 ? 's' : ''}`;
+
+            // Birthday countdown
+            let nextBday = new Date(target.getFullYear(), birth.getMonth(), birth.getDate());
+            if (nextBday < target) {
+                nextBday.setFullYear(target.getFullYear() + 1);
+            }
+
+            let diffMs = nextBday - target;
+            let diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+            
+            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            birthdayDayOfWeek.textContent = `Your next birthday falls on a ${daysOfWeek[nextBday.getDay()]}`;
+
+            if (diffDays === 365 || diffDays === 366 || diffDays === 0) {
+                birthdayCountdown.textContent = "🎉 Happy Birthday!";
+            } else {
+                // Calculate next bday months/days remaining
+                let bMonths = nextBday.getMonth() - target.getMonth();
+                let bDays = nextBday.getDate() - target.getDate();
+                
+                if (bDays < 0) {
+                    bMonths--;
+                    const prevMonth = new Date(nextBday.getFullYear(), nextBday.getMonth(), 0);
+                    bDays += prevMonth.getDate();
+                }
+                if (bMonths < 0) {
+                    bMonths += 12;
+                }
+
+                birthdayCountdown.textContent = `${bMonths} Month${bMonths !== 1 ? 's' : ''}, ${bDays} Day${bDays !== 1 ? 's' : ''}`;
+            }
+
+            // Aggregate metrics
+            const totalMs = target - birth;
+            const tDays = Math.floor(totalMs / (1000 * 60 * 60 * 24));
+            const tMonths = (target.getFullYear() - birth.getFullYear()) * 12 + target.getMonth() - birth.getMonth() + (target.getDate() >= birth.getDate() ? 0 : -1);
+            const tWeeks = Math.floor(tDays / 7);
+            const tRemDays = tDays % 7;
+            const tHours = tDays * 24;
+
+            totalMonths.textContent = tMonths.toLocaleString();
+            totalWeeks.textContent = `${tWeeks.toLocaleString()} Week${tWeeks !== 1 ? 's' : ''}, ${tRemDays} Day${tRemDays !== 1 ? 's' : ''}`;
+            totalDays.textContent = tDays.toLocaleString();
+            totalHours.textContent = tHours.toLocaleString();
+        }
+
+        function resetForm() {
+            birthDateInput.value = '';
+            targetDateInput.value = new Date().toISOString().split('T')[0];
+            resultsContent.style.display = 'none';
+            emptyResults.style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

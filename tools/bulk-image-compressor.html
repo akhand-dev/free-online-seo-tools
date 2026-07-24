@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Image Compressor Online — Compress Multiple Images | RankifyTools</title>
+    <meta name="description" content="Free online Bulk Image Compressor. Upload up to 20 images at once, adjust quality sliders, and download all compressed images in a single ZIP file instantly.">
+    <meta name="keywords" content="bulk image compressor, compress multiple images online, batch image size reducer, zip image compressor, reduce photo size in bulk">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/bulk-image-compressor.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/bulk-image-compressor.html">
+    <meta property="og:title" content="Bulk Image Compressor | RankifyTools">
+    <meta property="og:description" content="Compress batches of JPEG, PNG, and WebP images. Download compiled ZIP archives locally.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Bulk Image Compressor", "item": "https://free-online-seo-tools.vercel.app/tools/bulk-image-compressor.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bulk Image Compressor",
+      "url": "https://free-online-seo-tools.vercel.app/tools/bulk-image-compressor.html",
+      "description": "Compress multiple images concurrently locally. Download compressed files in a ZIP archive.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <!-- JSZip CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Bulk Image Compressor</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Bulk Image Compressor</h1>
+            <p>Upload and compress up to 20 images at once. Set your quality target and download all compressed files in a single ZIP folder instantly.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Configurations & Dropzone -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">1. Compress Parameters</h2>
+
+                <div class="input-group">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                        <label style="font-weight:600;">Compression Quality</label>
+                        <span id="qualityVal" style="color:var(--accent-secondary); font-weight:bold;">75%</span>
+                    </div>
+                    <input type="range" id="compQuality" min="10" max="100" value="75" oninput="updateParam('quality', this.value)" style="width:100%; cursor:pointer;">
+                </div>
+
+                <div class="input-group">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                        <label style="font-weight:600;">Max Dimension Scale</label>
+                        <span id="scaleVal" style="color:var(--accent-secondary); font-weight:bold;">100%</span>
+                    </div>
+                    <input type="range" id="compScale" min="20" max="100" value="100" oninput="updateParam('scale', this.value)" style="width:100%; cursor:pointer;">
+                </div>
+
+                <!-- Dropzone -->
+                <div id="dropzone" style="border: 2px dashed var(--border-light); border-radius: var(--radius-lg); padding: 2.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.3s; background: var(--bg-main);">
+                    <span style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">🗜️</span>
+                    <p style="font-size: 1rem; font-weight: 600; margin-bottom:0.2rem;">Click or drag up to 20 images</p>
+                    <p style="color: var(--text-secondary); font-size: 0.8rem;">Supports JPG, PNG, WebP</p>
+                    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple style="display: none;">
+                </div>
+            </div>
+
+            <!-- Right Panel: Batch Processing List -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 380px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">2. Batch Progress (<span id="batchCount">0</span>)</h2>
+                    <button onclick="downloadAll()" class="btn-primary" id="downloadAllBtn" style="padding:0.4rem 0.8rem; font-size:0.85rem; font-weight:600; display:none;">Download ZIP 📦</button>
+                </div>
+
+                <!-- Compressor Table / List -->
+                <div id="batchList" style="display:flex; flex-direction:column; gap:0.6rem; overflow-y:auto; max-height: 380px;">
+                    <div style="text-align:center; color:var(--text-secondary); padding: 4rem 0;" id="emptyMsg">
+                        No batch compression tasks loaded yet.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>Why Use an Offline Bulk Image Compressor?</h2>
+            <p>Our online <strong>Bulk Image Compressor</strong> processes your images locally in parallel. That means your e-commerce catalogs, blog layouts, or photo logs remain on your computer, eliminating security concerns.</p>
+
+            <h3>How Compression Optimization Works:</h3>
+            <ul>
+                <li><strong>HTML Canvas Export:</strong> Converts heavy PNGs and JPGs to high-fidelity, compressed JPEGs or WebPs.</li>
+                <li><strong>ZIP Compiler:</strong> Compiles output buffers using JSZip to compile files into a single, downloadable `.zip` package.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Image Tools</h4>
+                    <ul>
+                        <li><a href="/tools/bulk-image-compressor.html">Bulk Compressor</a></li>
+                        <li><a href="/tools/image-compressor.html">Single Compressor</a></li>
+                        <li><a href="/tools/screenshot-to-pdf.html">Screenshot to PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const batchList = document.getElementById('batchList');
+        const batchCount = document.getElementById('batchCount');
+        const emptyMsg = document.getElementById('emptyMsg');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+
+        let originalFiles = [];
+        let compressedResults = [];
+
+        dropzone.onclick = () => fileInput.click();
+        fileInput.onchange = (e) => loadBatch(e.target.files);
+
+        dropzone.ondragover = (e) => { e.preventDefault(); dropzone.style.borderColor = 'var(--accent-primary)'; };
+        dropzone.ondragleave = () => dropzone.style.borderColor = 'var(--border-light)';
+        dropzone.ondrop = (e) => { e.preventDefault(); loadBatch(e.dataTransfer.files); };
+
+        function updateParam(type, value) {
+            if (type === 'quality') {
+                document.getElementById('qualityVal').textContent = `${value}%`;
+            } else if (type === 'scale') {
+                document.getElementById('scaleVal').textContent = `${value}%`;
+            }
+            if (originalFiles.length > 0) {
+                runBulkCompression();
+            }
+        }
+
+        function loadBatch(files) {
+            originalFiles = Array.from(files).filter(f => f.type.startsWith('image/')).slice(0, 20);
+            if (originalFiles.length > 0) {
+                runBulkCompression();
+            }
+        }
+
+        async function runBulkCompression() {
+            emptyMsg.style.display = 'none';
+            downloadAllBtn.style.display = 'block';
+            batchCount.textContent = originalFiles.length;
+
+            // Clear previous UI items
+            batchList.querySelectorAll('.batch-item').forEach(el => el.remove());
+            compressedResults = [];
+
+            const quality = parseFloat(document.getElementById('compQuality').value) / 100;
+            const scale = parseFloat(document.getElementById('compScale').value) / 100;
+
+            for (let i = 0; i < originalFiles.length; i++) {
+                const file = originalFiles[i];
+
+                // Create container element
+                const item = document.createElement('div');
+                item.className = 'batch-item';
+                item.style.display = 'flex';
+                item.style.alignItems = 'center';
+                item.style.justifyContent = 'space-between';
+                item.style.padding = '0.6rem';
+                item.style.background = 'rgba(255,255,255,0.02)';
+                item.style.border = '1px solid var(--border-light)';
+                item.style.borderRadius = 'var(--radius-sm)';
+
+                item.innerHTML = `
+                    <div style="flex:1; overflow:hidden; padding-right:1rem;">
+                        <div style="font-weight:600; font-size:0.9rem; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;">${file.name}</div>
+                        <div style="font-size:0.8rem; color:var(--text-secondary);">Original: ${(file.size / 1024).toFixed(1)} KB</div>
+                    </div>
+                    <div id="status_${i}" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Compressing...</div>
+                `;
+                batchList.appendChild(item);
+
+                // Start async canvas compression
+                compressFile(file, quality, scale).then((res) => {
+                    compressedResults.push({ name: file.name, blob: res.blob });
+                    const saved = Math.round(((file.size - res.blob.size) / file.size) * 100);
+                    const statusEl = document.getElementById(`status_${i}`);
+                    if (statusEl) {
+                        statusEl.innerHTML = `<span style="color:#10b981;">-${saved}% (${(res.blob.size / 1024).toFixed(1)} KB)</span>`;
+                    }
+                });
+            }
+        }
+
+        function compressFile(file, quality, scale) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+
+                        canvas.width = img.width * scale;
+                        canvas.height = img.height * scale;
+
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                        canvas.toBlob((blob) => {
+                            resolve({ blob });
+                        }, 'image/jpeg', quality);
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function downloadAll() {
+            if (compressedResults.length === 0) return;
+            const zip = new JSZip();
+
+            compressedResults.forEach((file) => {
+                zip.file(file.name.replace(/\.[^/.]+$/, "") + "_compressed.jpg", file.blob);
+            });
+
+            zip.generateAsync({ type: 'blob' }).then((content) => {
+                const link = document.createElement('a');
+                link.download = 'compressed-images.zip';
+                link.href = URL.createObjectURL(content);
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
