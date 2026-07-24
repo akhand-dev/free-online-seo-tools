@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor Online — Reduce Image KB Size Free | RankifyTools</title>
+    <meta name="description" content="Reduce image file size in KB online. Compress JPEG, PNG, and WebP images. Customize quality and dimension scale with side-by-side previews. 100% private.">
+    <meta name="keywords" content="image compressor online, reduce image kb size free, compress jpeg to 100kb, png quality compressor, client side image reducer">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/image-compressor.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/image-compressor.html">
+    <meta property="og:title" content="Free Image Compressor — Reduce JPG, PNG File Size | RankifyTools">
+    <meta property="og:description" content="Compress JPG, PNG, and WebP images instantly in your browser. Live size reduction calculator, 100% private.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Image Compressor", "item": "https://free-online-seo-tools.vercel.app/tools/image-compressor.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Compressor",
+      "url": "https://free-online-seo-tools.vercel.app/tools/image-compressor.html",
+      "description": "Reduce image KB size online. Compress JPEG, PNG, and WebP files locally in your browser. Side-by-side compression previews.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Image Compressor</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Image Compressor (KB Reducer)</h1>
+            <p>Compress JPG, PNG, or WebP images to a smaller file size in KB. Adjust image quality and dimensions to meet email limits or page speed requirements. 100% client-side compression.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Side: Upload & Control Panel -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--accent-primary);">1. Upload Image</h2>
+                    <div id="dropZone" style="border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 3rem 1rem; text-align: center; background: rgba(255,255,255,0.02); cursor: pointer; transition: all 0.3s ease;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">🖼️</span>
+                        <p style="margin: 0 0 0.5rem 0; font-weight: 500;">Drag & Drop Image here</p>
+                        <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">or click to select file (JPEG, PNG, WebP)</p>
+                        <input type="file" id="fileInput" accept="image/jpeg, image/png, image/webp" style="display: none;">
+                    </div>
+                </div>
+
+                <div id="settingsContainer" style="display:none; flex-direction:column; gap:1.2rem;">
+                    <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">2. Compression Options</h2>
+                    
+                    <div class="input-group">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                            <label style="font-weight:600;">Image Quality (JPEG/WebP)</label>
+                            <span id="qualityVal" style="color:var(--accent-secondary); font-weight:bold;">75%</span>
+                        </div>
+                        <input type="range" id="qualityRange" min="10" max="100" value="75" oninput="compressImage()" style="width:100%; cursor:pointer;">
+                    </div>
+
+                    <div class="input-group">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                            <label style="font-weight:600;">Resize Width Scale</label>
+                            <span id="scaleVal" style="color:var(--accent-secondary); font-weight:bold;">100%</span>
+                        </div>
+                        <input type="range" id="scaleRange" min="20" max="100" value="100" oninput="compressImage()" style="width:100%; cursor:pointer;">
+                    </div>
+
+                    <div class="input-group">
+                        <label style="display:block; margin-bottom:0.4rem; font-weight:600;">Output Format</label>
+                        <select id="outFormat" onchange="compressImage()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            <option value="image/jpeg">JPEG (Best compression)</option>
+                            <option value="image/png">PNG (Lossless - slider values ignored)</option>
+                            <option value="image/webp">WebP (Next-gen compression)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Compression Results -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 380px;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">3. Compression Output</h2>
+
+                <div id="emptyOutput" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; color:var(--text-secondary); text-align:center; padding: 2rem;">
+                    <span style="font-size:3rem; margin-bottom:0.5rem;">📊</span>
+                    Upload an image to compute file size reduction parameters.
+                </div>
+
+                <div id="resultsContainer" style="display:none; flex-direction:column; gap:1.2rem; height:100%;">
+                    <!-- Stats Grid -->
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; text-align:center;">
+                        <div style="padding:0.8rem; background:rgba(255,255,255,0.02); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            <div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:0.2rem;">Original Size</div>
+                            <div id="origSize" style="font-size:1.15rem; font-weight:700;">0 KB</div>
+                        </div>
+                        <div style="padding:0.8rem; background:rgba(255,255,255,0.02); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            <div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:0.2rem;">Compressed Size</div>
+                            <div id="compSize" style="font-size:1.15rem; font-weight:700; color:#10b981;">0 KB</div>
+                        </div>
+                    </div>
+
+                    <!-- Savings Badge -->
+                    <div id="reductionBadge" style="text-align:center; padding:0.6rem; background:rgba(16,185,129,0.15); color:#10b981; border-radius:var(--radius-sm); font-weight:bold;">
+                        Saved 0% (0 KB)
+                    </div>
+
+                    <!-- Live Image Preview -->
+                    <div style="flex:1; display:flex; justify-content:center; align-items:center; overflow:hidden; border:1px solid var(--border-light); border-radius:var(--radius-md); background:rgba(0,0,0,0.2); max-height: 200px;">
+                        <img id="compressedPreview" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:4px;">
+                    </div>
+
+                    <div>
+                        <button type="button" onclick="downloadCompressed()" style="width:100%; padding:0.9rem; background:var(--accent-secondary); color:#fff; border:none; border-radius:var(--radius-md); font-size:1rem; font-weight:700; cursor:pointer;">
+                            💾 Download Compressed Image
+                        </button>
+                        <button type="button" onclick="resetForm()" style="width:100%; margin-top:0.5rem; padding:0.6rem; background:transparent; color:var(--text-secondary); border:1px solid var(--border-light); border-radius:var(--radius-md); font-size:0.9rem; cursor:pointer;">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article & Guide -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>How to Compress Images to a Smaller KB Size Online</h2>
+            <p>Large graphics are the leading cause of slow page rendering. Slow loading layouts hurt your conversion rates and lower your Google search rank. Our <strong>Image Compressor tool</strong> resolves this problem by scaling dimensions and compressing metadata bytes natively in your browser.</p>
+
+            <h3>Key Features:</h3>
+            <ul>
+                <li><strong>Dynamic KB Reduction:</strong> Tweak the quality slider to match target file limits (e.g. compressing photos to under 100KB for government websites or email servers).</li>
+                <li><strong>Next-Gen Formats:</strong> Export original files to modern formats like WebP which yields up to 30% superior compression indexes compared to traditional formats.</li>
+                <li><strong>Live Comparison Details:</strong> Monitor changes page-weight parameters in real-time. Review the side-by-side original size compared with the projected output size.</li>
+            </ul>
+        </article>
+
+        <!-- Related Tools -->
+        <section class="related-tools reveal" style="margin-top: 3rem; border-top: 1px solid var(--border-light); padding-top: 2rem; margin-bottom: 3rem;">
+            <h3>Related Image & Design Tools</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <a href="image-resizer.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">📐 Image Resizer</a>
+                <a href="image-to-base64.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">💾 Image to Base64</a>
+                <a href="css-gradient-generator.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">🎨 CSS Gradient Builder</a>
+                <a href="color-picker.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">🎨 Color Picker</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/image-compressor.html">Image Compressor</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        let originalImg = null;
+        let originalSize = 0;
+        let compressedBlob = null;
+
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const settingsContainer = document.getElementById('settingsContainer');
+        const emptyOutput = document.getElementById('emptyOutput');
+        const resultsContainer = document.getElementById('resultsContainer');
+
+        const qualityRange = document.getElementById('qualityRange');
+        const qualityVal = document.getElementById('qualityVal');
+        const scaleRange = document.getElementById('scaleRange');
+        const scaleVal = document.getElementById('scaleVal');
+        const outFormat = document.getElementById('outFormat');
+
+        const origSizeEl = document.getElementById('origSize');
+        const compSizeEl = document.getElementById('compSize');
+        const reductionBadge = document.getElementById('reductionBadge');
+        const compressedPreview = document.getElementById('compressedPreview');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--accent-primary)';
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.borderColor = 'var(--border-light)';
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--border-light)';
+            if (e.dataTransfer.files.length > 0) {
+                loadImage(e.dataTransfer.files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                loadImage(fileInput.files[0]);
+            }
+        });
+
+        function loadImage(file) {
+            if (!file.type.startsWith('image/')) {
+                alert('Please upload an image file.');
+                return;
+            }
+            originalSize = file.size;
+            origSizeEl.textContent = formatSize(file.size);
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                originalImg = new Image();
+                originalImg.src = e.target.result;
+                originalImg.onload = () => {
+                    settingsContainer.style.display = 'flex';
+                    emptyOutput.style.display = 'none';
+                    resultsContainer.style.display = 'flex';
+                    compressImage();
+                };
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function compressImage() {
+            if (!originalImg) return;
+
+            const quality = parseInt(qualityRange.value);
+            qualityVal.textContent = `${quality}%`;
+
+            const scale = parseInt(scaleRange.value);
+            scaleVal.textContent = `${scale}%`;
+
+            const format = outFormat.value;
+
+            // Draw to Canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            const newW = originalImg.naturalWidth * (scale / 100);
+            const newH = originalImg.naturalHeight * (scale / 100);
+
+            canvas.width = newW;
+            canvas.height = newH;
+
+            ctx.drawImage(originalImg, 0, 0, newW, newH);
+
+            canvas.toBlob((blob) => {
+                if (!blob) return;
+                compressedBlob = blob;
+                compSizeEl.textContent = formatSize(blob.size);
+
+                const savingsBytes = originalSize - blob.size;
+                const savingsPct = Math.max(0, Math.round((savingsBytes / originalSize) * 100));
+                
+                reductionBadge.textContent = `Saved ${savingsPct}% (${formatSize(savingsBytes)})`;
+                
+                if (savingsPct <= 0) {
+                    reductionBadge.style.background = 'rgba(239, 68, 68, 0.15)';
+                    reductionBadge.style.color = '#ef4444';
+                } else {
+                    reductionBadge.style.background = 'rgba(16, 185, 129, 0.15)';
+                    reductionBadge.style.color = '#10b981';
+                }
+
+                // Show compressed preview
+                compressedPreview.src = URL.createObjectURL(blob);
+            }, format, format === 'image/png' ? 1.0 : (quality / 100));
+        }
+
+        function downloadCompressed() {
+            if (!compressedBlob) return;
+
+            const format = outFormat.value;
+            const ext = format === 'image/webp' ? 'webp' : (format === 'image/png' ? 'png' : 'jpg');
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(compressedBlob);
+            link.download = `compressed-image.${ext}`;
+            link.click();
+        }
+
+        function formatSize(bytes) {
+            if (bytes < 0) return '0 KB';
+            if (bytes < 1024) return `${bytes} B`;
+            if (bytes < 1048576) return `${(bytes / 1024).toFixed(1)} KB`;
+            return `${(bytes / 1048576).toFixed(1)} MB`;
+        }
+
+        function resetForm() {
+            originalImg = null;
+            originalSize = 0;
+            compressedBlob = null;
+            fileInput.value = '';
+            settingsContainer.style.display = 'none';
+            emptyOutput.style.display = 'flex';
+            resultsContainer.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

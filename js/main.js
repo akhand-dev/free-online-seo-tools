@@ -154,6 +154,10 @@ function initAdSense(publisherId) {
 }
 
 const toolsList = [
+    { title: "Image Compressor (KB reducer)", url: "/tools/image-compressor.html" },
+    { title: "Image to PDF Converter", url: "/tools/image-to-pdf.html" },
+    { title: "PDF to Word Converter", url: "/tools/pdf-to-word.html" },
+    { title: "XML Sitemap Generator", url: "/tools/xml-sitemap-generator.html" },
     { title: "Robots.txt Generator", url: "/tools/robots-txt-generator.html" },
     { title: "Word & Character Counter", url: "/tools/word-counter.html" },
     { title: "Case Converter", url: "/tools/case-converter.html" },
@@ -169,7 +173,7 @@ const toolsList = [
     { title: "Password Generator", url: "/tools/password-generator.html" },
     { title: "Hash Generator", url: "/tools/hash-generator.html" },
     { title: "JWT Decoder", url: "/tools/jwt-decoder.html" },
-    { title: "QR Code Generator", url: "/tools/qr-code-generator.html" },
+    { title: "QR Code Generator & Scanner", url: "/tools/qr-code-generator.html" },
     { title: "Color Picker & Converter", url: "/tools/color-picker.html" },
     { title: "Image to Base64", url: "/tools/image-to-base64.html" },
     { title: "Image Resizer & Compressor", url: "/tools/image-resizer.html" },

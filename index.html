@@ -42,7 +42,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@RankifyTools">
     <meta name="twitter:title" content="Free Meta Tag Generator & Online SEO Tools - RankifyTools">
-    <meta name="twitter:description" content="23+ free SEO & developer tools: meta tag generator, word counter, JSON formatter, password generator & more.">
+    <meta name="twitter:description" content="24+ free SEO & developer tools: XML sitemaps, robots.txt generator, word counter, JSON formatter & more.">
 
     <!-- Favicon & Apple Touch Icon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -67,7 +67,7 @@
           "@type": "WebSite",
           "name": "RankifyTools",
           "url": "https://free-online-seo-tools.vercel.app/",
-          "description": "A collection of 23+ free, high-performance online utility tools for developers, designers, and SEO professionals.",
+          "description": "A collection of 24+ free, high-performance online utility tools for developers, designers, and SEO professionals.",
           "potentialAction": {
             "@type": "SearchAction",
             "target": "https://free-online-seo-tools.vercel.app/?q={search_term_string}",
@@ -85,6 +85,19 @@
             "@type": "ContactPoint",
             "email": "support@rankifytools.com",
             "contactType": "customer support"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "XML Sitemap Generator",
+          "url": "https://free-online-seo-tools.vercel.app/tools/xml-sitemap-generator.html",
+          "description": "Create Google-compliant XML sitemaps instantly with custom priorities and change frequencies.",
+          "operatingSystem": "All",
+          "applicationCategory": "SEO Tool",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
           }
         },
         {
@@ -244,12 +257,12 @@
     <main class="main-content container" id="main-content">
 
         <section class="hero">
-            <div class="hero-badge">🚀 23+ Free Online SEO & Developer Tools — Robots.txt, Meta Tags, Word Counter & More</div>
+            <div class="hero-badge">🚀 24+ Free Online SEO & Developer Tools — XML Sitemaps, Robots.txt, Meta Tags & More</div>
             <h1>Free Online Meta Tag Generator & SEO Tools</h1>
-            <p>Generate SEO meta tags & robots.txt rules to boost Google rankings. Create high-performing titles & descriptions, build URL slugs, count words, format JSON, generate passwords & more. All 100% free, run locally in your browser — no signup, no installation, your data never leaves your device.</p>
+            <p>Generate SEO sitemaps, meta tags & robots.txt rules to boost Google rankings. Create high-performing titles & descriptions, build URL slugs, count words, format JSON, generate passwords & more. All 100% free, run locally in your browser — no signup, no installation, your data never leaves your device.</p>
             <div class="search-container" style="margin-top:1.5rem;">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="toolSearch" placeholder="Search 23+ free SEO & developer tools (e.g. robots.txt, meta tag, word counter, JSON)..." oninput="filterTools(this.value)" aria-label="Search tools">
+                <input type="text" id="toolSearch" placeholder="Search 24+ free SEO & developer tools (e.g. sitemap, robots.txt, meta tag)..." oninput="filterTools(this.value)" aria-label="Search tools">
             </div>
         </section>
 
@@ -364,8 +377,8 @@
             </a>
             <a href="tools/qr-code-generator.html" class="tool-card reveal">
                 <div class="tool-icon" role="img" aria-label="QR Code Generator Icon">📱</div>
-                <h3>QR Code Generator</h3>
-                <p>Create custom QR codes from any text or website URL and download the result as a PNG image.</p>
+                <h3>QR Code Generator & Scanner</h3>
+                <p>Create custom QR codes from any text or website URL, or scan and decode QR codes instantly using camera or files.</p>
             </a>
             <a href="tools/color-picker.html" class="tool-card reveal">
                 <div class="tool-icon" role="img" aria-label="Color Picker & Converter Icon">🎨</div>
@@ -383,7 +396,7 @@
             <a href="tools/password-generator.html">Random Password Generator</a> | 
             <a href="tools/hash-generator.html">MD5 & SHA-256 Hash Generator</a> | 
             <a href="tools/jwt-decoder.html">JWT Token Decoder</a> | 
-            <a href="tools/qr-code-generator.html">Quick QR Code Maker</a>
+            <a href="tools/qr-code-generator.html">Quick QR Code Maker & Scanner</a>
         </div>
 
         <!-- MEDIA & IMAGE TOOLS -->
@@ -392,10 +405,25 @@
             Resize, compress, and convert image formats locally. Generate custom CSS gradients and encode local image files directly to Base64 strings for CSS/HTML embeds without sacrificing photo quality.
         </p>
         <div class="tools-grid">
+            <a href="tools/image-compressor.html" class="tool-card reveal">
+                <div class="tool-icon" role="img" aria-label="Image Compressor Icon">🗜️</div>
+                <h3>Image Compressor</h3>
+                <p>Reduce image file size in KB. Compress JPEG, PNG, or WebP images to custom quality percentages and scale sizes.</p>
+            </a>
+            <a href="tools/image-to-pdf.html" class="tool-card reveal">
+                <div class="tool-icon" role="img" aria-label="Image to PDF Icon">📸</div>
+                <h3>Image to PDF Converter</h3>
+                <p>Combine multiple JPG, PNG, or WebP images into a single clean PDF document with ordering controls.</p>
+            </a>
+            <a href="tools/pdf-to-word.html" class="tool-card reveal">
+                <div class="tool-icon" role="img" aria-label="PDF to Word Icon">📄</div>
+                <h3>PDF to Word Converter</h3>
+                <p>Extract formatting and readable text from PDF documents and save as editable Microsoft Word documents.</p>
+            </a>
             <a href="tools/image-resizer.html" class="tool-card reveal">
                 <div class="tool-icon" role="img" aria-label="Image Resizer & Compressor Icon">📐</div>
-                <h3>Image Resizer & Compressor</h3>
-                <p>Resize, compress, and convert images to WebP, JPG, or PNG with custom size dimensions and quality level.</p>
+                <h3>Image Resizer</h3>
+                <p>Resize and convert images to WebP, JPG, or PNG with custom dimensions and layout scales.</p>
             </a>
             <a href="tools/file-converter.html" class="tool-card reveal">
                 <div class="tool-icon" role="img" aria-label="File Format Converter Icon">🔄</div>
@@ -419,9 +447,14 @@
         <!-- MARKETING & SEO TOOLS -->
         <h2 class="category-title reveal">📈 Advanced Marketing & Technical SEO Tools</h2>
         <p class="category-desc" style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.6;">
-            Maximize your search engine rankings, direct crawler traffic, and track campaigns. Generate robots.txt directives, create Google & social media meta tags, and build trackable UTM links for Google Analytics.
+            Maximize your search engine rankings, direct crawler traffic, and track campaigns. Generate XML sitemaps, robots.txt directives, create Google & social media meta tags, and build trackable UTM links for Google Analytics.
         </p>
         <div class="tools-grid">
+            <a href="tools/xml-sitemap-generator.html" class="tool-card reveal">
+                <div class="tool-icon" role="img" aria-label="XML Sitemap Generator Icon">🗺️</div>
+                <h3>XML Sitemap Generator</h3>
+                <p>Create Google-compliant XML sitemaps instantly with custom crawler priority, modification dates, and crawl frequency settings.</p>
+            </a>
             <a href="tools/robots-txt-generator.html" class="tool-card reveal">
                 <div class="tool-icon" role="img" aria-label="Robots.txt Generator Icon">🤖</div>
                 <h3>Robots.txt Generator & Validator</h3>
@@ -440,6 +473,7 @@
         </div>
         <div class="related-links" style="margin-top: -1.5rem; margin-bottom: 3rem; font-size: 0.9rem; color: var(--text-secondary);">
             <strong>Related Tools:</strong> 
+            <a href="tools/xml-sitemap-generator.html">XML Sitemap Maker</a> | 
             <a href="tools/robots-txt-generator.html">Robots.txt File Generator</a> | 
             <a href="tools/meta-tag-generator.html">Google Meta Tag Generator</a> | 
             <a href="tools/utm-link-builder.html">UTM Campaign Link Builder</a>
