@@ -1,5 +1,5 @@
 /**
- * ToolNest — Global JavaScript v2.0
+ * RankifyTools — Global JavaScript v2.0
  * Mobile menu, toasts, scroll animations, back-to-top, cookie consent, FAQ accordion
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -154,6 +154,7 @@ function initAdSense(publisherId) {
 }
 
 const toolsList = [
+    { title: "Robots.txt Generator", url: "/tools/robots-txt-generator.html" },
     { title: "Word & Character Counter", url: "/tools/word-counter.html" },
     { title: "Case Converter", url: "/tools/case-converter.html" },
     { title: "Lorem Ipsum Generator", url: "/tools/lorem-ipsum-generator.html" },

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robots.txt Generator — Free Online SEO & AI Crawler Tool | RankifyTools</title>
+    <meta name="description" content="Generate and validate custom robots.txt files for your website. Control search engines (Googlebot, Bingbot) and block AI crawlers (GPTBot, ClaudeBot). 100% free online tool.">
+    <meta name="keywords" content="robots txt generator, free robots.txt builder, SEO robots.txt, block AI crawlers, GPTBot robots.txt, googlebot disallow, crawl delay generator, robots.txt validator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/robots-txt-generator.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/robots-txt-generator.html">
+    <meta property="og:title" content="Free Robots.txt Generator & Validator — SEO & AI Crawler Tool | RankifyTools">
+    <meta property="og:description" content="Generate custom robots.txt files for Googlebot, Bingbot, and AI scrapers. Download or copy instantly. 100% free online utility.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta property="og:image" content="https://free-online-seo-tools.vercel.app/favicon.ico">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Robots.txt Generator | RankifyTools">
+    <meta name="twitter:description" content="Generate, validate, and download custom robots.txt rules for SEO and AI crawlers instantly.">
+    <meta name="twitter:image" content="https://free-online-seo-tools.vercel.app/favicon.ico">
+    <meta name="author" content="RankifyTools">
+
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- JSON-LD Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Robots.txt Generator", "item": "https://free-online-seo-tools.vercel.app/tools/robots-txt-generator.html"}
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD WebApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Robots.txt Generator & Validator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/robots-txt-generator.html",
+      "description": "Free online robots.txt generator. Create custom crawl directives for search engine bots and AI scrapers with live validation and quick download.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "dateModified": "2026-07-24",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+
+    <!-- JSON-LD FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a robots.txt file and why do I need one for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A robots.txt file is a text document placed in your site's root directory that instructs web crawlers (like Googlebot) which pages or sections can or cannot be indexed. It manages crawl budget and prevents search engines from indexing administrative, temporary, or sensitive pages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I block AI scrapers like GPTBot in robots.txt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To block AI scrapers, specify their User-agent (e.g. User-agent: GPTBot, User-agent: ClaudeBot, User-agent: PerplexityBot) followed by Disallow: /. Our generator includes a one-click toggle to automatically insert rules blocking major AI training bots."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where should the robots.txt file be uploaded?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The robots.txt file must always be placed at the root level of your domain (e.g., https://yourwebsite.com/robots.txt). Putting it in subdirectories will cause crawlers to ignore it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does robots.txt hide sensitive pages from the public?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Robots.txt rules are public directives that tell polite web crawlers what not to index. It does not provide security or password protection. Sensitive data should be secured using authentication or access controls."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Robots.txt Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Robots.txt Generator & Validator</h1>
+            <p>Create clean, SEO-optimized <code>robots.txt</code> files to direct search engine crawlers and manage AI scrapers (GPTBot, ClaudeBot). Instant real-time preview, syntax validation, and free download.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Side: Controls -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg);">
+                <h2 style="font-size: 1.25rem; margin-bottom: 1.2rem; color: var(--accent-primary);">1. Crawler Directives</h2>
+
+                <div class="input-group" style="margin-bottom: 1.2rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Default Access (User-agent: *)</label>
+                    <select id="defaultAccess" class="form-select" onchange="generateRobotsTxt()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <option value="allow" selected>Allow all search engines (Recommended)</option>
+                        <option value="disallow">Disallow all search engines (Block whole site)</option>
+                    </select>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 1.2rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Crawl-delay (seconds, optional)</label>
+                    <select id="crawlDelay" class="form-select" onchange="generateRobotsTxt()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <option value="" selected>No Crawl-delay (Default)</option>
+                        <option value="5">5 seconds</option>
+                        <option value="10">10 seconds</option>
+                        <option value="20">20 seconds</option>
+                    </select>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 1.2rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">XML Sitemap URL (Recommended)</label>
+                    <input type="text" id="sitemapUrl" placeholder="https://yourwebsite.com/sitemap.xml" oninput="generateRobotsTxt()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 1.5rem 0;">
+
+                <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--accent-primary);">2. AI Crawler Protection</h2>
+                <div style="margin-bottom: 1.5rem; background: var(--bg-main); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                    <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer; font-weight: 500;">
+                        <input type="checkbox" id="blockAiBots" onchange="generateRobotsTxt()" checked style="width: 1.1rem; height: 1.1rem; accent-color: var(--accent-primary);">
+                        <span>Block AI Scrapers & LLM Crawlers (GPTBot, ClaudeBot, PerplexityBot, ByteSpider)</span>
+                    </label>
+                </div>
+
+                <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--accent-primary);">3. Custom Path Rules</h2>
+                
+                <div id="disallowPathsContainer">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Disallowed Directories/Pages (e.g. /admin/, /tmp/, /search)</label>
+                    <div class="path-row" style="display:flex; gap:0.5rem; margin-bottom:0.5rem;">
+                        <input type="text" class="disallow-input" value="/admin/" placeholder="/admin/" oninput="generateRobotsTxt()" style="flex:1; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    </div>
+                </div>
+                <button type="button" onclick="addDisallowRow()" style="padding:0.4rem 0.8rem; background:var(--bg-main); color:var(--accent-primary); border:1px solid var(--accent-primary); border-radius:var(--radius-sm); cursor:pointer; font-weight:500; font-size:0.85rem; margin-bottom:1.2rem;">+ Add Disallow Path</button>
+
+                <div id="allowPathsContainer">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Allowed Paths (Override Disallow)</label>
+                    <div class="path-row" style="display:flex; gap:0.5rem; margin-bottom:0.5rem;">
+                        <input type="text" class="allow-input" placeholder="/admin/public-info.html" oninput="generateRobotsTxt()" style="flex:1; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    </div>
+                </div>
+                <button type="button" onclick="addAllowRow()" style="padding:0.4rem 0.8rem; background:var(--bg-main); color:var(--accent-primary); border:1px solid var(--accent-primary); border-radius:var(--radius-sm); cursor:pointer; font-weight:500; font-size:0.85rem;">+ Add Allow Path</button>
+            </div>
+
+            <!-- Right Side: Preview & Output -->
+            <div class="output-pane" style="display: flex; flex-direction: column;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
+                    <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Generated robots.txt</h2>
+                    <span id="validationBadge" style="font-size: 0.85rem; padding: 0.3rem 0.6rem; border-radius: var(--radius-sm); background: rgba(16, 185, 129, 0.15); color: #10b981; font-weight: 600;">✅ Valid Syntax</span>
+                </div>
+
+                <div id="validationNotice" style="display:none; margin-bottom:1rem; padding:0.8rem; background:rgba(239, 68, 68, 0.1); border:1px solid #ef4444; border-radius:var(--radius-md); color:#ef4444; font-size:0.88rem; line-height:1.4;">
+                </div>
+
+                <textarea id="robotsOutput" readonly style="flex:1; width:100%; min-height:350px; font-family: monospace; font-size: 0.92rem; padding: 1.2rem; background: #0a0a10; color: #38bdf8; border: 1px solid var(--border-light); border-radius: var(--radius-md); line-height: 1.6; resize: vertical;"></textarea>
+
+                <div style="display:flex; gap:0.8rem; margin-top:1rem;">
+                    <button type="button" onclick="copyRobotsTxt()" style="flex:1; padding:0.8rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-md); font-weight:600; cursor:pointer;">📋 Copy to Clipboard</button>
+                    <button type="button" onclick="downloadRobotsTxt()" style="flex:1; padding:0.8rem; background:var(--accent-secondary); color:#fff; border:none; border-radius:var(--radius-md); font-weight:600; cursor:pointer;">💾 Download robots.txt</button>
+                    <button type="button" onclick="resetForm()" style="padding:0.8rem 1.2rem; background:var(--bg-card); color:var(--text-secondary); border:1px solid var(--border-light); border-radius:var(--radius-md); font-weight:500; cursor:pointer;">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article & Guide Section -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>What is a Robots.txt File and Why Is It Important for SEO?</h2>
+            <p>A <strong>robots.txt file</strong> is a plain text file placed in the root directory of your website. It uses the <em>Robots Exclusion Protocol (REP)</em> to communicate directly with automated web crawlers and search engine bots (such as Googlebot, Bingbot, and DuckDuckBot), instructing them on which URLs or directories they are permitted to crawl and index.</p>
+
+            <p>Properly managing your <code>robots.txt</code> file is a cornerstone of technical SEO. It prevents search engines from spending valuable crawl budget on non-essential pages such as backend administrative panels (<code>/admin/</code>), temporary files, search results pages, or internal staging environments.</p>
+
+            <h2>Key Directives in Robots.txt Files</h2>
+            <ul>
+                <li><strong>User-agent:</strong> Specifies which web crawler the directive applies to. Use <code>*</code> for all bots, or target specific crawlers like <code>Googlebot</code> or <code>GPTBot</code>.</li>
+                <li><strong>Disallow:</strong> Specifies path patterns that the crawler must NOT access or fetch.</li>
+                <li><strong>Allow:</strong> Explicitly permits access to a specific sub-folder or file inside an otherwise disallowed directory.</li>
+                <li><strong>Sitemap:</strong> Demarcates the absolute URL location of your XML Sitemap (e.g. <code>Sitemap: https://yourwebsite.com/sitemap.xml</code>) to accelerate site discovery and indexing.</li>
+                <li><strong>Crawl-delay:</strong> Instructs crawlers to wait a specified number of seconds between requests to avoid overloading server resources.</li>
+            </ul>
+
+            <h2>Blocking AI Scrapers & LLM Bots in 2026</h2>
+            <p>With the rise of generative AI platforms and Large Language Models (LLMs), many webmasters prefer to prevent unauthorized AI scrapers from harvesting original website content for training models without consent. Popular AI scrapers include:</p>
+            <ul>
+                <li><code>GPTBot</code> (OpenAI Web Crawler)</li>
+                <li><code>ChatGPT-User</code> (OpenAI Live Search Bot)</li>
+                <li><code>ClaudeBot</code> & <code>Claude-Web</code> (Anthropic Crawlers)</li>
+                <li><code>PerplexityBot</code> (Perplexity Search Scraper)</li>
+                <li><code>ByteSpider</code> (ByteDance AI Scraper)</li>
+            </ul>
+            <p>Our tool provides a built-in one-click toggle to automatically disallow all major AI scraper user-agents while maintaining full indexing for Google, Bing, and other search engines.</p>
+
+            <h2>Common Robots.txt Pitfalls to Avoid</h2>
+            <ol>
+                <li><strong>Blocking CSS and JS Files:</strong> Never disallow <code>/css/</code> or <code>/js/</code> directories. Googlebot requires full access to styling and JavaScript scripts to render the mobile interface and measure layout stability for ranking signals.</li>
+                <li><strong>Using <code>Disallow: /</code> by mistake:</strong> Disallowing the root slash blocks all search engine crawlers from indexing your entire site.</li>
+                <li><strong>Placing robots.txt in a subdirectory:</strong> The file MUST be hosted at <code>https://example.com/robots.txt</code>; subfolder locations like <code>https://example.com/assets/robots.txt</code> will be ignored by search engine bots.</li>
+            </ol>
+        </article>
+
+        <!-- FAQ Section -->
+        <section class="faq-section reveal" style="margin-top: 3rem; border-top: 1px solid var(--border-light); padding-top: 2.5rem;">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-list" style="margin-top: 1.5rem;">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">What is a robots.txt file and why do I need one for SEO?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            A robots.txt file instructs web crawlers (like Googlebot) which pages or sections can or cannot be indexed. It manages crawl budget and prevents search engines from indexing administrative or sensitive pages.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">How do I block AI scrapers like GPTBot in robots.txt?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            To block AI scrapers, specify their User-agent (e.g. User-agent: GPTBot, User-agent: ClaudeBot, User-agent: PerplexityBot) followed by Disallow: /. Our generator includes a toggle to automatically insert rules blocking major AI training bots.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">Where should the robots.txt file be uploaded?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            The robots.txt file must always be placed at the root level of your domain (e.g., https://yourwebsite.com/robots.txt). Subdirectory locations are not recognized by crawlers.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">Does robots.txt hide sensitive pages from the public?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            No. Robots.txt rules are public directives that tell polite web crawlers what not to index. It does not provide security or password protection. Sensitive data should be protected with authentication.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="related-tools reveal" style="margin-top: 3rem; border-top: 1px solid var(--border-light); padding-top: 2rem; margin-bottom: 3rem;">
+            <h3>Related SEO & Developer Utilities</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <a href="meta-tag-generator.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">🏷️ Meta Tag Generator</a>
+                <a href="text-to-slug.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">🔗 Text to URL Slug</a>
+                <a href="utm-link-builder.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">📈 UTM Link Builder</a>
+                <a href="word-counter.html" class="tag-link" style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: var(--accent-primary); text-decoration: none; font-size: 0.9rem;">📝 Word & Character Counter</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Encoder</a></li>
+                        <li><a href="/tools/hash-generator.html">Hash Generator</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function generateRobotsTxt() {
+            const defaultAccess = document.getElementById('defaultAccess').value;
+            const crawlDelay = document.getElementById('crawlDelay').value;
+            const sitemapUrl = document.getElementById('sitemapUrl').value.trim();
+            const blockAiBots = document.getElementById('blockAiBots').checked;
+
+            let output = '# Robots.txt generated by RankifyTools (free-online-seo-tools.vercel.app)\n';
+            output += '# User-agent: * controls default crawl permissions for all web bots\n\n';
+            output += 'User-agent: *\n';
+
+            if (defaultAccess === 'disallow') {
+                output += 'Disallow: /\n';
+            } else {
+                // Collect Disallow inputs
+                const disallowInputs = document.querySelectorAll('.disallow-input');
+                let hasDisallow = false;
+                disallowInputs.forEach(input => {
+                    const val = input.value.trim();
+                    if (val) {
+                        output += `Disallow: ${val}\n`;
+                        hasDisallow = true;
+                    }
+                });
+                if (!hasDisallow) {
+                    output += 'Allow: /\n';
+                }
+
+                // Collect Allow inputs
+                const allowInputs = document.querySelectorAll('.allow-input');
+                allowInputs.forEach(input => {
+                    const val = input.value.trim();
+                    if (val) {
+                        output += `Allow: ${val}\n`;
+                    }
+                });
+            }
+
+            if (crawlDelay) {
+                output += `Crawl-delay: ${crawlDelay}\n`;
+            }
+
+            if (blockAiBots) {
+                output += '\n# Block AI Scrapers & Data Mining Bots\n';
+                const aiBots = ['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-Web', 'PerplexityBot', 'ByteSpider', 'CCBot'];
+                aiBots.forEach(bot => {
+                    output += `User-agent: ${bot}\nDisallow: /\n\n`;
+                });
+            }
+
+            if (sitemapUrl) {
+                output += `\nSitemap: ${sitemapUrl}\n`;
+            }
+
+            document.getElementById('robotsOutput').value = output;
+            validateRobotsTxt(defaultAccess, sitemapUrl);
+        }
+
+        function validateRobotsTxt(defaultAccess, sitemapUrl) {
+            const notice = document.getElementById('validationNotice');
+            const badge = document.getElementById('validationBadge');
+            let warnings = [];
+
+            if (defaultAccess === 'disallow') {
+                warnings.push('⚠️ WARNING: "Disallow: /" under "User-agent: *" will block ALL search engines (including Google) from indexing your website!');
+            }
+
+            if (sitemapUrl && !sitemapUrl.startsWith('http://') && !sitemapUrl.startsWith('https://')) {
+                warnings.push('⚠️ WARNING: Sitemap URL should be an absolute URL starting with http:// or https://');
+            }
+
+            const disallowInputs = document.querySelectorAll('.disallow-input');
+            disallowInputs.forEach(input => {
+                const val = input.value.trim();
+                if (val && !val.startsWith('/')) {
+                    warnings.push(`⚠️ WARNING: Disallow path "${val}" should begin with a forward slash "/"`);
+                }
+            });
+
+            if (warnings.length > 0) {
+                notice.style.display = 'block';
+                notice.innerHTML = warnings.join('<br>');
+                badge.style.background = 'rgba(245, 158, 11, 0.15)';
+                badge.style.color = '#f59e0b';
+                badge.textContent = '⚠️ Syntax Warnings';
+            } else {
+                notice.style.display = 'none';
+                badge.style.background = 'rgba(16, 185, 129, 0.15)';
+                badge.style.color = '#10b981';
+                badge.textContent = '✅ Valid Syntax';
+            }
+        }
+
+        function addDisallowRow() {
+            const container = document.getElementById('disallowPathsContainer');
+            const div = document.createElement('div');
+            div.className = 'path-row';
+            div.style.cssText = 'display:flex; gap:0.5rem; margin-bottom:0.5rem;';
+            div.innerHTML = `
+                <input type="text" class="disallow-input" placeholder="/tmp/" oninput="generateRobotsTxt()" style="flex:1; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                <button type="button" onclick="this.parentElement.remove(); generateRobotsTxt();" style="padding:0.5rem; background:rgba(239, 68, 68, 0.15); color:#ef4444; border:none; border-radius:var(--radius-sm); cursor:pointer;">✕</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function addAllowRow() {
+            const container = document.getElementById('allowPathsContainer');
+            const div = document.createElement('div');
+            div.className = 'path-row';
+            div.style.cssText = 'display:flex; gap:0.5rem; margin-bottom:0.5rem;';
+            div.innerHTML = `
+                <input type="text" class="allow-input" placeholder="/public/" oninput="generateRobotsTxt()" style="flex:1; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                <button type="button" onclick="this.parentElement.remove(); generateRobotsTxt();" style="padding:0.5rem; background:rgba(239, 68, 68, 0.15); color:#ef4444; border:none; border-radius:var(--radius-sm); cursor:pointer;">✕</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function copyRobotsTxt() {
+            const text = document.getElementById('robotsOutput').value;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied robots.txt content to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy text: ' + err);
+            });
+        }
+
+        function downloadRobotsTxt() {
+            const text = document.getElementById('robotsOutput').value;
+            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'robots.txt';
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+
+        function resetForm() {
+            document.getElementById('defaultAccess').value = 'allow';
+            document.getElementById('crawlDelay').value = '';
+            document.getElementById('sitemapUrl').value = '';
+            document.getElementById('blockAiBots').checked = true;
+            document.getElementById('disallowPathsContainer').innerHTML = `
+                <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Disallowed Directories/Pages (e.g. /admin/, /tmp/, /search)</label>
+                <div class="path-row" style="display:flex; gap:0.5rem; margin-bottom:0.5rem;">
+                    <input type="text" class="disallow-input" value="/admin/" placeholder="/admin/" oninput="generateRobotsTxt()" style="flex:1; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+            `;
+            document.getElementById('allowPathsContainer').innerHTML = `
+                <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Allowed Paths (Override Disallow)</label>
+                <div class="path-row" style="display:flex; gap:0.5rem; margin-bottom:0.5rem;">
+                    <input type="text" class="allow-input" placeholder="/admin/public-info.html" oninput="generateRobotsTxt()" style="flex:1; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+            `;
+            generateRobotsTxt();
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', generateRobotsTxt);
+    </script>
+</body>
+</html>

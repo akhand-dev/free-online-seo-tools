@@ -3,8 +3,6 @@ Allow: /
 Allow: /tools/
 Allow: /blog/
 
-Disallow: /css/
-Disallow: /js/
 Disallow: /admin/
 
 Crawl-delay: 1
