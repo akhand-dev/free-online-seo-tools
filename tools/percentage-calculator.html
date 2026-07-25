@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator Online — Free Math Utility | RankifyTools</title>
+    <meta name="description" content="Calculate percentages instantly. Find percentage increase/decrease, calculate fractional percentages of values, and solve basic percentage math problems online.">
+    <meta name="keywords" content="percentage calculator online, calculate percentage increase decrease, find percentage of two numbers, percentage change solver">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/percentage-calculator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/percentage-calculator.html">
+    <meta property="og:title" content="Percentage Calculator — Solve Percentage Formulas | RankifyTools">
+    <meta property="og:description" content="Compute percentage increments, decreases, fractional values, and general math metrics.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Percentage Calculator", "item": "https://free-online-seo-tools.vercel.app/tools/percentage-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Percentage Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/percentage-calculator.html",
+      "description": "Solve multiple percentage formulas online. Calculate percentages, percentage change, and discounts instantly.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Percentage Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Percentage Calculator</h1>
+            <p>Compute common percentage problems instantly. Calculate percentage values, percentage ratios, percentage growth, and custom increments/decreases.</p>
+        </div>
+
+        <div style="max-width: 700px; margin: 2rem auto 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Formula 1: What is X% of Y -->
+            <div style="background: var(--bg-card); padding: 1.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg);">
+                <h2 style="font-size: 1.15rem; color: var(--accent-primary); margin:0 0 1rem 0;">1. Calculate Percentage Value</h2>
+                <div style="display:flex; flex-wrap:wrap; align-items:center; gap:0.6rem; font-weight:500;">
+                    <span>What is</span>
+                    <input type="number" id="f1_pct" value="15" oninput="solveF1()" style="width:80px; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    <span>% of</span>
+                    <input type="number" id="f1_val" value="200" oninput="solveF1()" style="width:110px; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    <span>?</span>
+                    <span style="color:var(--text-secondary); margin-left:auto;">Result:</span>
+                    <span id="f1_res" style="font-size:1.25rem; font-weight:bold; color:var(--accent-secondary);">30</span>
+                </div>
+            </div>
+
+            <!-- Formula 2: X is what % of Y -->
+            <div style="background: var(--bg-card); padding: 1.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg);">
+                <h2 style="font-size: 1.15rem; color: var(--accent-primary); margin:0 0 1rem 0;">2. Calculate Percentage Ratio</h2>
+                <div style="display:flex; flex-wrap:wrap; align-items:center; gap:0.6rem; font-weight:500;">
+                    <input type="number" id="f2_num" value="50" oninput="solveF2()" style="width:90px; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    <span>is what % of</span>
+                    <input type="number" id="f2_den" value="250" oninput="solveF2()" style="width:110px; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    <span>?</span>
+                    <span style="color:var(--text-secondary); margin-left:auto;">Result:</span>
+                    <span id="f2_res" style="font-size:1.25rem; font-weight:bold; color:var(--accent-secondary);">20%</span>
+                </div>
+            </div>
+
+            <!-- Formula 3: Percentage change from X to Y -->
+            <div style="background: var(--bg-card); padding: 1.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg);">
+                <h2 style="font-size: 1.15rem; color: var(--accent-primary); margin:0 0 1rem 0;">3. Percentage Increase / Decrease</h2>
+                <div style="display:flex; flex-wrap:wrap; align-items:center; gap:0.6rem; font-weight:500;">
+                    <span>From</span>
+                    <input type="number" id="f3_from" value="80" oninput="solveF3()" style="width:90px; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    <span>to</span>
+                    <input type="number" id="f3_to" value="120" oninput="solveF3()" style="width:90px; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    <span style="color:var(--text-secondary); margin-left:auto;">Result:</span>
+                    <span id="f3_res" style="font-size:1.25rem; font-weight:bold; color:var(--accent-secondary);">+50% (Increase)</span>
+                </div>
+            </div>
+
+            <!-- Formula 4: Value increased/decreased by % -->
+            <div style="background: var(--bg-card); padding: 1.5rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg);">
+                <h2 style="font-size: 1.15rem; color: var(--accent-primary); margin:0 0 1rem 0;">4. Adjust Value by Percentage</h2>
+                <div style="display:flex; flex-wrap:wrap; align-items:center; gap:0.6rem; font-weight:500;">
+                    <span>Adjust</span>
+                    <input type="number" id="f4_val" value="100" oninput="solveF4()" style="width:90px; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    <span>by</span>
+                    <select id="f4_op" onchange="solveF4()" style="padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <option value="inc">Increase (+)</option>
+                        <option value="dec">Decrease (-)</option>
+                    </select>
+                    <input type="number" id="f4_pct" value="10" oninput="solveF4()" style="width:80px; padding:0.5rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    <span>%</span>
+                    <span style="color:var(--text-secondary); margin-left:auto;">Result:</span>
+                    <span id="f4_res" style="font-size:1.25rem; font-weight:bold; color:var(--accent-secondary);">110</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>How to Calculate Percentages</h2>
+            <p>A percentage is a number or ratio expressed as a fraction of 100. It is often denoted using the percent sign, "%". Percentages are used widely in finance, sports statistics, tax calculations, and discount shops.</p>
+
+            <h3>Core Percentage Formulas:</h3>
+            <ul>
+                <li><strong>Percentage Value:</strong> <code>Value = (Percentage / 100) &times; Total</code></li>
+                <li><strong>Percentage Ratio:</strong> <code>Percentage = (Part / Whole) &times; 100</code></li>
+                <li><strong>Percentage Change:</strong> <code>Change = ((New Value - Original Value) / Original Value) &times; 100</code></li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/percentage-calculator.html">Percentage Calculator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function solveF1() {
+            const pct = parseFloat(document.getElementById('f1_pct').value) || 0;
+            const val = parseFloat(document.getElementById('f1_val').value) || 0;
+            const res = (pct / 100) * val;
+            document.getElementById('f1_res').textContent = formatResult(res);
+        }
+
+        function solveF2() {
+            const num = parseFloat(document.getElementById('f2_num').value) || 0;
+            const den = parseFloat(document.getElementById('f2_den').value) || 0;
+            if (den === 0) {
+                document.getElementById('f2_res').textContent = 'Cannot divide by zero';
+                return;
+            }
+            const res = (num / den) * 100;
+            document.getElementById('f2_res').textContent = `${formatResult(res)}%`;
+        }
+
+        function solveF3() {
+            const from = parseFloat(document.getElementById('f3_from').value) || 0;
+            const to = parseFloat(document.getElementById('f3_to').value) || 0;
+            if (from === 0) {
+                document.getElementById('f3_res').textContent = 'Starting value cannot be zero';
+                return;
+            }
+            const diff = to - from;
+            const pct = (diff / from) * 100;
+            const type = diff >= 0 ? 'Increase' : 'Decrease';
+            document.getElementById('f3_res').textContent = `${pct >= 0 ? '+' : ''}${formatResult(pct)}% (${type})`;
+        }
+
+        function solveF4() {
+            const val = parseFloat(document.getElementById('f4_val').value) || 0;
+            const op = document.getElementById('f4_op').value;
+            const pct = parseFloat(document.getElementById('f4_pct').value) || 0;
+            
+            const adjustment = (pct / 100) * val;
+            const res = op === 'inc' ? val + adjustment : val - adjustment;
+            
+            document.getElementById('f4_res').textContent = formatResult(res);
+        }
+
+        function formatResult(num) {
+            return Number(num.toFixed(4)).toString(); // strips trailing zeros
+        }
+
+        window.addEventListener('load', () => {
+            solveF1();
+            solveF2();
+            solveF3();
+            solveF4();
+        });
+    </script>
+</body>
+</html>

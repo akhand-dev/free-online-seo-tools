@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com https://*.tesseract.projectnaptha.com https://tesseract.projectnaptha.com https://cdn.jsdelivr.net;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Text Converter — Online OCR Scanner | RankifyTools</title>
+    <meta name="description" content="Free online Image to Text Converter. Extract text from images (JPG, PNG, WebP) instantly using client-side Tesseract.js OCR. 100% secure and private.">
+    <meta name="keywords" content="image to text converter, online ocr scanner, extract text from image, picture to text, scan document to text">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/image-to-text.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/image-to-text.html">
+    <meta property="og:title" content="Image to Text OCR Converter | RankifyTools">
+    <meta property="og:description" content="Convert images to editable text locally. High accuracy offline optical character recognition.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Image to Text OCR", "item": "https://free-online-seo-tools.vercel.app/tools/image-to-text.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image to Text OCR",
+      "url": "https://free-online-seo-tools.vercel.app/tools/image-to-text.html",
+      "description": "Convert images into editable text docs locally in your browser using Tesseract.js.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <!-- Tesseract.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.0.3/dist/tesseract.min.js"></script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Image to Text OCR</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Image to Text OCR</h1>
+            <p>Convert images to editable text document outputs instantly. Handled offline locally within your browser using high-accuracy OCR scanning. Your file never leaves your device.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Pane: Dropzone & Image -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">1. Source Image</h2>
+
+                <div id="dropzone" style="border: 2px dashed var(--border-light); border-radius: var(--radius-lg); padding: 3rem 1.5rem; text-align: center; cursor: pointer; transition: all 0.3s; background: var(--bg-main);">
+                    <span style="font-size: 3rem; display: block; margin-bottom: 0.8rem;">🖼️</span>
+                    <p style="font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem;">Drag and drop image here</p>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.8rem;">JPG, PNG, or WebP</p>
+                    <button type="button" class="btn-primary" style="pointer-events:none;">Browse Image</button>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                </div>
+
+                <div id="previewContainer" style="display: none; position: relative;">
+                    <img id="imagePreview" src="" alt="OCR Preview" style="width: 100%; border: 1px solid var(--border-light); border-radius: var(--radius-sm); max-height: 280px; object-fit: contain;">
+                    <button onclick="clearImage()" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight: bold;">✕</button>
+                </div>
+
+                <button id="scanBtn" onclick="runOCR()" class="btn-primary" style="width: 100%; padding: 0.75rem; font-weight: 600; display: none;">Scan Image for Text 🔍</button>
+
+                <!-- Progress indicator -->
+                <div id="progressArea" style="display: none; flex-direction: column; gap: 0.4rem;">
+                    <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:var(--text-secondary);">
+                        <span id="progressStatus">Initializing OCR...</span>
+                        <span id="progressPct">0%</span>
+                    </div>
+                    <div style="width: 100%; height: 6px; background: var(--bg-main); border-radius: 3px; overflow: hidden; border: 1px solid var(--border-light);">
+                        <div id="progressBar" style="width: 0%; height: 100%; background: var(--accent-primary); transition: width 0.2s;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Pane: Extracted Text -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 380px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">2. Extracted Text</h2>
+                    <div style="display:flex; gap:0.5rem;">
+                        <button onclick="copyText()" class="btn-primary" style="padding:0.4rem 0.8rem; font-size:0.85rem; background:transparent; border:1px solid var(--border-light); color:var(--text-primary);">Copy</button>
+                        <button onclick="downloadText()" class="btn-primary" style="padding:0.4rem 0.8rem; font-size:0.85rem; background:transparent; border:1px solid var(--border-light); color:var(--text-primary);">Download .txt</button>
+                    </div>
+                </div>
+
+                <textarea id="ocrResult" placeholder="Your scanned OCR text will appear here..." style="flex:1; width: 100%; min-height: 250px; padding: 0.8rem; background: var(--bg-main); color: var(--text-primary); border: 1px solid var(--border-light); border-radius: var(--radius-md); font-family: inherit; font-size: 0.95rem; line-height: 1.6; resize: vertical;"></textarea>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>How Optical Character Recognition (OCR) Works</h2>
+            <p><strong>OCR (Optical Character Recognition)</strong> technology analyzes the patterns of light and dark pixels on an image file to isolate shapes representing letters, symbols, numbers, and grammar styles, parsing them into digital characters.</p>
+
+            <h3>Key Benefits of Client-Side OCR:</h3>
+            <ul>
+                <li><strong>Ultimate Privacy:</strong> Tesseract.js loads language weights into your browser's local sandbox, executing translations locally. None of your invoices, documents, or personal letters are ever transmitted to external APIs.</li>
+                <li><strong>High Accuracy:</strong> Recognizes standard book fonts, document layouts, and screenshot formats with accurate line splits.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Image Tools</h4>
+                    <ul>
+                        <li><a href="/tools/image-to-text.html">Image to Text</a></li>
+                        <li><a href="/tools/background-remover.html">Background Remover</a></li>
+                        <li><a href="/tools/image-compressor.html">Image Compressor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const previewContainer = document.getElementById('previewContainer');
+        const imagePreview = document.getElementById('imagePreview');
+        const scanBtn = document.getElementById('scanBtn');
+        
+        const progressArea = document.getElementById('progressArea');
+        const progressStatus = document.getElementById('progressStatus');
+        const progressPct = document.getElementById('progressPct');
+        const progressBar = document.getElementById('progressBar');
+        const ocrResult = document.getElementById('ocrResult');
+
+        let selectedFile = null;
+
+        dropzone.onclick = () => fileInput.click();
+        fileInput.onchange = (e) => loadFile(e.target.files[0]);
+
+        dropzone.ondragover = (e) => { e.preventDefault(); dropzone.style.borderColor = 'var(--accent-primary)'; };
+        dropzone.ondragleave = () => dropzone.style.borderColor = 'var(--border-light)';
+        dropzone.ondrop = (e) => { e.preventDefault(); loadFile(e.dataTransfer.files[0]); };
+
+        function loadFile(file) {
+            if (!file) return;
+            selectedFile = file;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                imagePreview.src = e.target.result;
+                dropzone.style.display = 'none';
+                previewContainer.style.display = 'block';
+                scanBtn.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function clearImage() {
+            selectedFile = null;
+            imagePreview.src = '';
+            dropzone.style.display = 'block';
+            previewContainer.style.display = 'none';
+            scanBtn.style.display = 'none';
+            progressArea.style.display = 'none';
+        }
+
+        async function runOCR() {
+            if (!selectedFile) return;
+
+            scanBtn.style.display = 'none';
+            progressArea.style.display = 'flex';
+            progressBar.style.width = '0%';
+            progressPct.textContent = '0%';
+            progressStatus.textContent = 'Loading OCR Engine...';
+
+            try {
+                // Initialize Tesseract worker
+                const worker = await Tesseract.createWorker('eng', 1, {
+                    logger: m => {
+                        if (m.status === 'recognizing text') {
+                            const pct = Math.round(m.progress * 100);
+                            progressBar.style.width = `${pct}%`;
+                            progressPct.textContent = `${pct}%`;
+                            progressStatus.textContent = 'Extracting characters...';
+                        }
+                    }
+                });
+
+                progressStatus.textContent = 'Processing image details...';
+                const ret = await worker.recognize(selectedFile);
+                ocrResult.value = ret.data.text;
+                
+                await worker.terminate();
+
+                progressStatus.textContent = 'OCR Scan complete!';
+                progressBar.style.width = '100%';
+                progressPct.textContent = '100%';
+            } catch (err) {
+                console.error(err);
+                alert('An error occurred during character recognition. Make sure you are connected to retrieve language parameters.');
+                scanBtn.style.display = 'block';
+                progressArea.style.display = 'none';
+            }
+        }
+
+        function copyText() {
+            if (!ocrResult.value.trim()) return;
+            navigator.clipboard.writeText(ocrResult.value).then(() => {
+                alert('Text copied to clipboard!');
+            });
+        }
+
+        function downloadText() {
+            if (!ocrResult.value.trim()) return;
+            const blob = new Blob([ocrResult.value], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.download = 'scanned-text.txt';
+            link.href = URL.createObjectURL(blob);
+            link.click();
+        }
+    </script>
+</body>
+</html>

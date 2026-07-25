@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin the Wheel Online — Random Decision Maker | RankifyTools</title>
+    <meta name="description" content="Spin the wheel of decision maker online for free. Custom options generator, smooth physics deceleration, synthesized click audio, and landing animations.">
+    <meta name="keywords" content="spin the wheel online, random decision maker, name wheel picker, fortune wheel spinner, custom choice decider">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/spin-the-wheel.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/spin-the-wheel.html">
+    <meta property="og:title" content="Spin the Wheel Online — Random Decision Maker">
+    <meta property="og:description" content="Add your choices, spin the wheel, and let the wheel decide. Completely local physics and click sounds.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <style>
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            font-family: 'Outfit', 'Inter', sans-serif;
+        }
+        @media (min-width: 850px) {
+            .split-layout {
+                grid-template-columns: 1fr 1.1fr;
+            }
+        }
+        .config-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .config-card h2 {
+            font-size: 1.15rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 0.5rem;
+        }
+        .wheel-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .canvas-frame {
+            position: relative;
+            width: 360px;
+            height: 360px;
+        }
+        #wheel-canvas {
+            display: block;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            background: var(--bg-main);
+        }
+        /* Top Needle */
+        .needle {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 30px solid #ef4444;
+            z-index: 10;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+        }
+        .options-list {
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .option-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .option-item input[type="text"] {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.5rem 0.8rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+            flex-grow: 1;
+        }
+        .remove-btn {
+            background: var(--error);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: bold;
+        }
+        .result-banner {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 1.2rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            margin-top: 1.5rem;
+            display: none;
+            animation: bounceIn 0.5s ease forwards;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">›</span>
+            <a href="../index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Spin the Wheel</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Spin the Wheel</h1>
+            <p>Input custom decision options, spin the physics wheel, and enjoy landing click audio sounds and results locally.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="split-layout" style="max-width: 950px; margin: 0 auto;">
+            
+            <!-- Left panel Slices editor -->
+            <div>
+                <div class="config-card">
+                    <h2>Manage Slices</h2>
+                    <div class="options-list" id="slices-container">
+                        <!-- Dynamic Input rows -->
+                    </div>
+                    
+                    <div style="display:flex; gap:0.5rem; margin-top:1rem;">
+                        <button type="button" onclick="addSliceRow()" style="padding:0.4rem 1.2rem; font-size:0.82rem; background:rgba(255,255,255,0.06); border:1px solid var(--border-light); color:#fff; border-radius:var(--radius-sm); cursor:pointer;">➕ Add Choice</button>
+                        <button type="button" onclick="loadPreset('yesno')" style="padding:0.4rem 1rem; font-size:0.82rem; background:none; border:none; color:var(--accent-secondary); cursor:pointer;">Preset: Yes / No</button>
+                        <button type="button" onclick="loadPreset('lunch')" style="padding:0.4rem 1rem; font-size:0.82rem; background:none; border:none; color:var(--accent-secondary); cursor:pointer;">Preset: Food</button>
+                    </div>
+                </div>
+
+                <div class="config-card">
+                    <h2>Options</h2>
+                    <label style="display:flex; gap:0.4rem; align-items:center; cursor:pointer; font-size:0.88rem; color:var(--text-secondary);">
+                        <input type="checkbox" id="enable-sound" checked> Enable Click Audio (Web Synthesizer)
+                    </label>
+                </div>
+            </div>
+
+            <!-- Right panel wheel display -->
+            <div class="wheel-container">
+                <div class="canvas-frame">
+                    <div class="needle"></div>
+                    <canvas id="wheel-canvas" width="360" height="360"></canvas>
+                </div>
+
+                <!-- Spin action button -->
+                <div style="margin-top: 1.5rem; text-align:center;">
+                    <button type="button" id="btn-spin" onclick="spinWheel()" style="padding:0.8rem 2.8rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:700; font-size:1.1rem; cursor:pointer;">☸️ Spin Wheel</button>
+                </div>
+
+                <!-- Result announcement banner -->
+                <div class="result-banner" id="result-frame">
+                    <div style="font-size:0.85rem; text-transform:uppercase; color:var(--text-secondary); font-weight:600;">The Wheel Decided:</div>
+                    <div id="result-val" style="font-size:1.8rem; font-weight:800; color:var(--success); margin-top:0.3rem;">Option</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 950px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Interactive Decision Spinner Wheel</h2>
+            <p>Stuck between choosing dinner menus, assigning lottery numbers, picking names out of a hat, or deciding whether to finalize a project task? Our online **Spin the Wheel** decision maker builds physics-based spins right in your local browser. Equipped with custom slices, HSL color palettes, and retro tick audio clicks, making decisions is clean and fully private.</p>
+
+            <h3>How Spin Slices Decelerate:</h3>
+            <p>Our wheel physics script mimics standard kinetic rotations:</p>
+            <ul>
+                <li><strong>Initial Velocity:</strong> Triggering a spin sets a high angular velocity (typically rotating multiple full loops rapidly).</li>
+                <li><strong>Kinetic Deceleration:</strong> A friction coefficient (e.g. <code>0.98</code> slowdown rate) multiplies the speed value inside a <code>requestAnimationFrame</code> frame queue, creating a smooth deceleration.</li>
+                <li><strong>Sound Synthesis:</strong> The page uses a local **Web Audio API** oscillator synth to click-click on boundary intersections (pin passes).</li>
+                <li><strong>Landing Calculations:</strong> When velocity zeroes out, the script maps the final rotation angle directly to the matching wedge boundary at the 12 o'clock needle marker.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/spin-the-wheel.html">Spin the Wheel</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        let choices = ["Yes", "No", "Maybe", "Ask Friend", "Spin Again"];
+        const colors = [
+            '#6366f1', '#10b981', '#f59e0b', '#ef4444', 
+            '#8b5cf6', '#ec4899', '#06b6d4', '#14b8a6'
+        ];
+
+        const canvas = document.getElementById('wheel-canvas');
+        const ctx = canvas.getContext('2d');
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const radius = centerX - 10;
+
+        let startAngle = 0;
+        let isSpinning = false;
+
+        // Audio synth setup
+        let audioCtx = null;
+        function playTickSound() {
+            if (!document.getElementById('enable-sound').checked) return;
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.04);
+            } catch(e) {}
+        }
+
+        function initSlices() {
+            const container = document.getElementById('slices-container');
+            container.innerHTML = '';
+            
+            choices.forEach((choice, idx) => {
+                const row = document.createElement('div');
+                row.className = 'option-item';
+                row.innerHTML = `
+                    <input type="text" value="${choice}" oninput="updateChoice(${idx}, this.value)">
+                    <button type="button" class="remove-btn" onclick="removeSlice(${idx})">✖</button>
+                `;
+                container.appendChild(row);
+            });
+            drawWheel();
+        }
+
+        function updateChoice(idx, val) {
+            choices[idx] = val;
+            drawWheel();
+        }
+
+        function addSliceRow() {
+            choices.push("Option " + (choices.length + 1));
+            initSlices();
+        }
+
+        function removeSlice(idx) {
+            if (choices.length <= 2) {
+                alert('You must have at least 2 choices!');
+                return;
+            }
+            choices.splice(idx, 1);
+            initSlices();
+        }
+
+        function loadPreset(type) {
+            if (type === 'yesno') choices = ["Yes", "No", "Maybe", "Ask Friend"];
+            else choices = ["Pizza 🍕", "Burgers 🍔", "Sushi 🍣", "Salad 🥗", "Tacos 🌮", "Pasta 🍝"];
+            initSlices();
+        }
+
+        // Draw Canvas Wheel
+        function drawWheel() {
+            const numSlices = choices.length;
+            const sliceAngle = (Math.PI * 2) / numSlices;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            choices.forEach((choice, i) => {
+                const angle = startAngle + i * sliceAngle;
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, angle, angle + sliceAngle);
+                ctx.fillStyle = colors[i % colors.length];
+                ctx.fill();
+                ctx.stroke();
+
+                // Draw Text
+                ctx.save();
+                ctx.translate(centerX, centerY);
+                ctx.rotate(angle + sliceAngle / 2);
+                ctx.textAlign = 'right';
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 15px sans-serif';
+                ctx.fillText(choice, radius - 20, 5);
+                ctx.restore();
+            });
+
+            // Draw center cap pin
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 20, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffffff';
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        // Spin physics deceleration animation
+        function spinWheel() {
+            if (isSpinning) return;
+
+            // Trigger audio context initialization on user gesture
+            if (!audioCtx) {
+                try {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                } catch(e) {}
+            }
+
+            document.getElementById('result-frame').style.display = 'none';
+            document.getElementById('btn-spin').disabled = true;
+            isSpinning = true;
+
+            let velocity = Math.random() * 0.15 + 0.25; // initial angular velocity
+            const friction = 0.985;
+            
+            const sliceAngle = (Math.PI * 2) / choices.length;
+            let lastTickAngle = startAngle;
+
+            function animate() {
+                startAngle += velocity;
+                velocity *= friction;
+
+                // Tick Sound calculation:
+                // Play tick sound when boundaries cross 12 o'clock needle (which is at -Math.PI / 2)
+                // Boundary crossing checks
+                const relativeAngle = startAngle + Math.PI / 2;
+                const lastRel = lastTickAngle + Math.PI / 2;
+                if (Math.floor(relativeAngle / sliceAngle) > Math.floor(lastRel / sliceAngle)) {
+                    playTickSound();
+                }
+                lastTickAngle = startAngle;
+
+                drawWheel();
+
+                if (velocity < 0.001) {
+                    isSpinning = false;
+                    document.getElementById('btn-spin').disabled = false;
+                    calculateLandingSlice();
+                } else {
+                    requestAnimationFrame(animate);
+                }
+            }
+
+            animate();
+        }
+
+        function calculateLandingSlice() {
+            const numSlices = choices.length;
+            const sliceAngle = (Math.PI * 2) / numSlices;
+
+            // Normalize startAngle to be within [0, 2*PI]
+            let normalized = (startAngle % (Math.PI * 2));
+            if (normalized < 0) normalized += Math.PI * 2;
+
+            // Needle points down from the top: this maps to 270 degrees (-Math.PI/2)
+            // Landing slice index calculation:
+            // Wedge matches = Math.floor( ((3 * Math.PI / 2) - normalized) / sliceAngle )
+            let landingIndex = Math.floor(((3 * Math.PI / 2) - normalized) / sliceAngle);
+            landingIndex = (landingIndex % numSlices);
+            if (landingIndex < 0) landingIndex += numSlices;
+
+            const decision = choices[landingIndex];
+            
+            // Show result
+            document.getElementById('result-val').innerText = decision;
+            document.getElementById('result-frame').style.display = 'block';
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            initSlices();
+        });
+    </script>
+</body>
+</html>

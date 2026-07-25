@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Eligibility Calculator Online — Calculate Maximum Borrowing Limit | RankifyTools</title>
+    <meta name="description" content="Calculate your home or personal loan eligibility online. Find out maximum borrowing capacity based on income, interest rate, and existing EMI obligations.">
+    <meta name="keywords" content="loan eligibility calculator online, maximum borrowing capacity calculator, bank home loan check, calculate eligible loan amount">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/loan-eligibility-calculator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/loan-eligibility-calculator.html">
+    <meta property="og:title" content="Loan Eligibility Calculator | RankifyTools">
+    <meta property="og:description" content="Calculate your maximum loan limit and affordable EMIs based on income ratios.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Loan Eligibility Calculator", "item": "https://free-online-seo-tools.vercel.app/tools/loan-eligibility-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Loan Eligibility Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/loan-eligibility-calculator.html",
+      "description": "Calculate maximum borrowing capacity based on monthly income, interest rates, tenure, and existing EMIs.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Loan Eligibility Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Loan Eligibility Calculator</h1>
+            <p>Determine your borrowing limit. Find out the maximum loan principal banks can approve based on your monthly income and current loan burdens.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Inputs -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">1. Borrowing Parameters</h2>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Net Monthly Income (₹)</label>
+                    <input type="number" id="monthlyIncome" value="75000" oninput="calculateEligibility()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Existing Monthly EMIs (₹)</label>
+                    <input type="number" id="existingEmi" value="10000" oninput="calculateEligibility()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Expected Interest Rate (% P.A.)</label>
+                    <input type="number" id="loanRate" value="9" step="0.1" oninput="calculateEligibility()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Tenure (Years)</label>
+                    <input type="number" id="loanTenure" value="20" oninput="calculateEligibility()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+            </div>
+
+            <!-- Right Panel: Results -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 380px;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">2. Eligibility Assessment</h2>
+
+                <div style="text-align:center; padding:1.2rem; background:rgba(99,102,241,0.1); border:1px solid var(--accent-primary); border-radius:var(--radius-md);">
+                    <div style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.3rem;">Maximum Eligible Loan Amount</div>
+                    <div id="maxLoanLimit" style="font-size:2rem; font-weight:bold; color:var(--text-primary);">₹0</div>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.95rem; margin-top:0.5rem;">
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Allowable FOIR Limit (50%)</span>
+                        <span id="foirEmi" style="font-weight:600;">₹0</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Maximum Affordable Monthly EMI</span>
+                        <span id="affordableEmi" style="font-weight:600; color:var(--accent-secondary);">₹0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>How Banks Check Loan Eligibility</h2>
+            <p>Lenders evaluate your borrowing capacity using the <strong>FOIR (Fixed Obligation to Income Ratio)</strong> parameter. Typically, banks restrict total debt commitments (existing EMIs + proposed EMI) to <strong>50%</strong> of net monthly income to prevent default risks.</p>
+
+            <h3>How to Improve Loan Eligibility:</h3>
+            <ul>
+                <li>Pay off smaller credit card balances or personal loans to reduce existing EMIs.</li>
+                <li>Opt for a longer tenure to decrease the monthly EMI burden, thereby raising eligible principal bounds.</li>
+                <li>Add a co-borrower (spouse/parent) to combine income streams.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/tools/loan-eligibility-calculator.html">Eligibility Calculator</a></li>
+                        <li><a href="/tools/emi-calculator.html">EMI Calculator</a></li>
+                        <li><a href="/tools/salary-calculator.html">Salary Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function calculateEligibility() {
+            const income = parseFloat(document.getElementById('monthlyIncome').value) || 0;
+            const existingEmi = parseFloat(document.getElementById('existingEmi').value) || 0;
+            const annualRate = parseFloat(document.getElementById('loanRate').value) || 0;
+            const years = parseInt(document.getElementById('loanTenure').value) || 1;
+
+            // FOIR = 50% of monthly income
+            const foirLimit = income * 0.50;
+            const affordableEmi = Math.max(0, foirLimit - existingEmi);
+
+            // Compute eligible principal based on affordable EMI
+            // EMI = P * r * (1+r)^n / ((1+r)^n - 1)
+            // P = EMI / [ r * (1+r)^n / ((1+r)^n - 1) ]
+            let eligiblePrincipal = 0;
+
+            if (affordableEmi > 0 && annualRate > 0) {
+                const r = (annualRate / 12) / 100;
+                const n = years * 12;
+                eligiblePrincipal = affordableEmi / ((r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+            }
+
+            document.getElementById('foirEmi').textContent = formatINR(foirLimit);
+            document.getElementById('affordableEmi').textContent = formatINR(affordableEmi);
+            document.getElementById('maxLoanLimit').textContent = formatINR(eligiblePrincipal);
+        }
+
+        function formatINR(num) {
+            return '₹' + num.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+        }
+
+        window.addEventListener('load', calculateEligibility);
+    </script>
+</body>
+</html>

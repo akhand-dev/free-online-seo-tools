@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Watermark to PDF Online — Secure PDF Watermarker | RankifyTools</title>
+    <meta name="description" content="Add text or image watermarks to PDF files online for free. Custom transparency, rotation, size, and tiled grids. 100% private client-side processing.">
+    <meta name="keywords" content="add watermark to pdf, pdf watermarker online, text watermark pdf, stamp image on pdf, draft draft confidential watermark">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/watermark-pdf.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/watermark-pdf.html">
+    <meta property="og:title" content="Add Watermark to PDF Online — Secure PDF Watermarker">
+    <meta property="og:description" content="Add secure stamps or text lines over your PDF sheets locally. Real-time preview and HSL/color selector.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <!-- load libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    
+    <style>
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 850px) {
+            .split-layout {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+        .settings-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .settings-card h2 {
+            font-size: 1.15rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 0.5rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .input-group label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .input-group select, .input-group input[type="text"], .input-group input[type="number"], .input-group input[type="color"] {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.6rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+            width: 100%;
+        }
+        .input-group input[type="color"] {
+            padding: 0.2rem;
+            cursor: pointer;
+            height: 38px;
+        }
+        .preview-pane {
+            position: sticky;
+            top: 80px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .canvas-container {
+            border: 1px solid var(--border-light);
+            background: #fff;
+            max-width: 100%;
+            height: auto;
+            position: relative;
+            box-shadow: var(--shadow-md);
+            margin-top: 1rem;
+        }
+        #preview-canvas {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">›</span>
+            <a href="../index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Watermark PDF</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Add Watermark to PDF</h1>
+            <p>Stamp customized text lines or image overlays onto your PDF sheets. Adjust styling, alignment, and view page previews locally.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="split-layout" style="max-width: 1050px; margin: 0 auto;">
+            
+            <!-- Left Config Inputs -->
+            <div>
+                <!-- Load file card -->
+                <div class="settings-card" style="border-left: 3px solid var(--accent-primary);">
+                    <h2>1. Select PDF Document</h2>
+                    <div style="border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 1.5rem 1rem; text-align: center; background: rgba(255,255,255,0.01); cursor: pointer;" onclick="document.getElementById('fileInput').click()">
+                        <span style="font-size: 2.2rem; display: block; margin-bottom: 0.4rem;">🏷️</span>
+                        <p id="upload-lbl" style="margin: 0; font-size: 0.9rem; font-weight:600;">Click to upload PDF</p>
+                        <input type="file" id="fileInput" accept="application/pdf" style="display: none;" onchange="handleFileSelect(this)">
+                    </div>
+                </div>
+
+                <!-- Settings Controls -->
+                <div class="settings-card" id="config-card" style="display: none;">
+                    <h2>2. Configure Watermark</h2>
+                    
+                    <div class="input-group" style="margin-bottom:1rem;">
+                        <label for="wm-type">Watermark Type</label>
+                        <select id="wm-type" onchange="toggleType()">
+                            <option value="text">Text Watermark</option>
+                            <option value="image">Image Watermark</option>
+                        </select>
+                    </div>
+
+                    <!-- Text Settings -->
+                    <div id="settings-text">
+                        <div class="input-group" style="margin-bottom:1rem;">
+                            <label for="wm-text">Watermark Text</label>
+                            <input type="text" id="wm-text" value="CONFIDENTIAL" oninput="updatePreview()">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="wm-font">Font Family</label>
+                                <select id="wm-font" onchange="updatePreview()">
+                                    <option value="Helvetica">Helvetica</option>
+                                    <option value="Helvetica-Bold" selected>Helvetica Bold</option>
+                                    <option value="Courier">Courier</option>
+                                    <option value="Times-Roman">Times New Roman</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="wm-color">Text Color</label>
+                                <input type="color" id="wm-color" value="#ff0000" onchange="updatePreview()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="wm-size">Font Size (px)</label>
+                                <input type="number" id="wm-size" min="10" max="150" value="48" oninput="updatePreview()">
+                            </div>
+                            <div class="input-group">
+                                <label for="wm-align">Positioning</label>
+                                <select id="wm-align" onchange="updatePreview()">
+                                    <option value="center">Centered</option>
+                                    <option value="tiled">Tiled Grid</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Settings -->
+                    <div id="settings-image" style="display: none;">
+                        <div class="input-group" style="margin-bottom: 1rem;">
+                            <label>Upload Image File</label>
+                            <input type="file" id="wm-img-input" accept="image/png, image/jpeg" onchange="handleImageSelect(this)" style="background:var(--bg-dark); color:#fff; border:1px solid var(--border-light); padding:0.4rem;">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="wm-img-scale">Image Scale</label>
+                                <input type="number" id="wm-img-scale" min="10" max="500" value="100" oninput="updatePreview()" style="width:100%;">
+                            </div>
+                            <div class="input-group">
+                                <label for="wm-img-align">Positioning</label>
+                                <select id="wm-img-align" onchange="updatePreview()">
+                                    <option value="center">Centered</option>
+                                    <option value="top-left">Top-Left</option>
+                                    <option value="top-right">Top-Right</option>
+                                    <option value="bottom-left">Bottom-Left</option>
+                                    <option value="bottom-right">Bottom-Right</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shared Settings -->
+                    <div class="form-row" style="margin-top: 1rem;">
+                        <div class="input-group">
+                            <label for="wm-opacity">Opacity: <span id="opacity-val">0.3</span></label>
+                            <input type="range" id="wm-opacity" min="0" max="1" step="0.05" value="0.3" oninput="document.getElementById('opacity-val').innerText=this.value; updatePreview();" style="padding:0; width:100%;">
+                        </div>
+                        <div class="input-group">
+                            <label for="wm-rot">Rotation (Degrees)</label>
+                            <input type="number" id="wm-rot" min="-180" max="180" value="45" oninput="updatePreview()">
+                        </div>
+                    </div>
+
+                    <!-- Generate action -->
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <button type="button" id="btn-watermark" onclick="applyWatermark()" style="padding:0.75rem 2.2rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:700; cursor:pointer;">Apply Watermark & Download</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Preview Panel -->
+            <div>
+                <div class="preview-pane">
+                    <h3 style="font-size:1.05rem; color:var(--text-primary); border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; width:100%;">Page Preview</h3>
+                    <div id="preview-container" class="canvas-container" style="display: none;">
+                        <canvas id="preview-canvas"></canvas>
+                    </div>
+                    <div id="preview-placeholder" style="color:var(--text-secondary); margin: 3rem 0; font-size:0.9rem;">Upload a PDF to view page previews</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 1050px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Add Watermarks to PDF Sheets Online</h2>
+            <p>Stamping labels (like "COPY", "DRAFT", or corporate trademarks) over documents is standard practice to restrict usage, mark versions, or indicate drafts. Our free online **Add Watermark to PDF** tool overlays styling elements on your sheets locally. Operating purely in-browser, it protects sensitive files from server-side exposure.</p>
+
+            <h3>How to Watermark Your PDF:</h3>
+            <ul>
+                <li>Upload the document. The page preview panel renders the cover page automatically.</li>
+                <li>Choose between **Text** and **Image** overlays.</li>
+                <li>Customize text formatting: type terms, choose Helvetica or Times New Roman fonts, choose colors, set rotations (e.g. 45 degrees), and set opacity levels (e.g. 30% to keep background text readable).</li>
+                <li>Use **Tiled Grid** options to repeat text arrays over the entire page body, preventing simple cropping.</li>
+                <li>For images, upload PNG or JPEG stamps, scale them, and place them centered or in margins.</li>
+                <li>Click **Apply Watermark** to run the local compiler and download the stamped document.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/watermark-pdf.html">Watermark PDF</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+        let pdfFileBytes = null;
+        let pdfFileName = '';
+        let pageOneImage = null; // Canvas render of page 1 (without watermark overlay)
+        let previewCanvasWidth = 0;
+        let previewCanvasHeight = 0;
+
+        let watermarkImageBytes = null;
+        let watermarkImageName = '';
+        let watermarkImageFormat = ''; // 'png' or 'jpg'
+
+        function toggleType() {
+            const type = document.getElementById('wm-type').value;
+            document.getElementById('settings-text').style.display = type === 'text' ? 'block' : 'none';
+            document.getElementById('settings-image').style.display = type === 'image' ? 'block' : 'none';
+            updatePreview();
+        }
+
+        async function handleFileSelect(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            pdfFileName = file.name;
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                pdfFileBytes = new Uint8Array(e.target.result);
+                document.getElementById('upload-lbl').innerText = 'Loaded: ' + file.name;
+                document.getElementById('config-card').style.display = 'block';
+                document.getElementById('preview-placeholder').style.display = 'none';
+                document.getElementById('preview-container').style.display = 'block';
+
+                await renderPageOne();
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function handleImageSelect(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            watermarkImageName = file.name;
+            watermarkImageFormat = file.type.includes('png') ? 'png' : 'jpg';
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                watermarkImageBytes = new Uint8Array(e.target.result);
+                updatePreview();
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        // Renders page 1 to an off-screen image for the preview panel
+        async function renderPageOne() {
+            const pdf = await pdfjsLib.getDocument({ data: pdfFileBytes }).promise;
+            const page = await pdf.getPage(1);
+            
+            // Render at 1.5 scale
+            const viewport = page.getViewport({ scale: 1.5 });
+            const canvas = document.createElement('canvas');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            const ctx = canvas.getContext('2d');
+            
+            await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+            pageOneImage = canvas;
+            previewCanvasWidth = viewport.width;
+            previewCanvasHeight = viewport.height;
+            
+            updatePreview();
+        }
+
+        function updatePreview() {
+            if (!pageOneImage) return;
+
+            const canvas = document.getElementById('preview-canvas');
+            canvas.width = previewCanvasWidth;
+            canvas.height = previewCanvasHeight;
+            const ctx = canvas.getContext('2d');
+
+            // Draw original page
+            ctx.drawImage(pageOneImage, 0, 0);
+
+            // Fetch settings
+            const type = document.getElementById('wm-type').value;
+            const opacity = parseFloat(document.getElementById('wm-opacity').value);
+            const rotation = parseFloat(document.getElementById('wm-rot').value) * Math.PI / 180;
+
+            ctx.save();
+            ctx.globalAlpha = opacity;
+
+            if (type === 'text') {
+                const text = document.getElementById('wm-text').value.trim();
+                const font = document.getElementById('wm-font').value;
+                const color = document.getElementById('wm-color').value;
+                const size = parseInt(document.getElementById('wm-size').value) * 1.5; // Scale up size for canvas scale
+                const align = document.getElementById('wm-align').value;
+
+                ctx.font = `${font.includes('Bold') ? 'bold' : ''} ${size}px sans-serif`;
+                ctx.fillStyle = color;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                if (align === 'center') {
+                    ctx.translate(previewCanvasWidth / 2, previewCanvasHeight / 2);
+                    ctx.rotate(rotation);
+                    ctx.fillText(text, 0, 0);
+                } else {
+                    // Tiled grid
+                    const stepX = 180;
+                    const stepY = 150;
+                    for (let x = 50; x < previewCanvasWidth + 100; x += stepX) {
+                        for (let y = 50; y < previewCanvasHeight + 100; y += stepY) {
+                            ctx.save();
+                            ctx.translate(x, y);
+                            ctx.rotate(rotation);
+                            ctx.fillText(text, 0, 0);
+                            ctx.restore();
+                        }
+                    }
+                }
+            } else {
+                // Image
+                if (watermarkImageBytes) {
+                    const imgScale = parseFloat(document.getElementById('wm-img-scale').value) / 100;
+                    const align = document.getElementById('wm-img-align').value;
+
+                    // render embedded image via data url
+                    const img = new Image();
+                    const blob = new Blob([watermarkImageBytes], { type: watermarkImageFormat === 'png' ? 'image/png' : 'image/jpeg' });
+                    img.src = URL.createObjectURL(blob);
+                    
+                    img.onload = function() {
+                        const w = img.width * imgScale;
+                        const h = img.height * imgScale;
+                        
+                        let x = 0;
+                        let y = 0;
+
+                        if (align === 'center') {
+                            x = previewCanvasWidth / 2;
+                            y = previewCanvasHeight / 2;
+                            ctx.translate(x, y);
+                            ctx.rotate(rotation);
+                            ctx.drawImage(img, -w/2, -h/2, w, h);
+                        } else {
+                            const padding = 20;
+                            if (align === 'top-left') {
+                                x = padding + w/2;
+                                y = padding + h/2;
+                            } else if (align === 'top-right') {
+                                x = previewCanvasWidth - w/2 - padding;
+                                y = padding + h/2;
+                            } else if (align === 'bottom-left') {
+                                x = padding + w/2;
+                                y = previewCanvasHeight - h/2 - padding;
+                            } else if (align === 'bottom-right') {
+                                x = previewCanvasWidth - w/2 - padding;
+                                y = previewCanvasHeight - h/2 - padding;
+                            }
+                            ctx.translate(x, y);
+                            ctx.rotate(rotation);
+                            ctx.drawImage(img, -w/2, -h/2, w, h);
+                        }
+                        ctx.restore();
+                    };
+                    return; // Prevent restore inside parent frame since image loading runs asynchronously
+                }
+            }
+            ctx.restore();
+        }
+
+        async function applyWatermark() {
+            if (!pdfFileBytes) return;
+
+            const btn = document.getElementById('btn-watermark');
+            const originalText = btn.innerText;
+            btn.disabled = true;
+            btn.innerText = 'Applying Stamp...';
+
+            try {
+                const pdfDoc = await PDFLib.PDFDocument.load(pdfFileBytes);
+                const pages = pdfDoc.getPages();
+
+                const type = document.getElementById('wm-type').value;
+                const opacity = parseFloat(document.getElementById('wm-opacity').value);
+                const rotation = parseInt(document.getElementById('wm-rot').value);
+
+                if (type === 'text') {
+                    const text = document.getElementById('wm-text').value.trim();
+                    const fontName = document.getElementById('wm-font').value;
+                    const colorHex = document.getElementById('wm-color').value;
+                    const fontSize = parseInt(document.getElementById('wm-size').value);
+                    const align = document.getElementById('wm-align').value;
+
+                    // Load standard font
+                    const font = await pdfDoc.embedFont(PDFLib.StandardFonts[fontName.replace('-', '')] || PDFLib.StandardFonts.HelveticaBold);
+                    const rgbColor = hexToRgbColor(colorHex);
+
+                    pages.forEach(page => {
+                        const { width, height } = page.getSize();
+                        
+                        if (align === 'center') {
+                            const textWidth = font.widthOfTextAtSize(text, fontSize);
+                            const textHeight = fontSize; // Approximate height
+
+                            page.drawText(text, {
+                                x: width / 2,
+                                y: height / 2,
+                                size: fontSize,
+                                font: font,
+                                color: rgbColor,
+                                opacity: opacity,
+                                rotate: PDFLib.degrees(rotation),
+                                xAnchor: 'center',
+                                yAnchor: 'middle'
+                            });
+                        } else {
+                            // Tiled pattern
+                            const stepX = 200;
+                            const stepY = 160;
+                            for (let x = 50; x < width + 100; x += stepX) {
+                                for (let y = 50; y < height + 100; y += stepY) {
+                                    page.drawText(text, {
+                                        x: x,
+                                        y: y,
+                                        size: fontSize,
+                                        font: font,
+                                        color: rgbColor,
+                                        opacity: opacity,
+                                        rotate: PDFLib.degrees(rotation),
+                                        xAnchor: 'center',
+                                        yAnchor: 'middle'
+                                    });
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    // Image
+                    if (!watermarkImageBytes) {
+                        alert('Please upload a PNG or JPEG watermark image.');
+                        btn.disabled = false;
+                        btn.innerText = originalText;
+                        return;
+                    }
+
+                    const imgScale = parseFloat(document.getElementById('wm-img-scale').value) / 100;
+                    const align = document.getElementById('wm-img-align').value;
+
+                    let embeddedImg;
+                    if (watermarkImageFormat === 'png') {
+                        embeddedImg = await pdfDoc.embedPng(watermarkImageBytes);
+                    } else {
+                        embeddedImg = await pdfDoc.embedJpg(watermarkImageBytes);
+                    }
+
+                    const w = embeddedImg.width * imgScale;
+                    const h = embeddedImg.height * imgScale;
+
+                    pages.forEach(page => {
+                        const { width, height } = page.getSize();
+                        let x = 0;
+                        let y = 0;
+
+                        if (align === 'center') {
+                            x = width / 2;
+                            y = height / 2;
+                            
+                            page.drawImage(embeddedImg, {
+                                x: x,
+                                y: y,
+                                width: w,
+                                height: h,
+                                opacity: opacity,
+                                rotate: PDFLib.degrees(rotation),
+                                xAnchor: 'center',
+                                yAnchor: 'middle'
+                            });
+                        } else {
+                            const padding = 20;
+                            if (align === 'top-left') {
+                                x = padding + w/2;
+                                y = height - h/2 - padding;
+                            } else if (align === 'top-right') {
+                                x = width - w/2 - padding;
+                                y = height - h/2 - padding;
+                            } else if (align === 'bottom-left') {
+                                x = padding + w/2;
+                                y = padding + h/2;
+                            } else if (align === 'bottom-right') {
+                                x = width - w/2 - padding;
+                                y = padding + h/2;
+                            }
+
+                            page.drawImage(embeddedImg, {
+                                x: x,
+                                y: y,
+                                width: w,
+                                height: h,
+                                opacity: opacity,
+                                rotate: PDFLib.degrees(rotation),
+                                xAnchor: 'center',
+                                yAnchor: 'middle'
+                            });
+                        }
+                    });
+                }
+
+                const outBytes = await pdfDoc.save({ useObjectStreams: true });
+                const blob = new Blob([outBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = pdfFileName.replace(/\.pdf$/i, '') + '-watermarked.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } catch (err) {
+                alert('Error adding watermark: ' + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = originalText;
+            }
+        }
+
+        function hexToRgbColor(hex) {
+            hex = hex.replace(/^#/, '');
+            const r = parseInt(hex.substring(0, 2), 16) / 255;
+            const g = parseInt(hex.substring(2, 4), 16) / 255;
+            const b = parseInt(hex.substring(4, 6), 16) / 255;
+            return PDFLib.rgb(r, g, b);
+        }
+    </script>
+</body>
+</html>

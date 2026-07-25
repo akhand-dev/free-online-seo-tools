@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge / Split PDF Online — Combine & Separate PDF Pages | RankifyTools</title>
+    <meta name="description" content="Merge multiple PDF files into one, or split a PDF into separate pages or ranges online. 100% free and private browser-based tool.">
+    <meta name="keywords" content="merge pdf online, split pdf, combine pdf files, extract pdf pages, pdf page separator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/merge-split-pdf.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/merge-split-pdf.html">
+    <meta property="og:title" content="Merge / Split PDF Online — Combine & Separate PDF Pages">
+    <meta property="og:description" content="Merge and split PDF files offline in your web browser. Free tool with complete data security.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <!-- load libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <style>
+        .tabs-header {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 2px solid var(--border-light);
+            margin-bottom: 1.5rem;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+        .tab-btn.active {
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--accent-primary);
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .file-list {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .file-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius-md);
+        }
+        .file-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .file-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
+        .file-size {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .file-controls {
+            display: flex;
+            gap: 0.4rem;
+        }
+        .control-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+        .control-btn:hover {
+            background: var(--accent-primary);
+            color: #fff;
+        }
+        .split-options {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-light);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+        }
+        .input-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .input-item label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .input-item select, .input-item input[type="text"] {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.6rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">›</span>
+            <a href="../index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Merge & Split PDF</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Merge / Split PDF Pages</h1>
+            <p>Combine multiple PDF documents into a single file or extract pages and ranges from a single PDF locally.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="tool-interface" style="max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem;">
+            
+            <!-- Tabs Navigation -->
+            <div class="tabs-header">
+                <button type="button" id="tab-merge-btn" class="tab-btn active" onclick="switchTab('merge')">➕ Merge PDFs</button>
+                <button type="button" id="tab-split-btn" class="tab-btn" onclick="switchTab('split')">✂️ Split PDF</button>
+            </div>
+
+            <!-- Tab 1: Merge PDFs -->
+            <div id="pane-merge" class="tab-pane active">
+                <div style="border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 2rem 1rem; text-align: center; background: rgba(255,255,255,0.02); cursor: pointer;" onclick="document.getElementById('mergeFiles').click()">
+                    <span style="font-size: 2.8rem; display: block; margin-bottom: 0.5rem;">📄📄</span>
+                    <p style="margin: 0 0 0.5rem 0; font-weight: 600;">Select Multiple PDF Files to Merge</p>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Drag files here or click to browse</p>
+                    <input type="file" id="mergeFiles" multiple accept="application/pdf" style="display: none;" onchange="handleMergeSelect(this)">
+                </div>
+
+                <div id="merge-file-list" class="file-list">
+                    <!-- Dynamic File Cards -->
+                </div>
+
+                <div style="text-align: center; margin-top: 1.8rem;">
+                    <button type="button" id="btn-merge-action" onclick="processMerge()" style="padding:0.75rem 2.2rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:700; cursor:pointer;" disabled>Merge PDFs</button>
+                </div>
+            </div>
+
+            <!-- Tab 2: Split PDF -->
+            <div id="pane-split" class="tab-pane">
+                <div style="border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 2rem 1rem; text-align: center; background: rgba(255,255,255,0.02); cursor: pointer;" onclick="document.getElementById('splitFile').click()">
+                    <span style="font-size: 2.8rem; display: block; margin-bottom: 0.5rem;">✂️</span>
+                    <p id="split-upload-lbl" style="margin: 0 0 0.5rem 0; font-weight: 600;">Upload Single PDF to Split</p>
+                    <p id="split-file-name" style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Click to browse local folders</p>
+                    <input type="file" id="splitFile" accept="application/pdf" style="display: none;" onchange="handleSplitSelect(this)">
+                </div>
+
+                <!-- Split options -->
+                <div class="split-options" id="split-controls" style="display: none;">
+                    <div class="input-item">
+                        <label for="split-mode">Split Method</label>
+                        <select id="split-mode" onchange="toggleSplitMethod()">
+                            <option value="range">Extract Page Range</option>
+                            <option value="all">Extract All Pages Individually</option>
+                        </select>
+                    </div>
+                    <div class="input-item" id="range-input-wrapper">
+                        <label for="split-ranges">Page Ranges (e.g. 1-3, 5, 8)</label>
+                        <input type="text" id="split-ranges" value="1" placeholder="e.g. 1-3, 5">
+                        <span id="page-count-hint" style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.2rem;">Total Pages: 0</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 1.8rem;">
+                    <button type="button" id="btn-split-action" onclick="processSplit()" style="padding:0.75rem 2.2rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:700; cursor:pointer;" disabled>Split PDF</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 800px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Combine and Extract PDF Files Offline</h2>
+            <p>Managing large batches of PDF pages shouldn't require installing expensive desk apps or uploading document data to untrustworthy remote server pipelines. Our online **Merge & Split PDF** utility executes all page compilation operations inside your browser tab. Easily combine multiple draft versions into a finalized presentation, or separate large scanning batches into distinct, manageable files safely.</p>
+
+            <h3>How to Merge PDF Files:</h3>
+            <ul>
+                <li>Select the **Merge PDFs** tab.</li>
+                <li>Browse or drag-and-drop multiple PDF files.</li>
+                <li>Reorder documents by clicking the Move Up/Down controls to align them in sequence.</li>
+                <li>Click **Merge PDFs** to instantly download the unified document.</li>
+            </ul>
+
+            <h3>How to Split PDF Pages:</h3>
+            <ul>
+                <li>Select the **Split PDF** tab.</li>
+                <li>Upload the target document. The system counts the pages automatically.</li>
+                <li>Choose between extracting a specific range (e.g. <code>2-5, 8</code> to bundle pages 2, 3, 4, 5, and 8 together) or extracting all pages into separate individual PDFs.</li>
+                <li>If separating all pages, the tool packs them into a single local **ZIP archive** for clean exports.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/merge-split-pdf.html">Merge/Split PDF</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        // --- Tab switching ---
+        function switchTab(mode) {
+            document.getElementById('tab-merge-btn').classList.toggle('active', mode === 'merge');
+            document.getElementById('tab-split-btn').classList.toggle('active', mode === 'split');
+            document.getElementById('pane-merge').classList.toggle('active', mode === 'merge');
+            document.getElementById('pane-split').classList.toggle('active', mode === 'split');
+        }
+
+        // --- Merge Code ---
+        let mergeFilesList = []; // array of { name: str, bytes: Uint8Array, size: str }
+
+        function handleMergeSelect(input) {
+            const files = Array.from(input.files);
+            let loadedCount = 0;
+            
+            files.forEach(f => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    mergeFilesList.push({
+                        name: f.name,
+                        bytes: new Uint8Array(e.target.result),
+                        size: formatSize(f.size)
+                    });
+                    loadedCount++;
+                    if (loadedCount === files.length) {
+                        renderMergeFiles();
+                        document.getElementById('btn-merge-action').disabled = mergeFilesList.length < 2;
+                    }
+                };
+                reader.readAsArrayBuffer(f);
+            });
+        }
+
+        function formatSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            const kb = bytes / 1024;
+            if (kb < 1024) return kb.toFixed(1) + ' KB';
+            const mb = kb / 1024;
+            return mb.toFixed(2) + ' MB';
+        }
+
+        function renderMergeFiles() {
+            const container = document.getElementById('merge-file-list');
+            container.innerHTML = '';
+            
+            mergeFilesList.forEach((file, idx) => {
+                const card = document.createElement('div');
+                card.className = 'file-card';
+                card.innerHTML = `
+                    <div class="file-info">
+                        <span class="file-name">${idx + 1}. ${file.name}</span>
+                        <span class="file-size">${file.size}</span>
+                    </div>
+                    <div class="file-controls">
+                        <button type="button" class="control-btn" onclick="moveFile(${idx}, -1)" ${idx === 0 ? 'disabled' : ''}>▲ Up</button>
+                        <button type="button" class="control-btn" onclick="moveFile(${idx}, 1)" ${idx === mergeFilesList.length - 1 ? 'disabled' : ''}>▼ Down</button>
+                        <button type="button" class="control-btn" onclick="removeFile(${idx})" style="background:var(--error); border-color:var(--error); color:#fff;">Remove</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function moveFile(index, direction) {
+            const newIndex = index + direction;
+            if (newIndex < 0 || newIndex >= mergeFilesList.length) return;
+            const temp = mergeFilesList[index];
+            mergeFilesList[index] = mergeFilesList[newIndex];
+            mergeFilesList[newIndex] = temp;
+            renderMergeFiles();
+        }
+
+        function removeFile(index) {
+            mergeFilesList.splice(index, 1);
+            renderMergeFiles();
+            document.getElementById('btn-merge-action').disabled = mergeFilesList.length < 2;
+        }
+
+        async function processMerge() {
+            if (mergeFilesList.length < 2) return;
+            
+            const btn = document.getElementById('btn-merge-action');
+            const originalText = btn.innerText;
+            btn.disabled = true;
+            btn.innerText = 'Merging...';
+
+            try {
+                const mergedPdf = await PDFLib.PDFDocument.create();
+                for (const file of mergeFilesList) {
+                    const doc = await PDFLib.PDFDocument.load(file.bytes);
+                    const copiedPages = await mergedPdf.copyPages(doc, doc.getPageIndices());
+                    copiedPages.forEach(p => mergedPdf.addPage(p));
+                }
+                const mergedBytes = await mergedPdf.save({ useObjectStreams: true });
+                
+                const blob = new Blob([mergedBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'merged-document.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } catch (err) {
+                alert('Error during merge: ' + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = originalText;
+            }
+        }
+
+        // --- Split Code ---
+        let splitFileBytes = null;
+        let splitFileName = '';
+        let splitFilePagesCount = 0;
+
+        function toggleSplitMethod() {
+            const val = document.getElementById('split-mode').value;
+            document.getElementById('range-input-wrapper').style.display = val === 'range' ? 'flex' : 'none';
+        }
+
+        async function handleSplitSelect(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            splitFileName = file.name;
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                splitFileBytes = new Uint8Array(e.target.result);
+                try {
+                    const doc = await PDFLib.PDFDocument.load(splitFileBytes);
+                    splitFilePagesCount = doc.getPageCount();
+                    
+                    document.getElementById('split-upload-lbl').innerText = 'Document Loaded:';
+                    document.getElementById('split-file-name').innerText = file.name + ' (' + splitFilePagesCount + ' pages)';
+                    document.getElementById('page-count-hint').innerText = 'Total Pages: ' + splitFilePagesCount;
+                    document.getElementById('split-controls').style.display = 'grid';
+                    document.getElementById('btn-split-action').disabled = false;
+                } catch (err) {
+                    alert('Invalid PDF file: ' + err.message);
+                }
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function parseRangeString(rangeStr, maxPages) {
+            const pages = [];
+            const parts = rangeStr.split(',');
+            for (const p of parts) {
+                if (p.includes('-')) {
+                    const [s, e] = p.split('-');
+                    const start = parseInt(s);
+                    const end = parseInt(e);
+                    if (isNaN(start) || isNaN(end) || start < 1 || end > maxPages || start > end) {
+                        throw new Error('Invalid range sequence: ' + p);
+                    }
+                    for (let i = start; i <= end; i++) {
+                        pages.push(i - 1); // 0-indexed indices for pdf-lib
+                    }
+                } else {
+                    const val = parseInt(p);
+                    if (isNaN(val) || val < 1 || val > maxPages) {
+                        throw new Error('Invalid page index: ' + p);
+                    }
+                    pages.push(val - 1);
+                }
+            }
+            return pages;
+        }
+
+        async function processSplit() {
+            if (!splitFileBytes) return;
+            
+            const btn = document.getElementById('btn-split-action');
+            const originalText = btn.innerText;
+            btn.disabled = true;
+            btn.innerText = 'Splitting...';
+
+            const method = document.getElementById('split-mode').value;
+
+            try {
+                const srcDoc = await PDFLib.PDFDocument.load(splitFileBytes);
+                
+                if (method === 'range') {
+                    const rangeStr = document.getElementById('split-ranges').value.trim();
+                    if (!rangeStr) {
+                        alert('Please input a valid page range.');
+                        return;
+                    }
+                    const indices = parseRangeString(rangeStr, splitFilePagesCount);
+                    
+                    const destDoc = await PDFLib.PDFDocument.create();
+                    const copiedPages = await destDoc.copyPages(srcDoc, indices);
+                    copiedPages.forEach(p => destDoc.addPage(p));
+                    
+                    const outBytes = await destDoc.save({ useObjectStreams: true });
+                    const blob = new Blob([outBytes], { type: 'application/pdf' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = splitFileName.replace(/\.pdf$/i, '') + '-extracted.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                } else {
+                    // Extract all pages separately as ZIP
+                    const zip = new JSZip();
+                    
+                    for (let i = 0; i < splitFilePagesCount; i++) {
+                        const pageDoc = await PDFLib.PDFDocument.create();
+                        const [copiedPage] = await pageDoc.copyPages(srcDoc, [i]);
+                        pageDoc.addPage(copiedPage);
+                        const pageBytes = await pageDoc.save({ useObjectStreams: true });
+                        zip.file(`page-${i + 1}.pdf`, pageBytes);
+                    }
+                    
+                    const zipBlob = await zip.generateAsync({ type: 'blob' });
+                    const url = URL.createObjectURL(zipBlob);
+                    
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = splitFileName.replace(/\.pdf$/i, '') + '-split-pages.zip';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }
+            } catch (err) {
+                alert('Error during split: ' + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = originalText;
+            }
+        }
+    </script>
+</body>
+</html>

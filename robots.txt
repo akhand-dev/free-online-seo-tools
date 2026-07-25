@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /tools/
-Allow: /blog/
-
-Disallow: /admin/
-
-Sitemap: https://free-online-seo-tools.vercel.app/sitemap.xml

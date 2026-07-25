@@ -1,5 +1,5 @@
 /**
- * ToolNest — Global JavaScript v2.0
+ * RankifyTools — Global JavaScript v2.0
  * Mobile menu, toasts, scroll animations, back-to-top, cookie consent, FAQ accordion
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -154,6 +154,28 @@ function initAdSense(publisherId) {
 }
 
 const toolsList = [
+    { title: "SIP Calculator", url: "/tools/sip-calculator.html" },
+    { title: "Income Tax Calculator India", url: "/tools/income-tax-calculator.html" },
+    { title: "Salary In-Hand Calculator", url: "/tools/salary-calculator.html" },
+    { title: "Loan Eligibility Calculator", url: "/tools/loan-eligibility-calculator.html" },
+    { title: "BMI Calculator", url: "/tools/bmi-calculator.html" },
+    { title: "Background Remover (transparent PNG)", url: "/tools/background-remover.html" },
+    { title: "Image to Text OCR Scanner", url: "/tools/image-to-text.html" },
+    { title: "Screenshot to PDF Converter", url: "/tools/screenshot-to-pdf.html" },
+    { title: "Bulk Image Compressor (ZIP)", url: "/tools/bulk-image-compressor.html" },
+    { title: "Meme Generator Maker", url: "/tools/meme-generator.html" },
+    { title: "Essay Expander (Word count expander)", url: "/tools/essay-expander.html" },
+    { title: "Age Calculator", url: "/tools/age-calculator.html" },
+    { title: "EMI Calculator", url: "/tools/emi-calculator.html" },
+    { title: "Percentage Calculator", url: "/tools/percentage-calculator.html" },
+    { title: "GST Calculator India & Gold", url: "/tools/gst-calculator.html" },
+    { title: "Time Zone Converter", url: "/tools/timezone-converter.html" },
+    { title: "Discount Calculator", url: "/tools/discount-calculator.html" },
+    { title: "Image Compressor (KB reducer)", url: "/tools/image-compressor.html" },
+    { title: "Image to PDF Converter", url: "/tools/image-to-pdf.html" },
+    { title: "PDF to Word Converter", url: "/tools/pdf-to-word.html" },
+    { title: "XML Sitemap Generator", url: "/tools/xml-sitemap-generator.html" },
+    { title: "Robots.txt Generator", url: "/tools/robots-txt-generator.html" },
     { title: "Word & Character Counter", url: "/tools/word-counter.html" },
     { title: "Case Converter", url: "/tools/case-converter.html" },
     { title: "Lorem Ipsum Generator", url: "/tools/lorem-ipsum-generator.html" },
@@ -168,14 +190,36 @@ const toolsList = [
     { title: "Password Generator", url: "/tools/password-generator.html" },
     { title: "Hash Generator", url: "/tools/hash-generator.html" },
     { title: "JWT Decoder", url: "/tools/jwt-decoder.html" },
-    { title: "QR Code Generator", url: "/tools/qr-code-generator.html" },
+    { title: "QR Code Generator & Scanner", url: "/tools/qr-code-generator.html" },
     { title: "Color Picker & Converter", url: "/tools/color-picker.html" },
     { title: "Image to Base64", url: "/tools/image-to-base64.html" },
     { title: "Image Resizer & Compressor", url: "/tools/image-resizer.html" },
     { title: "File Format Converter", url: "/tools/file-converter.html" },
     { title: "CSS Gradient Generator", url: "/tools/css-gradient-generator.html" },
     { title: "UTM Link Builder", url: "/tools/utm-link-builder.html" },
-    { title: "SEO Meta Tag Generator", url: "/tools/meta-tag-generator.html" }
+    { title: "SEO Meta Tag Generator", url: "/tools/meta-tag-generator.html" },
+    { title: "SQL Formatter (SQL Prettifier)", url: "/tools/sql-formatter.html" },
+    { title: "Color Palette Generator (Random Schemes)", url: "/tools/color-palette-generator.html" },
+    { title: "HEX ↔ RGB Converter (Color Code Converter)", url: "/tools/hex-rgb-converter.html" },
+    { title: "UUID Generator (GUID Creator)", url: "/tools/uuid-generator.html" },
+    { title: "Cron Job Generator (Cron Schedule Builder)", url: "/tools/cron-job-generator.html" },
+    { title: "PDF Compressor (Reduce PDF size)", url: "/tools/pdf-compressor.html" },
+    { title: "Merge / Split PDF (Combine & separate pages)", url: "/tools/merge-split-pdf.html" },
+    { title: "Add Watermark to PDF (Stamp text or images)", url: "/tools/watermark-pdf.html" },
+    { title: "eSign PDF (Sign documents online)", url: "/tools/esign-pdf.html" },
+    { title: "Fake Chat Generator (WhatsApp & Instagram style mocks)", url: "/tools/fake-chat-generator.html" },
+    { title: "Typing Speed Test (WPM check & scoreboard)", url: "/tools/typing-speed-test.html" },
+    { title: "Love Calculator (Name compatibility percentages)", url: "/tools/love-calculator.html" },
+    { title: "Random Name Generator (Baby & Character name combinations)", url: "/tools/random-name-generator.html" },
+    { title: "Spin the Wheel (Decision maker wheel)", url: "/tools/spin-the-wheel.html" },
+    { title: "YouTube Thumbnail Downloader (Save cover images HD)", url: "/tools/youtube-thumbnail-downloader.html" },
+    { title: "Instagram Downloader (Save photos, videos, & reels)", url: "/tools/instagram-downloader.html" },
+    { title: "Twitter Video Downloader (Save X.com videos MP4)", url: "/tools/twitter-downloader.html" },
+    { title: "Profile Picture Downloader (Save Instagram & TikTok PFPs)", url: "/tools/profile-picture-downloader.html" },
+    { title: "Online Notepad (Auto-save in browser)", url: "/tools/online-notepad.html" },
+    { title: "Code Editor (Live HTML/CSS/JS preview sandbox)", url: "/tools/code-editor.html" },
+    { title: "Resume Builder (Build and print CV PDFs)", url: "/tools/resume-builder.html" },
+    { title: "Invoice Generator (Generate and print billing invoices)", url: "/tools/invoice-generator.html" }
 ];
 
 function initGlobalSearch() {
