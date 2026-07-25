@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Hashtag Generator Online — Best Instagram Hashtags | RankifyTools</title>
+    <meta name="description" content="Generate the best trending hashtags for Instagram online for free. Boost post reach, engagement, and impressions by discovering popular and niche tags instantly.">
+    <meta name="keywords" content="best hashtags generator instagram, instagram hashtag generator online, trending instagram tags, free ig hashtag finder">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/instagram-hashtag-generator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/instagram-hashtag-generator">
+    <meta property="og:title" content="Instagram Hashtag Generator Online | RankifyTools">
+    <meta property="og:description" content="Get high-engagement hashtags for your posts, reels, and stories in one click.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .hashtag-card { max-width: 750px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .tag-pill { display: inline-flex; align-items: center; background: rgba(99, 102, 241, 0.15); border: 1px solid var(--accent-primary); color: #fff; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.88rem; margin: 0.25rem; cursor: pointer; transition: all 0.2s; }
+        .tag-pill:hover { background: var(--accent-primary); }
+        .tag-group { background: var(--bg-dark); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.2rem; margin-top: 1rem; }
+        .tag-group h3 { font-size: 0.95rem; color: var(--accent-secondary); margin-bottom: 0.8rem; text-transform: uppercase; margin-top: 0; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Hashtag Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Instagram Hashtag Generator</h1>
+            <p>Generate highly engaging, relevant Instagram hashtags based on your niche topics. Boost your reels and posts today.</p>
+        </div>
+
+        <div class="hashtag-card">
+            <div style="display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.5rem;">
+                <label for="niche-input" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Niche or Topic keyword</label>
+                <div style="display:flex; gap:0.8rem;">
+                    <input type="text" id="niche-input" class="url-input" placeholder="e.g. travel, fitness, photography, coding" style="background:var(--bg-dark); border:1px solid var(--border-light); color:#fff; padding:0.75rem; border-radius:var(--radius-sm); flex-grow:1; outline:none;" onkeyup="if(event.key==='Enter') generateHashtags()">
+                    <button type="button" onclick="generateHashtags()" class="btn-primary" style="padding:0.75rem 1.8rem; font-weight:700;">Generate</button>
+                </div>
+            </div>
+
+            <div id="results-area" style="display: none;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                    <h2 style="font-size:1.15rem; color:#fff; margin:0;">Generated Hashtags</h2>
+                    <button onclick="copyAllTags()" class="btn-primary" style="padding:0.4rem 0.8rem; font-size:0.85rem;">Copy All Tags 📋</button>
+                </div>
+
+                <div class="tag-group">
+                    <h3>Popular Tags (High Volume)</h3>
+                    <div id="popular-tags"></div>
+                </div>
+
+                <div class="tag-group" style="margin-top:1.2rem;">
+                    <h3>Trending Tags (Medium Volume)</h3>
+                    <div id="trending-tags"></div>
+                </div>
+
+                <div class="tag-group" style="margin-top:1.2rem;">
+                    <h3>Niche Tags (Low Competition)</h3>
+                    <div id="niche-tags"></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="seo-content" style="max-width: 750px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Instagram Hashtag Generator Online</h2>
+            <p>Using a balanced blend of popular, trending, and highly targeted niche tags is critical to landing on Instagram's Explore page or ranking under specific tag feeds. Our hashtag generator creates clean copy-paste sets of 30 tags based on your target keyword.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Utilities</h4>
+                    <ul>
+                        <li><a href="/merge-pdf-online-free">Merge PDF</a></li>
+                        <li><a href="/split-pdf-pages-online">Split PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        const suffixList = [
+            { pop: "life", trend: "vibes", niche: "goals" },
+            { pop: "style", trend: "moments", niche: "daily" },
+            { pop: "gram", trend: "world", niche: "journey" },
+            { pop: "lover", trend: "community", niche: "spot" },
+            { pop: "addict", trend: "feed", niche: "hub" },
+            { pop: "love", trend: "creative", niche: "lifestyle" }
+        ];
+
+        function generateHashtags() {
+            const input = document.getElementById('niche-input').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            if (!input) {
+                alert('Please enter a keyword!');
+                return;
+            }
+
+            const popArea = document.getElementById('popular-tags');
+            const trendArea = document.getElementById('trending-tags');
+            const nicheArea = document.getElementById('niche-tags');
+
+            popArea.innerHTML = '';
+            trendArea.innerHTML = '';
+            nicheArea.innerHTML = '';
+
+            // Generate popular tags
+            const popTags = [
+                `#${input}`,
+                `#instagood`,
+                `#trending`,
+                `#viral`,
+                `#love`,
+                `#explorepage`,
+                `#photooftheday`,
+                `#picoftheday`,
+                `#followme`,
+                `#likeforlikes`
+            ];
+            
+            // Generate trending tags based on keyword
+            const trendTags = suffixList.map(s => `#${input}${s.trend}`);
+            trendTags.push(`#${input}oftheday`, `#${input}reels`, `#${input}video`, `#${input}trending`);
+
+            // Generate niche tags based on keyword
+            const nicheTags = suffixList.map(s => `#${input}${s.niche}`);
+            nicheTags.push(`#only${input}`, `#${input}makers`, `#${input}tips`, `#${input}growth`);
+
+            renderPills(popArea, popTags);
+            renderPills(trendArea, trendTags);
+            renderPills(nicheArea, nicheTags);
+
+            document.getElementById('results-area').style.display = 'block';
+        }
+
+        function renderPills(container, tags) {
+            tags.forEach(t => {
+                const pill = document.createElement('span');
+                pill.className = 'tag-pill';
+                pill.innerText = t;
+                pill.onclick = () => {
+                    navigator.clipboard.writeText(t).then(() => {
+                        pill.style.opacity = 0.5;
+                    });
+                };
+                container.appendChild(pill);
+            });
+        }
+
+        function copyAllTags() {
+            const pills = document.querySelectorAll('.tag-pill');
+            const tags = Array.from(pills).map(p => p.innerText).join(' ');
+            navigator.clipboard.writeText(tags).then(() => {
+                alert('All 30 hashtags copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>

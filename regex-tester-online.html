@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Tester Online — JavaScript Regular Expression Checker | RankifyTools</title>
+    <meta name="description" content="Test and validate Javascript Regular Expressions (Regex) online for free. Real-time match highlighting, group extraction, and expression checking.">
+    <meta name="keywords" content="regex tester online, regex checker, regular expression checker, test regex matches, javascript regex sandbox">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/regex-tester-online">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/regex-tester-online">
+    <meta property="og:title" content="Regex Tester Online | RankifyTools">
+    <meta property="og:description" content="Interactive Regular Expression validation with real-time match results and capture groups.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .regex-card { max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .editor-area { width: 100%; height: 180px; background: var(--bg-dark); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: #fff; font-family: monospace; padding: 0.8rem; font-size: 0.9rem; outline: none; }
+        .highlight-container { position: relative; width: 100%; height: 180px; }
+        .highlight-backdrop { position: absolute; top: 0; left: 0; right: 0; bottom: 0; padding: 0.8rem; overflow: auto; pointer-events: none; white-space: pre-wrap; word-wrap: break-word; font-family: monospace; font-size: 0.9rem; color: transparent; }
+        .highlight-text { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: transparent; color: #fff; z-index: 1; caret-color: #fff; }
+        .match-highlight { background: rgba(245, 158, 11, 0.4); border-bottom: 2px solid #f59e0b; color: #fff; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Regex Tester</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Regex Tester Online</h1>
+            <p>Test and validate Javascript Regular Expressions (Regex) in real-time. Highlights all matching parameters and captures groups locally.</p>
+        </div>
+
+        <div class="regex-card">
+            <!-- Pattern Configuration -->
+            <div style="display:grid; grid-template-columns: 1fr auto; gap: 0.8rem; margin-bottom: 1.2rem; align-items: flex-end;">
+                <div class="input-group">
+                    <label style="font-weight:600;">Regular Expression Pattern</label>
+                    <div style="display:flex; align-items:center; background:var(--bg-dark); border:1px solid var(--border-light); border-radius:var(--radius-sm); padding-left:0.6rem;">
+                        <span style="color:var(--text-secondary); font-family:monospace; margin-right:0.3rem;">/</span>
+                        <input type="text" id="regex-pattern" value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" oninput="runRegex()" style="background:none; border:none; color:#fbbf24; font-family:monospace; padding:0.6rem 0; width:100%; outline:none;">
+                        <span style="color:var(--text-secondary); font-family:monospace; margin-left:0.3rem; margin-right:0.6rem;">/</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label style="font-weight:600;">Flags</label>
+                    <div style="display:flex; gap:0.6rem; align-items:center; height:42px; background:var(--bg-dark); border:1px solid var(--border-light); border-radius:var(--radius-sm); padding:0 0.8rem;">
+                        <label style="cursor:pointer; display:flex; align-items:center; gap:0.2rem;"><input type="checkbox" id="flag-g" checked onchange="runRegex()"> g</label>
+                        <label style="cursor:pointer; display:flex; align-items:center; gap:0.2rem;"><input type="checkbox" id="flag-i" onchange="runRegex()"> i</label>
+                        <label style="cursor:pointer; display:flex; align-items:center; gap:0.2rem;"><input type="checkbox" id="flag-m" onchange="runRegex()"> m</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test String -->
+            <div style="display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.5rem;">
+                <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Test String</label>
+                <div class="highlight-container">
+                    <div id="backdrop" class="highlight-backdrop"></div>
+                    <textarea id="test-text" class="editor-area highlight-text" oninput="runRegex()" onscroll="syncScroll()">Send email to support@rankifytools.com or hello@example.org for inquiries.</textarea>
+                </div>
+            </div>
+
+            <!-- Match Information -->
+            <div id="results-area" style="background:rgba(255,255,255,0.03); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.2rem;">
+                <h3 style="margin:0 0 0.5rem 0; font-size:1.15rem; color:var(--accent-primary);">Match Results</h3>
+                <div id="match-summary" style="font-size:0.95rem; color:#fff; font-weight:600; margin-bottom:0.6rem;">No pattern matches found.</div>
+                <div id="groups-list" style="font-family:monospace; font-size:0.85rem; color:var(--text-secondary); max-height: 120px; overflow-y:auto; display:flex; flex-direction:column; gap:0.4rem;"></div>
+            </div>
+        </div>
+
+        <section class="seo-content" style="max-width: 800px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Regex Validation Online</h2>
+            <p>Regular expressions are formulas used to search, extract, and replace characters inside string sequences. This interactive tool executes RegExp matches entirely in-browser, making it fully secure for processing emails or tokens.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        function syncScroll() {
+            const textarea = document.getElementById('test-text');
+            const backdrop = document.getElementById('backdrop');
+            backdrop.scrollTop = textarea.scrollTop;
+            backdrop.scrollLeft = textarea.scrollLeft;
+        }
+
+        function runRegex() {
+            const pattern = document.getElementById('regex-pattern').value;
+            const text = document.getElementById('test-text').value;
+            const backdrop = document.getElementById('backdrop');
+            const summary = document.getElementById('match-summary');
+            const groupsList = document.getElementById('groups-list');
+
+            groupsList.innerHTML = '';
+            
+            if (!pattern) {
+                backdrop.innerHTML = escapeHtml(text);
+                summary.textContent = 'Enter a regex pattern to begin.';
+                return;
+            }
+
+            let flags = '';
+            if (document.getElementById('flag-g').checked) flags += 'g';
+            if (document.getElementById('flag-i').checked) flags += 'i';
+            if (document.getElementById('flag-m').checked) flags += 'm';
+
+            try {
+                const regex = new RegExp(pattern, flags);
+                const matches = [];
+                let match;
+
+                if (flags.includes('g')) {
+                    while ((match = regex.exec(text)) !== null) {
+                        matches.push(match);
+                        // Prevent infinite loop if regex matches empty string
+                        if (match.index === regex.lastIndex) {
+                            regex.lastIndex++;
+                        }
+                    }
+                } else {
+                    match = regex.exec(text);
+                    if (match) matches.push(match);
+                }
+
+                if (matches.length > 0) {
+                    summary.textContent = `Found ${matches.length} match(es).`;
+
+                    // Sort matches descending by index to replace without messing up positions
+                    let highlightedText = '';
+                    let lastIdx = 0;
+
+                    matches.forEach((m, i) => {
+                        const matchText = m[0];
+                        const index = m.index;
+
+                        highlightedText += escapeHtml(text.substring(lastIdx, index));
+                        highlightedText += `<mark class="match-highlight">${escapeHtml(matchText)}</mark>`;
+                        lastIdx = index + matchText.length;
+
+                        // List capture groups
+                        const groupDiv = document.createElement('div');
+                        groupDiv.innerHTML = `<strong style="color:#fbbf24;">Match ${i+1}:</strong> "${escapeHtml(matchText)}" (Index: ${index})`;
+                        if (m.length > 1) {
+                            const subList = document.createElement('ul');
+                            subList.style.margin = '0.2rem 0 0 1rem';
+                            for (let j = 1; j < m.length; j++) {
+                                subList.innerHTML += `<li>Group ${j}: "${escapeHtml(m[j])}"</li>`;
+                            }
+                            groupDiv.appendChild(subList);
+                        }
+                        groupsList.appendChild(groupDiv);
+                    });
+
+                    highlightedText += escapeHtml(text.substring(lastIdx));
+                    backdrop.innerHTML = highlightedText;
+
+                } else {
+                    backdrop.innerHTML = escapeHtml(text);
+                    summary.textContent = 'No pattern matches found.';
+                }
+
+            } catch (err) {
+                backdrop.innerHTML = escapeHtml(text);
+                summary.textContent = 'Regex Error: ' + err.message;
+            }
+        }
+
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            runRegex();
+        });
+    </script>
+</body>
+</html>

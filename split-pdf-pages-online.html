@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split PDF Pages Online Free — Extract PDF Pages Online | RankifyTools</title>
+    <meta name="description" content="Split PDF pages online for free. Extract specific page ranges or split all pages into a zip file. Secure, private local browser compression.">
+    <meta name="keywords" content="split pdf pages online, extract pdf pages, pdf page separator, split pdf documents, free pdf splitter">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/split-pdf-pages-online">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/split-pdf-pages-online">
+    <meta property="og:title" content="Split PDF Pages Online Free | RankifyTools">
+    <meta property="og:description" content="Separate PDF document pages or extract custom ranges locally. 100% private.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <!-- load libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <style>
+        .split-options { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-light); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+        .input-item { display: flex; flex-direction: column; gap: 0.4rem; }
+        .input-item label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; }
+        .input-item select, .input-item input[type="text"] { background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-primary); padding: 0.6rem; border-radius: var(--radius-sm); outline: none; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Split PDF Pages Online</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Split PDF Pages Online</h1>
+            <p>Separate pages or extract custom page ranges from any PDF document. Safe, secure, local browser execution.</p>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+            <!-- Dropzone -->
+            <div id="dropzone" onclick="document.getElementById('fileInput').click()" style="border: 2px dashed var(--border-light); border-radius: var(--radius-lg); padding: 3rem 1.5rem; text-align: center; cursor: pointer; transition: all 0.3s; background: var(--bg-card);">
+                <span style="font-size: 3.5rem; display: block; margin-bottom: 1rem;">✂️</span>
+                <p id="split-upload-lbl" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Select or drag a PDF file here</p>
+                <p id="split-file-name" style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Process runs locally inside your browser</p>
+                <button type="button" class="btn-primary" style="pointer-events:none;">Select PDF File</button>
+                <input type="file" id="fileInput" accept="application/pdf" style="display: none;" onchange="handleSplitSelect(this)">
+            </div>
+
+            <!-- Controls (Visible after upload) -->
+            <div id="split-controls" class="split-options" style="display: none;">
+                <div class="input-item">
+                    <label for="split-mode">Split Method</label>
+                    <select id="split-mode" onchange="toggleSplitMethod()">
+                        <option value="range">Extract Page Range</option>
+                        <option value="all">Split All Pages Separately</option>
+                    </select>
+                </div>
+                <div class="input-item" id="range-input-wrapper">
+                    <label for="split-ranges">Pages / Ranges (e.g. 1, 3-5)</label>
+                    <input type="text" id="split-ranges" placeholder="e.g. 1, 3-5">
+                    <span id="page-count-hint" style="font-size:0.8rem; color:var(--text-secondary); margin-top:0.2rem;"></span>
+                </div>
+            </div>
+
+            <div style="display:flex; justify-content:center; margin-top:1rem;">
+                <button class="btn-primary" id="btn-split-action" onclick="processSplit()" disabled style="font-weight:600; padding:0.8rem 2rem;">Split PDF ✂️</button>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>How to Split a PDF Into Separate Pages Free</h2>
+            <p>Need to extract a single certificate page from a multi-page document, or separate chapters of a PDF? Our **Split PDF Pages Online Free** tool executes entirely locally on your device. Your sensitive financial statements and files are never sent to external servers, providing full security.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Utilities</h4>
+                    <ul>
+                        <li><a href="/merge-pdf-online-free">Merge PDF</a></li>
+                        <li><a href="/split-pdf-pages-online">Split PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        let splitFileBytes = null;
+        let splitFileName = '';
+        let splitFilePagesCount = 0;
+
+        function toggleSplitMethod() {
+            const val = document.getElementById('split-mode').value;
+            document.getElementById('range-input-wrapper').style.display = val === 'range' ? 'flex' : 'none';
+        }
+
+        async function handleSplitSelect(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            splitFileName = file.name;
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                splitFileBytes = new Uint8Array(e.target.result);
+                try {
+                    const doc = await PDFLib.PDFDocument.load(splitFileBytes);
+                    splitFilePagesCount = doc.getPageCount();
+                    
+                    document.getElementById('split-upload-lbl').innerText = 'Document Loaded:';
+                    document.getElementById('split-file-name').innerText = file.name + ' (' + splitFilePagesCount + ' pages)';
+                    document.getElementById('page-count-hint').innerText = 'Total Pages: ' + splitFilePagesCount;
+                    document.getElementById('split-controls').style.display = 'grid';
+                    document.getElementById('btn-split-action').disabled = false;
+                } catch (err) {
+                    alert('Invalid PDF file: ' + err.message);
+                }
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function parseRangeString(rangeStr, maxPages) {
+            const pages = [];
+            const parts = rangeStr.split(',');
+            for (const p of parts) {
+                if (p.includes('-')) {
+                    const [s, e] = p.split('-');
+                    const start = parseInt(s);
+                    const end = parseInt(e);
+                    if (isNaN(start) || isNaN(end) || start < 1 || end > maxPages || start > end) {
+                        throw new Error('Invalid range sequence: ' + p);
+                    }
+                    for (let i = start; i <= end; i++) {
+                        pages.push(i - 1);
+                    }
+                } else {
+                    const val = parseInt(p);
+                    if (isNaN(val) || val < 1 || val > maxPages) {
+                        throw new Error('Invalid page index: ' + p);
+                    }
+                    pages.push(val - 1);
+                }
+            }
+            return pages;
+        }
+
+        async function processSplit() {
+            if (!splitFileBytes) return;
+            
+            const btn = document.getElementById('btn-split-action');
+            const originalText = btn.innerText;
+            btn.disabled = true;
+            btn.innerText = 'Splitting...';
+
+            const method = document.getElementById('split-mode').value;
+
+            try {
+                const srcDoc = await PDFLib.PDFDocument.load(splitFileBytes);
+                
+                if (method === 'range') {
+                    const rangeStr = document.getElementById('split-ranges').value.trim();
+                    if (!rangeStr) {
+                        alert('Please input a valid page range.');
+                        return;
+                    }
+                    const indices = parseRangeString(rangeStr, splitFilePagesCount);
+                    
+                    const destDoc = await PDFLib.PDFDocument.create();
+                    const copiedPages = await destDoc.copyPages(srcDoc, indices);
+                    copiedPages.forEach(p => destDoc.addPage(p));
+                    
+                    const outBytes = await destDoc.save({ useObjectStreams: true });
+                    const blob = new Blob([outBytes], { type: 'application/pdf' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = splitFileName.replace(/\.pdf$/i, '') + '-extracted.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                } else {
+                    const zip = new JSZip();
+                    
+                    for (let i = 0; i < splitFilePagesCount; i++) {
+                        const pageDoc = await PDFLib.PDFDocument.create();
+                        const [copiedPage] = await pageDoc.copyPages(srcDoc, [i]);
+                        pageDoc.addPage(copiedPage);
+                        const pageBytes = await pageDoc.save({ useObjectStreams: true });
+                        zip.file(`page-${i + 1}.pdf`, pageBytes);
+                    }
+                    
+                    const zipBlob = await zip.generateAsync({ type: 'blob' });
+                    const url = URL.createObjectURL(zipBlob);
+                    
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = splitFileName.replace(/\.pdf$/i, '') + '-split-pages.zip';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }
+            } catch (err) {
+                alert('Error during split: ' + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = originalText;
+            }
+        }
+    </script>
+</body>
+</html>

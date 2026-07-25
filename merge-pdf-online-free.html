@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge PDF Online Free — Combine PDF Files Online | RankifyTools</title>
+    <meta name="description" content="Merge multiple PDF files into one online for free. Clean, fast, and secure browser-based PDF joiner. No signups, no uploads, 100% private.">
+    <meta name="keywords" content="merge pdf online free, combine pdf files, pdf joiner online, merge pdf document, free pdf combiner">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/merge-pdf-online-free">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/merge-pdf-online-free">
+    <meta property="og:title" content="Merge PDF Online Free | RankifyTools">
+    <meta property="og:description" content="Combine multiple PDF documents into one easily in your browser. 100% private.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <!-- load libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    
+    <style>
+        .file-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+        .file-card { display: flex; justify-content: space-between; align-items: center; background: var(--bg-card); border: 1px solid var(--border-light); padding: 0.8rem 1.2rem; border-radius: var(--radius-md); }
+        .file-info { display: flex; flex-direction: column; gap: 0.2rem; }
+        .file-name { font-weight: 600; font-size: 0.95rem; word-break: break-all; }
+        .file-size { font-size: 0.8rem; color: var(--text-secondary); }
+        .file-controls { display: flex; gap: 0.4rem; }
+        .control-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-light); color: var(--text-primary); padding: 0.4rem 0.8rem; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.8rem; transition: var(--transition); }
+        .control-btn:hover { background: var(--accent-primary); color: #fff; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Merge PDF Online Free</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Merge PDF Online Free</h1>
+            <p>Combine multiple PDF documents into a single file instantly. Safe, secure, local browser execution.</p>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+            <!-- Dropzone -->
+            <div id="dropzone" onclick="document.getElementById('fileInput').click()" style="border: 2px dashed var(--border-light); border-radius: var(--radius-lg); padding: 3rem 1.5rem; text-align: center; cursor: pointer; transition: all 0.3s; background: var(--bg-card);">
+                <span style="font-size: 3.5rem; display: block; margin-bottom: 1rem;">📄</span>
+                <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Select or drag multiple PDF files here</p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Process runs locally inside your browser</p>
+                <button type="button" class="btn-primary" style="pointer-events:none;">Add PDF Files</button>
+                <input type="file" id="fileInput" accept="application/pdf" multiple style="display: none;" onchange="handleMergeSelect(this)">
+            </div>
+
+            <!-- List Area -->
+            <div id="merge-file-list" class="file-list"></div>
+
+            <!-- Action -->
+            <div style="display:flex; justify-content:center; margin-top:1rem;">
+                <button class="btn-primary" id="btn-merge-action" onclick="processMerge()" disabled style="font-weight:600; padding:0.8rem 2rem;">Merge PDFs ✨</button>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>How to Combine PDF Files Online for Free</h2>
+            <p>Combining reports, certificates, or school assignments into a single PDF shouldn't require complex software. Our online **Merge PDF Online Free** tool works directly in your web browser, allowing you to combine any number of PDF files in seconds without compromising your documents' privacy.</p>
+            <h3>100% Safe Local PDF Merging</h3>
+            <p>Unlike other services that upload your documents to their cloud servers, our tool uses client-side JavaScript. This means your files stay on your computer, making it perfectly safe for invoices, tax forms, and IDs.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Utilities</h4>
+                    <ul>
+                        <li><a href="/merge-pdf-online-free">Merge PDF</a></li>
+                        <li><a href="/split-pdf-pages-online">Split PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        let mergeFilesList = [];
+
+        function handleMergeSelect(input) {
+            const files = Array.from(input.files);
+            let loadedCount = 0;
+            
+            files.forEach(f => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    mergeFilesList.push({
+                        name: f.name,
+                        bytes: new Uint8Array(e.target.result),
+                        size: formatSize(f.size)
+                    });
+                    loadedCount++;
+                    if (loadedCount === files.length) {
+                        renderMergeFiles();
+                        document.getElementById('btn-merge-action').disabled = mergeFilesList.length < 2;
+                    }
+                };
+                reader.readAsArrayBuffer(f);
+            });
+        }
+
+        function formatSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            const kb = bytes / 1024;
+            if (kb < 1024) return kb.toFixed(1) + ' KB';
+            const mb = kb / 1024;
+            return mb.toFixed(2) + ' MB';
+        }
+
+        function renderMergeFiles() {
+            const container = document.getElementById('merge-file-list');
+            container.innerHTML = '';
+            
+            mergeFilesList.forEach((file, idx) => {
+                const card = document.createElement('div');
+                card.className = 'file-card';
+                card.innerHTML = `
+                    <div class="file-info">
+                        <span class="file-name">${idx + 1}. ${file.name}</span>
+                        <span class="file-size">${file.size}</span>
+                    </div>
+                    <div class="file-controls">
+                        <button type="button" class="control-btn" onclick="moveFile(${idx}, -1)" ${idx === 0 ? 'disabled' : ''}>▲ Up</button>
+                        <button type="button" class="control-btn" onclick="moveFile(${idx}, 1)" ${idx === mergeFilesList.length - 1 ? 'disabled' : ''}>▼ Down</button>
+                        <button type="button" class="control-btn" onclick="removeFile(${idx})" style="background:#ef4444; border-color:#ef4444; color:#fff;">Remove</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function moveFile(index, direction) {
+            const newIndex = index + direction;
+            if (newIndex < 0 || newIndex >= mergeFilesList.length) return;
+            const temp = mergeFilesList[index];
+            mergeFilesList[index] = mergeFilesList[newIndex];
+            mergeFilesList[newIndex] = temp;
+            renderMergeFiles();
+        }
+
+        function removeFile(index) {
+            mergeFilesList.splice(index, 1);
+            renderMergeFiles();
+            document.getElementById('btn-merge-action').disabled = mergeFilesList.length < 2;
+        }
+
+        async function processMerge() {
+            if (mergeFilesList.length < 2) return;
+            
+            const btn = document.getElementById('btn-merge-action');
+            const originalText = btn.innerText;
+            btn.disabled = true;
+            btn.innerText = 'Merging...';
+
+            try {
+                const mergedPdf = await PDFLib.PDFDocument.create();
+                for (const file of mergeFilesList) {
+                    const doc = await PDFLib.PDFDocument.load(file.bytes);
+                    const copiedPages = await mergedPdf.copyPages(doc, doc.getPageIndices());
+                    copiedPages.forEach(p => mergedPdf.addPage(p));
+                }
+                const mergedBytes = await mergedPdf.save({ useObjectStreams: true });
+                
+                const blob = new Blob([mergedBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'merged-document.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } catch (err) {
+                alert('Error during merge: ' + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = originalText;
+            }
+        }
+    </script>
+</body>
+</html>

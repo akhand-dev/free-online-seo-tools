@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Invoice Generator India — Free GST Invoice Maker | RankifyTools</title>
+    <meta name="description" content="Create GST compliant billing invoices online for free. Custom logo uploader, dynamic item ledgers, Intrastate (CGST+SGST) and Interstate (IGST) tax breaks, and PDF printing.">
+    <meta name="keywords" content="gst invoice generator india, free gst invoice maker, cgst sgst igst calculator, print gst invoice bill">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/gst-invoice-generator-india">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/gst-invoice-generator-india">
+    <meta property="og:title" content="GST Invoice Generator India | RankifyTools">
+    <meta property="og:description" content="Generate CGST, SGST, and IGST tax splits automatically on professional invoice sheets.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <style>
+        .split-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 900px) { .split-layout { grid-template-columns: 1fr 1fr; } }
+        .config-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.2rem; }
+        .config-card h2 { font-size: 1.15rem; color: var(--accent-primary); margin-bottom: 1rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+        .input-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .input-group label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; }
+        .input-group select, .input-group input[type="text"], .input-group input[type="number"], .input-group textarea { background: var(--bg-dark); border: 1px solid var(--border-light); color: var(--text-primary); padding: 0.6rem; border-radius: var(--radius-sm); outline: none; width: 100%; }
+        .item-row { border: 1px solid var(--border-light); background: rgba(0,0,0,0.15); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 0.8rem; position: relative; }
+        .remove-row-btn { position: absolute; top: 0.4rem; right: 0.4rem; background: var(--error); border: none; color: #fff; padding: 0.2rem 0.5rem; font-size: 0.72rem; border-radius: var(--radius-sm); cursor: pointer; }
+        .preview-pane { position: sticky; top: 80px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .invoice-sheet { width: 100%; max-width: 600px; background: #ffffff; color: #1a1a24; padding: 2.2rem; box-shadow: var(--shadow-md); border: 1px solid #e0e0e0; display: flex; flex-direction: column; gap: 1.5rem; font-family: 'Inter', sans-serif; text-align: left; min-height: 750px; }
+        .invoice-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #f1f2f6; padding-bottom: 1.2rem; }
+        .invoice-meta-table { width: auto; border-collapse: collapse; font-size: 0.85rem; }
+        .invoice-meta-table td { padding: 0.25rem 0.6rem; }
+        .bill-coords { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.88rem; }
+        .bill-block h4 { margin: 0 0 0.4rem 0; color: #555; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.5px; }
+        .billing-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.88rem; }
+        .billing-table th, .billing-table td { padding: 0.6rem 0.8rem; border-bottom: 1px solid #f1f2f6; }
+        .billing-table th { background: #f8f9fa; font-weight: 700; color: #333; text-align: left; }
+        .totals-block { align-self: flex-end; width: 260px; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.88rem; border-top: 2px solid #1a1a24; padding-top: 0.8rem; }
+        .totals-row { display: flex; justify-content: space-between; }
+        @media print {
+            header, footer, .breadcrumbs, .hero, .config-card, .ad-container, .preview-pane h3, #btn-print, .related-links, .mobile-menu-toggle { display: none !important; }
+            body { background: #fff !important; }
+            .main-content { padding: 0 !important; margin: 0 !important; }
+            .split-layout { grid-template-columns: 1fr !important; }
+            .invoice-sheet { border: none !important; box-shadow: none !important; position: absolute; left: 0; top: 0; width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+        }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span class="separator">›</span>
+            <a href="index.html">Tools</a><span class="separator">›</span>
+            <span class="current">GST Invoice Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>GST Invoice Generator India</h1>
+            <p>Generate professional GST invoices with CGST, SGST, IGST details and custom logo upload.</p>
+        </div>
+
+        <div class="split-layout" style="max-width: 1100px; margin: 0 auto;">
+            <!-- Left panel Config forms -->
+            <div>
+                <div class="config-card">
+                    <h2>1. Invoice Details</h2>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="inv-logo">Logo Upload</label>
+                            <input type="file" id="inv-logo" accept="image/*" onchange="handleLogoUpload(this)" style="background:var(--bg-dark); color:#fff; border:1px solid var(--border-light); padding:0.4rem; font-size:0.8rem;">
+                        </div>
+                        <div class="input-group">
+                            <label for="inv-num">Invoice #</label>
+                            <input type="text" id="inv-num" value="INV-2026-001" oninput="updateInvoice()">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="inv-date">Date Issued</label>
+                            <input type="text" id="inv-date" value="2026-07-25" oninput="updateInvoice()">
+                        </div>
+                        <div class="input-group">
+                            <label for="inv-due">Due Date</label>
+                            <input type="text" id="inv-due" value="2026-08-25" oninput="updateInvoice()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-card">
+                    <h2>2. Billing Coordinates</h2>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="bill-from-name">Sender Business</label>
+                            <input type="text" id="bill-from-name" value="Your Company Ltd" oninput="updateInvoice()">
+                            <textarea id="bill-from-addr" rows="2" style="margin-top:0.4rem;" placeholder="Address" oninput="updateInvoice()">123 Tech Lane, CA</textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="bill-to-name">Client Business</label>
+                            <input type="text" id="bill-to-name" value="Acme Corp" oninput="updateInvoice()">
+                            <textarea id="bill-to-addr" rows="2" style="margin-top:0.4rem;" placeholder="Address" oninput="updateInvoice()">456 Enterprise Way, NV</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-card">
+                    <h2>3. Line Items</h2>
+                    <div id="items-container"></div>
+                    <button type="button" class="control-btn" style="padding:0.4rem 1.2rem; font-size:0.82rem;" onclick="addItemRow()">➕ Add Item</button>
+                </div>
+
+                <div class="config-card">
+                    <h2>4. Tax & Adjustments</h2>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="inv-tax">GST Rate (%)</label>
+                            <input type="number" id="inv-tax" min="0" max="100" value="18" oninput="updateInvoice()">
+                        </div>
+                        <div class="input-group">
+                            <label for="inv-discount">Discount (%)</label>
+                            <input type="number" id="inv-discount" min="0" max="100" value="0" oninput="updateInvoice()">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 1rem; border-top: 1px solid var(--border-light); padding-top: 1rem;">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="gst-sender-gstin">Sender GSTIN</label>
+                                <input type="text" id="gst-sender-gstin" value="07AAAAA1111A1Z1" placeholder="e.g. 07AAAAA1111A1Z1" oninput="updateInvoice()">
+                            </div>
+                            <div class="input-group">
+                                <label for="gst-client-gstin">Client GSTIN</label>
+                                <input type="text" id="gst-client-gstin" value="07BBBBB2222B2Z2" placeholder="e.g. 07BBBBB2222B2Z2" oninput="updateInvoice()">
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-top:0.6rem;">
+                            <div class="input-group">
+                                <label for="gst-treatment">GST Treatment</label>
+                                <select id="gst-treatment" onchange="updateInvoice()">
+                                    <option value="intra" selected>Intrastate (CGST + SGST)</option>
+                                    <option value="inter">Interstate (IGST)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="gst-show-hsn">HSN/SAC Column</label>
+                                <input type="text" id="gst-item-hsn" placeholder="e.g. 9983" style="display:none;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; margin-top: 0.6rem;">
+                                    <input type="checkbox" id="gst-show-hsn" checked onchange="toggleHSNFields()"> Show HSN Column
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right panel Visual print sheet -->
+            <div>
+                <div class="preview-pane">
+                    <h3 style="font-size:1rem; color:var(--text-primary); border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; width:100%;">Invoice Sheet Preview</h3>
+                    <div style="display:flex; justify-content:flex-end; width:100%; margin-bottom:1rem;">
+                        <button type="button" id="btn-print" onclick="window.print()" style="padding:0.5rem 1.4rem; background:var(--success); color:#fff; font-weight:700; border:none; border-radius:var(--radius-sm); cursor:pointer; font-size:0.85rem;">🖨️ Save PDF / Print Invoice</button>
+                    </div>
+                    <div id="invoice-sheet" class="invoice-sheet"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        let invoiceItems = [
+            { id: 1, desc: "Web Development Services", qty: 40, rate: 50, hsn: "9983" },
+            { id: 2, desc: "SaaS Hosting Setup", qty: 1, rate: 250, hsn: "9984" }
+        ];
+
+        let logoBase64 = '';
+
+        function handleLogoUpload(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                logoBase64 = e.target.result;
+                updateInvoice();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function toggleHSNFields() {
+            initLedgerRows();
+        }
+
+        function initLedgerRows() {
+            const container = document.getElementById('items-container');
+            container.innerHTML = '';
+            const showHsn = document.getElementById('gst-show-hsn').checked;
+
+            invoiceItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'item-row';
+                div.innerHTML = `
+                    <button type="button" class="remove-row-btn" onclick="removeItemRow(${item.id})">Remove</button>
+                    <div class="input-group" style="margin-bottom:0.6rem;">
+                        <label>Item Description</label>
+                        <input type="text" value="${item.desc}" oninput="updateItemField(${item.id}, 'desc', this.value)">
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group" style="${showHsn ? 'grid-column: span 1' : 'grid-column: span 2'}">
+                            <label>Quantity</label>
+                            <input type="number" min="1" value="${item.qty}" oninput="updateItemField(${item.id}, 'qty', parseFloat(this.value) || 0)">
+                        </div>
+                        <div class="input-group" style="${showHsn ? 'grid-column: span 1' : 'grid-column: span 2'}">
+                            <label>Rate ($)</label>
+                            <input type="number" min="0" value="${item.rate}" oninput="updateItemField(${item.id}, 'rate', parseFloat(this.value) || 0)">
+                        </div>
+                        ${showHsn ? `
+                        <div class="input-group">
+                            <label>HSN/SAC</label>
+                            <input type="text" value="${item.hsn || ''}" placeholder="e.g. 9983" oninput="updateItemField(${item.id}, 'hsn', this.value)">
+                        </div>
+                        ` : ''}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            updateInvoice();
+        }
+
+        function updateItemField(id, field, value) {
+            const item = invoiceItems.find(i => i.id === id);
+            if (item) {
+                item[field] = value;
+                updateInvoice();
+            }
+        }
+
+        function addItemRow() {
+            invoiceItems.push({
+                id: Date.now(),
+                desc: "",
+                qty: 1,
+                rate: 0,
+                hsn: ""
+            });
+            initLedgerRows();
+        }
+
+        function removeItemRow(id) {
+            if (invoiceItems.length <= 1) {
+                alert('You must have at least 1 invoice item!');
+                return;
+            }
+            invoiceItems = invoiceItems.filter(i => i.id !== id);
+            initLedgerRows();
+        }
+
+        function updateInvoice() {
+            const invNum = document.getElementById('inv-num').value;
+            const invDate = document.getElementById('inv-date').value;
+            const invDue = document.getElementById('inv-due').value;
+
+            const fromName = document.getElementById('bill-from-name').value;
+            const fromAddr = document.getElementById('bill-from-addr').value;
+
+            const toName = document.getElementById('bill-to-name').value;
+            const toAddr = document.getElementById('bill-to-addr').value;
+
+            const taxRate = parseFloat(document.getElementById('inv-tax').value) || 0;
+            const discountRate = parseFloat(document.getElementById('inv-discount').value) || 0;
+
+            const showHsn = document.getElementById('gst-show-hsn').checked;
+
+            let logoHtml = '';
+            if (logoBase64) {
+                logoHtml = `<img src="${logoBase64}" style="max-height: 50px; max-width: 150px; display: block; margin-bottom: 0.5rem;">`;
+            }
+
+            const senderGstin = document.getElementById('gst-sender-gstin').value.trim();
+            const clientGstin = document.getElementById('gst-client-gstin').value.trim();
+            let senderGstinBlock = senderGstin ? `<div style="font-size: 0.8rem; font-weight: bold; color: #1a1a24; margin-top: 0.2rem;">GSTIN: ${senderGstin}</div>` : '';
+            let clientGstinBlock = clientGstin ? `<div style="font-size: 0.8rem; font-weight: bold; color: #1a1a24; margin-top: 0.2rem;">GSTIN: ${clientGstin}</div>` : '';
+
+            let subtotal = 0;
+            let itemsHtml = '';
+            invoiceItems.forEach(item => {
+                const amount = item.qty * item.rate;
+                subtotal += amount;
+                itemsHtml += `
+                    <tr>
+                        <td>${item.desc || 'Unnamed Item'}</td>
+                        ${showHsn ? `<td>${item.hsn || '-'}</td>` : ''}
+                        <td>${item.qty}</td>
+                        <td>$${item.rate.toFixed(2)}</td>
+                        <td style="text-align:right;">$${amount.toFixed(2)}</td>
+                    </tr>
+                `;
+            });
+
+            const discountAmt = subtotal * (discountRate / 100);
+            const taxableAmt = subtotal - discountAmt;
+            const taxAmt = taxableAmt * (taxRate / 100);
+            const grandTotal = taxableAmt + taxAmt;
+
+            let taxRowHtml = '';
+            if (taxAmt > 0) {
+                const treatment = document.getElementById('gst-treatment').value;
+                if (treatment === 'intra') {
+                    const halfRate = (taxRate / 2).toFixed(1).replace(/\.0$/, '');
+                    const halfAmt = taxAmt / 2;
+                    taxRowHtml = `
+                    <div class="totals-row">
+                        <span>CGST (${halfRate}%):</span>
+                        <span>$${halfAmt.toFixed(2)}</span>
+                    </div>
+                    <div class="totals-row">
+                        <span>SGST (${halfRate}%):</span>
+                        <span>$${halfAmt.toFixed(2)}</span>
+                    </div>
+                    `;
+                } else {
+                    const rateStr = taxRate.toFixed(1).replace(/\.0$/, '');
+                    taxRowHtml = `
+                    <div class="totals-row">
+                        <span>IGST (${rateStr}%):</span>
+                        <span>$${taxAmt.toFixed(2)}</span>
+                    </div>
+                    `;
+                }
+            }
+
+            const sheet = document.getElementById('invoice-sheet');
+            sheet.innerHTML = `
+                <div class="invoice-header">
+                    <div>
+                        ${logoHtml}
+                        <h2 style="margin: 0; font-size: 1.4rem; color: #2c3e50;">${fromName}</h2>
+                        <div style="font-size: 0.8rem; color: #7f8c8d; margin-top: 0.2rem; white-space: pre-line;">${fromAddr}</div>
+                        ${senderGstinBlock}
+                    </div>
+                    <div style="text-align: right;">
+                        <h1 style="margin: 0; font-size: 1.8rem; font-weight: 700; color: #6366f1;">TAX INVOICE</h1>
+                        <table class="invoice-meta-table" style="margin-top: 0.6rem; margin-left: auto;">
+                            <tr>
+                                <td style="font-weight: 700;">Invoice No:</td>
+                                <td>${invNum}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 700;">Date Issued:</td>
+                                <td>${invDate}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 700;">Due Date:</td>
+                                <td>${invDue}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bill-coords">
+                    <div class="bill-block">
+                        <h4>Billed To</h4>
+                        <div style="font-weight: 700; font-size: 0.95rem;">${toName}</div>
+                        <div style="font-size: 0.82rem; color: #555; margin-top: 0.2rem; white-space: pre-line;">${toAddr}</div>
+                        ${clientGstinBlock}
+                    </div>
+                </div>
+
+                <table class="billing-table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            ${showHsn ? '<th style="width: 100px;">HSN/SAC</th>' : ''}
+                            <th style="width: 80px;">Qty</th>
+                            <th style="width: 100px;">Rate</th>
+                            <th style="width: 120px; text-align: right;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${itemsHtml}
+                    </tbody>
+                </table>
+
+                <div class="totals-block">
+                    <div class="totals-row">
+                        <span>Subtotal:</span>
+                        <span>$${subtotal.toFixed(2)}</span>
+                    </div>
+                    ${discountAmt > 0 ? `
+                    <div class="totals-row" style="color: #c0392b;">
+                        <span>Discount (${discountRate}%):</span>
+                        <span>-$${discountAmt.toFixed(2)}</span>
+                    </div>
+                    ` : ''}
+                    ${taxRowHtml}
+                    <div class="totals-row" style="font-weight: 800; font-size: 1.1rem; border-top: 1px dashed #7f8c8d; padding-top: 0.4rem; color: #2c3e50;">
+                        <span>Grand Total:</span>
+                        <span>$${grandTotal.toFixed(2)}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initLedgerRows();
+        });
+    </script>
+</body>
+</html>

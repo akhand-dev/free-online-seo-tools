@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to Excel Converter Online Free | RankifyTools</title>
+    <meta name="description" content="Convert JSON to Excel (CSV/XLSX format) online for free. Clean client-side conversion, instant file downloads, and secure local processing.">
+    <meta name="keywords" content="json to excel converter, convert json to csv, online json parser, free developer tools">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/json-to-excel-converter">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/json-to-excel-converter">
+    <meta property="og:title" content="JSON to Excel Converter | RankifyTools">
+    <meta property="og:description" content="Securely convert JSON arrays to Excel CSV spreadsheet files in one click.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .converter-card { max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .editor-area { width: 100%; height: 260px; background: var(--bg-dark); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: #a5b4fc; font-family: monospace; padding: 0.8rem; font-size: 0.9rem; resize: vertical; outline: none; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">JSON to Excel</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>JSON to Excel Converter</h1>
+            <p>Convert your JSON array data into downloadable Excel-compatible CSV sheets instantly and 100% locally in your browser.</p>
+        </div>
+
+        <div class="converter-card">
+            <div style="display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1rem;">
+                <label for="json-input" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Paste JSON Array</label>
+                <textarea id="json-input" class="editor-area" placeholder='[
+  {"id": 1, "name": "John Doe", "email": "john@example.com"},
+  {"id": 2, "name": "Jane Smith", "email": "jane@example.com"}
+]'></textarea>
+            </div>
+
+            <div style="display:flex; gap:0.8rem; margin-bottom:1.5rem;">
+                <button onclick="convertToExcel()" class="btn-primary" style="padding:0.75rem 1.8rem; font-weight:700;">Convert to Excel (CSV) 📊</button>
+                <button onclick="clearAll()" class="control-btn" style="padding:0.75rem 1.2rem;">Clear</button>
+            </div>
+
+            <div id="results-area" style="display: none;">
+                <h3 style="font-size:1rem; color:#fff; margin-bottom:0.6rem;">Conversion Result Preview</h3>
+                <textarea id="csv-output" class="editor-area" readonly style="color:#34d399; height:180px;"></textarea>
+                <div style="margin-top:0.8rem; display:flex; gap:0.8rem;">
+                    <button onclick="downloadCSV()" class="btn-primary" style="padding:0.5rem 1.2rem; font-size:0.88rem;">Download CSV File 📥</button>
+                    <button onclick="copyCSV()" class="control-btn" style="padding:0.5rem 1.2rem; font-size:0.88rem;">Copy to Clipboard</button>
+                </div>
+            </div>
+        </div>
+
+        <section class="seo-content" style="max-width: 800px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>JSON to Excel Conversion</h2>
+            <p>Our tool parses structural JSON arrays and flattens nested keys, organizing records into a standard comma-separated format. CSV files are fully compatible with spreadsheet software like Microsoft Excel, Google Sheets, and Apple Numbers.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        function convertToExcel() {
+            const raw = document.getElementById('json-input').value.trim();
+            if (!raw) {
+                alert('Please paste some JSON data first!');
+                return;
+            }
+
+            try {
+                const parsed = JSON.parse(raw);
+                const arr = Array.isArray(parsed) ? parsed : [parsed];
+                
+                if (arr.length === 0) {
+                    alert('JSON array is empty!');
+                    return;
+                }
+
+                // Extract all unique headers/keys
+                const headers = [];
+                arr.forEach(obj => {
+                    Object.keys(obj).forEach(k => {
+                        if (!headers.includes(k)) headers.push(k);
+                    });
+                });
+
+                // Generate CSV rows
+                const csvRows = [];
+                csvRows.push(headers.map(h => `"${h.replace(/"/g, '""')}"`).join(','));
+
+                arr.forEach(obj => {
+                    const row = headers.map(h => {
+                        let val = obj[h];
+                        if (val === undefined || val === null) {
+                            val = '';
+                        } else if (typeof val === 'object') {
+                            val = JSON.stringify(val);
+                        } else {
+                            val = String(val);
+                        }
+                        return `"${val.replace(/"/g, '""')}"`;
+                    });
+                    csvRows.push(row.join(','));
+                });
+
+                const csvText = csvRows.join('\n');
+                document.getElementById('csv-output').value = csvText;
+                document.getElementById('results-area').style.display = 'block';
+
+            } catch (err) {
+                alert('Invalid JSON: ' + err.message);
+            }
+        }
+
+        function downloadCSV() {
+            const text = document.getElementById('csv-output').value;
+            const blob = new Blob([text], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'converted_data.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function copyCSV() {
+            const text = document.getElementById('csv-output').value;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard!');
+            });
+        }
+
+        function clearAll() {
+            document.getElementById('json-input').value = '';
+            document.getElementById('csv-output').value = '';
+            document.getElementById('results-area').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

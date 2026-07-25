@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Compressor 100KB Online Free — Reduce PDF Size under 100KB | RankifyTools</title>
+    <meta name="description" content="Compress PDF to 100KB online for free. Adjust scanned PDFs, clean stream structures, and compress pages locally. Perfect for portal uploads.">
+    <meta name="keywords" content="pdf compressor 100kb, compress pdf to 100kb free, reduce pdf size to 100kb online, shrink pdf size to 100kb">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/pdf-compressor-100kb">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/pdf-compressor-100kb">
+    <meta property="og:title" content="PDF Compressor 100KB Online Free | RankifyTools">
+    <meta property="og:description" content="Reduce PDF size under 100KB locally in your web browser. 100% private.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <!-- load libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    
+    <style>
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem; }
+        .option-item { display: flex; flex-direction: column; gap: 0.4rem; }
+        .option-item label { font-size: 0.88rem; color: var(--text-secondary); font-weight: 600; }
+        .option-item select, .option-item input[type="range"] { background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-primary); padding: 0.6rem; border-radius: var(--radius-sm); outline: none; }
+        .stats-panel { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--radius-md); padding: 1.2rem; margin-top: 1.5rem; display: none; justify-content: space-around; text-align: center; }
+        .stat-num { font-size: 1.4rem; font-weight: 700; color: var(--accent-secondary); }
+        .stat-lbl { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem; }
+        .progress-container { width: 100%; background: var(--border-light); height: 8px; border-radius: 4px; margin-top: 1.5rem; overflow: hidden; display: none; }
+        .progress-bar { height: 100%; background: var(--accent-primary); width: 0%; transition: width 0.2s ease; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">PDF Compressor 100KB</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>PDF Compressor 100KB</h1>
+            <p>Reduce PDF file size to 100KB or less online. Free, safe, and private browser-based optimization.</p>
+        </div>
+
+        <div class="tool-interface" style="max-width: 750px; margin: 2rem auto 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem;">
+            
+            <!-- File Drag & Drop -->
+            <div id="dropzone" onclick="document.getElementById('fileInput').click()" style="border: 2px dashed var(--border-light); border-radius: var(--radius-lg); padding: 3rem 1.5rem; text-align: center; cursor: pointer; transition: all 0.3s;">
+                <span style="font-size: 3.5rem; display: block; margin-bottom: 1rem;">🗜️</span>
+                <p id="upload-status" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Select or drag PDF file here</p>
+                <p id="file-name" style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Process runs locally inside your browser</p>
+                <button type="button" class="btn-primary" style="pointer-events:none;">Select PDF File</button>
+                <input type="file" id="fileInput" accept="application/pdf" style="display: none;" onchange="handleFileSelect(this)">
+            </div>
+
+            <!-- Compression Options -->
+            <div class="options-grid">
+                <div class="option-item">
+                    <label for="comp-level">Compression Mode</label>
+                    <select id="comp-level">
+                        <option value="standard">Standard Compression (Clean Meta)</option>
+                        <option value="high">High Compression (Rasterize Pages)</option>
+                    </select>
+                </div>
+                <div class="option-item">
+                    <label for="comp-dpi">Resolution (DPI for High Mode)</label>
+                    <select id="comp-dpi">
+                        <option value="96">96 DPI (Web Quality - Smallest)</option>
+                        <option value="150" selected>150 DPI (Standard - Good Readability)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container" id="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p id="status-text" style="display:none; text-align:center; font-size:0.9rem; color:var(--text-secondary); margin-top:0.8rem;"></p>
+
+            <!-- Stats Panel -->
+            <div class="stats-panel" id="stats-panel">
+                <div>
+                    <div class="stat-num" id="stat-original">0 KB</div>
+                    <div class="stat-lbl">Original Size</div>
+                </div>
+                <div>
+                    <div class="stat-num" id="stat-compressed">0 KB</div>
+                    <div class="stat-lbl">Compressed Size</div>
+                </div>
+                <div>
+                    <div class="stat-num" id="stat-savings">0%</div>
+                    <div class="stat-lbl">Savings</div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div style="display:flex; justify-content:center; gap:1rem; margin-top:1.5rem;">
+                <button class="btn-primary" id="btn-compress" onclick="compressPDF()" disabled style="font-weight:600;">Compress PDF</button>
+                <button class="btn-primary" id="btn-download" onclick="downloadResult()" style="display:none; font-weight:600; background:var(--accent-secondary);">Download Compressed PDF</button>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>How to Compress PDF to 100KB Online Free</h2>
+            <p>Government recruitment systems and academic registers often require applicants to upload PDF certificates under 100KB. Our **PDF Compressor 100KB** tool lets you achieve this threshold by re-indexing documents locally or down-sampling pages to standard web-view DPI limits.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Utilities</h4>
+                    <ul>
+                        <li><a href="/merge-pdf-online-free">Merge PDF</a></li>
+                        <li><a href="/split-pdf-pages-online">Split PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+        let selectedFileBytes = null;
+        let selectedFileName = '';
+        let compressedBytes = null;
+
+        function handleFileSelect(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            selectedFileName = file.name;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                selectedFileBytes = new Uint8Array(e.target.result);
+                document.getElementById('upload-status').innerText = 'Selected file:';
+                document.getElementById('file-name').innerText = file.name + ' (' + formatSize(selectedFileBytes.length) + ')';
+                document.getElementById('btn-compress').disabled = false;
+                document.getElementById('stats-panel').style.display = 'none';
+                document.getElementById('btn-download').style.display = 'none';
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function formatSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            const kb = bytes / 1024;
+            if (kb < 1024) return kb.toFixed(1) + ' KB';
+            const mb = kb / 1024;
+            return mb.toFixed(2) + ' MB';
+        }
+
+        async function compressPDF() {
+            if (!selectedFileBytes) return;
+
+            const mode = document.getElementById('comp-level').value;
+            
+            document.getElementById('progress-container').style.display = 'block';
+            document.getElementById('progress-bar').style.width = '0%';
+            document.getElementById('status-text').style.display = 'block';
+            document.getElementById('status-text').innerText = 'Initializing...';
+            document.getElementById('btn-compress').disabled = true;
+
+            try {
+                if (mode === 'standard') {
+                    document.getElementById('status-text').innerText = 'Recompiling stream structures...';
+                    document.getElementById('progress-bar').style.width = '50%';
+                    
+                    const srcDoc = await PDFLib.PDFDocument.load(selectedFileBytes);
+                    const destDoc = await PDFLib.PDFDocument.create();
+                    
+                    const pageIndices = Array.from({ length: srcDoc.getPageCount() }, (_, i) => i);
+                    const copiedPages = await destDoc.copyPages(srcDoc, pageIndices);
+                    
+                    copiedPages.forEach(p => destDoc.addPage(p));
+                    
+                    compressedBytes = await destDoc.save({ useObjectStreams: true });
+                    document.getElementById('progress-bar').style.width = '100%';
+                } else {
+                    const dpi = parseInt(document.getElementById('comp-dpi').value);
+                    const scale = dpi / 72;
+
+                    document.getElementById('status-text').innerText = 'Parsing document...';
+                    const pdf = await pdfjsLib.getDocument({ data: selectedFileBytes }).promise;
+                    const destDoc = await PDFLib.PDFDocument.create();
+                    
+                    const numPages = pdf.numPages;
+
+                    for (let i = 1; i <= numPages; i++) {
+                        document.getElementById('status-text').innerText = `Rasterizing page ${i} of ${numPages}...`;
+                        document.getElementById('progress-bar').style.width = `${Math.round((i / numPages) * 90)}%`;
+
+                        const page = await pdf.getPage(i);
+                        const viewport = page.getViewport({ scale: scale });
+                        
+                        const canvas = document.createElement('canvas');
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+                        const ctx = canvas.getContext('2d');
+                        
+                        await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+                        
+                        const imgData = canvas.toDataURL('image/jpeg', 0.65);
+                        const embeddedImg = await destDoc.embedJpg(imgData);
+                        
+                        const pViewport = page.getViewport({ scale: 1.0 });
+                        const newPage = destDoc.addPage([pViewport.width, pViewport.height]);
+                        newPage.drawImage(embeddedImg, {
+                            x: 0,
+                            y: 0,
+                            width: pViewport.width,
+                            height: pViewport.height
+                        });
+                    }
+
+                    document.getElementById('status-text').innerText = 'Saving compressed document...';
+                    compressedBytes = await destDoc.save({ useObjectStreams: true });
+                    document.getElementById('progress-bar').style.width = '100%';
+                }
+
+                document.getElementById('stat-original').innerText = formatSize(selectedFileBytes.length);
+                document.getElementById('stat-compressed').innerText = formatSize(compressedBytes.length);
+                
+                const savings = Math.max(0, Math.round(((selectedFileBytes.length - compressedBytes.length) / selectedFileBytes.length) * 100));
+                document.getElementById('stat-savings').innerText = savings + '%';
+                
+                document.getElementById('stats-panel').style.display = 'flex';
+                document.getElementById('btn-download').style.display = 'inline-block';
+                document.getElementById('status-text').innerText = 'Compression completed successfully!';
+            } catch (err) {
+                console.error(err);
+                document.getElementById('status-text').innerText = 'Error occurred: ' + err.message;
+            } finally {
+                document.getElementById('btn-compress').disabled = false;
+            }
+        }
+
+        function downloadResult() {
+            if (!compressedBytes) return;
+            const blob = new Blob([compressedBytes], { type: 'application/pdf' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = selectedFileName.replace(/\.pdf$/i, '') + '-100kb.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

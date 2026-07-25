@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://open.er-api.com https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Currency Converter Online — Live Exchange Rates | RankifyTools</title>
+    <meta name="description" content="Convert currencies online with live exchange rates. Supports conversion between USD, EUR, GBP, INR, CAD, AUD, and more with instant swapping and offline fallback.">
+    <meta name="keywords" content="currency converter, live exchange rates, convert usd to eur, convert gbp to usd, real-time forex rates">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/currency-converter-live">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/currency-converter-live">
+    <meta property="og:title" content="Live Currency Converter Online | RankifyTools">
+    <meta property="og:description" content="Calculate real-time currency exchanges with live rates and dynamic swaps.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Currency Converter", "item": "https://free-online-seo-tools.vercel.app/currency-converter-live"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Currency Converter",
+      "url": "https://free-online-seo-tools.vercel.app/currency-converter-live",
+      "description": "Convert currency amounts instantly using live exchange rates and static fallbacks.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+
+    <style>
+        .converter-card { max-width: 600px; margin: 2rem auto 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2.2rem; }
+        .convert-row { display: flex; align-items: flex-end; gap: 1rem; margin-bottom: 1.2rem; }
+        @media (max-width: 550px) { .convert-row { flex-direction: column; align-items: stretch; } }
+        .swap-btn-container { display: flex; align-items: center; justify-content: center; padding-bottom: 0.2rem; }
+        .swap-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); color: var(--text-primary); width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; transition: all 0.3s; }
+        .swap-btn:hover { background: var(--accent-primary); border-color: var(--accent-hover); transform: rotate(180deg); }
+        .output-box { background: rgba(0,0,0,0.2); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.2rem; text-align: center; margin-top: 1.5rem; }
+        .status-badge { font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 10px; text-transform: uppercase; display: inline-block; margin-bottom: 1rem; }
+        .status-live { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+        .status-fallback { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Currency Converter</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Live Currency Converter</h1>
+            <p>Convert global currencies instantly. The converter loads real-time foreign exchange (forex) rates dynamically and features a robust offline fallback.</p>
+        </div>
+
+        <div class="converter-card">
+            <div style="text-align:right;">
+                <span id="rate-status" class="status-badge status-fallback">Loading rates...</span>
+            </div>
+
+            <!-- Amount Input -->
+            <div class="input-group" style="margin-bottom: 1.2rem;">
+                <label style="font-weight:600;">Amount</label>
+                <input type="number" id="convert-amount" value="100" step="any" min="0" oninput="convertCurrency()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+            </div>
+
+            <!-- Conversion Selection -->
+            <div class="convert-row">
+                <div class="input-group" style="flex:1;">
+                    <label style="font-weight:600;">From</label>
+                    <select id="currency-from" onchange="convertCurrency()" style="padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <option value="USD" selected>USD — US Dollar</option>
+                        <option value="EUR">EUR — Euro</option>
+                        <option value="GBP">GBP — British Pound</option>
+                        <option value="INR">INR — Indian Rupee</option>
+                        <option value="CAD">CAD — Canadian Dollar</option>
+                        <option value="AUD">AUD — Australian Dollar</option>
+                        <option value="JPY">JPY — Japanese Yen</option>
+                        <option value="CNY">CNY — Chinese Yuan</option>
+                        <option value="CHF">CHF — Swiss Franc</option>
+                        <option value="NZD">NZD — New Zealand Dollar</option>
+                    </select>
+                </div>
+
+                <div class="swap-btn-container">
+                    <button type="button" onclick="swapCurrencies()" class="swap-btn" aria-label="Swap currencies">🔁</button>
+                </div>
+
+                <div class="input-group" style="flex:1;">
+                    <label style="font-weight:600;">To</label>
+                    <select id="currency-to" onchange="convertCurrency()" style="padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <option value="USD">USD — US Dollar</option>
+                        <option value="EUR" selected>EUR — Euro</option>
+                        <option value="GBP">GBP — British Pound</option>
+                        <option value="INR">INR — Indian Rupee</option>
+                        <option value="CAD">CAD — Canadian Dollar</option>
+                        <option value="AUD">AUD — Australian Dollar</option>
+                        <option value="JPY">JPY — Japanese Yen</option>
+                        <option value="CNY">CNY — Chinese Yuan</option>
+                        <option value="CHF">CHF — Swiss Franc</option>
+                        <option value="NZD">NZD — New Zealand Dollar</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Conversion Output Display -->
+            <div class="output-box">
+                <div id="out-formula" style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:0.4rem;">100 USD =</div>
+                <div id="out-result" style="font-size:2rem; font-weight:800; color:var(--text-primary);">92.00 EUR</div>
+                <div id="out-update-time" style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.4rem;">Rates updated: offline fallback values</div>
+            </div>
+        </div>
+
+        <section class="seo-content" style="max-width: 600px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Understanding Live Currency Conversion</h2>
+            <p>A **Currency Converter** translates the relative values of different national monetary units based on current global forex rates.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        let rates = {
+            "USD": 1,
+            "EUR": 0.92,
+            "GBP": 0.77,
+            "INR": 83.5,
+            "CAD": 1.37,
+            "AUD": 1.51,
+            "JPY": 156.0,
+            "CNY": 7.25,
+            "CHF": 0.89,
+            "NZD": 1.63
+        };
+
+        let usingLiveRates = false;
+        let lastUpdateTime = 'offline fallback values';
+
+        async function fetchLiveRates() {
+            const statusBadge = document.getElementById('rate-status');
+            try {
+                const response = await fetch('https://open.er-api.com/v6/latest/USD');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data && data.rates) {
+                        for (const key in rates) {
+                            if (data.rates[key]) {
+                                rates[key] = data.rates[key];
+                            }
+                        }
+                        usingLiveRates = true;
+                        const d = new Date(data.time_last_update_utc);
+                        lastUpdateTime = d.toLocaleString();
+                        statusBadge.textContent = 'Live Rates Active';
+                        statusBadge.className = 'status-badge status-live';
+                    }
+                }
+            } catch (err) {
+                console.warn('Unable to load live currency rates, falling back to static indices.', err);
+                statusBadge.textContent = 'Offline Fallback Active';
+                statusBadge.className = 'status-badge status-fallback';
+            } finally {
+                convertCurrency();
+            }
+        }
+
+        function swapCurrencies() {
+            const fromSelect = document.getElementById('currency-from');
+            const toSelect = document.getElementById('currency-to');
+            const temp = fromSelect.value;
+            fromSelect.value = toSelect.value;
+            toSelect.value = temp;
+            convertCurrency();
+        }
+
+        function convertCurrency() {
+            const amount = parseFloat(document.getElementById('convert-amount').value) || 0;
+            const from = document.getElementById('currency-from').value;
+            const to = document.getElementById('currency-to').value;
+
+            const fromRate = rates[from] || 1;
+            const toRate = rates[to] || 1;
+
+            const usdVal = amount / fromRate;
+            const targetVal = usdVal * toRate;
+
+            document.getElementById('out-formula').textContent = `${amount.toLocaleString()} ${from} =`;
+            document.getElementById('out-result').textContent = `${targetVal.toFixed(2)} ${to}`;
+            document.getElementById('out-update-time').textContent = 'Rates updated: ' + lastUpdateTime;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchLiveRates();
+        });
+    </script>
+</body>
+</html>

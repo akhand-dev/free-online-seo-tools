@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src *;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free API Request Tester Online — Fetch API Sandbox | RankifyTools</title>
+    <meta name="description" content="Test HTTP APIs online for free. Send GET, POST, PUT, DELETE requests, configure header variables, and inspect JSON payloads. Free client-side API validator.">
+    <meta name="keywords" content="api request tester, postman online free, rest api client, test HTTP endpoint, online fetch sandbox">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/api-request-tester">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/api-request-tester">
+    <meta property="og:title" content="Free API Request Tester Online | RankifyTools">
+    <meta property="og:description" content="Send API queries and review structural HTTP response parameters instantly.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .api-card { max-width: 900px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .method-select { background: var(--bg-dark); border: 1px solid var(--border-light); color: var(--accent-secondary); font-weight: bold; border-radius: var(--radius-sm) 0 0 var(--radius-sm); border-right: none; padding: 0.75rem; }
+        .url-input { border-radius: 0 var(--radius-sm) var(--radius-sm) 0 !important; }
+        .editor-area { width: 100%; height: 160px; background: var(--bg-dark); border: 1px solid var(--border-light); border-radius: var(--radius-sm); color: #fff; font-family: monospace; padding: 0.8rem; font-size: 0.9rem; outline: none; }
+        .response-box { background: rgba(0,0,0,0.2); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.2rem; }
+        .headers-grid { display: flex; flex-direction: column; gap: 0.5rem; }
+        .header-row { display: flex; gap: 0.5rem; }
+        .header-row input { background: var(--bg-dark); border: 1px solid var(--border-light); color: #fff; padding: 0.4rem; border-radius: var(--radius-sm); font-size: 0.85rem; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">API Tester</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>API Request Tester</h1>
+            <p>Send GET, POST, PUT, or DELETE requests directly from your browser to check endpoints, validate headers, and inspect payloads.</p>
+        </div>
+
+        <div class="api-card">
+            <!-- URL & Method -->
+            <div style="display:flex; margin-bottom:1.5rem; width:100%;">
+                <select id="api-method" class="method-select">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+                <input type="text" id="api-url" class="url-input" value="https://jsonplaceholder.typicode.com/todos/1" placeholder="Enter request URL" style="background:var(--bg-dark); border:1px solid var(--border-light); color:#fff; padding:0.75rem; flex-grow:1; outline:none;">
+                <button onclick="sendRequest()" class="btn-primary" style="padding:0 2.2rem; border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-weight:700;">Send</button>
+            </div>
+
+            <!-- Configuration tabs -->
+            <div style="margin-bottom:1.2rem;">
+                <h3 style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:0.6rem;">Headers</h3>
+                <div class="headers-grid" id="headers-container">
+                    <div class="header-row">
+                        <input type="text" placeholder="Key (e.g. Content-Type)" class="header-key" style="flex:1;" value="Content-Type">
+                        <input type="text" placeholder="Value" class="header-val" style="flex:1;" value="application/json">
+                        <button onclick="this.parentElement.remove()" class="control-btn" style="padding:0 0.8rem; font-size:0.8rem;">Remove</button>
+                    </div>
+                </div>
+                <button onclick="addHeaderRow()" class="control-btn" style="padding:0.35rem 0.8rem; font-size:0.8rem; margin-top:0.5rem;">+ Add Header</button>
+            </div>
+
+            <!-- Request Body -->
+            <div style="display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.5rem;">
+                <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Request Body (JSON)</label>
+                <textarea id="api-body" class="editor-area" placeholder='{"key": "value"}'></textarea>
+            </div>
+
+            <!-- Response -->
+            <div id="results-area" style="display: none;" class="response-box">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem; border-bottom:1px solid var(--border-light); padding-bottom:0.5rem;">
+                    <h3 style="margin:0; font-size:1.05rem; color:#fff;">HTTP Response</h3>
+                    <div style="font-size:0.9rem; font-weight:bold; color:var(--accent-secondary);">
+                        Status: <span id="res-status" style="color:var(--success);">200 OK</span> | Time: <span id="res-time">0</span> ms
+                    </div>
+                </div>
+
+                <textarea id="api-response" class="editor-area" readonly style="color:#a7f3d0; height:240px;"></textarea>
+            </div>
+        </div>
+
+        <section class="seo-content" style="max-width: 900px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>API Request Testing sandbox</h2>
+            <p>Evaluating server-side APIs is quick and direct using client-side sandboxes. Note: Cross-Origin Resource Sharing (CORS) rules of the target server must permit requests from this domain for queries to compile successfully.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        function addHeaderRow() {
+            const container = document.getElementById('headers-container');
+            const row = document.createElement('div');
+            row.className = 'header-row';
+            row.innerHTML = `
+                <input type="text" placeholder="Key" class="header-key" style="flex:1;">
+                <input type="text" placeholder="Value" class="header-val" style="flex:1;">
+                <button onclick="this.parentElement.remove()" class="control-btn" style="padding:0 0.8rem; font-size:0.8rem;">Remove</button>
+            `;
+            container.appendChild(row);
+        }
+
+        async function sendRequest() {
+            const url = document.getElementById('api-url').value.trim();
+            const method = document.getElementById('api-method').value;
+            const bodyText = document.getElementById('api-body').value.trim();
+
+            if (!url) {
+                alert('Please enter a URL!');
+                return;
+            }
+
+            // Compile Headers
+            const headers = {};
+            document.querySelectorAll('.header-row').forEach(row => {
+                const key = row.querySelector('.header-key').value.trim();
+                const val = row.querySelector('.header-val').value.trim();
+                if (key) headers[key] = val;
+            });
+
+            const options = {
+                method: method,
+                headers: headers
+            };
+
+            if (method !== 'GET' && bodyText) {
+                options.body = bodyText;
+            }
+
+            const startTime = performance.now();
+            const statusText = document.getElementById('res-status');
+            const timeText = document.getElementById('res-time');
+            const outputArea = document.getElementById('api-response');
+
+            statusText.textContent = 'Loading...';
+            outputArea.value = '';
+            document.getElementById('results-area').style.display = 'block';
+
+            try {
+                const res = await fetch(url, options);
+                const elapsed = performance.now() - startTime;
+                
+                statusText.textContent = `${res.status} ${res.statusText}`;
+                statusText.style.color = res.ok ? 'var(--success)' : 'var(--error)';
+                timeText.textContent = Math.round(elapsed);
+
+                const data = await res.text();
+                try {
+                    // Try formatting as JSON
+                    const parsed = JSON.parse(data);
+                    outputArea.value = JSON.stringify(parsed, null, 2);
+                } catch {
+                    outputArea.value = data;
+                }
+
+            } catch (err) {
+                const elapsed = performance.now() - startTime;
+                statusText.textContent = 'Failed';
+                statusText.style.color = 'var(--error)';
+                timeText.textContent = Math.round(elapsed);
+                outputArea.value = 'Fetch Error: ' + err.message + '\n\nNote: If targeting external APIs, verify the endpoint supports CORS (Cross-Origin Resource Sharing).';
+            }
+        }
+    </script>
+</body>
+</html>

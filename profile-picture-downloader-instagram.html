@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://*.instagram.com https://*.cdninstagram.com https://api.cobalt.tools https://*.cobalt.tools; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com https://api.cobalt.tools https://*.cobalt.tools;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile Picture Downloader Online Free | RankifyTools</title>
+    <meta name="description" content="Download Instagram profile pictures in full resolution online for free. Paste the username or profile link to save avatar images instantly.">
+    <meta name="keywords" content="profile picture downloader instagram, save instagram dp, download insta profile photo, instagram avatar downloader">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/profile-picture-downloader-instagram">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/profile-picture-downloader-instagram">
+    <meta property="og:title" content="Instagram Profile Picture Downloader Free | RankifyTools">
+    <meta property="og:description" content="Download Instagram profile pictures in high definition resolution locally in your browser.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <style>
+        .downloader-card { max-width: 650px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .url-form { display: flex; gap: 0.8rem; margin-bottom: 1.5rem; }
+        .url-input { background: var(--bg-dark); border: 1px solid var(--border-light); color: var(--text-primary); padding: 0.75rem 1rem; border-radius: var(--radius-sm); flex-grow: 1; outline: none; font-size: 1rem; }
+        .url-input:focus { border-color: var(--accent-primary); }
+        .preview-pane { margin-top: 1.5rem; border: 1px solid var(--border-light); background: var(--bg-dark); border-radius: var(--radius-md); padding: 1.2rem; text-align: center; display: none; }
+        .preview-media { max-width: 250px; height: 250px; border-radius: 50%; margin: 1rem 0; border: 3px solid var(--accent-primary); }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Instagram DP Downloader</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Instagram Profile Picture Downloader</h1>
+            <p>View and download Instagram profile photos (DP) in full resolution. Safe, secure, and private browser-based query.</p>
+        </div>
+
+        <div class="downloader-card">
+            <div class="url-form">
+                <input type="text" id="profile-url" class="url-input" placeholder="Enter username or profile link (e.g. @cristiano)">
+                <button type="button" id="btn-submit" onclick="fetchProfilePic()" class="btn-primary" style="padding:0.75rem 1.8rem; font-weight:700; cursor:pointer; font-size:0.95rem;">Fetch DP</button>
+            </div>
+
+            <div id="status-text" style="display:none; font-size:0.88rem; text-align:center; color:var(--text-secondary); margin-bottom:1rem;">Locating user profile...</div>
+
+            <div class="preview-pane" id="preview-frame">
+                <h3 style="font-size:1rem; color:var(--text-primary); margin:0;">Profile Picture Preview</h3>
+                <img id="avatar-img" class="preview-media" src="" alt="Instagram Profile Picture">
+                <div style="margin-top: 1rem;">
+                    <a id="btn-download" style="padding:0.7rem 2rem; background:var(--success); color:#fff; font-weight:700; border-radius:var(--radius-sm); text-decoration:none; display:inline-block;" href="" download target="_blank">💾 Save Image</a>
+                </div>
+            </div>
+
+            <div id="fallback-info" style="display:none; margin-top:1.5rem; background:rgba(239, 68, 68, 0.1); border:1px solid rgba(239, 68, 68, 0.2); padding:1rem; border-radius:var(--radius-md); font-size:0.85rem; line-height:1.6;">
+                ⚠️ <strong>API Rate Limit:</strong> If the automated query fails, you can download the avatar image by visiting:
+                <ul style="margin: 0.4rem 0 0 1.2rem; padding: 0;">
+                    <li>Type the handle in <a href="https://save-insta.com/profile-downloader/" target="_blank" style="color:var(--accent-secondary); font-weight:600;">Save-Insta</a> to download full size DPs directly.</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="seo-content" style="max-width: 650px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Instagram Profile Picture Extractor Online</h2>
+            <p>Backing up avatars, checking design handles, or downloading graphic files from public Instagram profiles online is made simple with our 100% free browser tool.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Utilities</h4>
+                    <ul>
+                        <li><a href="/merge-pdf-online-free">Merge PDF</a></li>
+                        <li><a href="/split-pdf-pages-online">Split PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        async function fetchProfilePic() {
+            let inputVal = document.getElementById('profile-url').value.trim();
+            if (!inputVal) {
+                alert('Please enter an Instagram handle or profile URL!');
+                return;
+            }
+
+            // Extract username from input link
+            let username = inputVal.replace(/@/, '');
+            if (inputVal.includes('instagram.com/')) {
+                const match = inputVal.match(/instagram\.com\/([a-zA-Z0-9_\.]+)/);
+                if (match && match[1]) {
+                    username = match[1];
+                }
+            }
+
+            const btn = document.getElementById('btn-submit');
+            const status = document.getElementById('status-text');
+            const preview = document.getElementById('preview-frame');
+            const avatarImg = document.getElementById('avatar-img');
+            const fallback = document.getElementById('fallback-info');
+
+            btn.disabled = true;
+            status.style.display = 'block';
+            status.innerText = `Fetching profile picture for @${username}...`;
+            preview.style.display = 'none';
+            fallback.style.display = 'none';
+            avatarImg.src = '';
+
+            try {
+                // Use cobalt api node targeting profile URL
+                const targetUrl = `https://www.instagram.com/${username}/`;
+                const response = await fetch('https://api.cobalt.tools/', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        url: targetUrl
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data && data.url) {
+                    status.innerText = 'Profile picture loaded successfully!';
+                    avatarImg.src = data.url;
+                    document.getElementById('btn-download').href = data.url;
+                    preview.style.display = 'block';
+                } else {
+                    throw new Error('Avatar not found in Cobalt response.');
+                }
+            } catch (err) {
+                console.error(err);
+                // Fallback using direct target proxy lookup
+                avatarImg.src = `https://images.weserv.nl/?url=instagram.com/${username}/profile_pic/?size=t`;
+                document.getElementById('btn-download').href = avatarImg.src;
+                
+                avatarImg.onload = function() {
+                    status.innerText = 'Profile picture loaded successfully!';
+                    preview.style.display = 'block';
+                };
+                
+                avatarImg.onerror = function() {
+                    status.innerText = 'Failed to load profile photo automatically.';
+                    fallback.style.display = 'block';
+                };
+            } finally {
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

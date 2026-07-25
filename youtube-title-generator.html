@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Title Generator Online Free — High CTR Title Generator | RankifyTools</title>
+    <meta name="description" content="Generate high-CTR YouTube video titles online for free. Boost your video views and click-through rates with trending title hooks, listicles, and templates.">
+    <meta name="keywords" content="youtube title generator free, click-through rate optimizer, trending video hooks, generate youtube titles, yt title builder">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/youtube-title-generator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/youtube-title-generator">
+    <meta property="og:title" content="YouTube Title Generator Free | RankifyTools">
+    <meta property="og:description" content="Get high click-through rate hooks and templates for your YouTube video topics.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .generator-card { max-width: 750px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .title-item { background: var(--bg-dark); border: 1px solid var(--border-light); padding: 0.8rem 1.2rem; border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; color: #fff; }
+        .copy-btn { background: none; border: 1px solid var(--border-light); color: var(--text-secondary); cursor: pointer; padding: 0.35rem 0.7rem; border-radius: var(--radius-sm); font-size: 0.8rem; transition: all 0.2s; }
+        .copy-btn:hover { background: var(--accent-primary); color: #fff; border-color: var(--accent-primary); }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">YouTube Title Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>YouTube Title Generator</h1>
+            <p>Generate click-enticing, high-CTR YouTube video titles. Simply type your core video idea to get instant hook templates.</p>
+        </div>
+
+        <div class="generator-card">
+            <div style="display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.5rem;">
+                <label for="topic-input" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Core Video Topic</label>
+                <div style="display:flex; gap:0.8rem;">
+                    <input type="text" id="topic-input" class="url-input" placeholder="e.g. how to bake a cake, make money coding" style="background:var(--bg-dark); border:1px solid var(--border-light); color:#fff; padding:0.75rem; border-radius:var(--radius-sm); flex-grow:1; outline:none;" onkeyup="if(event.key==='Enter') generateTitles()">
+                    <button type="button" onclick="generateTitles()" class="btn-primary" style="padding:0.75rem 1.8rem; font-weight:700;">Generate Titles</button>
+                </div>
+            </div>
+
+            <div id="results-area" style="display: none;">
+                <h2 style="font-size:1.15rem; color:#fff; margin-bottom:1.2rem; border-bottom:1px solid var(--border-light); padding-bottom:0.5rem;">Suggested Titles (High Click-Through-Rate)</h2>
+                <div id="titles-container"></div>
+            </div>
+        </div>
+
+        <section class="seo-content" style="max-width: 750px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Free YouTube Title Generator Online</h2>
+            <p>Optimizing titles for CTR is one of the most vital strategies to feed the YouTube recommendation algorithm. By combining emotional power words ("Secret", "Fast", "Mistake", "Shocking") and clear value propositions, our tool helps creators generate titles in seconds.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Utilities</h4>
+                    <ul>
+                        <li><a href="/merge-pdf-online-free">Merge PDF</a></li>
+                        <li><a href="/split-pdf-pages-online">Split PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        function generateTitles() {
+            let topic = document.getElementById('topic-input').value.trim();
+            if (!topic) {
+                alert('Please enter a video topic!');
+                return;
+            }
+
+            // Capitalize first letter of words
+            topic = topic.replace(/\b\w/g, c => c.toUpperCase());
+
+            const container = document.getElementById('titles-container');
+            container.innerHTML = '';
+
+            const templates = [
+                `How to ${topic} (The Easy Way)`,
+                `I Tried to ${topic} for 30 Days (Here's What Happened)`,
+                `5 ${topic} Mistakes You Must Avoid!`,
+                `The Secret to ${topic} That No One Tells You`,
+                `${topic}: Zero to Hero Guide (2026)`,
+                `Stop Doing This if You Want to ${topic}!`,
+                `Why ${topic} is Harder Than You Think`,
+                `Everything You Need to Know to ${topic} today`
+            ];
+
+            templates.forEach(t => {
+                const item = document.createElement('div');
+                item.className = 'title-item';
+                item.innerHTML = `
+                    <span>${t}</span>
+                    <button class="copy-btn" onclick="copyTitle(this, \`${t.replace(/'/g, "\\'")}\`)">Copy</button>
+                `;
+                container.appendChild(item);
+            });
+
+            document.getElementById('results-area').style.display = 'block';
+        }
+
+        function copyTitle(btn, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                setTimeout(() => btn.innerText = originalText, 1500);
+            });
+        }
+    </script>
+</body>
+</html>

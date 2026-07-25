@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Calculate GST India — GST Rules & Free Calculator | RankifyTools</title>
+    <meta name="description" content="Learn how to calculate GST in India. Complete tax guide explaining CGST, SGST, IGST calculations with a built-in interactive tax calculator widget.">
+    <meta name="keywords" content="how to calculate gst india, gst calculator india, cgst sgst igst splits, standard gst slabs 18 percent">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/how-to-calculate-gst-india">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/how-to-calculate-gst-india">
+    <meta property="og:title" content="How to Calculate GST India | RankifyTools">
+    <meta property="og:description" content="Read our complete Indian GST guide and calculate CGST, SGST, IGST taxes with our built-in widget.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .combo-card { max-width: 800px; margin: 0 auto 2rem auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .tax-layout { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        @media (min-width: 768px) { .tax-layout { grid-template-columns: 1.2fr 1fr; } }
+        .article-content { max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-primary); }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/blog/index.html">Blog</a><span class="separator">›</span>
+            <span class="current">GST Calculation Guide</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>How to Calculate GST in India</h1>
+            <p>Read our complete guide to Indian GST tax filing rules, or perform instant computations using our integrated GST rate calculator below.</p>
+        </div>
+
+        <!-- Integrated Tool Widget -->
+        <div class="combo-card">
+            <h2 style="font-size:1.25rem; color:#fff; margin-bottom:1.2rem; text-align:center;">⚡ Interactive GST Calculator</h2>
+            <div class="tax-layout">
+                <!-- Input Panel -->
+                <div style="display:flex; flex-direction:column; gap:1.2rem;">
+                    <div class="input-group">
+                        <label style="font-weight:600;">Net Amount (₹)</label>
+                        <input type="number" id="gst-amount" value="1000" step="any" min="0" oninput="calculateGST()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    </div>
+
+                    <div class="input-group">
+                        <label style="font-weight:600;">GST Rate Slab</label>
+                        <select id="gst-rate" onchange="calculateGST()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            <option value="18" selected>Standard Services (18%)</option>
+                            <option value="5">Essential Goods (5%)</option>
+                            <option value="12">Standard Goods (12%)</option>
+                            <option value="28">Luxury Items (28%)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label style="font-weight:600;">Transaction Type</label>
+                        <select id="gst-type" onchange="calculateGST()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            <option value="intra" selected>Intrastate (CGST + SGST)</option>
+                            <option value="inter">Interstate (IGST)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Output Panel -->
+                <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.2rem; display:flex; flex-direction:column; gap:0.6rem;">
+                    <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem; color:var(--accent-primary);">Tax Invoice Summary</h3>
+                    
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Base Amount</span>
+                        <span id="out-net" style="font-weight:600;">₹1,000.00</span>
+                    </div>
+                    <div id="cgst-row" style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">CGST (9%)</span>
+                        <span id="out-cgst" style="font-weight:600;">₹90.00</span>
+                    </div>
+                    <div id="sgst-row" style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">SGST (9%)</span>
+                        <span id="out-sgst" style="font-weight:600;">₹90.00</span>
+                    </div>
+                    <div id="igst-row" style="display:none; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">IGST (18%)</span>
+                        <span id="out-igst" style="font-weight:600;">₹180.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:1.15rem; font-weight:bold; margin-top:0.4rem;">
+                        <span>Total Invoice Value</span>
+                        <span id="out-total">₹1,180.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article Content -->
+        <article class="article-content reveal">
+            <h2>GST Compliance and Rules in India</h2>
+            <p><strong>Goods and Services Tax (GST)</strong> is a unified multi-stage consumption tax levied on goods and services in India. Understanding the tax splits is essential for business operators:</p>
+            
+            <h3>1. Intrastate Transactions (Within State)</h3>
+            <p>When selling to a buyer in the same state, the tax is split equally into <strong>CGST (Central GST)</strong> and <strong>SGST (State GST)</strong>.</p>
+
+            <h3>2. Interstate Transactions (Across States)</h3>
+            <p>When selling to a buyer in a different state, a single unified tax called <strong>IGST (Integrated GST)</strong> is levied.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        function calculateGST() {
+            const amount = parseFloat(document.getElementById('gst-amount').value) || 0;
+            const rate = parseFloat(document.getElementById('gst-rate').value) || 18;
+            const type = document.getElementById('gst-type').value;
+
+            const taxTotal = amount * (rate / 100);
+            const totalVal = amount + taxTotal;
+
+            document.getElementById('out-net').textContent = '₹' + amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('out-total').textContent = '₹' + totalVal.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            if (type === 'intra') {
+                const halfRate = rate / 2;
+                const halfTax = taxTotal / 2;
+
+                document.getElementById('cgst-row').style.display = 'flex';
+                document.getElementById('sgst-row').style.display = 'flex';
+                document.getElementById('igst-row').style.display = 'none';
+
+                document.getElementById('out-cgst').textContent = '₹' + halfTax.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                document.getElementById('out-sgst').textContent = '₹' + halfTax.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            } else {
+                document.getElementById('cgst-row').style.display = 'none';
+                document.getElementById('sgst-row').style.display = 'none';
+                document.getElementById('igst-row').style.display = 'flex';
+
+                document.getElementById('out-igst').textContent = '₹' + taxTotal.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateGST();
+        });
+    </script>
+</body>
+</html>

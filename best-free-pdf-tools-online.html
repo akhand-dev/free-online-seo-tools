@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Free PDF Tools Online — Ultimate PDF Guide | RankifyTools</title>
+    <meta name="description" content="Discover the best free PDF tools online. Access our complete PDF compilation guide and use our integrated local PDF merger widget. No signups required.">
+    <meta name="keywords" content="best free pdf tools online, merge pdf online free, split pdf pages online, compress pdf free">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/best-free-pdf-tools-online">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/best-free-pdf-tools-online">
+    <meta property="og:title" content="Best Free PDF Tools Online | RankifyTools">
+    <meta property="og:description" content="Read our ultimate PDF optimization guide and merge documents instantly with our local widget.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .combo-card { max-width: 800px; margin: 0 auto 2rem auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .drag-zone { border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 2rem; text-align: center; cursor: pointer; transition: all 0.2s; background: rgba(255,255,255,0.02); }
+        .drag-zone:hover { border-color: var(--accent-primary); background: rgba(99,102,241,0.05); }
+        .file-list { background: rgba(0,0,0,0.2); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 0.8rem; margin-top: 1rem; }
+        .file-item { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 0.35rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .file-item:last-child { border-bottom: none; }
+        .article-content { max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-primary); }
+    </style>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/blog/index.html">Blog</a><span class="separator">›</span>
+            <span class="current">PDF Guide</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Best Free PDF Tools Online</h1>
+            <p>Access our free online PDF editor guide, and compile multiple documents instantly with our built-in offline merger widget.</p>
+        </div>
+
+        <!-- Integrated Tool Widget -->
+        <div class="combo-card">
+            <h2 style="font-size:1.25rem; color:#fff; margin-bottom:1rem; text-align:center;">⚡ Merge PDFs Locally</h2>
+            <div class="drag-zone" onclick="document.getElementById('pdf-files').click()">
+                <input type="file" id="pdf-files" multiple accept="application/pdf" style="display:none;" onchange="handleFiles(event)">
+                <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">📄</div>
+                <h3 style="margin:0; font-size:1.1rem; color:#fff;">Select PDF Files</h3>
+                <p style="margin:0.2rem 0 0 0; color:var(--text-secondary); font-size:0.85rem;">Select 2 or more files to combine</p>
+            </div>
+
+            <div id="selected-area" style="display: none; margin-top: 1.5rem;">
+                <h4 style="margin:0 0 0.5rem 0; color:#fff; font-size:0.95rem;">Selected Files:</h4>
+                <div class="file-list" id="selected-list"></div>
+                <button onclick="mergePDFs()" class="btn-primary" style="margin-top: 1rem; width: 100%; font-weight: 700;">Merge & Download PDF 📥</button>
+            </div>
+        </div>
+
+        <!-- SEO Article Content -->
+        <article class="article-content reveal">
+            <h2>The Ultimate PDF Optimization Guide</h2>
+            <p>PDF (Portable Document Format) is the gold standard for sharing documents across different hardware setups. Managing PDF documents usually involves three primary tools:</p>
+            
+            <h3>1. PDF Merging</h3>
+            <p>Combining multiple invoices, reports, or portfolio samples into a single unified document makes file sharing simple and clean.</p>
+
+            <h3>2. PDF Splitting</h3>
+            <p>If you only need a single page or a specific page range from a large document, splitting tools let you extract pages instantly.</p>
+
+            <h3>3. PDF Compression</h3>
+            <p>Reduce PDF file sizes by downsampling structural elements or compressing metadata, making them fit under portal upload limits.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        let filesArray = [];
+
+        function handleFiles(e) {
+            const files = Array.from(e.target.files);
+            if (files.length === 0) return;
+            filesArray = filesArray.concat(files);
+            renderFileList();
+        }
+
+        function renderFileList() {
+            const list = document.getElementById('selected-list');
+            list.innerHTML = '';
+            
+            filesArray.forEach((f, idx) => {
+                const div = document.createElement('div');
+                div.className = 'file-item';
+                div.innerHTML = `
+                    <span style="color:#fff;">${f.name}</span>
+                    <span style="color:var(--text-secondary); cursor:pointer;" onclick="removeFile(${idx})">❌</span>
+                `;
+                list.appendChild(div);
+            });
+
+            document.getElementById('selected-area').style.display = filesArray.length > 0 ? 'block' : 'none';
+        }
+
+        function removeFile(idx) {
+            filesArray.splice(idx, 1);
+            renderFileList();
+        }
+
+        async function mergePDFs() {
+            if (filesArray.length < 2) {
+                alert('Please select at least 2 PDF files to merge!');
+                return;
+            }
+
+            if (typeof PDFLib === 'undefined') {
+                alert('PDF library is loading, please try again in a moment.');
+                return;
+            }
+
+            try {
+                const mergedPdf = await PDFLib.PDFDocument.create();
+                
+                for (const file of filesArray) {
+                    const arrayBuffer = await file.arrayBuffer();
+                    const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+                    const copiedPages = await mergedPdf.copyPages(pdfDoc, pdfDoc.getPageIndices());
+                    copiedPages.forEach((page) => mergedPdf.addPage(page));
+                }
+
+                const pdfBytes = await mergedPdf.save();
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'merged_document.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+            } catch (err) {
+                alert('Error merging PDFs: ' + err.message);
+            }
+        }
+    </script>
+</body>
+</html>
