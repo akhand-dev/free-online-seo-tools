@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
     <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Invoice Generator Online — Custom Invoice Maker | RankifyTools</title>
-    <meta name="description" content="Generate professional invoices online for free. Custom logo uploader, dynamic item ledgers, GST calculations, and vector PDF print downloads.">
-    <meta name="keywords" content="free invoice generator, online invoice maker, invoice template creator, save invoice pdf, b2b billing sheet creator, gst invoice generator">
-    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/invoice-generator.html">
+    <title>Free Quotation Generator Online — Custom Quote Maker | RankifyTools</title>
+    <meta name="description" content="Create professional quotations online for free. Custom logo uploader, dynamic item ledgers, GST support, and high-quality PDF print downloads.">
+    <meta name="keywords" content="free quotation generator, online quote maker, quotation template creator, save quote pdf, b2b sales quote sheets">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/quotation-generator.html">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/invoice-generator.html">
-    <meta property="og:title" content="Free Invoice Generator Online — Custom Invoice Maker">
-    <meta property="og:description" content="Generate billing ledgers with dynamic calculations, GST treatments, and save invoice vector PDFs instantly.">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/quotation-generator.html">
+    <meta property="og:title" content="Free Quotation Generator Online — Custom Quote Maker">
+    <meta property="og:description" content="Generate client-ready sales quotations, calculate tax rates, adjust validity dates, and print vector PDFs instantly.">
     <meta property="og:site_name" content="RankifyTools">
     <meta name="twitter:card" content="summary_large_image">
     
@@ -104,7 +104,7 @@
             cursor: pointer;
         }
         
-        /* --- Invoice Preview Container --- */
+        /* --- Quotation Preview Container --- */
         .preview-pane {
             position: sticky;
             top: 80px;
@@ -116,7 +116,7 @@
             flex-direction: column;
             align-items: center;
         }
-        .invoice-sheet {
+        .quote-sheet {
             width: 100%;
             max-width: 600px;
             background: #ffffff;
@@ -131,19 +131,19 @@
             text-align: left;
             min-height: 750px;
         }
-        .invoice-header {
+        .quote-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             border-bottom: 2px solid #f1f2f6;
             padding-bottom: 1.2rem;
         }
-        .invoice-meta-table {
+        .quote-meta-table {
             width: auto;
             border-collapse: collapse;
             font-size: 0.85rem;
         }
-        .invoice-meta-table td {
+        .quote-meta-table td {
             padding: 0.25rem 0.6rem;
         }
         .bill-coords {
@@ -205,7 +205,7 @@
             .split-layout {
                 grid-template-columns: 1fr !important;
             }
-            .invoice-sheet {
+            .quote-sheet {
                 border: none !important;
                 box-shadow: none !important;
                 position: absolute;
@@ -247,12 +247,12 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="../index.html">Home</a><span class="separator">›</span>
             <a href="../index.html">Tools</a><span class="separator">›</span>
-            <span class="current">Invoice Generator</span>
+            <span class="current">Quotation Generator</span>
         </nav>
         
         <div class="hero">
-            <h1>Invoice Generator</h1>
-            <p>Generate professional invoices for client billing. Add line items, compute tax rates dynamically, apply Indian GST options (CGST/SGST/IGST + GSTIN), and save as PDF vector sheets.</p>
+            <h1>Quotation Generator</h1>
+            <p>Generate professional cost estimates and quotations for sales projects. Set validity dates, add dynamic line items, configure taxes, and download as clean PDFs.</p>
         </div>
 
         <div class="ad-container ad-leaderboard">[Ad Space]</div>
@@ -261,27 +261,27 @@
             
             <!-- Left panel Config forms -->
             <div>
-                <!-- Invoice Details -->
+                <!-- Quote Details -->
                 <div class="config-card">
-                    <h2>1. Invoice Details</h2>
+                    <h2>1. Quotation Details</h2>
                     <div class="form-row">
                         <div class="input-group">
-                            <label for="inv-logo">Logo Upload</label>
-                            <input type="file" id="inv-logo" accept="image/*" onchange="handleLogoUpload(this)" style="background:var(--bg-dark); color:#fff; border:1px solid var(--border-light); padding:0.4rem; font-size:0.8rem;">
+                            <label for="quote-logo">Logo Upload</label>
+                            <input type="file" id="quote-logo" accept="image/*" onchange="handleLogoUpload(this)" style="background:var(--bg-dark); color:#fff; border:1px solid var(--border-light); padding:0.4rem; font-size:0.8rem;">
                         </div>
                         <div class="input-group">
-                            <label for="inv-num">Invoice #</label>
-                            <input type="text" id="inv-num" value="INV-2026-001" oninput="updateInvoice()">
+                            <label for="quote-num">Quotation #</label>
+                            <input type="text" id="quote-num" value="QT-2026-001" oninput="updateQuotation()">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="input-group">
-                            <label for="inv-date">Date Issued</label>
-                            <input type="text" id="inv-date" value="2026-07-25" oninput="updateInvoice()">
+                            <label for="quote-date">Date Issued</label>
+                            <input type="text" id="quote-date" value="2026-07-25" oninput="updateQuotation()">
                         </div>
                         <div class="input-group">
-                            <label for="inv-due">Due Date</label>
-                            <input type="text" id="inv-due" value="2026-08-25" oninput="updateInvoice()">
+                            <label for="quote-valid">Valid Until</label>
+                            <input type="text" id="quote-valid" value="2026-08-25" oninput="updateQuotation()">
                         </div>
                     </div>
                 </div>
@@ -292,13 +292,13 @@
                     <div class="form-row">
                         <div class="input-group">
                             <label for="bill-from-name">Sender Business</label>
-                            <input type="text" id="bill-from-name" value="Your Company Ltd" oninput="updateInvoice()">
-                            <textarea id="bill-from-addr" rows="2" style="margin-top:0.4rem;" placeholder="Address" oninput="updateInvoice()">123 Tech Lane, CA</textarea>
+                            <input type="text" id="bill-from-name" value="Your Company Ltd" oninput="updateQuotation()">
+                            <textarea id="bill-from-addr" rows="2" style="margin-top:0.4rem;" placeholder="Address" oninput="updateQuotation()">123 Tech Lane, CA</textarea>
                         </div>
                         <div class="input-group">
                             <label for="bill-to-name">Client Business</label>
-                            <input type="text" id="bill-to-name" value="Acme Corp" oninput="updateInvoice()">
-                            <textarea id="bill-to-addr" rows="2" style="margin-top:0.4rem;" placeholder="Address" oninput="updateInvoice()">456 Enterprise Way, NV</textarea>
+                            <input type="text" id="bill-to-name" value="Acme Corp" oninput="updateQuotation()">
+                            <textarea id="bill-to-addr" rows="2" style="margin-top:0.4rem;" placeholder="Address" oninput="updateQuotation()">456 Enterprise Way, NV</textarea>
                         </div>
                     </div>
                 </div>
@@ -317,18 +317,18 @@
                     <h2>4. Tax & Adjustments</h2>
                     <div class="form-row">
                         <div class="input-group">
-                            <label for="inv-tax">Tax Rate (%)</label>
-                            <input type="number" id="inv-tax" min="0" max="100" value="18" oninput="updateInvoice()">
+                            <label for="quote-tax">Tax Rate (%)</label>
+                            <input type="number" id="quote-tax" min="0" max="100" value="18" oninput="updateQuotation()">
                         </div>
                         <div class="input-group">
-                            <label for="inv-discount">Discount (%)</label>
-                            <input type="number" id="inv-discount" min="0" max="100" value="0" oninput="updateInvoice()">
+                            <label for="quote-discount">Discount (%)</label>
+                            <input type="number" id="quote-discount" min="0" max="100" value="0" oninput="updateQuotation()">
                         </div>
                     </div>
                     
                     <div style="margin-top: 1rem; border-top: 1px solid var(--border-light); padding-top: 1rem;">
                         <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-weight: 600;">
-                            <input type="checkbox" id="gst-enable" onchange="toggleGSTFields()"> Enable GST Options (India compliance)
+                            <input type="checkbox" id="gst-enable" onchange="toggleGSTFields()"> Enable GST Options
                         </label>
                     </div>
 
@@ -336,17 +336,17 @@
                         <div class="form-row">
                             <div class="input-group">
                                 <label for="gst-sender-gstin">Sender GSTIN</label>
-                                <input type="text" id="gst-sender-gstin" placeholder="e.g. 07AAAAA1111A1Z1" oninput="updateInvoice()">
+                                <input type="text" id="gst-sender-gstin" placeholder="e.g. 07AAAAA1111A1Z1" oninput="updateQuotation()">
                             </div>
                             <div class="input-group">
                                 <label for="gst-client-gstin">Client GSTIN</label>
-                                <input type="text" id="gst-client-gstin" placeholder="e.g. 07BBBBB2222B2Z2" oninput="updateInvoice()">
+                                <input type="text" id="gst-client-gstin" placeholder="e.g. 07BBBBB2222B2Z2" oninput="updateQuotation()">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="input-group">
                                 <label for="gst-treatment">GST Treatment</label>
-                                <select id="gst-treatment" onchange="updateInvoice()">
+                                <select id="gst-treatment" onchange="updateQuotation()">
                                     <option value="intra" selected>Intrastate (CGST + SGST)</option>
                                     <option value="inter">Interstate (IGST)</option>
                                 </select>
@@ -364,36 +364,24 @@
             <!-- Right panel Visual print sheet -->
             <div>
                 <div class="preview-pane">
-                    <h3 style="font-size:1rem; color:var(--text-primary); border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; width:100%;">Invoice Sheet Preview</h3>
+                    <h3 style="font-size:1rem; color:var(--text-primary); border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; width:100%;">Quotation Preview</h3>
                     
                     <div style="display:flex; justify-content:flex-end; width:100%; margin-bottom:1rem;">
-                        <button type="button" id="btn-print" onclick="window.print()" style="padding:0.5rem 1.4rem; background:var(--success); color:#fff; font-weight:700; border:none; border-radius:var(--radius-sm); cursor:pointer; font-size:0.85rem;">🖨️ Save PDF / Print Invoice</button>
+                        <button type="button" id="btn-print" onclick="window.print()" style="padding:0.5rem 1.4rem; background:var(--success); color:#fff; font-weight:700; border:none; border-radius:var(--radius-sm); cursor:pointer; font-size:0.85rem;">🖨️ Save PDF / Print Quotation</button>
                     </div>
 
-                    <!-- Printable A4 Invoice Box -->
-                    <div id="invoice-sheet" class="invoice-sheet">
-                        <!-- Dynamic Invoice Content -->
+                    <!-- Printable A4 Quote Box -->
+                    <div id="quote-sheet" class="quote-sheet">
+                        <!-- Dynamic Quotation Content -->
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
-
         <section class="seo-content" style="max-width: 1100px; margin: 3rem auto 0 auto; line-height:1.75;">
-            <h2>Free B2B Invoice Generator Online</h2>
-            <p>Drafting customer bills, calculating project costs, and generating clean invoice ledger breakdowns shouldn't require subscribing to accounting programs or using slow web templates that inject developer watermarks. Our free **Invoice Generator** compiles professional invoices locally. By entering quantities and discount parameters, grand totals compute instantly. Export files as clean vectors using the browser print overlay.</p>
-
-            <h3>GST Compliant Invoice Creation</h3>
-            <p>For Indian freelancers and businesses, standard taxation structures apply. By checking **Enable GST Options**, you can include your business's GSTIN and the client's GSTIN. Under CGST/SGST treatment, taxes divide equally between central and state buckets, while interstate transactions display a single unified IGST tax row. Optional HSN/SAC code lists can be specified on each item ledger row.</p>
-
-            <h3>How to Save Invoices as PDFs:</h3>
-            <ul>
-                <li><strong>Fill Details:</strong> Input company logo headers, billing locations, due dates, and tax settings.</li>
-                <li><strong>Add Line Items:</strong> Type item names, rates, and quantities. Subtotals sum automatically.</li>
-                <li><strong>Print / Export:</strong> Click **Save PDF / Print**. In the destination menu select "Save as PDF", choosing portrait layout and standard scales.</li>
-            </ul>
+            <h2>Free Professional Quotation Generator</h2>
+            <p>Providing custom sales estimates, business proposals, and cost sheets should be fast. Our free **Quotation Generator** compiles business quotation parameters locally. Set custom line item volumes, calculate discounts, and configure tax specifications. Save layouts as clean PDF files using your web browser print utility.</p>
         </section>
     </main>
 
@@ -444,9 +432,9 @@
 
     <script src="../js/main.js" defer></script>
     <script>
-        let invoiceItems = [
-            { id: 1, desc: "Web Development Services", qty: 40, rate: 50, hsn: "9983" },
-            { id: 2, desc: "SaaS Application Hosting Setup", qty: 1, rate: 250, hsn: "9984" }
+        let quoteItems = [
+            { id: 1, desc: "Design & Brand Strategy Mockups", qty: 10, rate: 80, hsn: "9983" },
+            { id: 2, desc: "SaaS Enterprise Interface Consulting", qty: 1, rate: 1200, hsn: "9984" }
         ];
 
         let logoBase64 = '';
@@ -458,7 +446,7 @@
             const reader = new FileReader();
             reader.onload = function(e) {
                 logoBase64 = e.target.result;
-                updateInvoice();
+                updateQuotation();
             };
             reader.readAsDataURL(file);
         }
@@ -481,7 +469,7 @@
             const showGst = document.getElementById('gst-enable').checked;
             const showHsn = showGst && document.getElementById('gst-show-hsn').checked;
 
-            invoiceItems.forEach(item => {
+            quoteItems.forEach(item => {
                 const div = document.createElement('div');
                 div.className = 'item-row';
                 div.innerHTML = `
@@ -510,19 +498,19 @@
                 container.appendChild(div);
             });
 
-            updateInvoice();
+            updateQuotation();
         }
 
         function updateItemField(id, field, value) {
-            const item = invoiceItems.find(i => i.id === id);
+            const item = quoteItems.find(i => i.id === id);
             if (item) {
                 item[field] = value;
-                updateInvoice();
+                updateQuotation();
             }
         }
 
         function addItemRow() {
-            invoiceItems.push({
+            quoteItems.push({
                 id: Date.now(),
                 desc: "",
                 qty: 1,
@@ -533,19 +521,19 @@
         }
 
         function removeItemRow(id) {
-            if (invoiceItems.length <= 1) {
-                alert('You must have at least 1 invoice item!');
+            if (quoteItems.length <= 1) {
+                alert('You must have at least 1 quotation item!');
                 return;
             }
-            invoiceItems = invoiceItems.filter(i => i.id !== id);
+            quoteItems = quoteItems.filter(i => i.id !== id);
             initLedgerRows();
         }
 
-        // Render Invoice visual sheet
-        function updateInvoice() {
-            const invNum = document.getElementById('inv-num').value;
-            const invDate = document.getElementById('inv-date').value;
-            const invDue = document.getElementById('inv-due').value;
+        // Render Quotation visual sheet
+        function updateQuotation() {
+            const quoteNum = document.getElementById('quote-num').value;
+            const quoteDate = document.getElementById('quote-date').value;
+            const quoteValid = document.getElementById('quote-valid').value;
 
             const fromName = document.getElementById('bill-from-name').value;
             const fromAddr = document.getElementById('bill-from-addr').value;
@@ -553,8 +541,8 @@
             const toName = document.getElementById('bill-to-name').value;
             const toAddr = document.getElementById('bill-to-addr').value;
 
-            const taxRate = parseFloat(document.getElementById('inv-tax').value) || 0;
-            const discountRate = parseFloat(document.getElementById('inv-discount').value) || 0;
+            const taxRate = parseFloat(document.getElementById('quote-tax').value) || 0;
+            const discountRate = parseFloat(document.getElementById('quote-discount').value) || 0;
 
             const showGst = document.getElementById('gst-enable').checked;
             const showHsn = showGst && document.getElementById('gst-show-hsn').checked;
@@ -582,7 +570,7 @@
             // Generate items ledger lines
             let subtotal = 0;
             let itemsHtml = '';
-            invoiceItems.forEach(item => {
+            quoteItems.forEach(item => {
                 const amount = item.qty * item.rate;
                 subtotal += amount;
                 itemsHtml += `
@@ -637,10 +625,10 @@
                 `;
             }
 
-            const sheet = document.getElementById('invoice-sheet');
+            const sheet = document.getElementById('quote-sheet');
             sheet.innerHTML = `
                 <!-- Top Header -->
-                <div class="invoice-header">
+                <div class="quote-header">
                     <div>
                         ${logoHtml}
                         <h2 style="margin: 0; font-size: 1.4rem; color: #2c3e50;">${fromName}</h2>
@@ -648,19 +636,19 @@
                         ${senderGstinBlock}
                     </div>
                     <div style="text-align: right;">
-                        <h1 style="margin: 0; font-size: 1.8rem; font-weight: 700; color: #6366f1;">INVOICE</h1>
-                        <table class="invoice-meta-table" style="margin-top: 0.6rem; margin-left: auto;">
+                        <h1 style="margin: 0; font-size: 1.8rem; font-weight: 700; color: #6366f1;">QUOTATION</h1>
+                        <table class="quote-meta-table" style="margin-top: 0.6rem; margin-left: auto;">
                             <tr>
-                                <td style="font-weight: 700;">Invoice No:</td>
-                                <td>${invNum}</td>
+                                <td style="font-weight: 700;">Quote No:</td>
+                                <td>${quoteNum}</td>
                             </tr>
                             <tr>
                                 <td style="font-weight: 700;">Date Issued:</td>
-                                <td>${invDate}</td>
+                                <td>${quoteDate}</td>
                             </tr>
                             <tr>
-                                <td style="font-weight: 700;">Due Date:</td>
-                                <td>${invDue}</td>
+                                <td style="font-weight: 700;">Valid Until:</td>
+                                <td>${quoteValid}</td>
                             </tr>
                         </table>
                     </div>
@@ -669,7 +657,7 @@
                 <!-- Addresses Coordinates -->
                 <div class="bill-coords">
                     <div class="bill-block">
-                        <h4>Billed To</h4>
+                        <h4>Quotation For</h4>
                         <div style="font-weight: 700; font-size: 0.95rem;">${toName}</div>
                         <div style="font-size: 0.82rem; color: #555; margin-top: 0.2rem; white-space: pre-line;">${toAddr}</div>
                         ${clientGstinBlock}

@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initCookieConsent();
   initServiceWorker();
+  initGlobalSearch();
+  initThemeToggle();
 });
 
 /* ---- Service Worker ---- */
@@ -219,7 +221,10 @@ const toolsList = [
     { title: "Online Notepad (Auto-save in browser)", url: "/tools/online-notepad.html" },
     { title: "Code Editor (Live HTML/CSS/JS preview sandbox)", url: "/tools/code-editor.html" },
     { title: "Resume Builder (Build and print CV PDFs)", url: "/tools/resume-builder.html" },
-    { title: "Invoice Generator (Generate and print billing invoices)", url: "/tools/invoice-generator.html" }
+    { title: "Invoice Generator (Generate and print billing invoices)", url: "/tools/invoice-generator.html" },
+    { title: "Profit Margin Calculator (Gross Margin & Markup)", url: "/tools/profit-margin-calculator.html" },
+    { title: "Quotation Generator (Generate and print business quotes)", url: "/tools/quotation-generator.html" },
+    { title: "Break-even Calculator (P&L sales volume projection)", url: "/tools/break-even-calculator.html" }
 ];
 
 function initGlobalSearch() {
