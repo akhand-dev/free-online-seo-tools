@@ -197,7 +197,12 @@ const toolsList = [
     { title: "File Format Converter", url: "/tools/file-converter.html" },
     { title: "CSS Gradient Generator", url: "/tools/css-gradient-generator.html" },
     { title: "UTM Link Builder", url: "/tools/utm-link-builder.html" },
-    { title: "SEO Meta Tag Generator", url: "/tools/meta-tag-generator.html" }
+    { title: "SEO Meta Tag Generator", url: "/tools/meta-tag-generator.html" },
+    { title: "SQL Formatter (SQL Prettifier)", url: "/tools/sql-formatter.html" },
+    { title: "Color Palette Generator (Random Schemes)", url: "/tools/color-palette-generator.html" },
+    { title: "HEX ↔ RGB Converter (Color Code Converter)", url: "/tools/hex-rgb-converter.html" },
+    { title: "UUID Generator (GUID Creator)", url: "/tools/uuid-generator.html" },
+    { title: "Cron Job Generator (Cron Schedule Builder)", url: "/tools/cron-job-generator.html" }
 ];
 
 function initGlobalSearch() {
