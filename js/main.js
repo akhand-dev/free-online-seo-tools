@@ -224,7 +224,15 @@ const toolsList = [
     { title: "Invoice Generator (Generate and print billing invoices)", url: "/tools/invoice-generator.html" },
     { title: "Profit Margin Calculator (Gross Margin & Markup)", url: "/tools/profit-margin-calculator.html" },
     { title: "Quotation Generator (Generate and print business quotes)", url: "/tools/quotation-generator.html" },
-    { title: "Break-even Calculator (P&L sales volume projection)", url: "/tools/break-even-calculator.html" }
+    { title: "Break-even Calculator (P&L sales volume projection)", url: "/tools/break-even-calculator.html" },
+    { title: "Keyboard Tester (On-Screen Key Checker)", url: "/tools/keyboard-tester.html" },
+    { title: "Mouse Click Speed Test (CPS Test)", url: "/tools/mouse-click-speed-test.html" },
+    { title: "Internet Speed Test (Basic Download & Latency Check)", url: "/tools/internet-speed-test.html" },
+    { title: "Reaction Time Test (Reflex Speed Game)", url: "/tools/reaction-time-test.html" },
+    { title: "US Sales Tax Calculator (State-wise rates)", url: "/tools/us-sales-tax-calculator.html" },
+    { title: "UK VAT Calculator (Add or remove VAT)", url: "/tools/uk-vat-calculator.html" },
+    { title: "Currency Converter (Live exchange rates)", url: "/tools/currency-converter.html" },
+    { title: "Fuel Cost Calculator (Trip fuel cost split planner)", url: "/tools/fuel-cost-calculator.html" }
 ];
 
 function initGlobalSearch() {

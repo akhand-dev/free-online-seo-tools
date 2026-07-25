@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Sales Tax Calculator Online — State-wise Sales Tax | RankifyTools</title>
+    <meta name="description" content="Calculate US sales tax state-wise. Supports standard rates for CA, TX, NY, FL, and all other states with customizable local/municipal tax parameters.">
+    <meta name="keywords" content="us sales tax calculator, state tax calculator, california sales tax, texas sales tax, local tax calculator online">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/us-sales-tax-calculator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/us-sales-tax-calculator.html">
+    <meta property="og:title" content="US Sales Tax Calculator Online | RankifyTools">
+    <meta property="og:description" content="Calculate state and municipal sales tax values across all US states instantly.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "US Sales Tax Calculator", "item": "https://free-online-seo-tools.vercel.app/tools/us-sales-tax-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "US Sales Tax Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/us-sales-tax-calculator.html",
+      "description": "Calculate state-specific and local municipal sales taxes inside the US.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+
+    <style>
+        .tax-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .tax-layout {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">US Sales Tax Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>US Sales Tax Calculator</h1>
+            <p>Compute state-wise sales tax liabilities in the United States. Select a state to auto-fill its base sales tax percentage or input a custom local tax rate.</p>
+        </div>
+
+        <div style="max-width: 900px; margin: 2rem auto 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem;">
+            <div class="tax-layout">
+                
+                <!-- Input Panel -->
+                <div style="display:flex; flex-direction:column; gap:1.2rem;">
+                    <div class="input-group">
+                        <label style="font-weight:600;">Base Amount ($)</label>
+                        <input type="number" id="base-amount" value="100" step="any" min="0" oninput="calculateSalesTax()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    </div>
+
+                    <div class="input-group">
+                        <label style="font-weight:600;">US State</label>
+                        <select id="state-select" onchange="handleStateChange()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            <option value="7.25" selected>California (7.25%)</option>
+                            <option value="6.25">Texas (6.25%)</option>
+                            <option value="6.00">Florida (6.00%)</option>
+                            <option value="4.00">New York (4.00%)</option>
+                            <option value="6.25">Illinois (6.25%)</option>
+                            <option value="6.00">Pennsylvania (6.00%)</option>
+                            <option value="5.75">Ohio (5.75%)</option>
+                            <option value="4.00">Georgia (4.00%)</option>
+                            <option value="4.75">North Carolina (4.75%)</option>
+                            <option value="6.00">Michigan (6.00%)</option>
+                            <option value="6.50">Washington (6.50%)</option>
+                            <option value="6.25">Massachusetts (6.25%)</option>
+                            <option value="5.60">Arizona (5.60%)</option>
+                            <option value="7.00">Indiana (7.00%)</option>
+                            <option value="7.00">Tennessee (7.00%)</option>
+                            <option value="2.90">Colorado (2.90%)</option>
+                            <option value="6.875">Minnesota (6.875%)</option>
+                            <option value="5.00">Wisconsin (5.00%)</option>
+                            <option value="4.00">Alabama (4.00%)</option>
+                            <option value="4.45">Louisiana (4.45%)</option>
+                            <option value="6.00">Kentucky (6.00%)</option>
+                            <option value="0.00">Alaska (0.00%)</option>
+                            <option value="0.00">Delaware (0.00%)</option>
+                            <option value="0.00">Montana (0.00%)</option>
+                            <option value="0.00">New Hampshire (0.00%)</option>
+                            <option value="0.00">Oregon (0.00%)</option>
+                            <option value="custom">Other / Custom Rate</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" id="custom-rate-group" style="display:none;">
+                        <label style="font-weight:600;">Custom State Tax Rate (%)</label>
+                        <input type="number" id="custom-tax-rate" value="5.0" step="0.01" min="0" max="100" oninput="calculateSalesTax()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    </div>
+
+                    <div class="input-group">
+                        <label style="font-weight:600;">Local / District / Municipal Tax (%)</label>
+                        <input type="number" id="local-tax-rate" value="0.0" step="0.01" min="0" max="100" oninput="calculateSalesTax()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <small style="color:var(--text-secondary); font-size:0.75rem;">Optional additional city or county tax parameters.</small>
+                    </div>
+                </div>
+
+                <!-- Output Panel -->
+                <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.2rem; display:flex; flex-direction:column; gap:0.6rem;">
+                    <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem; color:var(--accent-primary);">Tax Invoice Summary</h3>
+                    
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Base Price</span>
+                        <span id="out-base" style="font-weight:600;">$0.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">State Tax (<span id="lbl-state-rate">7.25%</span>)</span>
+                        <span id="out-state-tax" style="font-weight:600;">$0.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Local Tax (<span id="lbl-local-rate">0.00%</span>)</span>
+                        <span id="out-local-tax" style="font-weight:600;">$0.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Total Tax Amount</span>
+                        <span id="out-total-tax" style="font-weight:600; color:var(--accent-secondary);">$0.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:1.15rem; font-weight:bold; margin-top:0.4rem;">
+                        <span>Gross Price</span>
+                        <span id="out-gross">$0.00</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.75; color: var(--text-primary);">
+            <h2>How US Sales Tax Calculations Work</h2>
+            <p>Unlike countries with a standardized National VAT or GST system, the **United States** has no national sales tax. Instead, sales taxes are governed at the state and municipal levels:
+                <ul>
+                    <li><strong>State Sales Tax:</strong> Set by state legislative boards. Currently, 45 states and Washington D.C. levy state sales taxes. Five states (Alaska, Delaware, Montana, New Hampshire, and Oregon) charge **0%** base sales tax.</li>
+                    <li><strong>Local & District Taxes:</strong> Levied by local counties, municipal cities, and special transit authorities. This explains why two locations in the same state can have different final tax totals.</li>
+                </ul>
+            </p>
+
+            <h3>Origin vs Destination-Based Sales Tax:</h3>
+            <p>For remote sales and ecommerce:
+                <ul>
+                    <li><strong>Origin-based states:</strong> Taxes are computed based on the seller's location.</li>
+                    <li><strong>Destination-based states:</strong> Taxes are computed based on the delivery location of the buyer (more common in modern digital commerce).</li>
+                </ul>
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/invoice-generator.html">Invoice Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function handleStateChange() {
+            const select = document.getElementById('state-select');
+            const customGroup = document.getElementById('custom-rate-group');
+
+            if (select.value === 'custom') {
+                customGroup.style.display = 'block';
+            } else {
+                customGroup.style.display = 'none';
+            }
+
+            calculateSalesTax();
+        }
+
+        function calculateSalesTax() {
+            const base = parseFloat(document.getElementById('base-amount').value) || 0;
+            const select = document.getElementById('state-select');
+            const localRate = parseFloat(document.getElementById('local-tax-rate').value) || 0;
+
+            let stateRate = 0;
+            if (select.value === 'custom') {
+                stateRate = parseFloat(document.getElementById('custom-tax-rate').value) || 0;
+            } else {
+                stateRate = parseFloat(select.value);
+            }
+
+            const stateTax = base * (stateRate / 100);
+            const localTax = base * (localRate / 100);
+            const totalTax = stateTax + localTax;
+            const gross = base + totalTax;
+
+            // Update Labels
+            document.getElementById('lbl-state-rate').textContent = stateRate.toFixed(2) + '%';
+            document.getElementById('lbl-local-rate').textContent = localRate.toFixed(2) + '%';
+
+            // Update Outputs
+            document.getElementById('out-base').textContent = '$' + base.toFixed(2);
+            document.getElementById('out-state-tax').textContent = '$' + stateTax.toFixed(2);
+            document.getElementById('out-local-tax').textContent = '$' + localTax.toFixed(2);
+            document.getElementById('out-total-tax').textContent = '$' + totalTax.toFixed(2);
+            document.getElementById('out-gross').textContent = '$' + gross.toFixed(2);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateSalesTax();
+        });
+    </script>
+</body>
+</html>
