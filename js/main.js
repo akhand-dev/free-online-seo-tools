@@ -202,7 +202,24 @@ const toolsList = [
     { title: "Color Palette Generator (Random Schemes)", url: "/tools/color-palette-generator.html" },
     { title: "HEX ↔ RGB Converter (Color Code Converter)", url: "/tools/hex-rgb-converter.html" },
     { title: "UUID Generator (GUID Creator)", url: "/tools/uuid-generator.html" },
-    { title: "Cron Job Generator (Cron Schedule Builder)", url: "/tools/cron-job-generator.html" }
+    { title: "Cron Job Generator (Cron Schedule Builder)", url: "/tools/cron-job-generator.html" },
+    { title: "PDF Compressor (Reduce PDF size)", url: "/tools/pdf-compressor.html" },
+    { title: "Merge / Split PDF (Combine & separate pages)", url: "/tools/merge-split-pdf.html" },
+    { title: "Add Watermark to PDF (Stamp text or images)", url: "/tools/watermark-pdf.html" },
+    { title: "eSign PDF (Sign documents online)", url: "/tools/esign-pdf.html" },
+    { title: "Fake Chat Generator (WhatsApp & Instagram style mocks)", url: "/tools/fake-chat-generator.html" },
+    { title: "Typing Speed Test (WPM check & scoreboard)", url: "/tools/typing-speed-test.html" },
+    { title: "Love Calculator (Name compatibility percentages)", url: "/tools/love-calculator.html" },
+    { title: "Random Name Generator (Baby & Character name combinations)", url: "/tools/random-name-generator.html" },
+    { title: "Spin the Wheel (Decision maker wheel)", url: "/tools/spin-the-wheel.html" },
+    { title: "YouTube Thumbnail Downloader (Save cover images HD)", url: "/tools/youtube-thumbnail-downloader.html" },
+    { title: "Instagram Downloader (Save photos, videos, & reels)", url: "/tools/instagram-downloader.html" },
+    { title: "Twitter Video Downloader (Save X.com videos MP4)", url: "/tools/twitter-downloader.html" },
+    { title: "Profile Picture Downloader (Save Instagram & TikTok PFPs)", url: "/tools/profile-picture-downloader.html" },
+    { title: "Online Notepad (Auto-save in browser)", url: "/tools/online-notepad.html" },
+    { title: "Code Editor (Live HTML/CSS/JS preview sandbox)", url: "/tools/code-editor.html" },
+    { title: "Resume Builder (Build and print CV PDFs)", url: "/tools/resume-builder.html" },
+    { title: "Invoice Generator (Generate and print billing invoices)", url: "/tools/invoice-generator.html" }
 ];
 
 function initGlobalSearch() {

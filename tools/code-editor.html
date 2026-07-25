@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Code Editor — Live HTML/CSS/JS Sandbox Preview | RankifyTools</title>
+    <meta name="description" content="Write and debug code online with our free real-time editor. Sandboxed HTML, CSS and JavaScript code playground with live previews and single file downloads.">
+    <meta name="keywords" content="online code editor, html css js sandbox, live preview web editor, scratch code playpen, developer coding sandbox">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/code-editor.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/code-editor.html">
+    <meta property="og:title" content="Online Code Editor — Live HTML/CSS/JS Sandbox Preview">
+    <meta property="og:description" content="Compile web layouts inside your browser window. Live side-by-side output.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <style>
+        .editor-workspace {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        @media (min-width: 850px) {
+            .editor-workspace {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .left-controls {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .tabs-header {
+            display: flex;
+            gap: 0.4rem;
+            border-bottom: 2px solid var(--border-light);
+            margin-bottom: 0.8rem;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+        .tab-btn.active {
+            color: var(--accent-secondary);
+            border-bottom-color: var(--accent-secondary);
+        }
+        .code-textarea {
+            width: 100%;
+            height: 320px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            padding: 0.8rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+            resize: vertical;
+        }
+        .preview-pane {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .iframe-container {
+            flex-grow: 1;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            background: #ffffff;
+            height: 400px;
+            position: relative;
+        }
+        #preview-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #ffffff;
+            display: block;
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">›</span>
+            <a href="../index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Online Code Editor</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Online Code Editor</h1>
+            <p>Write HTML, CSS, and JS. Compile codes side-by-side with isolated iframe playgrounds.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="editor-workspace">
+            
+            <!-- Left panel Coding space -->
+            <div class="left-controls">
+                <div class="tabs-header">
+                    <button type="button" id="tab-html" class="tab-btn active" onclick="switchTab('html')">📁 HTML</button>
+                    <button type="button" id="tab-css" class="tab-btn" onclick="switchTab('css')">🎨 CSS</button>
+                    <button type="button" id="tab-js" class="tab-btn" onclick="switchTab('js')">⚙️ JS</button>
+                </div>
+
+                <!-- Textareas -->
+                <div id="pane-html">
+                    <textarea class="code-textarea" id="code-html" placeholder="&lt;!-- Type HTML layout here --&gt;&#10;&lt;h1&gt;Hello World&lt;/h1&gt;&#10;&lt;button id='btn'&gt;Click Me&lt;/button&gt;" oninput="updatePreviewDebounced()"></textarea>
+                </div>
+                <div id="pane-css" style="display: none;">
+                    <textarea class="code-textarea" id="code-css" placeholder="/* Type CSS styles here */&#10;body {&#10;  font-family: sans-serif;&#10;  text-align: center;&#10;  padding-top: 50px;&#10;}&#10;button {&#10;  background: #6366f1;&#10;  color: #fff;&#10;  border: none;&#10;  padding: 10px 20px;&#10;  cursor: pointer;&#10;}" oninput="updatePreviewDebounced()"></textarea>
+                </div>
+                <div id="pane-js" style="display: none;">
+                    <textarea class="code-textarea" id="code-js" placeholder="// Type JavaScript script here&#10;const btn = document.getElementById('btn');&#10;btn.addEventListener('click', () => {&#10;  alert('Button clicked inside sandbox iframe!');&#10;});" oninput="updatePreviewDebounced()"></textarea>
+                </div>
+
+                <div style="display:flex; gap:0.6rem; justify-content:center; margin-top:0.5rem;">
+                    <button type="button" onclick="downloadCompiledHtml()" style="padding:0.6rem 1.8rem; background:var(--accent-secondary); color:#000; font-weight:700; border:none; border-radius:var(--radius-sm); cursor:pointer;">💾 Download HTML File</button>
+                    <button type="button" onclick="resetEditor()" class="secondary" style="padding:0.6rem 1.5rem;">Reset Code</button>
+                </div>
+            </div>
+
+            <!-- Right panel Visual screen -->
+            <div class="preview-pane">
+                <h3 style="font-size:1rem; color:var(--text-primary); border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; margin:0 0 1rem 0;">Live Render Output</h3>
+                
+                <div class="iframe-container">
+                    <iframe id="preview-iframe" sandbox="allow-scripts allow-modals"></iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 950px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>HTML, CSS and JavaScript Code Sandbox</h2>
+            <p>Drafting quick interface components, prototyping CSS layouts, or testing custom scripts shouldn't require creating complex local directory files. Our **Online Code Editor** provides a sandboxed workspace. By compiling HTML structural frameworks, CSS style attributes, and JS scripts client-side directly into iframe streams, you can build interfaces quickly.</p>
+
+            <h3>How Sandbox Compilation Works:</h3>
+            <ul>
+                <li><strong>Dynamic Compilation:</strong> The tool uses document write queues to feed typed configurations immediately.</li>
+                <li><strong>Sandboxed Security:</strong> The preview iframe uses <code>sandbox="allow-scripts allow-modals"</code> properties to restrict cookies, external redirects, or pointer actions.</li>
+                <li><strong>Download Options:</strong> Once complete, compile all segments into a single integrated <code>index.html</code> document.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/code-editor.html">Online Code Editor</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function switchTab(mode) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('tab-' + mode).classList.add('active');
+
+            document.getElementById('pane-html').style.display = mode === 'html' ? 'block' : 'none';
+            document.getElementById('pane-css').style.display = mode === 'css' ? 'block' : 'none';
+            document.getElementById('pane-js').style.display = mode === 'js' ? 'block' : 'none';
+        }
+
+        let updateTimeout;
+        function updatePreviewDebounced() {
+            clearTimeout(updateTimeout);
+            updateTimeout = setTimeout(updatePreview, 350);
+        }
+
+        function updatePreview() {
+            const html = document.getElementById('code-html').value;
+            const css = `<style>${document.getElementById('code-css').value}</style>`;
+            const js = `<script>${document.getElementById('code-js').value}<\/script>`;
+
+            const iframe = document.getElementById('preview-iframe');
+            try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                iframeDoc.open();
+                iframeDoc.write(html + css + js);
+                iframeDoc.close();
+            } catch(e) {
+                console.error(e);
+            }
+        }
+
+        function resetEditor() {
+            if (confirm('Clear the code workspace?')) {
+                document.getElementById('code-html').value = '';
+                document.getElementById('code-css').value = '';
+                document.getElementById('code-js').value = '';
+                updatePreview();
+            }
+        }
+
+        function downloadCompiledHtml() {
+            const html = document.getElementById('code-html').value;
+            const css = `<style>${document.getElementById('code-css').value}</style>`;
+            const js = `<script>${document.getElementById('code-js').value}<\/script>`;
+
+            const documentContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandbox Project</title>
+    ${css}
+</head>
+<body>
+    ${html}
+    ${js}
+</body>
+</html>`;
+
+            const blob = new Blob([documentContent], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'index.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set default presets
+            document.getElementById('code-html').value = `<h1>Hello World</h1>\n<p>This is a live code preview sandbox!</p>\n<button id="click-btn">Click Me</button>`;
+            document.getElementById('code-css').value = `body {\n  font-family: 'Segoe UI', system-ui, sans-serif;\n  background: #0f0f16;\n  color: #ffffff;\n  text-align: center;\n  padding-top: 60px;\n}\nbutton {\n  background: #6366f1;\n  color: #ffffff;\n  border: none;\n  padding: 10px 24px;\n  font-size: 1rem;\n  font-weight: 600;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: 0.2s;\n}\nbutton:hover {\n  background: #4f46e5;\n}`;
+            document.getElementById('code-js').value = `const btn = document.getElementById('click-btn');\nbtn.addEventListener('click', () => {\n  alert('Interaction working!');\n});`;
+            
+            updatePreview();
+        });
+    </script>
+</body>
+</html>

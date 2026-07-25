@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Notepad — Free Text Editor with Auto-Save | RankifyTools</title>
+    <meta name="description" content="Write, edit, and keep notes online with our free notepad editor. Automatic browser backup drafts, offline word counters, and direct text file downloads.">
+    <meta name="keywords" content="online notepad, free text editor, auto save notes browser, scratch pad web, note taking tool offline">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/online-notepad.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/online-notepad.html">
+    <meta property="og:title" content="Online Notepad — Free Text Editor with Auto-Save">
+    <meta property="og:description" content="A clean, distraction-free writing space with real-time stats and local browser drafts saving.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <style>
+        .notepad-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .notepad-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1rem;
+        }
+        .toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .toolbar-group label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .toolbar-select {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.4rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+            font-size: 0.85rem;
+        }
+        .editor-pane {
+            width: 100%;
+            height: 400px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            padding: 1rem;
+            outline: none;
+            resize: vertical;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .notepad-footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-light);
+            padding-top: 1rem;
+            gap: 0.5rem;
+        }
+        .stat-badge {
+            font-weight: 600;
+            color: var(--accent-secondary);
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">›</span>
+            <a href="../index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Online Notepad</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Online Notepad</h1>
+            <p>Write note pads distraction-free. The system auto-saves notes in your browser cache to preserve drafts offline.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="notepad-container">
+            
+            <!-- Toolbar config controls -->
+            <div class="notepad-toolbar">
+                <div class="toolbar-group">
+                    <label for="font-family">Font:</label>
+                    <select id="font-family" class="toolbar-select" onchange="updateEditorStyles()">
+                        <option value="'Inter', sans-serif">Sans-Serif (Clean)</option>
+                        <option value="'Lora', serif">Serif (Classic)</option>
+                        <option value="'JetBrains Mono', monospace">Monospace (Code)</option>
+                    </select>
+                </div>
+                
+                <div class="toolbar-group">
+                    <label for="font-size">Size:</label>
+                    <select id="font-size" class="toolbar-select" onchange="updateEditorStyles()">
+                        <option value="14px">Small (14px)</option>
+                        <option value="16px" selected>Medium (16px)</option>
+                        <option value="18px">Large (18px)</option>
+                        <option value="22px">Extra Large (22px)</option>
+                    </select>
+                </div>
+
+                <div style="flex-grow: 1;"></div>
+
+                <div class="toolbar-group">
+                    <button type="button" class="control-btn" style="padding:0.4rem 1rem; font-size:0.8rem;" onclick="copyNotepadText()">📋 Copy Text</button>
+                    <button type="button" class="control-btn" style="padding:0.4rem 1rem; font-size:0.8rem;" onclick="downloadNotesTxt()">💾 Download .txt</button>
+                    <button type="button" class="control-btn" style="padding:0.4rem 1rem; font-size:0.8rem; background:var(--error); border-color:var(--error); color:#fff;" onclick="clearNotepad()">Clear</button>
+                </div>
+            </div>
+
+            <!-- TextArea body -->
+            <textarea class="editor-pane" id="note-body" placeholder="Start typing your notes here..." oninput="saveNoteDraft()"></textarea>
+
+            <!-- Stats Footer -->
+            <div class="notepad-footer">
+                <div style="display:flex; gap:1.2rem;">
+                    <span>Words: <span id="stat-words" class="stat-badge">0</span></span>
+                    <span>Characters: <span id="stat-chars" class="stat-badge">0</span></span>
+                    <span>Paragraphs: <span id="stat-paras" class="stat-badge">0</span></span>
+                </div>
+                <div>
+                    <span>Status: <span id="stat-status" style="color:var(--success); font-weight:600;">Saved locally</span></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 850px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Distraction-Free Notepad Online</h2>
+            <p>Drafting quick guidelines, composing article outlines, copying transient code snippets, or calculating draft word counts shouldn't require opening desktop processors. Our **Online Notepad** renders a web text editor. Storing all edits locally inside your browser's `localStorage` namespace, it ensures that reloading pages or facing connection dropouts doesn't wipe your writing.</p>
+
+            <h3>Key Benefits:</h3>
+            <ul>
+                <li><strong>Browser Auto-Save:</strong> Any character entered triggers local backups. Close tabs and return later without data loss.</li>
+                <li><strong>Privacy Controls:</strong> Operation runs 100% locally. We do not store, view, or upload note transcripts.</li>
+                <li><strong>Custom Typography:</strong> Swap between clean sans-serif layouts, readable serif book formats, or monospace text alignments. Set sizing configurations instantly.</li>
+                <li><strong>File Exports:</strong> Copy notepad logs or download notes as standard clean `.txt` files in a single tap.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/online-notepad.html">Online Notepad</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        const editor = document.getElementById('note-body');
+
+        function loadNoteDraft() {
+            const draft = localStorage.getItem('online_notepad_draft');
+            if (draft != null) {
+                editor.value = draft;
+            }
+
+            const font = localStorage.getItem('notepad_font') || "'Inter', sans-serif";
+            const size = localStorage.getItem('notepad_size') || "16px";
+
+            document.getElementById('font-family').value = font;
+            document.getElementById('font-size').value = size;
+
+            updateEditorStyles();
+            updateStats();
+        }
+
+        function saveNoteDraft() {
+            localStorage.setItem('online_notepad_draft', editor.value);
+            document.getElementById('stat-status').innerText = 'Saving...';
+            setTimeout(() => {
+                document.getElementById('stat-status').innerText = 'Saved locally';
+            }, 300);
+            updateStats();
+        }
+
+        function updateEditorStyles() {
+            const font = document.getElementById('font-family').value;
+            const size = document.getElementById('font-size').value;
+
+            editor.style.fontFamily = font;
+            editor.style.fontSize = size;
+
+            localStorage.setItem('notepad_font', font);
+            localStorage.setItem('notepad_size', size);
+        }
+
+        function updateStats() {
+            const txt = editor.value;
+
+            // Character count
+            const chars = txt.length;
+
+            // Word count
+            const words = txt.trim() === '' ? 0 : txt.trim().split(/\s+/).length;
+
+            // Paragraphs count
+            const paragraphs = txt.trim() === '' ? 0 : txt.split(/\n\s*\n/).filter(p => p.trim() !== '').length;
+
+            document.getElementById('stat-chars').innerText = chars;
+            document.getElementById('stat-words').innerText = words;
+            document.getElementById('stat-paras').innerText = paragraphs;
+        }
+
+        function copyNotepadText() {
+            const txt = editor.value;
+            if (!txt) return;
+            navigator.clipboard.writeText(txt).then(() => {
+                showToast('Notes copied to clipboard!', 'success');
+            });
+        }
+
+        function downloadNotesTxt() {
+            const txt = editor.value;
+            if (!txt) return;
+            const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'notepad-notes.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function clearNotepad() {
+            if (confirm('Are you sure you want to clear your notes? This cannot be undone.')) {
+                editor.value = '';
+                saveNoteDraft();
+            }
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            loadNoteDraft();
+        });
+    </script>
+</body>
+</html>
