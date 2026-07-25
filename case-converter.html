@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Converter Tool – Uppercase, Lowercase, Title Case | RankifyTools</title>
+    <meta name="description" content="Convert text to uppercase, lowercase, title case instantly with our free online tool. Support for Sentence case, camelCase, and snake_case format.">
+    <meta name="keywords" content="case converter, uppercase to lowercase, text case converter">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/case-converter">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/case-converter">
+    <meta property="og:title" content="Case Converter Tool – Uppercase, Lowercase, Title Case">
+    <meta property="og:description" content="Convert text between different cases instantly.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Case Converter</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Case Converter</h1>
+            <p>Paste your text and click a button to instantly convert it to the capitalization style you need.</p>
+        </div>
+
+        <div class="tool-interface" style="max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem;">
+            <div class="input-group" style="margin-bottom: 1.2rem;">
+                <textarea id="text-input" style="min-height:220px; width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm); resize:vertical; outline:none;" placeholder="Type or paste your text here..."></textarea>
+            </div>
+            <div class="action-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap:0.6rem; margin-bottom:1.2rem;">
+                <button onclick="convert('sentence')" class="secondary" style="padding:0.6rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid var(--border-light); border-radius:var(--radius-sm); cursor:pointer;">Sentence case</button>
+                <button onclick="convert('lower')" class="secondary" style="padding:0.6rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid var(--border-light); border-radius:var(--radius-sm); cursor:pointer;">lowercase</button>
+                <button onclick="convert('upper')" class="secondary" style="padding:0.6rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid var(--border-light); border-radius:var(--radius-sm); cursor:pointer;">UPPERCASE</button>
+                <button onclick="convert('title')" class="secondary" style="padding:0.6rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid var(--border-light); border-radius:var(--radius-sm); cursor:pointer;">Title Case</button>
+                <button onclick="convert('camel')" class="secondary" style="padding:0.6rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid var(--border-light); border-radius:var(--radius-sm); cursor:pointer;">camelCase</button>
+                <button onclick="convert('snake')" class="secondary" style="padding:0.6rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid var(--border-light); border-radius:var(--radius-sm); cursor:pointer;">snake_case</button>
+            </div>
+            <div style="display:flex; gap:0.8rem; border-top:1px solid var(--border-light); padding-top:1.2rem;">
+                <button onclick="copyResults()" class="btn-primary" style="padding:0.6rem 1.4rem; font-weight:700;">Copy Results</button>
+                <button onclick="document.getElementById('text-input').value=''" class="control-btn" style="padding:0.6rem 1.2rem;">Clear</button>
+            </div>
+        </div>
+
+        <section class="seo-content" style="max-width: 800px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Free Case Converter Online</h2>
+            <p>Capitalization issues are common when drafting, blogging, or coding. Standardize your texts instantly using our secure case converter tool.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        function convert(type) {
+            const input = document.getElementById('text-input');
+            let text = input.value;
+            if (!text) return;
+            switch(type) {
+                case 'upper':
+                    text = text.toUpperCase();
+                    break;
+                case 'lower':
+                    text = text.toLowerCase();
+                    break;
+                case 'title':
+                    text = text.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+                    break;
+                case 'sentence':
+                    text = text.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, c => c.toUpperCase());
+                    break;
+                case 'camel':
+                    text = text.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => index === 0 ? word.toLowerCase() : word.toUpperCase()).replace(/\s+/g, '');
+                    break;
+                case 'snake':
+                    text = text.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g).map(x => x.toLowerCase()).join('_');
+                    break;
+            }
+            input.value = text;
+        }
+
+        function copyResults() {
+            const text = document.getElementById('text-input').value;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>

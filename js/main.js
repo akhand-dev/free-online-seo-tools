@@ -281,7 +281,16 @@ const toolsList = [
     { title: "Keyboard Tester Online (On-Screen Key checker)", url: "/keyboard-tester-online" },
     { title: "How to Compress Image Without Losing Quality (SEO guide)", url: "/how-to-compress-image-without-losing-quality" },
     { title: "Best Free PDF Tools Online (PDF merger guides)", url: "/best-free-pdf-tools-online" },
-    { title: "How to Calculate GST India (Tax filing rules)", url: "/how-to-calculate-gst-india" }
+    { title: "How to Calculate GST India (Tax filing rules)", url: "/how-to-calculate-gst-india" },
+    { title: "AI Text Humanizer (Remove AI Detection Instantly)", url: "/ai-text-humanizer" },
+    { title: "Fake Email Generator (Temporary Email Instantly)", url: "/fake-email-generator" },
+    { title: "Instagram Bio Generator (Create Cool Bios Instantly)", url: "/instagram-bio-generator" },
+    { title: "Password Strength Checker (Test Password Security)", url: "/password-strength-checker" },
+    { title: "Word Counter Tool (Count Words & Reading Time)", url: "/word-counter" },
+    { title: "Case Converter Tool (Uppercase, Lowercase, Title Case)", url: "/case-converter" },
+    { title: "QR Code Generator (Create QR Codes Instantly)", url: "/qr-code-generator" },
+    { title: "JSON Formatter & Validator (Beautify JSON Online)", url: "/json-formatter" },
+    { title: "Random Name Generator (Create Unique Names)", url: "/random-name-generator" }
 ];
 
 function initGlobalSearch() {

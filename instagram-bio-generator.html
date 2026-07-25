@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Bio Generator – Create Cool Bios Instantly | RankifyTools</title>
+    <meta name="description" content="Generate unique Instagram bios for free. Stylish, funny, aesthetic bio ideas in seconds. Copy to clipboard instantly.">
+    <meta name="keywords" content="instagram bio generator, insta bio ideas, cool instagram bio">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/instagram-bio-generator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/instagram-bio-generator">
+    <meta property="og:title" content="Instagram Bio Generator – Create Cool Bios Instantly">
+    <meta property="og:description" content="Generate unique Instagram bios instantly with custom formatting and emojis.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .generator-card { max-width: 700px; margin: 2rem auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2rem; }
+        .bio-output { background: var(--bg-dark); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 1.2rem; font-size: 0.95rem; margin-top: 1.2rem; line-height: 1.6; white-space: pre-wrap; display: flex; justify-content: space-between; align-items: flex-start; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Instagram Bio Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Instagram Bio Generator</h1>
+            <p>Generate stylish, aesthetic, funny, or professional Instagram bios instantly in one click.</p>
+        </div>
+
+        <div class="generator-card">
+            <div class="form-row" style="grid-template-columns: 1fr; gap:1rem; margin-bottom:1.5rem;">
+                <div class="input-group">
+                    <label style="font-weight:600;">Choose Category</label>
+                    <select id="bio-category" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <option value="cool">Cool & Aesthetic</option>
+                        <option value="funny">Funny & Witty</option>
+                        <option value="creative">Creative & Artsy</option>
+                        <option value="business">Professional / Business</option>
+                    </select>
+                </div>
+            </div>
+
+            <button onclick="generateBio()" class="btn-primary" style="padding:0.75rem 1.8rem; font-weight:700;">Generate Bios ✨</button>
+
+            <div id="results-area" style="display: none; margin-top:1.5rem;">
+                <h3 style="color:#fff; font-size:1.1rem; margin-bottom:0.8rem;">Copy-Ready Bios:</h3>
+                <div id="bios-list"></div>
+            </div>
+        </div>
+
+        <section class="seo-content" style="max-width: 700px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Instagram Bio Ideas & Styling</h2>
+            <p>Your Instagram bio is the first impression visitor credentials. Using stylish layouts, line breaks, and clear call-to-actions helps drive follows and link clicks.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        const biosDB = {
+            cool: [
+                "✨ Living my life in warm yellow\n🍃 Making memories everywhere I go\n📍 CA | Wanderlust",
+                "⚡ Bold choices and good vibes only\n☕ Caffeine & Dreams\n🚀 Launching things",
+                "🌌 Creating my own sunshine\n🧿 Protection on | Negativity off\n🖤 Art is life",
+                "🐾 Animal lover | Nature wanderer\n🍕 Pizza enthusiast\n✨ Keeping it real"
+            ],
+            funny: [
+                "🤡 Professional overthinker\n🛌 Sleep champion\n🍩 My hobbies include eating and regretting",
+                "⚠️ Out of my mind, back in 5 minutes\n🍿 Here for the snacks\n🤫 Do not follow me, I am lost too",
+                "🍕 Clean home helper: eats all leftovers\n💤 Sleeping is my superpower\n🤓 Standard nerd profile",
+                "🤪 Sarcasm is my second language\n🍩 Sweet tooth level: Expert\n✨ Flawed but still fabulous"
+            ],
+            creative: [
+                "🎨 Painting my canvas of dreams\n📷 Capturing frames of life\n🌈 Art, design & aesthetic",
+                "🎧 Beats & Vocals\n📝 Poetry in motion\n✨ Crafting handmade stories",
+                "🎭 Drama lover | Storyteller\n🍷 Tasting life one day at a time\n🖤 Monochromatic lover",
+                "✍️ Writing scripts of tomorrow\n🍃 Plant parent\n🎨 Pixel artist"
+            ],
+            business: [
+                "📈 Helping SaaS brands scale organic CTR\n📧 Business: collab@brand.com\n👇 View portfolio link",
+                "💼 Financial Consultant & Advisor\n💎 Building wealth portfolios\n📍 NY | Let's connect!",
+                "💻 Full Stack Web Engineer\n🚀 Creating open source utilities\n📦 GitHub: @devuser",
+                "☕ Founder @ Startup\n🎯 Sharing productivity & venture tips\n👇 Book a call below"
+            ]
+        };
+
+        function generateBio() {
+            const cat = document.getElementById('bio-category').value;
+            const items = biosDB[cat] || biosDB.cool;
+            const container = document.getElementById('bios-list');
+            container.innerHTML = '';
+
+            items.forEach((bio, idx) => {
+                const div = document.createElement('div');
+                div.className = 'bio-output';
+                div.innerHTML = `
+                    <div style="flex-grow:1; white-space:pre-wrap;">${bio}</div>
+                    <button onclick="copyText(this)" style="background:var(--accent-primary); border:none; color:#fff; padding:0.3rem 0.6rem; border-radius:var(--radius-sm); cursor:pointer; font-size:0.8rem; font-weight:700; margin-left:1rem; white-space:nowrap;">Copy</button>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('results-area').style.display = 'block';
+        }
+
+        function copyText(btn) {
+            const txt = btn.previousElementSibling.innerText;
+            navigator.clipboard.writeText(txt).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
