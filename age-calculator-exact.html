@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator Exact — Age Calculator from Date of Birth | RankifyTools</title>
+    <meta name="description" content="Calculate your exact age in years, months, days, hours, and seconds from your date of birth. Compare milestones and track your next birthday countdown online for free.">
+    <meta name="keywords" content="age calculator from date of birth, age calculator exact, calculate age chronological, check next birthday countdown">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/age-calculator-exact">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/age-calculator-exact">
+    <meta property="og:title" content="Exact Age Calculator from Date of Birth | RankifyTools">
+    <meta property="og:description" content="Find your exact chronological age in years, months, and days. Includes birthday countdowns.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Age Calculator Exact", "item": "https://free-online-seo-tools.vercel.app/age-calculator-exact"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Age Calculator Exact",
+      "url": "https://free-online-seo-tools.vercel.app/age-calculator-exact",
+      "description": "Chronological age calculator that outputs years, months, days, total stats, and next birthday details.",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does this chronological age calculator work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By selecting your date of birth and a target reference date, the tool computes the exact time difference in years, months, and days, taking into account varying monthly lengths and leap years."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can this tool calculate my age in hours and seconds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it provides a comprehensive breakdown of your total lifespan converted into months, weeks, days, hours, minutes, and seconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my birthdate information secure on this website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. All date calculations are executed in your browser using local JavaScript, meaning your birth information is never transmitted to our servers."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+        .age-output-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+        .age-card { background: var(--bg-main); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem; text-align: center; }
+        .age-card-val { font-size: 2rem; font-weight: 800; color: var(--accent-secondary); }
+        .age-card-lbl { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem; text-transform: uppercase; }
+        .sub-breakdown { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; font-size: 0.85rem; margin-top: 1rem; }
+        .sub-item { display: flex; justify-content: space-between; padding: 0.5rem; border-bottom: 1px solid var(--border-light); }
+        .birthday-banner { padding: 0.8rem; background: rgba(99, 102, 241, 0.08); border: 1px solid var(--accent-primary); border-radius: var(--radius-sm); text-align: center; font-weight: bold; margin-top: 1rem; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Age Calculator Exact</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Age Calculator Exact</h1>
+            <p>Compute your exact chronological age in years, months, and days. View total lived seconds, day of birth, and next birthday countdown.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Inputs -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">1. Select Dates</h2>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Date of Birth</label>
+                    <input type="date" id="birthDate" value="2000-01-01" onchange="calculateAge()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Age at Date (Reference Date)</label>
+                    <input type="date" id="targetDate" onchange="calculateAge()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+            </div>
+
+            <!-- Right Panel: Results -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">2. Lifespan Results</h2>
+
+                <div class="age-output-cards">
+                    <div class="age-card">
+                        <div class="age-card-val" id="ageYears">0</div>
+                        <div class="age-card-lbl">Years</div>
+                    </div>
+                    <div class="age-card">
+                        <div class="age-card-val" id="ageMonths">0</div>
+                        <div class="age-card-lbl">Months</div>
+                    </div>
+                    <div class="age-card">
+                        <div class="age-card-val" id="ageDays">0</div>
+                        <div class="age-card-lbl">Days</div>
+                    </div>
+                </div>
+
+                <div class="birthday-banner" id="birthdayBanner">
+                    Next Birthday in: --
+                </div>
+
+                <div class="sub-breakdown">
+                    <div class="sub-item">
+                        <span style="color:var(--text-secondary);">Day of Birth:</span>
+                        <span id="birthDayOfWeek" style="font-weight:600;">--</span>
+                    </div>
+                    <div class="sub-item">
+                        <span style="color:var(--text-secondary);">Total Months:</span>
+                        <span id="totalMonths" style="font-weight:600;">--</span>
+                    </div>
+                    <div class="sub-item">
+                        <span style="color:var(--text-secondary);">Total Weeks:</span>
+                        <span id="totalWeeks" style="font-weight:600;">--</span>
+                    </div>
+                    <div class="sub-item">
+                        <span style="color:var(--text-secondary);">Total Days:</span>
+                        <span id="totalDays" style="font-weight:600;">--</span>
+                    </div>
+                    <div class="sub-item" style="grid-column: span 2;">
+                        <span style="color:var(--text-secondary);">Total Hours / Seconds:</span>
+                        <span id="totalHoursSeconds" style="font-weight:600;">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>Using the Age Calculator from Date of Birth Online</h2>
+            <p>Our online free <strong>Age Calculator from Date of Birth</strong> is designed to calculate your exact chronological age in years, months, and days down to the second. In addition to measuring your exact lifespan, it details when your next birthday falls, the specific day of the week you were born on, and total accumulated hours, weeks, and minutes of existence.</p>
+
+            <h3>How Chronological Age Differential Math Works</h3>
+            <p>Calculating age seems simple, but programmatically tracking intervals requires correcting for differing month lengths (28, 30, or 31 days) and leap years. The algorithm computes dates by evaluating three main steps:</p>
+            <ol>
+                <li><strong>Days Difference:</strong> Subtract the birth day from the current day. If the current day is smaller, borrow days from the previous month and adjust the month counts accordingly.</li>
+                <li><strong>Months Difference:</strong> Subtract the birth month from the current month. If the current month is negative, borrow a year (12 months) and reduce the year count.</li>
+                <li><strong>Years Difference:</strong> Subtract the birth year from the current year.</li>
+            </ol>
+            <p>For example, if you were born on September 15, 1995, and calculate your age on July 25, 2026, the tool borrows days and months to yield 30 years, 10 months, and 10 days exact age.</p>
+
+            <h3>Key Benefits of Exact Age Calculations</h3>
+            <p>An exact chronological timer is useful for many different scenarios:</p>
+            <ul>
+                <li><strong>Legal Eligibility:</strong> Verify age requirements for government exams, passport applications, driver licenses, or job applications that require exact limits.</li>
+                <li><strong>Developmental Milestones:</strong> Track growth stages for infants and children, which are commonly calculated in months and weeks rather than years.</li>
+                <li><strong>Lifespan Milestones:</strong> View fun statistics regarding the total number of hours, minutes, and seconds you have been alive.</li>
+            </ul>
+
+            <h3>Predicting Your Next Birthday Countdown</h3>
+            <p>Our tool automatically calculates the time remaining until your next birthday. It determines the anniversary date, checks if it has already passed in the current year, and provides a countdown in months and days to help you plan your milestones.</p>
+        </article>
+
+        <!-- FAQs Section -->
+        <div class="faq-section reveal">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <button class="faq-question">How can I find my exact age from my date of birth?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Simply select your date of birth in the input picker above, and our tool will instantly output your exact age in years, months, and days.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How does this tool handle leap years?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        The JavaScript Date object used by this tool automatically accounts for leap years (e.g. February having 29 days in 2000, 2004, 2024, etc.) to ensure calculations remain 100% correct.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Does the tool calculate the weekday of my birth?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes, the tool determines the weekday of your birthdate (e.g., Sunday, Monday) and lists it in the breakdown table.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        // Set default target date to today
+        document.getElementById('targetDate').value = new Date().toISOString().split('T')[0];
+
+        function calculateAge() {
+            const birthInput = document.getElementById('birthDate').value;
+            const targetInput = document.getElementById('targetDate').value;
+
+            if (!birthInput || !targetInput) return;
+
+            const birth = new Date(birthInput);
+            const target = new Date(targetInput);
+
+            if (birth > target) {
+                document.getElementById('birthdayBanner').textContent = "Birth date cannot be after the reference date!";
+                return;
+            }
+
+            // Calculations
+            let years = target.getFullYear() - birth.getFullYear();
+            let months = target.getMonth() - birth.getMonth();
+            let days = target.getDate() - birth.getDate();
+
+            if (days < 0) {
+                // Borrow days from the previous month
+                const prevMonth = new Date(target.getFullYear(), target.getMonth(), 0);
+                days += prevMonth.getDate();
+                months--;
+            }
+
+            if (months < 0) {
+                months += 12;
+                years--;
+            }
+
+            // Next Birthday Countdown
+            let nextBdayYear = target.getFullYear();
+            let nextBday = new Date(nextBdayYear, birth.getMonth(), birth.getDate());
+            if (nextBday < target) {
+                nextBdayYear++;
+                nextBday = new Date(nextBdayYear, birth.getMonth(), birth.getDate());
+            }
+
+            const diffTime = nextBday - target;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            let bdayText = '';
+            if (diffDays === 0 || diffDays === 365) {
+                bdayText = "🎉 Happy Birthday! It's today!";
+            } else {
+                let bdayMonths = Math.floor(diffDays / 30.4375);
+                let bdayDays = Math.round(diffDays - (bdayMonths * 30.4375));
+                if (bdayDays < 0) {
+                    bdayMonths--;
+                    bdayDays += 30;
+                }
+                bdayText = `Next Birthday in: ${bdayMonths} months and ${bdayDays} days (${diffDays} days total)`;
+            }
+
+            // Weekly Day of Birth
+            const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const dobDay = weekdays[birth.getDay()];
+
+            // Lifespan conversions
+            const totalMs = target - birth;
+            const totalSecs = Math.floor(totalMs / 1000);
+            const totalMins = Math.floor(totalSecs / 60);
+            const totalHours = Math.floor(totalMins / 60);
+            const totalDaysVal = Math.floor(totalHours / 24);
+            const totalWeeksVal = Math.floor(totalDaysVal / 7);
+            
+            // Total months approximation
+            const totalMonthsVal = (target.getFullYear() - birth.getFullYear()) * 12 + (target.getMonth() - birth.getMonth());
+
+            // Render outputs
+            document.getElementById('ageYears').textContent = years;
+            document.getElementById('ageMonths').textContent = months;
+            document.getElementById('ageDays').textContent = days;
+            document.getElementById('birthdayBanner').textContent = bdayText;
+            document.getElementById('birthDayOfWeek').textContent = dobDay;
+            document.getElementById('totalMonths').textContent = totalMonthsVal.toLocaleString();
+            document.getElementById('totalWeeks').textContent = totalWeeksVal.toLocaleString();
+            document.getElementById('totalDays').textContent = totalDaysVal.toLocaleString();
+            document.getElementById('totalHoursSeconds').textContent = `${totalHours.toLocaleString()} hours / ${totalSecs.toLocaleString()} seconds`;
+        }
+
+        window.addEventListener('load', calculateAge);
+    </script>
+</body>
+</html>

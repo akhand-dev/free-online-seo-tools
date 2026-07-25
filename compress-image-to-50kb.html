@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress Image to 50KB Online Free — JPG & PNG Compressor | RankifyTools</title>
+    <meta name="description" content="Compress image to 50KB online for free. Adjust JPEGs, PNGs, and WebPs locally in your browser. Perfect for government portal uploads and online applications.">
+    <meta name="keywords" content="compress image to 50kb, resize image to 50kb online, photo size reducer kb, convert photo under 50kb">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/compress-image-to-50kb">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/compress-image-to-50kb">
+    <meta property="og:title" content="Compress Image to 50KB Online Free | RankifyTools">
+    <meta property="og:description" content="Reduce image size under 50KB locally. Privacy-first browser compression tool.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Compress Image to 50KB", "item": "https://free-online-seo-tools.vercel.app/compress-image-to-50kb"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Compress Image to 50KB Online Free",
+      "url": "https://free-online-seo-tools.vercel.app/compress-image-to-50kb",
+      "description": "Adaptive client-side image compressor that reduces files under 50KB using local canvas rendering.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How can I compress my photo to exactly 50KB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By uploading your file to our tool, the adaptive algorithm automatically iterates through quality parameters and dimensions to downsize the image until the file size is under 50KB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image uploaded to external servers during compression?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The compression runs 100% locally in your browser using the HTML5 Canvas API. Your files never leave your device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the 50KB compressor support PNG files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can upload PNG images. They will be converted to JPEG during the compression to guarantee the target size under 50KB is achieved."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+        .compress-info { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: center; margin-top: 1rem; }
+        .info-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem; }
+        .info-card h4 { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.4rem; text-transform: uppercase; }
+        .info-card p { font-size: 1.5rem; font-weight: bold; color: var(--accent-secondary); margin: 0; }
+        .progress-bar { width: 100%; height: 6px; background: var(--border-light); border-radius: 3px; margin: 1rem 0; overflow: hidden; display: none; }
+        .progress-inner { height: 100%; background: var(--accent-primary); width: 0%; transition: width 0.2s ease; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Compress Image to 50KB</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Compress Image to 50KB</h1>
+            <p>Reduce image size to 50KB or less online. Simple, secure, local browser compression for JPG, PNG, and WebP photos.</p>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+            <!-- Dropzone -->
+            <div id="dropzone" style="border: 2px dashed var(--border-light); border-radius: var(--radius-lg); padding: 3rem 1.5rem; text-align: center; cursor: pointer; transition: all 0.3s; background: var(--bg-card);">
+                <span style="font-size: 3.5rem; display: block; margin-bottom: 1rem;">🗜️</span>
+                <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Drag and drop your image here</p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Supports JPG, PNG, WebP up to 15MB</p>
+                <button type="button" class="btn-primary" style="pointer-events:none;">Select Image</button>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-inner" id="progressInner"></div>
+            </div>
+
+            <!-- Editor Interface -->
+            <div id="editorArea" style="display: none; flex-direction: column; gap: 1.5rem;">
+                <div class="compress-info">
+                    <div class="info-card">
+                        <h4>Original Size</h4>
+                        <p id="originalSize">0 KB</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Compressed Size</h4>
+                        <p id="compressedSize">0 KB</p>
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content:center; gap:1rem; margin-top:0.5rem;">
+                    <button class="btn-primary" id="downloadBtn" style="font-weight:600;">Download Image</button>
+                    <button class="tool-btn" onclick="resetCompressor()" style="color:#ef4444; border-color:rgba(239,68,68,0.2);">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>Guide to Compress Image to 50KB Online Free</h2>
+            <p>If you are filling out official application forms or uploading documents to government portals in India (such as UPSC, SSC, IBPS, or passport portals), you have likely run into file size restrictions. Most sites require passport photos and signature scans to be under a strict limit, often asking you to <strong>compress image to 50kb</strong> or less. Our tool makes this process seamless and 100% private.</p>
+
+            <h3>How the Adaptive KB Compressor Works</h3>
+            <p>Most online file reducers upload your private photos to remote servers, compress them, and let you download them. This can pose security risks for sensitive documents. Our tool runs completely inside your browser using HTML5 Canvas. When you drop an image, the tool does the following:</p>
+            <ol>
+                <li><strong>Canvas Mapping:</strong> Loads the photo locally and draws it onto a virtual canvas.</li>
+                <li><strong>Iterative Compression:</strong> Measures output byte sizes at various JPEG quality levels (e.g. scaling from 0.90 down to 0.10).</li>
+                <li><strong>Dimension Downscaling:</strong> If quality adjustment alone cannot bring the file under 50KB (for very high-resolution photos), the canvas dimensions are downscaled automatically (reducing height and width) until the file size is under 50KB.</li>
+            </ol>
+            <p>This process takes less than a second, ensuring your image remains sharp while staying under the 50KB limit.</p>
+
+            <h3>Advantages of Local Client-Side Compression</h3>
+            <ul>
+                <li><strong>100% Privacy:</strong> Your passport photos, ID cards, and signature scans are never uploaded to our servers. All calculations occur inside your device.</li>
+                <li><strong>Lightning Fast:</strong> No network upload latency. Compression is executed instantly.</li>
+                <li><strong>No Signup or Logins:</strong> Use the tool instantly without typing email addresses or creating passwords.</li>
+            </ul>
+
+            <h3>Tips to Compress Photos Without Losing Clarity</h3>
+            <p>To get the best results when reducing files under 50KB:</p>
+            <ul>
+                <li><strong>Crop First:</strong> Remove extra background elements from your passport photo or signature scan before compressing. This keeps the relevant details sharp.</li>
+                <li><strong>Use JPG Format:</strong> JPEGs support variable quality compression, making them much easier to shrink than PNG files. The tool converts PNGs to JPEGs automatically during compression.</li>
+            </ul>
+        </article>
+
+        <!-- FAQs Section -->
+        <div class="faq-section reveal">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <button class="faq-question">How do I compress a signature photo to under 50KB?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Drag and drop your signature scan into the box above. The tool will automatically scale and compress it, making it ready to download in under 50KB.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Why does the output image have a .jpg extension?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        PNG files are lossless and very large. To get file sizes under 50KB, we convert images to JPEG format, which allows for lossy compression.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I compress images on my mobile phone?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes, our tool is fully responsive. You can upload photos directly from your phone's gallery or camera.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const progressBar = document.getElementById('progressBar');
+        const progressInner = document.getElementById('progressInner');
+        const editorArea = document.getElementById('editorArea');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        const originalSizeEl = document.getElementById('originalSize');
+        const compressedSizeEl = document.getElementById('compressedSize');
+
+        let activeBlob = null;
+        let originalName = 'compressed-image.jpg';
+
+        dropzone.addEventListener('click', () => fileInput.click());
+        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.style.borderColor = 'var(--accent-primary)'; });
+        dropzone.addEventListener('dragleave', () => { dropzone.style.borderColor = 'var(--border-light)'; });
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.style.borderColor = 'var(--border-light)';
+            if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) handleFile(e.target.files[0]);
+        });
+
+        function handleFile(file) {
+            if (!file.type.startsWith('image/')) {
+                alert('Please select a valid image file.');
+                return;
+            }
+
+            originalName = file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
+            originalSizeEl.textContent = formatBytes(file.size);
+
+            progressBar.style.display = 'block';
+            progressInner.style.width = '20%';
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                progressInner.style.width = '50%';
+                const img = new Image();
+                img.onload = function() {
+                    progressInner.style.width = '80%';
+                    compressImage(img, 50 * 1024); // 50 KB target
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function compressImage(img, targetBytes) {
+            let canvas = document.createElement('canvas');
+            let ctx = canvas.getContext('2d');
+
+            let width = img.width;
+            let height = img.height;
+            let scale = 1.0;
+            let quality = 0.85;
+
+            function runLoop() {
+                canvas.width = Math.round(width * scale);
+                canvas.height = Math.round(height * scale);
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                canvas.toBlob((blob) => {
+                    if (!blob) {
+                        finalize(null);
+                        return;
+                    }
+
+                    if (blob.size <= targetBytes || scale < 0.05) {
+                        finalize(blob);
+                    } else {
+                        // Adjust parameters recursively
+                        if (quality > 0.15) {
+                            quality -= 0.1;
+                        } else {
+                            scale *= 0.8;
+                            quality = 0.85; // reset quality for smaller dimensions
+                        }
+                        runLoop();
+                    }
+                }, 'image/jpeg', quality);
+            }
+
+            runLoop();
+        }
+
+        function finalize(blob) {
+            progressBar.style.display = 'none';
+            progressInner.style.width = '0%';
+
+            if (!blob) {
+                alert('Compression failed.');
+                return;
+            }
+
+            activeBlob = blob;
+            compressedSizeEl.textContent = formatBytes(blob.size);
+
+            const url = URL.createObjectURL(blob);
+            downloadBtn.onclick = () => {
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${originalName}-50kb.jpg`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+
+            dropzone.style.display = 'none';
+            editorArea.style.display = 'flex';
+        }
+
+        function resetCompressor() {
+            activeBlob = null;
+            fileInput.value = '';
+            dropzone.style.display = 'block';
+            editorArea.style.display = 'none';
+        }
+
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const dm = 2;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+    </script>
+</body>
+</html>

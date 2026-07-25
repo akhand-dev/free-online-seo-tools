@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer Online — Summarize Articles Free | RankifyTools</title>
+    <meta name="description" content="Use our free online text summarizer to extract key sentences from articles, essays, and documents. Choose summary lengths with zero server-side latency.">
+    <meta name="keywords" content="text summarizer online, summarize articles free, extract key sentences, online pdf text summarizer">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/text-summarizer-online">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/text-summarizer-online">
+    <meta property="og:title" content="Text Summarizer Online — Extractive Summary | RankifyTools">
+    <meta property="og:description" content="Summarize essays and articles locally in your browser. Choose summary size ratio.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Text Summarizer Online", "item": "https://free-online-seo-tools.vercel.app/text-summarizer-online"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Text Summarizer Online",
+      "url": "https://free-online-seo-tools.vercel.app/text-summarizer-online",
+      "description": "Extract key points from long articles and essays using client-side sentence scoring.",
+      "applicationCategory": "WritingApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the online text summarizer algorithm score sentences?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The tool scores sentences using word frequencies. It tokenizes the input text, filters out common stop words, and assigns weights to sentences. The highest-scoring sentences are compiled in order."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I adjust the length of the summary?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can use the summary size slider (from 10% to 50% length ratios) to customize the density of the output summary."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my text private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our summarization engine runs completely inside your web browser. Your text and articles are never uploaded to our servers or saved."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+        .slider-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; font-size: 0.9rem; }
+        .slider-row input[type="range"] { flex: 1; cursor: pointer; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Text Summarizer Online</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Text Summarizer Online</h1>
+            <p>Summarize long articles and essays instantly. Extract key concepts and sentences locally while adjusting target summary lengths.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Pane: Inputs -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">1. Source Text</h2>
+                
+                <textarea id="sourceText" placeholder="Paste your article, essay, or text here (minimum 3 sentences)..." style="width: 100%; height: 320px; padding: 0.8rem; background: var(--bg-main); color: var(--text-primary); border: 1px solid var(--border-light); border-radius: var(--radius-md); resize: vertical; font-family: inherit; font-size: 0.95rem; line-height: 1.6;"></textarea>
+
+                <div class="slider-row">
+                    <span>Summary Size:</span>
+                    <input type="range" id="summaryRatio" min="10" max="50" step="5" value="25" oninput="updateRatio(this.value)">
+                    <span id="ratioVal" style="font-weight:bold;">25%</span>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; color:var(--text-secondary);">
+                    <span>Words: <strong id="inWordCount">0</strong></span>
+                    <button onclick="handleSummarize()" class="btn-primary" style="padding:0.6rem 1.2rem; font-weight:600; cursor:pointer;">Summarize ⚡</button>
+                </div>
+            </div>
+
+            <!-- Right Pane: Outputs -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 420px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">2. Executive Summary</h2>
+                    <button onclick="copySummary()" class="btn-primary" style="padding:0.4rem 0.8rem; font-size:0.85rem; background:transparent; border:1px solid var(--border-light); color:var(--text-primary);">Copy Text</button>
+                </div>
+
+                <textarea id="summaryOutput" readonly placeholder="Your summarized text will appear here..." style="flex:1; width:100%; padding: 0.8rem; background: var(--bg-main); color: var(--text-primary); border: 1px solid var(--border-light); border-radius: var(--radius-md); font-family: inherit; font-size: 0.95rem; line-height: 1.6; resize:none; min-height:280px;"></textarea>
+
+                <div style="font-size:0.85rem; color:var(--text-secondary);">
+                    <span>Words: <strong id="outWordCount">0</strong></span>
+                    <span style="float:right; color:#34d399; font-weight:bold;" id="reductionRate">-0% Reduction</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>Using an Online Text Summarizer for Articles and Essays</h2>
+            <p>In our information-heavy digital era, reading through long articles, technical research papers, or detailed study guides is time-consuming. Using an online <strong>text summarizer online</strong> helps you digest information quickly. This tool extracts the most important sentences from a body of text, letting you grasp core points without reading everything.</p>
+
+            <h3>How Extractive Summarization Algorithms Work</h3>
+            <p>There are two primary methods of automatic text summarization: abstractive and extractive. Abstractive summarizers write new sentences from scratch, similar to an AI assistant. Extractive summarizers scan the source text directly and pull out the most representative sentences. Our tool uses a frequency-based sentence extraction method:</p>
+            <ol>
+                <li><strong>Tokenization:</strong> Splits the source text into individual sentences and words.</li>
+                <li><strong>Filtering Stop Words:</strong> Ignores common, low-meaning words (like "the", "a", "is", "of") to focus on key vocabulary.</li>
+                <li><strong>Calculating Word Frequencies:</strong> Measures how often terms appear in the text. Important terms will register higher counts.</li>
+                <li><strong>Sentence Scoring:</strong> Calculates a weight score for each sentence based on the frequency of its words. Longer sentences are normalized to prevent scoring biases.</li>
+                <li><strong>Compiling Highlights:</strong> Selects the highest-scoring sentences and arranges them chronologically to preserve the author's structure.</li>
+            </ol>
+
+            <h3>Key Benefits of Summarizing Text Locally</h3>
+            <p>Using a client-side summarizer offers unique advantages over server-side options:</p>
+            <ul>
+                <li><strong>100% Privacy:</strong> Your text is processed inside your browser and never reaches external servers. This is ideal for summarizing sensitive corporate memos, research drafts, or private documents.</li>
+                <li><strong>Instant Output:</strong> Zero network upload delays. Large text blocks are summarized in milliseconds.</li>
+                <li><strong>Adjustable Ratios:</strong> Use the summary ratio slider to customize your output density, choosing from a tight 10% outline to a detailed 50% summary.</li>
+            </ul>
+        </article>
+
+        <!-- FAQs Section -->
+        <div class="faq-section reveal">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <button class="faq-question">What is an extractive text summarizer?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        An extractive summarizer pulls key sentences directly from your text based on statistical importance. It does not rewrite sentences, preserving the author's original wording.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How does the summary ratio slider affect the output?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        The ratio slider sets what percentage of the original sentences are kept. For example, a 25% ratio on a 20-sentence article will output the 5 most important sentences.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Does this summarizer work with non-English articles?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        The frequency algorithm works with any language using spaces between words. However, the built-in stop words list is optimized for English text.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        const sourceText = document.getElementById('sourceText');
+        const summaryOutput = document.getElementById('summaryOutput');
+        const ratioInput = document.getElementById('summaryRatio');
+        const ratioVal = document.getElementById('ratioVal');
+        const inWordCount = document.getElementById('inWordCount');
+        const outWordCount = document.getElementById('outWordCount');
+        const reductionRate = document.getElementById('reductionRate');
+
+        sourceText.addEventListener('input', () => {
+            const txt = sourceText.value;
+            const words = txt.trim() === '' ? 0 : txt.trim().split(/\s+/).length;
+            inWordCount.textContent = words.toLocaleString();
+        });
+
+        function updateRatio(val) {
+            ratioVal.textContent = `${val}%`;
+        }
+
+        function handleSummarize() {
+            const text = sourceText.value;
+            if (!text.trim()) {
+                summaryOutput.value = "Please enter some source text first.";
+                return;
+            }
+
+            const ratio = parseFloat(ratioInput.value) / 100;
+            const summary = summarize(text, ratio);
+            
+            summaryOutput.value = summary;
+
+            // Stats
+            const inCount = parseInt(inWordCount.textContent.replace(/,/g, '')) || 1;
+            const outCount = summary.trim() === '' ? 0 : summary.trim().split(/\s+/).length;
+            outWordCount.textContent = outCount.toLocaleString();
+
+            const redPct = Math.max(0, Math.round(((inCount - outCount) / inCount) * 100));
+            reductionRate.textContent = `-${redPct}% Reduction`;
+        }
+
+        function summarize(text, ratio) {
+            // Regex to split sentences (match final punctuation)
+            const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+            if (sentences.length <= 2) return text;
+
+            // English stop words
+            const stopWords = new Set(["i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "yourselves", "he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its", "itself", "they", "them", "their", "theirs", "themselves", "what", "which", "who", "whom", "this", "that", "these", "those", "am", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "having", "do", "does", "did", "doing", "a", "an", "the", "and", "but", "if", "or", "because", "as", "until", "while", "of", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "is", "are", "were", "was", "can", "will", "would", "should"]);
+
+            const wordFrequencies = {};
+            const words = text.toLowerCase().match(/\b\w+\b/g) || [];
+
+            words.forEach(word => {
+                if (!stopWords.has(word)) {
+                    wordFrequencies[word] = (wordFrequencies[word] || 0) + 1;
+                }
+            });
+
+            // Score sentences
+            const sentenceScores = sentences.map((sentence, idx) => {
+                let score = 0;
+                const sentenceWords = sentence.toLowerCase().match(/\b\w+\b/g) || [];
+                sentenceWords.forEach(word => {
+                    if (wordFrequencies[word]) {
+                        score += wordFrequencies[word];
+                    }
+                });
+                // Normalize by sentence length
+                return { index: idx, sentence: sentence.trim(), score: score / (sentenceWords.length || 1) };
+            });
+
+            // Sort sentences
+            const sorted = [...sentenceScores].sort((a, b) => b.score - a.score);
+            const numToKeep = Math.max(1, Math.round(sentences.length * ratio));
+            const topSentences = sorted.slice(0, numToKeep);
+
+            // Re-sort by original chronological index
+            topSentences.sort((a, b) => a.index - b.index);
+
+            return topSentences.map(item => item.sentence).join(" ");
+        }
+
+        function copySummary() {
+            const text = summaryOutput.value;
+            if (!text || text.startsWith("Your summarized")) return;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Summary copied to clipboard!");
+            });
+        }
+    </script>
+</body>
+</html>

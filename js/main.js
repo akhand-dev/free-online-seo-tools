@@ -156,6 +156,20 @@ function initAdSense(publisherId) {
 }
 
 const toolsList = [
+    { title: "SIP Calculator India (Monthly Investment)", url: "/sip-calculator-india" },
+    { title: "Income Tax Calculator India 2025 (New Regime)", url: "/income-tax-calculator-india-2025" },
+    { title: "GST Calculator Online Free (18% GST)", url: "/gst-calculator-online-free" },
+    { title: "BMI Calculator Men & Women (kg/cm)", url: "/bmi-calculator-men-women" },
+    { title: "Age Calculator Exact (Date of Birth)", url: "/age-calculator-exact" },
+    { title: "Compress Image to 50KB", url: "/compress-image-to-50kb" },
+    { title: "Compress Image to 100KB", url: "/compress-image-to-100kb" },
+    { title: "Image to PDF Under 1MB", url: "/image-to-pdf-under-1mb" },
+    { title: "Resize Image for Instagram", url: "/resize-image-for-instagram" },
+    { title: "Remove Image Background Free", url: "/remove-image-background-free" },
+    { title: "Essay Expander Free", url: "/essay-expander-free" },
+    { title: "Text Summarizer Online", url: "/text-summarizer-online" },
+    { title: "Paraphrasing Tool Free (No Login)", url: "/paraphrasing-tool-free-no-login" },
+    { title: "Word Counter Online Free", url: "/word-counter-online-free" },
     { title: "SIP Calculator", url: "/tools/sip-calculator.html" },
     { title: "Income Tax Calculator India", url: "/tools/income-tax-calculator.html" },
     { title: "Salary In-Hand Calculator", url: "/tools/salary-calculator.html" },
