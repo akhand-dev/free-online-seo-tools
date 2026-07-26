@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
     <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Counter with Reading Time — Character Count Online | RankifyTools</title>
-    <meta name="description" content="Free word counter online. Count words, characters, sentences, paragraphs & estimated reading time in real-time. Character counter online free.">
-    <meta name="keywords" content="word counter with reading time, character counter online free, count words in paragraph, character counter">
-    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/word-counter">
+    <title>Text Manipulator — Sort, Reverse & Clean Text Online | RankifyTools</title>
+    <meta name="description" content="Free online Text Manipulator. Remove duplicate lines, sort text alphabetically, reverse strings, and strip extra whitespaces from text blocks instantly.">
+    <meta name="keywords" content="remove duplicate lines text, sort text alphabetically online, reverse text generator copy paste, remove extra spaces from text">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/text-manipulator">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/word-counter">
-    <meta property="og:title" content="Word Counter with Reading Time | RankifyTools">
-    <meta property="og:description" content="Count words, characters, and sentences in real-time. 100% free and private.">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/text-manipulator">
+    <meta property="og:title" content="Text Manipulator — Sort, Reverse & Clean Text | RankifyTools">
+    <meta property="og:description" content="Clean and modify text strings instantly in your browser. 100% free and private.">
     <meta property="og:site_name" content="RankifyTools">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
@@ -40,7 +40,7 @@
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
         {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
-        {"@type": "ListItem", "position": 3, "name": "Word Counter", "item": "https://free-online-seo-tools.vercel.app/word-counter"}
+        {"@type": "ListItem", "position": 3, "name": "Text Manipulator", "item": "https://free-online-seo-tools.vercel.app/text-manipulator"}
       ]
     }
     </script>
@@ -73,42 +73,25 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="/index.html">Home</a><span class="separator">›</span>
             <a href="/index.html">Tools</a><span class="separator">›</span>
-            <span class="current">Word Counter</span>
+            <span class="current">Text Manipulator</span>
         </nav>
         
         <div class="hero">
-            <h1>Word Counter with Reading Time</h1>
-            <p>Analyze text lengths, calculate reading times, and evaluate character counts with spaces or without spaces instantly online.</p>
+            <h1>Text Manipulator Online</h1>
+            <p>Modify and organize lists and text files. Sort alphabetically, strip duplicate lines, reverse character orders, and remove extra white spaces instantly.</p>
         </div>
 
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem;">
-            <label for="text-input" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Input Text</label>
-            <textarea id="text-input" placeholder="Type or paste your content here..." oninput="updateStats()" style="width: 100%; min-height: 250px; background: var(--bg-main); border: 1px solid var(--border-light); color: var(--text-primary); padding: 1rem; border-radius: var(--radius-sm); outline: none; line-height: 1.5; resize: vertical;"></textarea>
-            <div style="display:flex; justify-content:flex-end;">
-                <button class="tool-btn" onclick="clearText()" style="font-size:0.8rem; padding:0.4rem 1rem;">Clear Text</button>
-            </div>
-        </div>
-
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.2rem; text-align: center;">
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Words</span>
-                <div id="word-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Characters</span>
-                <div id="char-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Sentences</span>
-                <div id="sentence-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Paragraphs</span>
-                <div id="para-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Reading Time</span>
-                <div id="read-time" style="font-size:1.8rem; font-weight:700; color:var(--accent-secondary); margin-top:0.2rem;">0m</div>
+            <label for="text-input" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Text / List Input</label>
+            <textarea id="text-input" placeholder="Type or paste your text lines here..." style="width: 100%; min-height: 250px; background: var(--bg-main); border: 1px solid var(--border-light); color: var(--text-primary); padding: 1rem; border-radius: var(--radius-sm); outline: none; line-height: 1.5; resize: vertical; font-family: monospace;"></textarea>
+            
+            <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
+                <button class="tool-btn" onclick="manipulate('sort')">Sort A-Z</button>
+                <button class="tool-btn" onclick="manipulate('sort-desc')">Sort Z-A</button>
+                <button class="tool-btn" onclick="manipulate('dedup')">Remove Duplicates</button>
+                <button class="tool-btn" onclick="manipulate('reverse')">Reverse Text</button>
+                <button class="tool-btn" onclick="manipulate('clean-spaces')">Strip Extra Spaces</button>
+                <button class="tool-btn" onclick="copyResult()" style="background:var(--accent-secondary); border-color:var(--accent-secondary); color:#fff; margin-left:auto;">📋 Copy Result</button>
             </div>
         </div>
     </main>
@@ -153,30 +136,43 @@
 
     <script src="js/main.js" defer></script>
     <script>
-        const input = document.getElementById('text-input');
-        const wordsEl = document.getElementById('word-count');
-        const charsEl = document.getElementById('char-count');
-        const sentencesEl = document.getElementById('sentence-count');
-        const paraEl = document.getElementById('para-count');
-        const readTimeEl = document.getElementById('read-time');
-
-        function updateStats() {
-            const text = input.value;
-            charsEl.innerText = text.length;
-            const words = text.match(/\b[-?(\w+)?]+\b/gi);
-            const wordCount = words ? words.length : 0;
-            wordsEl.innerText = wordCount;
-            const sentences = text.match(/[\w|\)][.?!]+(\s|$)/g);
-            sentencesEl.innerText = sentences ? sentences.length : 0;
-            const paras = text.split(/\n+/).filter(p => p.trim().length > 0);
-            paraEl.innerText = text.trim() ? paras.length : 0;
-            const minutes = Math.ceil(wordCount / 225);
-            readTimeEl.innerText = minutes + 'm';
+        function manipulate(type) {
+            const input = document.getElementById('text-input');
+            let text = input.value;
+            if (!text) return;
+            
+            switch(type) {
+                case 'sort':
+                    input.value = text.split('\n').sort((a,b) => a.localeCompare(b)).join('\n');
+                    showToast('Sorted text alphabetically!', 'success');
+                    break;
+                case 'sort-desc':
+                    input.value = text.split('\n').sort((a,b) => b.localeCompare(a)).join('\n');
+                    showToast('Sorted Z to A!', 'success');
+                    break;
+                case 'dedup':
+                    const lines = text.split('\n');
+                    const unique = [...new Set(lines)];
+                    input.value = unique.join('\n');
+                    showToast(`Removed ${lines.length - unique.length} duplicate lines.`, 'success');
+                    break;
+                case 'reverse':
+                    input.value = text.split('').reverse().join('');
+                    showToast('Text reversed!', 'success');
+                    break;
+                case 'clean-spaces':
+                    input.value = text.replace(/[ \t]+/g, ' ').replace(/^ +| +$/gm, '');
+                    showToast('Stripped extra whitespaces!', 'success');
+                    break;
+            }
         }
 
-        function clearText() {
-            input.value = '';
-            updateStats();
+        function copyResult() {
+            const val = document.getElementById('text-input').value;
+            if (!val) return;
+            navigator.clipboard.writeText(val).then(() => {
+                showToast('Manipulated text copied!', 'success');
+            });
         }
     </script>
 </body>

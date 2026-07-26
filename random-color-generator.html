@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
     <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convert Text to Uppercase Lowercase Online | RankifyTools</title>
-    <meta name="description" content="Free case converter online. Easily convert text to uppercase, lowercase, sentence case, title case, camelCase, or snake_case instantly. 100% private.">
-    <meta name="keywords" content="convert text to uppercase lowercase, case converter online, sentence case converter online, title case generator free">
-    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/case-converter">
+    <title>Random Color Generator HEX — Design Codes Online | RankifyTools</title>
+    <meta name="description" content="Generate random colors and palettes instantly online. Find hex, rgb, and hsl color values with copy buttons. The perfect tool for designers & developers free.">
+    <meta name="keywords" content="random color generator hex, random color selector, design color converter free">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/random-color-generator">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/case-converter">
-    <meta property="og:title" content="Convert Text to Uppercase Lowercase Online | RankifyTools">
-    <meta property="og:description" content="Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase & snake_case instantly. Free, private, and secure.">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/random-color-generator">
+    <meta property="og:title" content="Random Color Generator HEX | RankifyTools">
+    <meta property="og:description" content="Generate random colors and copy HEX, RGB or HSL codes instantly. 100% free.">
     <meta property="og:site_name" content="RankifyTools">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
@@ -40,7 +40,7 @@
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
         {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
-        {"@type": "ListItem", "position": 3, "name": "Case Converter", "item": "https://free-online-seo-tools.vercel.app/case-converter"}
+        {"@type": "ListItem", "position": 3, "name": "Random Color Generator", "item": "https://free-online-seo-tools.vercel.app/random-color-generator"}
       ]
     }
     </script>
@@ -73,26 +73,43 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="/index.html">Home</a><span class="separator">›</span>
             <a href="/index.html">Tools</a><span class="separator">›</span>
-            <span class="current">Case Converter</span>
+            <span class="current">Random Color Generator</span>
         </nav>
         
         <div class="hero">
-            <h1>Convert Text to Uppercase / Lowercase</h1>
-            <p>Translate and convert string inputs into standard Uppercase, Lowercase, Title Case, Sentence Case, or camelCase notations instantly.</p>
+            <h1>Random Color Generator HEX</h1>
+            <p>Generate random design colors instantly. View matching hexadecimal, RGB, and HSL values with copy actions.</p>
         </div>
 
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem;">
-            <label for="text-input" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Text Content</label>
-            <textarea id="text-input" placeholder="Type or paste your content here..." style="width: 100%; min-height: 250px; background: var(--bg-main); border: 1px solid var(--border-light); color: var(--text-primary); padding: 1rem; border-radius: var(--radius-sm); outline: none; line-height: 1.5; resize: vertical;"></textarea>
-            
-            <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
-                <button class="tool-btn" onclick="convert('upper')">UPPERCASE</button>
-                <button class="tool-btn" onclick="convert('lower')">lowercase</button>
-                <button class="tool-btn" onclick="convert('title')">Title Case</button>
-                <button class="tool-btn" onclick="convert('sentence')">Sentence case</button>
-                <button class="tool-btn" onclick="convert('camel')">camelCase</button>
-                <button class="tool-btn" onclick="convert('snake')">snake_case</button>
-                <button class="tool-btn" onclick="copyResult()" style="background:var(--accent-secondary); border-color:var(--accent-secondary); color:#fff; margin-left:auto;">📋 Copy Result</button>
+        <div class="split-pane" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Visualization -->
+            <div id="colorDisplay" style="background: #3b82f6; border-radius: var(--radius-lg); border: 1px solid var(--border-light); min-height: 250px; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease;">
+                <button class="tool-btn" style="background:#fff; color:#000; border-color:#fff; font-weight:700;" onclick="generateColor()">🎲 Generate New Color</button>
+            </div>
+
+            <!-- Right Panel: Codes -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; justify-content: center;">
+                <div>
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600; display:block; margin-bottom:0.3rem;">HEX Code</label>
+                    <div style="display:flex; gap:0.5rem;">
+                        <input type="text" id="hexVal" readonly style="flex:1; padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary); font-family:monospace;">
+                        <button class="tool-btn" onclick="copyValue('hexVal')" style="font-size:0.8rem;">Copy</button>
+                    </div>
+                </div>
+                <div>
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600; display:block; margin-bottom:0.3rem;">RGB Code</label>
+                    <div style="display:flex; gap:0.5rem;">
+                        <input type="text" id="rgbVal" readonly style="flex:1; padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary); font-family:monospace;">
+                        <button class="tool-btn" onclick="copyValue('rgbVal')" style="font-size:0.8rem;">Copy</button>
+                    </div>
+                </div>
+                <div>
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600; display:block; margin-bottom:0.3rem;">HSL Code</label>
+                    <div style="display:flex; gap:0.5rem;">
+                        <input type="text" id="hslVal" readonly style="flex:1; padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary); font-family:monospace;">
+                        <button class="tool-btn" onclick="copyValue('hslVal')" style="font-size:0.8rem;">Copy</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -137,43 +154,55 @@
 
     <script src="js/main.js" defer></script>
     <script>
-        function convert(type) {
-            const input = document.getElementById('text-input');
-            let text = input.value;
-            if (!text) return;
-            
-            switch(type) {
-                case 'upper':
-                    text = text.toUpperCase();
-                    break;
-                case 'lower':
-                    text = text.toLowerCase();
-                    break;
-                case 'title':
-                    text = text.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-                    break;
-                case 'sentence':
-                    text = text.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, c => c.toUpperCase());
-                    break;
-                case 'camel':
-                    text = text.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => index === 0 ? word.toLowerCase() : word.toUpperCase()).replace(/\s+/g, '');
-                    break;
-                case 'snake':
-                    const matched = text.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g);
-                    text = matched ? matched.map(x => x.toLowerCase()).join('_') : text;
-                    break;
+        function generateColor() {
+            const randomValues = new Uint32Array(3);
+            window.crypto.getRandomValues(randomValues);
+
+            const r = randomValues[0] % 256;
+            const g = randomValues[1] % 256;
+            const b = randomValues[2] % 256;
+
+            const hex = "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+            const rgb = `rgb(${r}, ${g}, ${b})`;
+
+            // RGB to HSL conversion logic
+            const rNorm = r / 255;
+            const gNorm = g / 255;
+            const bNorm = b / 255;
+            const max = Math.max(rNorm, gNorm, bNorm);
+            const min = Math.min(rNorm, gNorm, bNorm);
+            let h, s, l = (max + min) / 2;
+
+            if (max === min) {
+                h = s = 0; // achromatic
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case rNorm: h = (gNorm - bNorm) / d + (gNorm < bNorm ? 6 : 0); break;
+                    case gNorm: h = (bNorm - rNorm) / d + 2; break;
+                    case bNorm: h = (rNorm - gNorm) / d + 4; break;
+                }
+                h /= 6;
             }
-            input.value = text;
-            showToast('Case converted!', 'success');
+
+            const hsl = `hsl(${Math.round(h * 360)}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`;
+
+            document.getElementById('colorDisplay').style.backgroundColor = hex;
+            document.getElementById('hexVal').value = hex;
+            document.getElementById('rgbVal').value = rgb;
+            document.getElementById('hslVal').value = hsl;
         }
 
-        function copyResult() {
-            const val = document.getElementById('text-input').value;
+        function copyValue(id) {
+            const val = document.getElementById(id).value;
             if (!val) return;
             navigator.clipboard.writeText(val).then(() => {
-                showToast('Converted text copied to clipboard!', 'success');
+                showToast('Color code copied!', 'success');
             });
         }
+
+        window.addEventListener('load', generateColor);
     </script>
 </body>
 </html>

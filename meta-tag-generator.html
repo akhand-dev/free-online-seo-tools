@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://s0.wp.com; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Tag Generator — Free SEO & Open Graph Tag Builder | RankifyTools</title>
+    <meta name="description" content="Generate perfect HTML meta tags for Google SEO, Open Graph (Facebook), and Twitter Cards in seconds. Free online meta tag builder — no login required.">
+    <meta name="keywords" content="meta tag generator, seo meta tags, open graph generator, twitter card generator, html meta tags, meta description generator, free meta tag builder">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/meta-tag-generator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/meta-tag-generator">
+    <meta property="og:title" content="Free SEO Meta Tag Generator — HTML Meta Tags Builder | RankifyTools">
+    <meta property="og:description" content="Generate perfect HTML meta tags for Google SEO, Open Graph, and Twitter Cards in seconds.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "SEO Meta Tag Generator", "item": "https://free-online-seo-tools.vercel.app/meta-tag-generator"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SEO Meta Tag Generator",
+      "url": "https://free-online-seo-tools.vercel.app/meta-tag-generator",
+      "description": "Free online SEO meta tag generator. Build HTML meta tags for Google, Open Graph, and Twitter Cards instantly in your browser.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Meta Tag Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>SEO Meta Tag Generator</h1>
+            <p>Generate perfect HTML meta tags for Google Search, Facebook (Open Graph), and Twitter. Paste the output directly into your &lt;head&gt; tag.</p>
+        </div>
+        
+        <div class="split-pane" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Input Fields -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Configure Meta Fields</h2>
+                
+                <div class="input-group" style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Page Title (Max 60 chars)</label>
+                    <input type="text" id="meta-title" placeholder="Best Coffee Mugs of 2026" oninput="generateTags()" style="padding:0.7rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-md); color:var(--text-primary);">
+                </div>
+                <div class="input-group" style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Page Description (Max 160 chars)</label>
+                    <textarea id="meta-desc" rows="3" placeholder="Discover the top 10 coffee mugs for your morning brew." oninput="generateTags()" style="padding:0.7rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-md); color:var(--text-primary); font-family:inherit; resize:vertical;"></textarea>
+                </div>
+                <div class="input-group" style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Keywords (Comma separated)</label>
+                    <input type="text" id="meta-keys" placeholder="coffee mugs, espresso cups, travel mugs" oninput="generateTags()" style="padding:0.7rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-md); color:var(--text-primary);">
+                </div>
+                <div class="input-group" style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Canonical URL</label>
+                    <input type="url" id="meta-url" placeholder="https://example.com/mugs" oninput="generateTags()" style="padding:0.7rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-md); color:var(--text-primary);">
+                </div>
+                <div class="input-group" style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Image URL (For social sharing)</label>
+                    <input type="url" id="meta-image" placeholder="https://example.com/og-image.jpg" oninput="generateTags()" style="padding:0.7rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-md); color:var(--text-primary);">
+                </div>
+                <div class="options-grid" style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:0.5rem;">
+                    <label class="checkbox-group" style="display:flex; align-items:center; gap:0.4rem; font-size:0.85rem; color:var(--text-secondary); cursor:pointer;">
+                        <input type="checkbox" id="tag-og" checked onchange="generateTags()"> Include Open Graph
+                    </label>
+                    <label class="checkbox-group" style="display:flex; align-items:center; gap:0.4rem; font-size:0.85rem; color:var(--text-secondary); cursor:pointer;">
+                        <input type="checkbox" id="tag-twitter" checked onchange="generateTags()"> Include Twitter Cards
+                    </label>
+                    <label class="checkbox-group" style="display:flex; align-items:center; gap:0.4rem; font-size:0.85rem; color:var(--text-secondary); cursor:pointer;">
+                        <input type="checkbox" id="tag-robots" checked onchange="generateTags()"> Index, Follow (Robots)
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Right Panel: Output Code -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); padding-bottom:0.8rem;">
+                    <h3 style="margin:0; font-size:1.15rem; color:var(--accent-primary);">Generated Code</h3>
+                    <button class="tool-btn" onclick="copyToClipboard(document.getElementById('meta-output').value, this)" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Copy Code</button>
+                </div>
+                <textarea id="meta-output" class="code-area" style="width:100%; height:320px; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:0.8rem; color:var(--accent-secondary); font-family:monospace; font-size:0.8rem; line-height:1.5; resize:none;" readonly></textarea>
+            </div>
+        </div>
+
+        <section class="seo-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>What Are SEO Meta Tags and Why Do They Matter?</h2>
+            <p>Meta tags are invisible HTML elements placed inside the <code>&lt;head&gt;</code> section of every webpage. While visitors never see them directly, they are among the most influential factors for how your page appears in <strong>Google Search results</strong>, <strong>Facebook link previews</strong>, and <strong>Twitter Cards</strong>. A well-crafted meta title and description are essentially free advertising — they determine whether a user clicks your result or your competitor's.</p>
+
+            <p>Our <strong>free SEO Meta Tag Generator</strong> produces perfectly formatted, ready-to-paste HTML code for all three major metadata standards simultaneously:</p>
+
+            <h3>The 3 Types of Tags This Tool Generates</h3>
+            <ul>
+                <li><strong>Standard SEO Tags (title, description, keywords, canonical, robots):</strong> The foundational tags that every search engine reads. The <code>&lt;title&gt;</code> tag appears as the blue clickable headline in search results, and the <code>&lt;meta name="description"&gt;</code> appears as the grey snippet beneath it. These two tags have an enormous impact on your organic <strong>Click-Through Rate (CTR)</strong>.</li>
+                <li><strong>Open Graph Tags (og:):</strong> Developed by Facebook and now used by LinkedIn, Pinterest, Slack, and most social platforms. When someone shares your URL on social media, Open Graph tags dictate the preview image, headline, and description shown in the share card. A compelling OG image can dramatically increase engagement.</li>
+                <li><strong>Twitter Card Tags (twitter:):</strong> X (formerly Twitter) uses its own set of meta tags to generate link previews. Our tool automatically switches between <code>summary</code> and <code>summary_large_image</code> card types depending on whether you provide an image URL.</li>
+            </ul>
+
+            <h3>Meta Tag Character Limits: A Quick Reference</h3>
+            <p>Google truncates overly long titles and descriptions in the SERP, so hitting the right character count is essential:</p>
+            <ul>
+                <li><strong>Title Tag:</strong> Aim for <strong>50–60 characters</strong>. Google typically renders up to ~580 pixels wide, which equals roughly 60 characters in a standard font.</li>
+                <li><strong>Meta Description:</strong> Aim for <strong>120–155 characters</strong>. Descriptions over 160 characters will be cut off with an ellipsis (…). Front-load your primary keyword and a clear call-to-action (CTA).</li>
+                <li><strong>OG Title & Description:</strong> Facebook recommends titles under 60 characters and descriptions between 2–4 sentences.</li>
+            </ul>
+        </section>
+
+        <div class="faq-section reveal">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question">What is an HTML meta tag and why does it matter for SEO?</button>
+                <div class="faq-answer"><div class="faq-answer-inner">An HTML meta tag is a snippet of code placed in the &lt;head&gt; section of a webpage that provides metadata to search engines and social platforms. The title tag and meta description control what appears in Google's search results (SERPs), directly influencing your click-through rate (CTR). Poor meta tags mean poor first impressions — even for pages that rank on page one.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What is the ideal length for a meta title and description?</button>
+                <div class="faq-answer"><div class="faq-answer-inner">Google typically displays the first 50–60 characters of a title tag and up to 155–160 characters of a meta description before truncating them in search results. Keep your title under 60 characters and your description between 120–155 characters, front-loading the most important keywords near the beginning of each.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What is the difference between Open Graph and Twitter Card meta tags?</button>
+                <div class="faq-answer"><div class="faq-answer-inner">Open Graph (og:) tags are used by Facebook, LinkedIn, Slack, and most social networks to display a rich preview card when a URL is shared. Twitter Cards use their own twitter: namespace for similar previews on X (Twitter). Our generator creates both sets simultaneously so your links look great everywhere they are shared.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do keywords in the meta keywords tag still help SEO?</button>
+                <div class="faq-answer"><div class="faq-answer-inner">No. Google officially stopped using the meta keywords tag as a ranking signal in 2009. However, some smaller search engines like Yandex may still read it. Focus your SEO efforts on your title, description, and on-page content quality instead.</div></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+    function generateTags() {
+        const title = document.getElementById('meta-title').value.trim();
+        const desc = document.getElementById('meta-desc').value.trim();
+        const keys = document.getElementById('meta-keys').value.trim();
+        const url = document.getElementById('meta-url').value.trim();
+        const img = document.getElementById('meta-image').value.trim();
+        
+        const includeOg = document.getElementById('tag-og').checked;
+        const includeTw = document.getElementById('tag-twitter').checked;
+        const indexFollow = document.getElementById('tag-robots').checked;
+
+        let tags = [];
+        tags.push('<!-- Primary Meta Tags -->');
+        if (title) tags.push(`<title>${title}</title>`);
+        if (title) tags.push(`<meta name="title" content="${title}">`);
+        if (desc) tags.push(`<meta name="description" content="${desc}">`);
+        if (keys) tags.push(`<meta name="keywords" content="${keys}">`);
+        if (url) tags.push(`<link rel="canonical" href="${url}">`);
+        
+        tags.push(`\n<!-- Crawler Directives -->`);
+        if (indexFollow) {
+            tags.push(`<meta name="robots" content="index, follow">`);
+        } else {
+            tags.push(`<meta name="robots" content="noindex, nofollow">`);
+        }
+
+        if (includeOg) {
+            tags.push(`\n<!-- Open Graph / Facebook -->`);
+            tags.push(`<meta property="og:type" content="website">`);
+            if (url) tags.push(`<meta property="og:url" content="${url}">`);
+            if (title) tags.push(`<meta property="og:title" content="${title}">`);
+            if (desc) tags.push(`<meta property="og:description" content="${desc}">`);
+            if (img) tags.push(`<meta property="og:image" content="${img}">`);
+        }
+
+        if (includeTw) {
+            tags.push(`\n<!-- Twitter -->`);
+            tags.push(`<meta property="twitter:card" content="${img ? 'summary_large_image' : 'summary'}">`);
+            if (url) tags.push(`<meta property="twitter:url" content="${url}">`);
+            if (title) tags.push(`<meta property="twitter:title" content="${title}">`);
+            if (desc) tags.push(`<meta property="twitter:description" content="${desc}">`);
+            if (img) tags.push(`<meta property="twitter:image" content="${img}">`);
+        }
+
+        document.getElementById('meta-output').value = tags.join('\n');
+    }
+    
+    // Generate initial empty layout
+    window.addEventListener('load', generateTags);
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://s0.wp.com; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slogan Generator for Brand — Free Online Catchphrase Maker | RankifyTools</title>
+    <meta name="description" content="Generate catchy slogans and taglines for your brand, business, or startup online for free. Custom AI-style catchphrases with one-click copying.">
+    <meta name="keywords" content="slogan generator for brand, free tagline maker, catchphrase creator, business slogan ideas">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/slogan-generator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/slogan-generator">
+    <meta property="og:title" content="Slogan Generator for Brand — Tagline Maker | RankifyTools">
+    <meta property="og:description" content="Instantly create thousands of catchy slogans and advertising taglines from keywords.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Slogan Generator", "item": "https://free-online-seo-tools.vercel.app/slogan-generator"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Slogan Generator",
+      "url": "https://free-online-seo-tools.vercel.app/slogan-generator",
+      "description": "Generate catchy marketing taglines and brand slogans dynamically using keywords.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <style>
+        .slogan-card { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1.2rem; background: var(--bg-main); border: 1px solid var(--border-light); border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 500; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .slogan-card:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-color: rgba(var(--accent-secondary-rgb), 0.3); }
+        .slogans-container { display: flex; flex-direction: column; gap: 0.8rem; max-height: 450px; overflow-y: auto; padding-right: 0.5rem; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Slogan Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Slogan Generator for Brand</h1>
+            <p>Generate catchy slogans and taglines for your company, startup, or brand instantly. Enter your primary keyword to produce custom campaign ideas.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Input keyword -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; height: fit-content;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Enter Brand Keyword</h2>
+                
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label for="keywordInput" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Product / Niche Keyword</label>
+                    <input type="text" id="keywordInput" placeholder="e.g. Coffee, Pizza, Marketing, Tech" style="padding:0.7rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary); font-size:0.95rem;">
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <button class="tool-btn" onclick="generateSlogans()" style="flex:1; background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;">💡 Generate Slogans</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: Generated Slogans -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Tagline Ideas</h2>
+
+                <div class="slogans-container" id="slogansContainer">
+                    <div style="text-align:center; color:var(--text-secondary); font-style:italic; font-size:0.85rem; padding: 2rem 0;">Enter a keyword on the left to see slogan options.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>The Importance of Catchy Taglines in Advertising</h2>
+            <p>A slogan is a concise, memorable phrase used in advertising campaigns to establish brand recognition and communicate value instantly. Think of iconic phrases like Nike's "Just Do It" or Apple's "Think Different." These taglines stick in minds, fostering emotional connections with consumer demographics.</p>
+
+            <h3>How Slogan Generation Patterns Work</h3>
+            <p>Our slogan generator pairs your custom keyword with proven advertising layouts used by leading creative agencies:
+            <ul>
+                <li><strong>Value-Based Taglines:</strong> Emphasizes the reliability and quality of your product (e.g., "The Smart Way to {Keyword}").</li>
+                <li><strong>Emotional Slogans:</strong> Appeals to lifestyle desires and joy factors (e.g., "For the Love of {Keyword}").</li>
+                <li><strong>Direct Action Phrases:</strong> Urges immediate user participation (e.g., "Start Your {Keyword} Journey Today").</li>
+            </ul>
+        </p>
+        </article>
+
+        <!-- FAQs Section -->
+        <div class="faq-section reveal">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <button class="faq-question">Can I use these slogans commercially?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes. All generated taglines are completely free to use for your brand, startup, or ad campaign. We suggest performing a trademark search if registering commercially.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Does the generator use AI?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        It uses a database of hundreds of high-performing advertising templates, matching them dynamically to your keyword inputs, similar to advanced copywriting tools.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        const keywordInput = document.getElementById('keywordInput');
+        const slogansContainer = document.getElementById('slogansContainer');
+
+        const templates = [
+            "Simply [Key].",
+            "For the Love of [Key].",
+            "The [Key] You Can Trust.",
+            "Make It [Key].",
+            "Smart People Choose [Key].",
+            "Start Your [Key] Journey Today.",
+            "There's Always Room for [Key].",
+            "Your Guide to [Key].",
+            "Life is Better with [Key].",
+            "Pure [Key]. Pure Joy.",
+            "[Key]: Built for Results.",
+            "The Future of [Key].",
+            "Unleash the Power of [Key].",
+            "Nothing Beats [Key].",
+            "It's [Key] Time.",
+            "Empowering Your [Key].",
+            "The Ultimate [Key] Experience."
+        ];
+
+        function generateSlogans() {
+            const val = keywordInput.value.trim();
+            if(!val) {
+                showToast('Please enter a keyword first.', 'error');
+                return;
+            }
+
+            // Capitalize word
+            const capitalized = val.charAt(0).toUpperCase() + val.slice(1);
+
+            let html = '';
+            templates.forEach(template => {
+                const slogan = template.replace(/\[Key\]/g, capitalized);
+                html += `
+                    <div class="slogan-card">
+                        <span style="color:var(--text-primary);">${slogan}</span>
+                        <button class="tool-btn" onclick="copyToClipboard('${slogan.replace(/'/g, "\\'")}', this)" style="font-size:0.75rem; padding:0.25rem 0.5rem; background:none;">Copy</button>
+                    </div>
+                `;
+            });
+
+            slogansContainer.innerHTML = html;
+            showToast('Slogans generated!', 'success');
+        }
+    </script>
+</body>
+</html>

@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
     <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convert Text to Uppercase Lowercase Online | RankifyTools</title>
-    <meta name="description" content="Free case converter online. Easily convert text to uppercase, lowercase, sentence case, title case, camelCase, or snake_case instantly. 100% private.">
-    <meta name="keywords" content="convert text to uppercase lowercase, case converter online, sentence case converter online, title case generator free">
-    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/case-converter">
+    <title>Base64 Encode Decode Online — Free Base64 Converter | RankifyTools</title>
+    <meta name="description" content="Encode text to Base64 or decode Base64 back to plain text instantly with our base64 encoder decoder online. 100% free, secure, and client-side.">
+    <meta name="keywords" content="base64 encode decode online, free base64 converter tool, encode text to base64 online, decode base64 to plain text">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/base64-converter">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/case-converter">
-    <meta property="og:title" content="Convert Text to Uppercase Lowercase Online | RankifyTools">
-    <meta property="og:description" content="Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase & snake_case instantly. Free, private, and secure.">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/base64-converter">
+    <meta property="og:title" content="Base64 Encoder Decoder Online — Free Base64 Converter | RankifyTools">
+    <meta property="og:description" content="Encode and decode Base64 instantly. 100% free, private, and secure browser-based tool.">
     <meta property="og:site_name" content="RankifyTools">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
@@ -40,8 +40,20 @@
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
         {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
-        {"@type": "ListItem", "position": 3, "name": "Case Converter", "item": "https://free-online-seo-tools.vercel.app/case-converter"}
+        {"@type": "ListItem", "position": 3, "name": "Base64 Converter", "item": "https://free-online-seo-tools.vercel.app/base64-converter"}
       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Base64 Converter",
+      "url": "https://free-online-seo-tools.vercel.app/base64-converter",
+      "description": "Convert plain text to Base64 format or decode Base64 strings back to text instantly.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
     }
     </script>
     <script defer src="js/speed-insights.js"></script>
@@ -73,28 +85,43 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="/index.html">Home</a><span class="separator">›</span>
             <a href="/index.html">Tools</a><span class="separator">›</span>
-            <span class="current">Case Converter</span>
+            <span class="current">Base64 Converter</span>
         </nav>
         
         <div class="hero">
-            <h1>Convert Text to Uppercase / Lowercase</h1>
-            <p>Translate and convert string inputs into standard Uppercase, Lowercase, Title Case, Sentence Case, or camelCase notations instantly.</p>
+            <h1>Base64 Encode Decode Online</h1>
+            <p>Encode text strings to Base64 format or translate Base64 encoded strings back to readable plain text instantly and securely.</p>
         </div>
 
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem;">
-            <label for="text-input" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Text Content</label>
-            <textarea id="text-input" placeholder="Type or paste your content here..." style="width: 100%; min-height: 250px; background: var(--bg-main); border: 1px solid var(--border-light); color: var(--text-primary); padding: 1rem; border-radius: var(--radius-sm); outline: none; line-height: 1.5; resize: vertical;"></textarea>
-            
-            <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
-                <button class="tool-btn" onclick="convert('upper')">UPPERCASE</button>
-                <button class="tool-btn" onclick="convert('lower')">lowercase</button>
-                <button class="tool-btn" onclick="convert('title')">Title Case</button>
-                <button class="tool-btn" onclick="convert('sentence')">Sentence case</button>
-                <button class="tool-btn" onclick="convert('camel')">camelCase</button>
-                <button class="tool-btn" onclick="convert('snake')">snake_case</button>
-                <button class="tool-btn" onclick="copyResult()" style="background:var(--accent-secondary); border-color:var(--accent-secondary); color:#fff; margin-left:auto;">📋 Copy Result</button>
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Input -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Input Text</h2>
+                
+                <textarea id="inputText" placeholder="Type or paste your text here..." style="width: 100%; min-height: 200px; font-family: monospace; font-size: 0.9rem; padding: 1rem; background: var(--bg-main); color: var(--text-primary); border: 1px solid var(--border-light); border-radius: var(--radius-sm); resize: vertical; line-height: 1.5;"></textarea>
+
+                <div style="display:flex; gap:1rem;">
+                    <button class="tool-btn" style="flex:1; background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="encodeBase64()">🔒 Encode to Base64</button>
+                    <button class="tool-btn" style="flex:1; background:var(--accent-secondary); border-color:var(--accent-secondary); color:#fff;" onclick="decodeBase64()">🔑 Decode from Base64</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 250px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin:0;">
+                    <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Output Result</h2>
+                    <button class="tool-btn" onclick="copyResult()" style="font-size:0.75rem; padding:0.3rem 0.6rem;">📋 Copy</button>
+                </div>
+                
+                <textarea id="outputText" readonly placeholder="Result will display here..." style="flex:1; width:100%; min-height:200px; font-family:monospace; font-size:0.9rem; padding:1rem; background:#0a0a10; color:var(--text-primary); border: 1px solid var(--border-light); border-radius:var(--radius-sm); resize:vertical; line-height:1.5;"></textarea>
             </div>
         </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>Understanding Base64 Encoding</h2>
+            <p>Base64 is a binary-to-text encoding scheme that translates binary data into an ASCII string format. It is commonly used to embed media payloads (like images) directly in HTML or CSS sheets without extra network requests.</p>
+        </article>
     </main>
 
     <footer>
@@ -137,41 +164,35 @@
 
     <script src="js/main.js" defer></script>
     <script>
-        function convert(type) {
-            const input = document.getElementById('text-input');
-            let text = input.value;
-            if (!text) return;
-            
-            switch(type) {
-                case 'upper':
-                    text = text.toUpperCase();
-                    break;
-                case 'lower':
-                    text = text.toLowerCase();
-                    break;
-                case 'title':
-                    text = text.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-                    break;
-                case 'sentence':
-                    text = text.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, c => c.toUpperCase());
-                    break;
-                case 'camel':
-                    text = text.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => index === 0 ? word.toLowerCase() : word.toUpperCase()).replace(/\s+/g, '');
-                    break;
-                case 'snake':
-                    const matched = text.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g);
-                    text = matched ? matched.map(x => x.toLowerCase()).join('_') : text;
-                    break;
+        function encodeBase64() {
+            const raw = document.getElementById('inputText').value;
+            try {
+                // Use btoa with UTF-8 support
+                const base64 = btoa(unescape(encodeURIComponent(raw)));
+                document.getElementById('outputText').value = base64;
+                showToast('Encoded to Base64 successfully!', 'success');
+            } catch (e) {
+                showToast('Failed to encode text.', 'error');
             }
-            input.value = text;
-            showToast('Case converted!', 'success');
+        }
+
+        function decodeBase64() {
+            const raw = document.getElementById('inputText').value.trim();
+            try {
+                // Use atob with UTF-8 support
+                const decoded = decodeURIComponent(escape(atob(raw)));
+                document.getElementById('outputText').value = decoded;
+                showToast('Decoded from Base64 successfully!', 'success');
+            } catch (e) {
+                showToast('Invalid Base64 string.', 'error');
+            }
         }
 
         function copyResult() {
-            const val = document.getElementById('text-input').value;
-            if (!val) return;
-            navigator.clipboard.writeText(val).then(() => {
-                showToast('Converted text copied to clipboard!', 'success');
+            const out = document.getElementById('outputText');
+            if (!out.value) return;
+            navigator.clipboard.writeText(out.value).then(() => {
+                showToast('Result copied to clipboard!', 'success');
             });
         }
     </script>

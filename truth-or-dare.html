@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
     <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Counter with Reading Time — Character Count Online | RankifyTools</title>
-    <meta name="description" content="Free word counter online. Count words, characters, sentences, paragraphs & estimated reading time in real-time. Character counter online free.">
-    <meta name="keywords" content="word counter with reading time, character counter online free, count words in paragraph, character counter">
-    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/word-counter">
+    <title>Truth or Dare Generator Online — Classic & Party Game | RankifyTools</title>
+    <meta name="description" content="Generate random Truth or Dare questions instantly online. Choose from classic, funny, or party category filters. The best free online game creator.">
+    <meta name="keywords" content="truth or dare generator, truth or dare questions online, party game generator free">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/truth-or-dare">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/word-counter">
-    <meta property="og:title" content="Word Counter with Reading Time | RankifyTools">
-    <meta property="og:description" content="Count words, characters, and sentences in real-time. 100% free and private.">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/truth-or-dare">
+    <meta property="og:title" content="Truth or Dare Generator Online | RankifyTools">
+    <meta property="og:description" content="Generate classic and party Truth or Dare prompts instantly online. 100% free.">
     <meta property="og:site_name" content="RankifyTools">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
@@ -40,7 +40,7 @@
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
         {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
-        {"@type": "ListItem", "position": 3, "name": "Word Counter", "item": "https://free-online-seo-tools.vercel.app/word-counter"}
+        {"@type": "ListItem", "position": 3, "name": "Truth or Dare", "item": "https://free-online-seo-tools.vercel.app/truth-or-dare"}
       ]
     }
     </script>
@@ -73,43 +73,36 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="/index.html">Home</a><span class="separator">›</span>
             <a href="/index.html">Tools</a><span class="separator">›</span>
-            <span class="current">Word Counter</span>
+            <span class="current">Truth or Dare</span>
         </nav>
         
         <div class="hero">
-            <h1>Word Counter with Reading Time</h1>
-            <p>Analyze text lengths, calculate reading times, and evaluate character counts with spaces or without spaces instantly online.</p>
+            <h1>Truth or Dare Generator</h1>
+            <p>Generate random truth or dare questions instantly. Select between Classic, Party, or Funny modes to get the game started.</p>
         </div>
 
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem;">
-            <label for="text-input" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Input Text</label>
-            <textarea id="text-input" placeholder="Type or paste your content here..." oninput="updateStats()" style="width: 100%; min-height: 250px; background: var(--bg-main); border: 1px solid var(--border-light); color: var(--text-primary); padding: 1rem; border-radius: var(--radius-sm); outline: none; line-height: 1.5; resize: vertical;"></textarea>
-            <div style="display:flex; justify-content:flex-end;">
-                <button class="tool-btn" onclick="clearText()" style="font-size:0.8rem; padding:0.4rem 1rem;">Clear Text</button>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; align-items: center;">
+            <div style="display:flex; gap:0.6rem;">
+                <button class="tool-btn" id="btnTruth" style="background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="triggerSelection('truth')">🤔 Truth</button>
+                <button class="tool-btn" id="btnDare" style="background:var(--accent-secondary); border-color:var(--accent-secondary); color:#fff;" onclick="triggerSelection('dare')">🔥 Dare</button>
+            </div>
+            
+            <div style="display:flex; gap:0.6rem; margin-top:0.4rem;">
+                <label style="font-size:0.9rem; color:var(--text-primary); cursor:pointer;">
+                    <input type="radio" name="gameMode" value="classic" checked> Classic
+                </label>
+                <label style="font-size:0.9rem; color:var(--text-primary); cursor:pointer; margin-left:1rem;">
+                    <input type="radio" name="gameMode" value="funny"> Funny
+                </label>
+                <label style="font-size:0.9rem; color:var(--text-primary); cursor:pointer; margin-left:1rem;">
+                    <input type="radio" name="gameMode" value="party"> Party
+                </label>
             </div>
         </div>
 
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.2rem; text-align: center;">
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Words</span>
-                <div id="word-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Characters</span>
-                <div id="char-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Sentences</span>
-                <div id="sentence-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Paragraphs</span>
-                <div id="para-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Reading Time</span>
-                <div id="read-time" style="font-size:1.8rem; font-weight:700; color:var(--accent-secondary); margin-top:0.2rem;">0m</div>
-            </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2rem; min-height: 200px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+            <span id="promptType" style="font-size:0.85rem; text-transform:uppercase; font-weight:700; color:var(--text-secondary); letter-spacing:0.1rem; margin-bottom:0.5rem;">Select Truth or Dare to Start</span>
+            <div id="promptDisplay" style="font-size:1.6rem; font-weight:600; color:var(--text-primary); line-height:1.4;">Click one of the buttons above!</div>
         </div>
     </main>
 
@@ -153,30 +146,56 @@
 
     <script src="js/main.js" defer></script>
     <script>
-        const input = document.getElementById('text-input');
-        const wordsEl = document.getElementById('word-count');
-        const charsEl = document.getElementById('char-count');
-        const sentencesEl = document.getElementById('sentence-count');
-        const paraEl = document.getElementById('para-count');
-        const readTimeEl = document.getElementById('read-time');
+        const truths = {
+            classic: [
+                "What is your biggest fear?",
+                "What is the most embarrassing thing you've ever done?",
+                "Have you ever told a lie to get out of trouble?",
+                "What is the best piece of advice you've ever received?"
+            ],
+            funny: [
+                "Have you ever walked into a wall or window?",
+                "What is the weirdest food combination you enjoy?",
+                "If you were a superhero, what would your useless power be?",
+                "What is the silliest reason you've ever cried?"
+            ],
+            party: [
+                "Who in this room would you trust with your darkest secret?",
+                "What was your first impression of the person to your left?",
+                "If you had to swap lives with someone in this room, who would it be?",
+                "What is the most adventurous thing you've ever done?"
+            ]
+        };
 
-        function updateStats() {
-            const text = input.value;
-            charsEl.innerText = text.length;
-            const words = text.match(/\b[-?(\w+)?]+\b/gi);
-            const wordCount = words ? words.length : 0;
-            wordsEl.innerText = wordCount;
-            const sentences = text.match(/[\w|\)][.?!]+(\s|$)/g);
-            sentencesEl.innerText = sentences ? sentences.length : 0;
-            const paras = text.split(/\n+/).filter(p => p.trim().length > 0);
-            paraEl.innerText = text.trim() ? paras.length : 0;
-            const minutes = Math.ceil(wordCount / 225);
-            readTimeEl.innerText = minutes + 'm';
-        }
+        const dares = {
+            classic: [
+                "Do 10 push-ups right now.",
+                "Let the person to your right draw a mustache on you.",
+                "Sing the chorus of your favorite song out loud.",
+                "Talk in an accent for the next three rounds."
+            ],
+            funny: [
+                "Try to lick your elbow.",
+                "Do your best impression of a chicken laying an egg.",
+                "Make a funny face and hold it for 30 seconds.",
+                "Balance a spoon on your nose for 10 seconds."
+            ],
+            party: [
+                "Give a high-five to everyone in the room.",
+                "Do a dramatic reading of a random text message.",
+                "Tell a joke or do a silly dance.",
+                "Let someone in the room text anyone they want from your phone."
+            ]
+        };
 
-        function clearText() {
-            input.value = '';
-            updateStats();
+        function triggerSelection(type) {
+            const mode = document.querySelector('input[name="gameMode"]:checked').value;
+            const pool = type === 'truth' ? truths[mode] : dares[mode];
+            const randomIndex = Math.floor(Math.random() * pool.length);
+            
+            document.getElementById('promptType').innerText = `${mode} ${type}`;
+            document.getElementById('promptDisplay').innerText = pool[randomIndex];
+            showToast('Prompt generated!', 'success');
         }
     </script>
 </body>

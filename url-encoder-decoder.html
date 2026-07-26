@@ -5,17 +5,17 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
     <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Counter with Reading Time — Character Count Online | RankifyTools</title>
-    <meta name="description" content="Free word counter online. Count words, characters, sentences, paragraphs & estimated reading time in real-time. Character counter online free.">
-    <meta name="keywords" content="word counter with reading time, character counter online free, count words in paragraph, character counter">
-    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/word-counter">
+    <title>URL Encoder Decoder Tool — Percent Encoding Converter | RankifyTools</title>
+    <meta name="description" content="Encode or decode URL strings and query parameters instantly with our URL encoder decoder online. Free percent encoding tool. 100% private and secure.">
+    <meta name="keywords" content="url encoder decoder tool, percent encoding converter, url decode string free, encode urls for query parameters">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/url-encoder-decoder">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/word-counter">
-    <meta property="og:title" content="Word Counter with Reading Time | RankifyTools">
-    <meta property="og:description" content="Count words, characters, and sentences in real-time. 100% free and private.">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/url-encoder-decoder">
+    <meta property="og:title" content="URL Encoder Decoder Tool — Percent Encoding Converter | RankifyTools">
+    <meta property="og:description" content="Encode and decode URLs instantly. Free, private, and secure browser-based tool.">
     <meta property="og:site_name" content="RankifyTools">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
@@ -40,8 +40,20 @@
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
         {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
-        {"@type": "ListItem", "position": 3, "name": "Word Counter", "item": "https://free-online-seo-tools.vercel.app/word-counter"}
+        {"@type": "ListItem", "position": 3, "name": "URL Encoder Decoder", "item": "https://free-online-seo-tools.vercel.app/url-encoder-decoder"}
       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "URL Encoder Decoder Tool",
+      "url": "https://free-online-seo-tools.vercel.app/url-encoder-decoder",
+      "description": "Convert plain strings to URL percent encoded equivalents or decode back to text.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
     }
     </script>
     <script defer src="js/speed-insights.js"></script>
@@ -73,44 +85,43 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="/index.html">Home</a><span class="separator">›</span>
             <a href="/index.html">Tools</a><span class="separator">›</span>
-            <span class="current">Word Counter</span>
+            <span class="current">URL Encoder Decoder</span>
         </nav>
         
         <div class="hero">
-            <h1>Word Counter with Reading Time</h1>
-            <p>Analyze text lengths, calculate reading times, and evaluate character counts with spaces or without spaces instantly online.</p>
+            <h1>URL Encoder Decoder Tool</h1>
+            <p>Convert plain text strings into percent-encoded web formats, or decode percent-encoded URLs back into human-readable characters instantly.</p>
         </div>
 
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem;">
-            <label for="text-input" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Input Text</label>
-            <textarea id="text-input" placeholder="Type or paste your content here..." oninput="updateStats()" style="width: 100%; min-height: 250px; background: var(--bg-main); border: 1px solid var(--border-light); color: var(--text-primary); padding: 1rem; border-radius: var(--radius-sm); outline: none; line-height: 1.5; resize: vertical;"></textarea>
-            <div style="display:flex; justify-content:flex-end;">
-                <button class="tool-btn" onclick="clearText()" style="font-size:0.8rem; padding:0.4rem 1rem;">Clear Text</button>
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Input -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Input URL / Text</h2>
+                
+                <textarea id="inputText" placeholder="Type or paste your text or URL here..." style="width: 100%; min-height: 200px; font-family: monospace; font-size: 0.9rem; padding: 1rem; background: var(--bg-main); color: var(--text-primary); border: 1px solid var(--border-light); border-radius: var(--radius-sm); resize: vertical; line-height: 1.5;"></textarea>
+
+                <div style="display:flex; gap:1rem;">
+                    <button class="tool-btn" style="flex:1; background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="encodeURL()">🔒 Encode URL</button>
+                    <button class="tool-btn" style="flex:1; background:var(--accent-secondary); border-color:var(--accent-secondary); color:#fff;" onclick="decodeURL()">🔑 Decode URL</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 250px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin:0;">
+                    <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Output Result</h2>
+                    <button class="tool-btn" onclick="copyResult()" style="font-size:0.75rem; padding:0.3rem 0.6rem;">📋 Copy</button>
+                </div>
+                
+                <textarea id="outputText" readonly placeholder="Result will display here..." style="flex:1; width:100%; min-height:200px; font-family:monospace; font-size:0.9rem; padding:1rem; background:#0a0a10; color:var(--text-primary); border: 1px solid var(--border-light); border-radius:var(--radius-sm); resize:vertical; line-height:1.5;"></textarea>
             </div>
         </div>
 
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.2rem; text-align: center;">
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Words</span>
-                <div id="word-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Characters</span>
-                <div id="char-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Sentences</span>
-                <div id="sentence-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Paragraphs</span>
-                <div id="para-count" style="font-size:1.8rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0</div>
-            </div>
-            <div>
-                <span style="font-size:0.85rem; color:var(--text-secondary);">Reading Time</span>
-                <div id="read-time" style="font-size:1.8rem; font-weight:700; color:var(--accent-secondary); margin-top:0.2rem;">0m</div>
-            </div>
-        </div>
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>Understanding Percent Encoding</h2>
+            <p>Percent-encoding is a mechanism for encoding arbitrary data in a Uniform Resource Identifier (URI) using only ASCII characters. Characters like spaces or slashes must be represented as percent blocks (like `%20` or `%2F`) to prevent server routing errors.</p>
+        </article>
     </main>
 
     <footer>
@@ -153,30 +164,34 @@
 
     <script src="js/main.js" defer></script>
     <script>
-        const input = document.getElementById('text-input');
-        const wordsEl = document.getElementById('word-count');
-        const charsEl = document.getElementById('char-count');
-        const sentencesEl = document.getElementById('sentence-count');
-        const paraEl = document.getElementById('para-count');
-        const readTimeEl = document.getElementById('read-time');
-
-        function updateStats() {
-            const text = input.value;
-            charsEl.innerText = text.length;
-            const words = text.match(/\b[-?(\w+)?]+\b/gi);
-            const wordCount = words ? words.length : 0;
-            wordsEl.innerText = wordCount;
-            const sentences = text.match(/[\w|\)][.?!]+(\s|$)/g);
-            sentencesEl.innerText = sentences ? sentences.length : 0;
-            const paras = text.split(/\n+/).filter(p => p.trim().length > 0);
-            paraEl.innerText = text.trim() ? paras.length : 0;
-            const minutes = Math.ceil(wordCount / 225);
-            readTimeEl.innerText = minutes + 'm';
+        function encodeURL() {
+            const raw = document.getElementById('inputText').value;
+            try {
+                const encoded = encodeURIComponent(raw);
+                document.getElementById('outputText').value = encoded;
+                showToast('URL encoded successfully!', 'success');
+            } catch (e) {
+                showToast('Failed to encode URL.', 'error');
+            }
         }
 
-        function clearText() {
-            input.value = '';
-            updateStats();
+        function decodeURL() {
+            const raw = document.getElementById('inputText').value.trim();
+            try {
+                const decoded = decodeURIComponent(raw);
+                document.getElementById('outputText').value = decoded;
+                showToast('URL decoded successfully!', 'success');
+            } catch (e) {
+                showToast('Failed to decode URL.', 'error');
+            }
+        }
+
+        function copyResult() {
+            const out = document.getElementById('outputText');
+            if (!out.value) return;
+            navigator.clipboard.writeText(out.value).then(() => {
+                showToast('Result copied to clipboard!', 'success');
+            });
         }
     </script>
 </body>

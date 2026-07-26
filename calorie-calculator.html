@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator for Weight Loss — Daily Calorie Target | RankifyTools</title>
+    <meta name="description" content="Calculate your daily calorie requirements for weight loss online. Adjust age, weight, height, gender, and activity levels using the Miffln-St Jeor equation locally.">
+    <meta name="keywords" content="calorie calculator for weight loss, daily calorie requirements, weight loss deficit calculator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/calorie-calculator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/calorie-calculator">
+    <meta property="og:title" content="Calorie Calculator for Weight Loss | RankifyTools">
+    <meta property="og:description" content="Compute daily calorie deficits for weight loss goals instantly offline. Privacy first.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Calorie Calculator", "item": "https://free-online-seo-tools.vercel.app/calorie-calculator"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calorie Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/calorie-calculator",
+      "description": "Calculate daily calorie requirements and deficits for healthy weight loss.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Calorie Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Calorie Calculator for Weight Loss</h1>
+            <p>Determine your daily calorie targets. Calculate your Basal Metabolic Rate (BMR) and daily needs to plan healthy weight loss deficits.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Configurations -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Biometric inputs</h2>
+                
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="gender" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Gender</label>
+                        <select id="gender" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="age" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Age (Years)</label>
+                        <input type="number" id="age" value="25" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    </div>
+                </div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="weight" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Weight (kg)</label>
+                        <input type="number" id="weight" value="70" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="height" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Height (cm)</label>
+                        <input type="number" id="height" value="175" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    </div>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label for="activity" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Activity Level</label>
+                    <select id="activity" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                        <option value="1.2">Sedentary (Little/no exercise)</option>
+                        <option value="1.375">Lightly Active (Exercise 1-3 days/week)</option>
+                        <option value="1.55" selected>Moderately Active (Exercise 3-5 days/week)</option>
+                        <option value="1.725">Very Active (Hard exercise 6-7 days/week)</option>
+                    </select>
+                </div>
+
+                <button class="tool-btn" style="background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="calculateCalories()">⚡ Calculate Calories</button>
+            </div>
+
+            <!-- Right Panel: Results -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 250px; justify-content: center;">
+                <div id="resultsWrapper" style="display:flex; flex-direction:column; gap:1.2rem; text-align:center;">
+                    <div>
+                        <span style="font-size:0.9rem; color:var(--text-secondary);">Daily Calories to Maintain Weight</span>
+                        <div id="maintenanceVal" style="font-size:2.2rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0 kcal</div>
+                    </div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; border-top:1px solid var(--border-light); padding-top:1rem;">
+                        <div>
+                            <span style="font-size:0.85rem; color:var(--text-secondary);">Mild Weight Loss (0.25 kg/wk)</span>
+                            <div id="mildLossVal" style="font-size:1.25rem; font-weight:600; color:#22c55e; margin-top:0.2rem;">0 kcal</div>
+                        </div>
+                        <div>
+                            <span style="font-size:0.85rem; color:var(--text-secondary);">Weight Loss (0.5 kg/wk)</span>
+                            <div id="lossVal" style="font-size:1.25rem; font-weight:600; color:#22c55e; margin-top:0.2rem;">0 kcal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>The Science of Weight Deficit</h2>
+            <p>Our calorie calculator utilizes the Miffln-St Jeor formula, widely recognized in clinical nutrition as the most accurate standard for calculating BMR:</p>
+            <ul>
+                <li><strong>Men BMR:</strong> 10 * weight (kg) + 6.25 * height (cm) - 5 * age (y) + 5</li>
+                <li><strong>Women BMR:</strong> 10 * weight (kg) + 6.25 * height (cm) - 5 * age (y) - 161</li>
+            </ul>
+            <p>Total daily energy expenditure (TDEE) is then calculated by multiplying your BMR by your physical activity modifier.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        function calculateCalories() {
+            const gender = document.getElementById('gender').value;
+            const age = parseFloat(document.getElementById('age').value) || 0;
+            const w = parseFloat(document.getElementById('weight').value) || 0;
+            const h = parseFloat(document.getElementById('height').value) || 0;
+            const activity = parseFloat(document.getElementById('activity').value) || 1.2;
+
+            if (age === 0 || w === 0 || h === 0) return;
+
+            let bmr = 0;
+            if (gender === 'male') {
+                bmr = (10 * w) + (6.25 * h) - (5 * age) + 5;
+            } else {
+                bmr = (10 * w) + (6.25 * h) - (5 * age) - 161;
+            }
+
+            const tdee = bmr * activity;
+            const mildLoss = tdee - 250;
+            const loss = tdee - 500;
+
+            document.getElementById('maintenanceVal').innerText = `${Math.round(tdee)} kcal`;
+            document.getElementById('mildLossVal').innerText = `${Math.round(mildLoss)} kcal`;
+            document.getElementById('lossVal').innerText = `${Math.round(loss)} kcal`;
+
+            showToast('Calorie targets calculated!', 'success');
+        }
+
+        window.addEventListener('load', calculateCalories);
+    </script>
+</body>
+</html>
