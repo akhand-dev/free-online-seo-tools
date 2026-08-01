@@ -30,7 +30,7 @@
       ]
     },
     {
-      "source": "/sitemap_to_test.xml",
+      "source": "/sitemap1.xml",
       "headers": [
         {
           "key": "Content-Type",
