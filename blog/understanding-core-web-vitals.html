@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -177,7 +177,7 @@
                 <ul>
                     <li><strong>Preload your LCP image.</strong> Add <code>&lt;link rel="preload" as="image" href="hero.jpg"&gt;</code> to your <code>&lt;head&gt;</code>. This tells the browser to fetch the image as a top priority, before it processes the rest of the HTML.</li>
                     <li><strong>Eliminate render-blocking resources.</strong> CSS and JavaScript loaded synchronously in the <code>&lt;head&gt;</code> block the browser from rendering anything. Move critical CSS inline and defer non-critical scripts with <code>defer</code> or <code>async</code>.</li>
-                    <li><strong>Compress and convert images to WebP.</strong> WebP images are typically 25–35% smaller than equivalent JPEGs with no perceptible quality loss. Resize layouts and compress photos locally using our free <a href="/tools/image-resizer.html">Image Resizer & Compressor</a>, or convert file formats instantly via the <a href="/tools/file-converter.html">File Format Converter</a>. Use <code>&lt;picture&gt;</code> tags to serve WebP with a JPEG fallback for older browsers.</li>
+                    <li><strong>Compress and convert images to WebP.</strong> WebP images are typically 25–35% smaller than equivalent JPEGs with no perceptible quality loss. Resize layouts and compress photos locally using our free <a href="/tools/image-resizer/image-resizer.html">Image Resizer & Compressor</a>, or convert file formats instantly via the <a href="/tools/file-converter/file-converter.html">File Format Converter</a>. Use <code>&lt;picture&gt;</code> tags to serve WebP with a JPEG fallback for older browsers.</li>
                     <li><strong>Use a fast hosting provider with a CDN.</strong> Server response time (TTFB) is the biggest single factor for LCP. A CDN serves static assets from edge nodes geographically close to the user, dramatically reducing TTFB.</li>
                     <li><strong>Add <code>fetchpriority="high"</code> to your hero image.</strong> This newer HTML attribute signals to the browser that this resource should be fetched with high priority. It's especially effective on mobile where bandwidth is limited.</li>
                 </ul>
@@ -197,7 +197,7 @@
                 <h3>How to Improve INP</h3>
                 <ul>
                     <li><strong>Break up long JavaScript tasks.</strong> Any JavaScript task that runs for longer than 50ms is classified as a "long task" and will block the main thread, preventing the browser from responding to user input. Use <code>setTimeout()</code>, <code>requestIdleCallback()</code>, or the Scheduler API to split large tasks into smaller, yieldable chunks.</li>
-                    <li><strong>De-clutter configurations.</strong> Make sure dynamic scripts or data payloads are perfectly structured. Clean and validate configurations using our free online <a href="/tools/json-formatter.html">JSON Formatter & Validator</a> to ensure data is light and fast to render.</li>
+                    <li><strong>De-clutter configurations.</strong> Make sure dynamic scripts or data payloads are perfectly structured. Clean and validate configurations using our free online <a href="/tools/json-formatter/json-formatter.html">JSON Formatter & Validator</a> to ensure data is light and fast to render.</li>
                     <li><strong>Remove unused JavaScript.</strong> Third-party scripts (analytics, chat widgets, ad platforms) are a major source of INP problems. Use Chrome DevTools' Coverage panel to identify and defer or remove unused code.</li>
                     <li><strong>Optimize event handlers.</strong> Make sure click and input event handlers are lean. Defer expensive operations (like DOM queries or API calls) to after the visual update has been painted, not during it.</li>
                     <li><strong>Avoid excessive DOM size.</strong> A page with thousands of DOM elements is slower to update. Aim to keep your total DOM node count below 1,500.</li>
@@ -218,7 +218,7 @@
                 <h3>How to Improve CLS</h3>
                 <ul>
                     <li><strong>Always specify width and height on images and videos.</strong> This is the single most impactful fix. When a browser knows the dimensions of a media element before it loads, it reserves the correct space in the layout — preventing content from jumping. Add <code>width</code> and <code>height</code> attributes to all <code>&lt;img&gt;</code> tags.</li>
-                    <li><strong>Use styled CSS placeholders.</strong> Keep layout shifts near zero by reserving space using CSS gradients. You can easily build inline gradients with our browser-based <a href="/tools/css-gradient-generator.html">CSS Gradient Generator</a> so your container blocks load with visually aligned colors before images arrive.</li>
+                    <li><strong>Use styled CSS placeholders.</strong> Keep layout shifts near zero by reserving space using CSS gradients. You can easily build inline gradients with our browser-based <a href="/tools/css-gradient-generator/css-gradient-generator.html">CSS Gradient Generator</a> so your container blocks load with visually aligned colors before images arrive.</li>
                     <li><strong>Reserve space for ads and embeds.</strong> Ad slots and iframes are notorious CLS offenders because their content loads asynchronously. Use CSS <code>min-height</code> or the <code>aspect-ratio</code> property to reserve the expected space before the ad loads.</li>
                     <li><strong>Preload web fonts.</strong> If your web font takes a moment to download, the browser displays the text in a fallback font first, then switches — causing a "flash of unstyled text" (FOUT) that can shift surrounding elements. Preload critical fonts with <code>&lt;link rel="preload" as="font"&gt;</code> and use <code>font-display: optional</code> for non-critical fonts.</li>
                     <li><strong>Avoid inserting content above existing content.</strong> If your JavaScript dynamically inserts a banner, cookie notice, or content block above existing page content, it will cause a layout shift. Always insert dynamic content below the fold or in a reserved space.</li>
@@ -278,22 +278,22 @@
             <div class="footer-col">
                 <h4>Text Tools</h4>
                 <ul>
-                    <li><a href="/tools/word-counter.html">Word Counter</a></li>
-                    <li><a href="/tools/case-converter.html">Case Converter</a></li>
-                    <li><a href="/tools/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
-                    <li><a href="/tools/text-to-slug.html">Text to Slug</a></li>
-                    <li><a href="/tools/markdown-preview.html">Markdown Preview</a></li>
+                    <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                    <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                    <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                    <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                    <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Dev Tools</h4>
                 <ul>
-                    <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
-                    <li><a href="/tools/base64-encoder-decoder.html">Base64</a></li>
-                    <li><a href="/tools/hash-generator.html">Hash Generator</a></li>
-                    <li><a href="/tools/timestamp-converter.html">Timestamp</a></li>
-                    <li><a href="/tools/color-picker.html">Color Picker</a></li>
-                    <li><a href="/tools/jwt-decoder.html">JWT Decoder</a></li>
+                    <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64</a></li>
+                    <li><a href="/tools/hash-generator/hash-generator.html">Hash Generator</a></li>
+                    <li><a href="/tools/timestamp-converter/timestamp-converter.html">Timestamp</a></li>
+                    <li><a href="/tools/color-picker/color-picker.html">Color Picker</a></li>
+                    <li><a href="/tools/jwt-decoder/jwt-decoder.html">JWT Decoder</a></li>
                 </ul>
             </div>
             <div class="footer-col">

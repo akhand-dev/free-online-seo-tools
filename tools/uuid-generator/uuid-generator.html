@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UUID Generator Online â€” Secure Bulk UUID/GUID Creator | RankifyTools</title>
+    <meta name="description" content="Generate cryptographically secure UUID v4 (random) and UUID v1 (timestamp) identifiers. Bulk generate up to 500 GUIDs with custom formatting options.">
+    <meta name="keywords" content="uuid generator online, bulk guid creator, secure uuid v4, time based uuid v1, generate guid free, local uuid generator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/uuid-generator/uuid-generator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/uuid-generator.html">
+    <meta property="og:title" content="UUID Generator Online â€” Secure Bulk UUID/GUID Creator">
+    <meta property="og:description" content="Generate cryptographically secure UUID v4 and v1 codes in bulk locally inside your web browser.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <style>
+        .options-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .option-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .option-item label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .option-item select, .option-item input {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.6rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+        .checkbox-item input {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+        .output-panel {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .uuid-textarea {
+            width: 100%;
+            min-height: 250px;
+            background: transparent;
+            border: none;
+            color: var(--accent-secondary);
+            font-family: 'Courier New', monospace;
+            font-size: 0.98rem;
+            line-height: 1.5;
+            resize: vertical;
+            outline: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://free-online-seo-tools.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://free-online-seo-tools.vercel.app/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "UUID Generator",
+          "item": "https://free-online-seo-tools.vercel.app/tools/uuid-generator.html"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "UUID Generator Online",
+      "url": "https://free-online-seo-tools.vercel.app/tools/uuid-generator.html",
+      "description": "Generate cryptographically secure UUID v4 and v1 identifiers in bulk inside your web browser.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">â€º</span>
+            <a href="../index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">UUID Generator</span>
+        </nav>
+        
+        <div class="hero" style="margin-bottom:1.5rem;">
+            <h1>UUID Generator Online</h1>
+            <p>Generate cryptographically secure random UUIDs (v4) or timestamp-based UUIDs (v1) in bulk locally in your browser.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="tool-interface" style="max-width: 800px; margin: 0 auto;">
+            
+            <!-- Generation Parameters -->
+            <div class="options-panel">
+                <div class="option-item">
+                    <label for="uuid-version">UUID Version</label>
+                    <select id="uuid-version">
+                        <option value="4">UUID v4 (Cryptographic Random)</option>
+                        <option value="1">UUID v1 (Timestamp-Based)</option>
+                    </select>
+                </div>
+                <div class="option-item">
+                    <label for="uuid-qty">Quantity to Generate</label>
+                    <select id="uuid-qty">
+                        <option value="1">1 UUID</option>
+                        <option value="5">5 UUIDs</option>
+                        <option value="10" selected>10 UUIDs</option>
+                        <option value="50">50 UUIDs</option>
+                        <option value="100">100 UUIDs</option>
+                        <option value="500">500 UUIDs</option>
+                    </select>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="opt-hyphen" checked>
+                        Include Hyphens
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="opt-uppercase">
+                        Uppercase Hex
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="opt-braces">
+                        Wrap with Braces {}
+                    </label>
+                </div>
+            </div>
+
+            <!-- Global Action Trigger -->
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <button type="button" onclick="generateUUIDs()" style="padding:0.8rem 2.5rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:700; cursor:pointer; font-size: 1.05rem;">âš¡ Generate UUIDs</button>
+            </div>
+
+            <!-- Output block -->
+            <div class="output-panel">
+                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; color:var(--text-secondary); font-size:0.85rem; font-weight:600;">
+                    <span>Generated Results (<span id="uuid-count-lbl">10</span> items)</span>
+                    <span id="copy-status" style="color:var(--success); font-weight:normal; display:none;">Copied!</span>
+                </div>
+                <textarea id="uuid-output" class="uuid-textarea" readonly></textarea>
+            </div>
+
+            <!-- Actions grid -->
+            <div class="button-group" style="display:flex; flex-wrap:wrap; gap:0.8rem; justify-content: center;">
+                <button type="button" onclick="copyToClipboard(document.getElementById('uuid-output').value, this)" class="secondary" style="padding:0.75rem 1.8rem; background:var(--bg-card); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm); font-weight:600; cursor:pointer;">Copy All</button>
+                <button type="button" onclick="downloadUUIDs()" class="secondary" style="padding:0.75rem 1.8rem; background:var(--bg-card); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm); font-weight:600; cursor:pointer;">Download (.txt)</button>
+                <button type="button" onclick="clearAll()" class="secondary" style="padding:0.75rem 1.8rem; background:var(--bg-card); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm); font-weight:600; cursor:pointer;">Clear</button>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 800px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>What is a UUID / GUID?</h2>
+            <p>A Universally Unique Identifier (UUID), also known as a Globally Unique Identifier (GUID) in Microsoft ecosystems, is a 128-bit number used to identify information in computer systems without significant central coordination. Due to the high number of combinations, the probability of duplicating an identifier is mathematically negligible. Our **UUID Generator Online** generates highly secure UUIDs locally inside your web browser using HTML5 cryptographic APIs.</p>
+
+            <h3>How to Bulk Generate UUIDs:</h3>
+            <p>Generate, edit, and export identifiers instantly:</p>
+            <ul>
+                <li><strong>Select Version:</strong> Choose **UUID v4** for values compiled from secure cryptographic random numbers, or **UUID v1** for identifiers mapped from date timestamps and local adapters.</li>
+                <li><strong>Select Quantity:</strong> Pick whether to output a single identifier or generate lists in bulk (up to 500 at once) instantly.</li>
+                <li><strong>Configure Options:</strong> Strip hyphens for database optimizations, capitalize strings, or wrap the outputs in programming braces (e.g. <code>{3b82...}</code>).</li>
+                <li><strong>Download and Export:</strong> Save the bulk list directly as a text file download or copy the list of GUIDs to your clipboard in one tap.</li>
+            </ul>
+
+            <h3>Key Benefits of Local Browser-Side UUID Generation:</h3>
+            <ul>
+                <li><strong>Cryptographically Secure:</strong> Uses the standard browser-native Web Cryptography API (<code>window.crypto.getRandomValues</code>) to ensure high-entropy randomness.</li>
+                <li><strong>Offline Capability:</strong> Once loaded in your browser cache, the tool can run completely offline without server calls.</li>
+                <li><strong>Zero Tracking:</strong> The generated IDs are compiled entirely within your machine. Ideal for production API keys, transaction IDs, or system records.</li>
+            </ul>
+        </section>
+
+        <div class="faq-section" style="max-width: 800px; margin: 3rem auto 0 auto;">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">What is the difference between UUID v1 and UUID v4?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        UUID v1 is generated using a combination of the current system timestamp and node MAC address, making it useful for tracking creation order. UUID v4 is generated using cryptographically strong random numbers, offering maximum uniqueness and zero tracking connection.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Are these generated UUIDs safe to use for database primary keys?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes, because they rely on the browser's high-entropy cryptographic module, they strictly comply with RFC 4122 specifications and are safe for database indexes, primary keys, session tokens, and unique records.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Does RankifyTools log or save my generated UUIDs?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No. The generation code runs purely on the client side using JavaScript inside your own browser tab. No database links, servers, or external endpoints are contacted, meaning your generated IDs are 100% private.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/uuid-generator/uuid-generator.html">UUID Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function generateUUIDv4() {
+            const bytes = new Uint8Array(16);
+            window.crypto.getRandomValues(bytes);
+            
+            // Set version 4
+            bytes[6] = (bytes[6] & 0x0f) | 0x40;
+            // Set variant
+            bytes[8] = (bytes[8] & 0x3f) | 0x80;
+            
+            const hex = Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
+            return [
+                hex.substring(0, 8),
+                hex.substring(8, 12),
+                hex.substring(12, 16),
+                hex.substring(16, 20),
+                hex.substring(20)
+            ].join('-');
+        }
+
+        function generateUUIDv1() {
+            const now = Date.now();
+            const uuidTime = (now * 10000) + 122192928000000;
+            const timeHex = uuidTime.toString(16).padStart(15, '0');
+            
+            const timeLow = timeHex.substring(7, 15);
+            const timeMid = timeHex.substring(3, 7);
+            const timeHi = '1' + timeHex.substring(0, 3);
+            
+            const clockBytes = new Uint8Array(2);
+            window.crypto.getRandomValues(clockBytes);
+            clockBytes[0] = (clockBytes[0] & 0x3f) | 0x80;
+            const clockSeq = Array.from(clockBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+            
+            const nodeBytes = new Uint8Array(6);
+            window.crypto.getRandomValues(nodeBytes);
+            nodeBytes[0] |= 0x01; // Multicast bit
+            const node = Array.from(nodeBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+            
+            return [timeLow, timeMid, timeHi, clockSeq, node].join('-');
+        }
+
+        function generateUUIDs() {
+            const version = document.getElementById('uuid-version').value;
+            const qty = parseInt(document.getElementById('uuid-qty').value);
+            const optHyphen = document.getElementById('opt-hyphen').checked;
+            const optUpper = document.getElementById('opt-uppercase').checked;
+            const optBraces = document.getElementById('opt-braces').checked;
+
+            const list = [];
+            for (let i = 0; i < qty; i++) {
+                let uuid = version === '4' ? generateUUIDv4() : generateUUIDv1();
+                
+                if (!optHyphen) {
+                    uuid = uuid.replace(/-/g, '');
+                }
+                if (optUpper) {
+                    uuid = uuid.toUpperCase();
+                }
+                if (optBraces) {
+                    uuid = `{${uuid}}`;
+                }
+                list.push(uuid);
+            }
+
+            document.getElementById('uuid-output').value = list.join('\n');
+            document.getElementById('uuid-count-lbl').innerText = qty;
+        }
+
+        function downloadUUIDs() {
+            const content = document.getElementById('uuid-output').value;
+            if (!content) return;
+
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'uuids.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function clearAll() {
+            document.getElementById('uuid-output').value = '';
+            document.getElementById('uuid-count-lbl').innerText = '0';
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            generateUUIDs();
+        });
+    </script>
+</body>
+</html>
+
+    <title>UUID Generator Online Free â€” Bulk UUID/GUID Creator | RankifyTools</title>
+    <meta name="description" content="Generate cryptographically secure UUID v4 (random) and UUID v1 (timestamp) identifiers. Bulk generate up to 500 GUIDs with custom formatting options free.">
+    <meta name="keywords" content="uuid generator online free, bulk guid creator, secure uuid v4, time based uuid v1, generate guid free">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/uuid-generator">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/uuid-generator">
+    <meta property="og:title" content="UUID Generator Online Free â€” Bulk UUID/GUID Creator | RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Schema Markup -->
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "UUID Generator", "item": "https://free-online-seo-tools.vercel.app/uuid-generator"}
+    <script defer src="js/speed-insights.js"></script>
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+        <div class="hero">
+            <h1>UUID Generator Online Free</h1>
+            <p>Generate cryptographically secure UUID v4 (random) and UUID v1 (timestamp) codes. Bulk generate up to 500 GUID identifiers locally.</p>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem;">
+            <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                <label for="uuid-version" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">UUID Version</label>
+                <select id="uuid-version" onchange="generateUUIDs()" style="background: var(--bg-dark); border: 1px solid var(--border-light); color: var(--text-primary); padding: 0.6rem; border-radius: var(--radius-sm); outline: none;">
+                    <option value="4" selected>Version 4 (Random)</option>
+                    <option value="1">Version 1 (Time-based)</option>
+                </select>
+            <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                <label for="uuid-qty" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Bulk Quantity</label>
+                <select id="uuid-qty" onchange="generateUUIDs()" style="background: var(--bg-dark); border: 1px solid var(--border-light); color: var(--text-primary); padding: 0.6rem; border-radius: var(--radius-sm); outline: none;">
+                    <option value="1" selected>1 UUID</option>
+                    <option value="5">5 UUIDs</option>
+                    <option value="10">10 UUIDs</option>
+                    <option value="50">50 UUIDs</option>
+                    <option value="100">100 UUIDs</option>
+                </select>
+            <div style="display:flex; flex-direction:column; gap:0.6rem; justify-content:center;">
+                <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; cursor:pointer; color:var(--text-primary);">
+                    <input type="checkbox" id="opt-hyphen" checked onchange="generateUUIDs()"> Include Hyphens
+                </label>
+                <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; cursor:pointer; color:var(--text-primary);">
+                    <input type="checkbox" id="opt-uppercase" onchange="generateUUIDs()"> Uppercase Format
+                </label>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.2rem; margin-bottom: 1.5rem; display:flex; flex-direction:column; gap:1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.9rem; color:var(--text-secondary);">Generated Output: <strong id="uuid-count-lbl" style="color:var(--accent-secondary);">1</strong> GUIDs</span>
+                <div style="display:flex; gap:0.5rem;">
+                    <button class="tool-btn" onclick="copyUUIDs()" style="font-size:0.75rem; padding:0.3rem 0.6rem;">ðŸ“‹ Copy</button>
+                    <button class="tool-btn" onclick="downloadUUIDs()" style="font-size:0.75rem; padding:0.3rem 0.6rem;">ðŸ’¾ Download</button>
+            <textarea id="uuid-output" readonly style="width: 100%; min-height: 250px; background: transparent; border: none; color: var(--accent-secondary); font-family: monospace; font-size: 0.98rem; line-height: 1.5; resize: vertical; outline: none; border-top:1px solid var(--border-light); padding-top:1rem;"></textarea>
+                    <h4>Calculators</h4>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+    <script src="js/main.js" defer></script>
+            nodeBytes[0] |= 0x01;
+                if (!optHyphen) uuid = uuid.replace(/-/g, '');
+                if (optUpper) uuid = uuid.toUpperCase();
+        function copyUUIDs() {
+            navigator.clipboard.writeText(content).then(() => {
+                showToast('UUIDs copied to clipboard!', 'success');
+            });
+        window.addEventListener('load', generateUUIDs);

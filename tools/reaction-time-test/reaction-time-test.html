@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Time Test â€” Online Reflex Speed Checker | RankifyTools</title>
+    <meta name="description" content="Test your reaction time and reflex speed online. Measure your response time in milliseconds, track average scores, and compare ranks. Free and client-side.">
+    <meta name="keywords" content="reaction time test, test reaction speed, reflex checker online, calculate response latency, human benchmark test">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/reaction-time-test/reaction-time-test.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/reaction-time-test.html">
+    <meta property="og:title" content="Reaction Time Test Online | RankifyTools">
+    <meta property="og:description" content="Verify your visual reflexes. Measure your response times, track trial averages, and review rank results.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Reaction Time Test", "item": "https://free-online-seo-tools.vercel.app/tools/reaction-time-test.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Reaction Time Test",
+      "url": "https://free-online-seo-tools.vercel.app/tools/reaction-time-test.html",
+      "description": "Test human response latency times and visual reflex speed in milliseconds.",
+      "applicationCategory": "GamingApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+
+    <style>
+        .reaction-card {
+            max-width: 700px;
+            margin: 2rem auto 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+        }
+        .reaction-area {
+            width: 100%;
+            height: 280px;
+            border-radius: var(--radius-md);
+            margin: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+            user-select: none;
+            color: #fff;
+        }
+        /* States */
+        .state-waiting { background: #e74c3c; border: 1px solid #c0392b; }
+        .state-ready { background: var(--success); border: 1px solid #0f9b6c; }
+        .state-result { background: rgba(99, 102, 241, 0.2); border: 1px dashed var(--accent-primary); }
+        
+        .reaction-area h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+        .reaction-area p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .history-section {
+            background: rgba(0,0,0,0.15);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            text-align: left;
+        }
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
+        }
+        .score-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">Reaction Test</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Reaction Time Test</h1>
+            <p>Measure your visual response speed in milliseconds. Click the screen as soon as it turns green, compile score lists, and check your average reflex performance.</p>
+        </div>
+
+        <div class="reaction-card">
+            <!-- Test trigger area -->
+            <div id="reaction-area" class="reaction-area state-result" onclick="handleAreaClick()">
+                <h2 id="area-title" style="color:#fff;">CLICK TO BEGIN</h2>
+                <p id="area-sub">Click inside this box to prepare</p>
+            </div>
+
+            <!-- Score History metrics -->
+            <div class="history-section">
+                <div class="history-header">
+                    <h3 style="font-size:1rem; color:var(--text-primary); margin:0;">Trial Score Logs</h3>
+                    <div style="font-weight:700; color:var(--accent-secondary);">Average: <span id="avg-val">-</span> ms</div>
+                </div>
+                <div id="scores-container" style="color:var(--text-secondary); font-size:0.9rem;">
+                    No test scores recorded yet.
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.75; color: var(--text-primary);">
+            <h2>How Visual Reaction Time Works</h2>
+            <p>Your **visual reaction time** represents the amount of time that passes between a visual stimulus appearing on the screen (the box turning green) and your motor sensory response (clicking the mouse or tapping the touchpad).
+                <ul>
+                    <li>The average human reaction time is approximately **273 milliseconds**.</li>
+                    <li>Reflex speeds are influenced by age, sleep hygiene, attention focus, and physical fatigue.</li>
+                    <li>Gamers and esports athletes often achieve reaction latencies of **150 to 200 milliseconds** through continuous practice.</li>
+                </ul>
+            </p>
+
+            <h3>How to Improve Scores:</h3>
+            <p>To record accurate times, try using a desktop mouse rather than a laptop touchpad, since touchpads add mechanical tap delay. Additionally, testing on a high-refresh-rate monitor (144Hz or 240Hz) reduces display lag, allowing the green pixels to draw faster than on standard 60Hz panels.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/invoice-generator/invoice-generator.html">Invoice Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        let currentState = 'result'; // result, waiting, ready, warning
+        let timerId = null;
+        let startTime = 0;
+        const scores = [];
+
+        function handleAreaClick() {
+            const area = document.getElementById('reaction-area');
+            const title = document.getElementById('area-title');
+            const sub = document.getElementById('area-sub');
+
+            if (currentState === 'result') {
+                // Switch to waiting state
+                currentState = 'waiting';
+                area.className = 'reaction-area state-waiting';
+                title.textContent = 'WAIT FOR GREEN...';
+                sub.textContent = 'Click immediately when the box turns green';
+
+                // Set random trigger delay between 2000 and 5000 ms
+                const delay = 2000 + Math.random() * 3000;
+                timerId = setTimeout(() => {
+                    currentState = 'ready';
+                    area.className = 'reaction-area state-ready';
+                    title.textContent = 'CLICK NOW!';
+                    sub.textContent = 'Tap tap tap!';
+                    startTime = performance.now();
+                }, delay);
+
+            } else if (currentState === 'waiting') {
+                // User clicked too early
+                clearTimeout(timerId);
+                currentState = 'result';
+                area.className = 'reaction-area state-result';
+                title.textContent = 'TOO EARLY!';
+                sub.textContent = 'You clicked before the green screen. Click to try again.';
+
+            } else if (currentState === 'ready') {
+                // Successful test click!
+                const elapsed = performance.now() - startTime;
+                currentState = 'result';
+                area.className = 'reaction-area state-result';
+                title.textContent = Math.round(elapsed) + ' ms';
+                
+                let performanceRank = 'Normal reflexes';
+                if (elapsed < 200) {
+                    performanceRank = 'âš¡ Lightning fast!';
+                } else if (elapsed < 250) {
+                    performanceRank = 'ðŸ† Cheetah pace';
+                } else if (elapsed > 400) {
+                    performanceRank = 'ðŸ¢ Turtle reaction';
+                }
+                
+                sub.textContent = `${performanceRank}. Click to test again.`;
+
+                // Add to history
+                scores.push(Math.round(elapsed));
+                updateHistoryUI();
+            }
+        }
+
+        function updateHistoryUI() {
+            const container = document.getElementById('scores-container');
+            const avg = document.getElementById('avg-val');
+
+            if (scores.length === 0) {
+                container.textContent = 'No test scores recorded yet.';
+                avg.textContent = '-';
+                return;
+            }
+
+            container.innerHTML = '';
+            
+            // Show maximum of last 10 scores
+            const recent = scores.slice(-10).reverse();
+            recent.forEach((score, idx) => {
+                const badge = document.createElement('span');
+                badge.className = 'score-badge';
+                badge.textContent = `Trial ${scores.length - idx}: ${score} ms`;
+                container.appendChild(badge);
+            });
+
+            // Calculate average
+            const sum = scores.reduce((a,b) => a+b, 0);
+            const mean = sum / scores.length;
+            avg.textContent = Math.round(mean);
+        }
+    </script>
+</body>
+</html>
+
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/reaction-time-test">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/reaction-time-test">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+        {"@type": "ListItem", "position": 3, "name": "Reaction Time Test", "item": "https://free-online-seo-tools.vercel.app/reaction-time-test"}
+      "url": "https://free-online-seo-tools.vercel.app/reaction-time-test",
+        .reaction-card { max-width: 700px; margin: 2rem auto 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2rem; text-align: center; }
+        .reaction-area { width: 100%; height: 280px; border-radius: var(--radius-md); margin: 1.5rem 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: background-color 0.15s ease; user-select: none; color: #fff; }
+        .reaction-area h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; background: none; -webkit-text-fill-color: initial; }
+        .reaction-area p { font-size: 1rem; opacity: 0.9; }
+        .history-section { background: rgba(0,0,0,0.15); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.2rem; text-align: left; }
+        .history-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 0.6rem; margin-bottom: 0.8rem; }
+        .score-badge { display: inline-block; background: rgba(255,255,255,0.06); border: 1px solid var(--border-light); padding: 0.3rem 0.8rem; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+    <script defer src="js/speed-insights.js"></script>
+            <p>Your **visual reaction time** represents the amount of time that passes between a visual stimulus appearing on the screen (the box turning green) and your motor sensory response (clicking the mouse or tapping the touchpad).</p>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                    <h4>Calculators</h4>
+                        <li><a href="/sip-calculator-india">SIP Calculator</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                    <h4>Utilities</h4>
+                        <li><a href="/merge-pdf-online-free">Merge PDF</a></li>
+                        <li><a href="/split-pdf-pages-online">Split PDF</a></li>
+    <script src="js/main.js" defer></script>
+        let currentState = 'result'; 

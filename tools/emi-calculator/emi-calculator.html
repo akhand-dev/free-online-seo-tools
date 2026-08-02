@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator Online â€” Calculate Home, Car & Personal Loans | RankifyTools</title>
+    <meta name="description" content="Free online EMI Calculator. Compute loan monthly installments, total interest payable, and amortization schedules with interactive SVG pie charts.">
+    <meta name="keywords" content="emi calculator online, loan emi calculator, home loan interest calculator, personal loan emi schedule, car loan payments">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/emi-calculator/emi-calculator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/emi-calculator.html">
+    <meta property="og:title" content="EMI Calculator â€” Loan Amortization Schedule | RankifyTools">
+    <meta property="og:description" content="Calculate loan monthly installments, total interest, and gross repayments with interactive data donut charts.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "EMI Calculator", "item": "https://free-online-seo-tools.vercel.app/tools/emi-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "EMI Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/emi-calculator.html",
+      "description": "Calculate Equated Monthly Installments (EMI) for home loans, car loans, or personal loans. View amortization schedule tables.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <style>
+        .slider-group { margin-bottom: 1.2rem; }
+        .slider-header { display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-weight: 600; }
+        .slider-control { display: flex; gap: 0.8rem; align-items: center; }
+        .slider-control input[type="range"] { flex: 1; cursor: pointer; }
+        .slider-control input[type="number"] { width: 100px; padding: 0.4rem; background: var(--bg-main); color: var(--text-primary); border: 1px solid var(--border-light); border-radius: var(--radius-sm); text-align: right; }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">EMI Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Loan EMI Calculator</h1>
+            <p>Compute monthly payments (EMI), total interest costs, and full amortization repayment schedules for home loans, car loans, and personal credit.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Inputs -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 0.5rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin-bottom: 1rem;">1. Loan Parameters</h2>
+
+                <!-- Principal -->
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span>Loan Amount ($)</span>
+                    </div>
+                    <div class="slider-control">
+                        <input type="range" id="loanAmountSlider" min="10000" max="10000000" step="10000" value="1000000" oninput="updateValues('amount', this.value)">
+                        <input type="number" id="loanAmountBox" min="10000" max="10000000" value="1000000" onchange="updateValues('amount', this.value)">
+                    </div>
+                </div>
+
+                <!-- Interest Rate -->
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span>Interest Rate (% P.A.)</span>
+                    </div>
+                    <div class="slider-control">
+                        <input type="range" id="loanInterestSlider" min="1" max="30" step="0.1" value="8.5" oninput="updateValues('interest', this.value)">
+                        <input type="number" id="loanInterestBox" min="1" max="30" step="0.1" value="8.5" onchange="updateValues('interest', this.value)">
+                    </div>
+                </div>
+
+                <!-- Tenure -->
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <span>Loan Tenure (Years)</span>
+                    </div>
+                    <div class="slider-control">
+                        <input type="range" id="loanTenureSlider" min="1" max="40" step="1" value="20" oninput="updateValues('tenure', this.value)">
+                        <input type="number" id="loanTenureBox" min="1" max="40" value="20" onchange="updateValues('tenure', this.value)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Results & Chart -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">2. Payment Breakdowns</h2>
+
+                <div style="display:flex; flex-direction:column; gap:0.6rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding:0.6rem; border-bottom:1px solid var(--border-light);">
+                        <span style="color:var(--text-secondary);">Monthly EMI</span>
+                        <span id="monthlyEmi" style="font-size:1.4rem; font-weight:700; color:var(--accent-secondary);">$0.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding:0.6rem; border-bottom:1px solid var(--border-light);">
+                        <span style="color:var(--text-secondary);">Total Interest Payable</span>
+                        <span id="totalInterest" style="font-weight:600;">$0.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding:0.6rem;">
+                        <span style="color:var(--text-secondary);">Total Payment</span>
+                        <span id="totalPayment" style="font-weight:600;">$0.00</span>
+                    </div>
+                </div>
+
+                <!-- SVG Donut Chart -->
+                <div style="display:flex; justify-content:center; align-items:center; gap:1.5rem; margin-top:0.5rem;">
+                    <svg width="140" height="140" viewBox="0 0 42 42" class="donut">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.915" fill="transparent"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.915" fill="transparent" stroke="var(--accent-primary)" stroke-width="4.5"></circle>
+                        <circle id="donutSegment" cx="21" cy="21" r="15.915" fill="transparent" stroke="var(--accent-secondary)" stroke-width="4.5" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+                    </svg>
+                    <div style="font-size:0.85rem; display:flex; flex-direction:column; gap:0.4rem;">
+                        <div style="display:flex; align-items:center; gap:0.4rem;">
+                            <span style="display:inline-block; width:12px; height:12px; background:var(--accent-primary); border-radius:2px;"></span>
+                            Principal: <span id="principalPct" style="font-weight:bold;">0%</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:0.4rem;">
+                            <span style="display:inline-block; width:12px; height:12px; background:var(--accent-secondary); border-radius:2px;"></span>
+                            Interest: <span id="interestPct" style="font-weight:bold;">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Amortization Schedule Table -->
+        <section class="reveal" style="margin-top:3rem; background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg);">
+            <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin-bottom: 1rem;">3. Yearly Amortization Schedule</h2>
+            <div style="overflow-x:auto;">
+                <table style="width:100%; border-collapse:collapse; font-size:0.9rem; text-align:left;">
+                    <thead>
+                        <tr style="border-bottom:2px solid var(--border-light); color:var(--text-secondary);">
+                            <th style="padding:0.6rem;">Year</th>
+                            <th style="padding:0.6rem;">Principal Paid</th>
+                            <th style="padding:0.6rem;">Interest Paid</th>
+                            <th style="padding:0.6rem;">Total Yearly Paid</th>
+                            <th style="padding:0.6rem;">Outstanding Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>How Is EMI Calculated?</h2>
+            <p>An <strong>Equated Monthly Installment (EMI)</strong> is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. EMIs are applied to both interest and principal each month, so that over a specified number of years, the loan is fully paid off.</p>
+
+            <h3>The EMI Mathematical Formula:</h3>
+            <p>The mathematical formula for calculating EMI is:</p>
+            <div style="background:var(--bg-card); padding:1rem; border-radius:var(--radius-sm); font-family:monospace; margin:1rem 0; text-align:center; font-size:1.1rem; border:1px solid var(--border-light);">
+                EMI = P &times; r &times; (1 + r)^n / ((1 + r)^n - 1)
+            </div>
+            <p>Where:</p>
+            <ul>
+                <li><strong>P:</strong> Principal Loan Amount.</li>
+                <li><strong>r:</strong> Monthly Interest Rate (annual rate divided by 12 &times; 100).</li>
+                <li><strong>n:</strong> Loan tenure in number of months.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/emi-calculator/emi-calculator.html">EMI Calculator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        const amountSlider = document.getElementById('loanAmountSlider');
+        const amountBox = document.getElementById('loanAmountBox');
+        const interestSlider = document.getElementById('loanInterestSlider');
+        const interestBox = document.getElementById('loanInterestBox');
+        const tenureSlider = document.getElementById('loanTenureSlider');
+        const tenureBox = document.getElementById('loanTenureBox');
+
+        const monthlyEmiEl = document.getElementById('monthlyEmi');
+        const totalInterestEl = document.getElementById('totalInterest');
+        const totalPaymentEl = document.getElementById('totalPayment');
+
+        const donutSegment = document.getElementById('donutSegment');
+        const principalPct = document.getElementById('principalPct');
+        const interestPct = document.getElementById('interestPct');
+        const scheduleBody = document.getElementById('scheduleBody');
+
+        function updateValues(type, value) {
+            const num = parseFloat(value);
+            if (type === 'amount') {
+                amountSlider.value = num;
+                amountBox.value = num;
+            } else if (type === 'interest') {
+                interestSlider.value = num;
+                interestBox.value = num;
+            } else if (type === 'tenure') {
+                tenureSlider.value = num;
+                tenureBox.value = num;
+            }
+            calculateEMI();
+        }
+
+        function calculateEMI() {
+            const P = parseFloat(amountBox.value);
+            const R_annual = parseFloat(interestBox.value);
+            const N_years = parseFloat(tenureBox.value);
+
+            const r = (R_annual / 12) / 100;
+            const n = N_years * 12;
+
+            // EMI Calculation Formula
+            const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            
+            const totalRepayment = emi * n;
+            const totalInterest = totalRepayment - P;
+
+            // Display Results
+            monthlyEmiEl.textContent = formatCurrency(emi);
+            totalInterestEl.textContent = formatCurrency(totalInterest);
+            totalPaymentEl.textContent = formatCurrency(totalRepayment);
+
+            // Chart percentages
+            const intPercent = (totalInterest / totalRepayment) * 100;
+            const priPercent = 100 - intPercent;
+
+            principalPct.textContent = `${priPercent.toFixed(1)}%`;
+            interestPct.textContent = `${intPercent.toFixed(1)}%`;
+
+            // Draw donut segment
+            donutSegment.setAttribute('stroke-dasharray', `${intPercent} 100`);
+
+            // Generate Amortization Table
+            let balance = P;
+            let yearlyPrincipal = 0;
+            let yearlyInterest = 0;
+            let rows = '';
+
+            for (let month = 1; month <= n; month++) {
+                const interestPayment = balance * r;
+                const principalPayment = emi - interestPayment;
+                balance -= principalPayment;
+
+                yearlyPrincipal += principalPayment;
+                yearlyInterest += interestPayment;
+
+                if (month % 12 === 0 || month === n) {
+                    const yearNum = Math.ceil(month / 12);
+                    rows += `
+                        <tr style="border-bottom:1px solid var(--border-light);">
+                            <td style="padding:0.6rem;">${yearNum}</td>
+                            <td style="padding:0.6rem;">${formatCurrency(yearlyPrincipal)}</td>
+                            <td style="padding:0.6rem;">${formatCurrency(yearlyInterest)}</td>
+                            <td style="padding:0.6rem;">${formatCurrency(yearlyPrincipal + yearlyInterest)}</td>
+                            <td style="padding:0.6rem;">${formatCurrency(Math.max(0, balance))}</td>
+                        </tr>
+                    `;
+                    yearlyPrincipal = 0;
+                    yearlyInterest = 0;
+                }
+            }
+            scheduleBody.innerHTML = rows;
+        }
+
+        function formatCurrency(num) {
+            return '$' + num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        window.addEventListener('load', calculateEMI);
+    </script>
+</body>
+</html>
+
+    <title>Loan EMI Calculator â€” Calculate Monthly Payments Online | RankifyTools</title>
+    <meta name="description" content="Free online Loan EMI Calculator. Calculate your equated monthly installments (EMI), total interest payments, and absolute repayment schemes instantly.">
+    <meta name="keywords" content="loan emi calculator with interest, emi calculator, home loan emi calculator, car loan emi calculator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/emi-calculator">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/emi-calculator">
+    <meta property="og:title" content="Loan EMI Calculator â€” Repayment Planner | RankifyTools">
+    <meta property="og:description" content="Compute loan EMI values, interest details, and payment structures instantly. Privacy first.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+        {"@type": "ListItem", "position": 3, "name": "Loan EMI Calculator", "item": "https://free-online-seo-tools.vercel.app/emi-calculator"}
+      "name": "Loan EMI Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/emi-calculator",
+      "description": "Calculate equated monthly installments, total interest charges, and dynamic schedules.",
+      "applicationCategory": "DesignApplication",
+    <script defer src="js/speed-insights.js"></script>
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+            <p>Compute your equated monthly installments (EMI), total interest payments, and total overall loan repayment amount instantly offline.</p>
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Configurations -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Loan Parameters</h2>
+                
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label for="principal" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Loan Amount (Principal)</label>
+                    <input type="number" id="principal" value="100000" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="interest" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Interest Rate (% p.a.)</label>
+                        <input type="number" step="0.1" id="interest" value="8.5" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="tenure" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Tenure (Months)</label>
+                        <input type="number" id="tenure" value="120" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                <button class="tool-btn" style="background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="calculateEMI()">âš¡ Compute EMI</button>
+            <!-- Right Panel: Results -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 250px; justify-content: center;">
+                <div id="resultsWrapper" style="display:flex; flex-direction:column; gap:1rem;">
+                    <div style="text-align: center; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">
+                        <span style="font-size: 0.9rem; color: var(--text-secondary);">Monthly EMI</span>
+                        <div id="emiValue" style="font-size: 2.2rem; font-weight: 700; color: var(--accent-primary); margin-top: 0.2rem;">$0.00</div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; text-align:center;">
+                        <div>
+                            <span style="font-size:0.85rem; color:var(--text-secondary);">Total Interest</span>
+                            <div id="totalInterest" style="font-size:1.25rem; font-weight:600; color:var(--text-primary); margin-top:0.2rem;">$0.00</div>
+                        <div>
+                            <span style="font-size:0.85rem; color:var(--text-secondary);">Total Payment</span>
+                            <div id="totalPayment" style="font-size:1.25rem; font-weight:600; color:var(--text-primary); margin-top:0.2rem;">$0.00</div>
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>The Mathematics of Loan Repayment</h2>
+            <p>EMIs are computed using a reducing balance method. The formula to calculate Equated Monthly Installment values is:</p>
+            <p style="font-family:monospace; background:var(--bg-card); padding:1rem; border-radius:var(--radius-sm); border:1px solid var(--border-light);">
+                EMI = P * r * (1 + r)^n / ((1 + r)^n - 1)
+            </p>
+                <li><strong>r:</strong> Monthly Interest Rate (annual rate / 12 / 100).</li>
+                <li><strong>n:</strong> Repayment Tenure in months.</li>
+                    <h4>Calculators</h4>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+    <script src="js/main.js" defer></script>
+            const p = parseFloat(document.getElementById('principal').value) || 0;
+            const rAnnual = parseFloat(document.getElementById('interest').value) || 0;
+            const n = parseFloat(document.getElementById('tenure').value) || 0;
+            if (p === 0 || rAnnual === 0 || n === 0) return;
+            const r = rAnnual / 12 / 100;
+            const emi = p * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+            const totalInterestVal = totalRepayment - p;
+            document.getElementById('emiValue').innerText = `$${emi.toFixed(2)}`;
+            document.getElementById('totalInterest').innerText = `$${totalInterestVal.toFixed(2)}`;
+            document.getElementById('totalPayment').innerText = `$${totalRepayment.toFixed(2)}`;
+            showToast('EMI Calculated successfully!', 'success');

@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Name Generator AI — Startup & Brand Ideas | RankifyTools</title>
+    <meta name="description" content="Generate unique brand names, startup ideas, and domain names instantly online. Discover free company name options with AI-like keyword algorithms.">
+    <meta name="keywords" content="business name generator ai, startup name ideas generator, brand name generator unique, company name generator free, domain name generator ai">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/business-name-generator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/business-name-generator">
+    <meta property="og:title" content="Business Name Generator AI | RankifyTools">
+    <meta property="og:description" content="Generate unique brand names, company identifiers, and domain variations instantly. 100% free.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Business Name Generator", "item": "https://free-online-seo-tools.vercel.app/business-name-generator"}
+      ]
+    }
+    </script>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Business Name Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Business Name & Domain Generator</h1>
+            <p>Type keywords to discover creative, brandable company names, startup ideas, and matching dot-com domain structures instantly.</p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem;">
+            <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+                <input type="text" id="kwInput" placeholder="Enter keywords (e.g. tech, health, design)..." style="flex:1; padding:0.8rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary); outline:none;">
+                <button class="tool-btn" onclick="generateNames()" style="background:var(--accent-primary); border-color:var(--accent-primary); color:#fff; font-weight:700;">⚡ Generate Name Ideas</button>
+            </div>
+            
+            <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+                <label style="display:flex; align-items:center; gap:0.4rem; font-size:0.88rem; color:var(--text-secondary); cursor:pointer;">
+                    <input type="checkbox" id="showDomain" checked> Include domain names (.com)
+                </label>
+            </div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; display: flex; flex-direction: column; gap: 1.2rem;">
+            <h2 style="font-size: 1.2rem; color: var(--accent-primary); margin:0;">Brand & Startup Suggestions</h2>
+            
+            <div id="resultsGrid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1rem; margin-top:0.5rem;">
+                <div style="text-align:center; color:var(--text-secondary); padding:2rem; grid-column: 1 / -1;">Enter keywords above to display unique business name list ideas.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        const prefixes = ["Nova", "Apex", "Zenith", "Quantum", "Vertex", "Pulse", "Stratum", "Byte", "Link", "Sync"];
+        const suffixes = ["Hub", "Labs", "Flow", "Grid", "Nest", "IQ", "Wave", "Scale", "Rise", "Spark"];
+
+        function generateNames() {
+            const kw = document.getElementById('kwInput').value.trim();
+            const showDomains = document.getElementById('showDomain').checked;
+            const container = document.getElementById('resultsGrid');
+
+            if (!kw) {
+                showToast('Please type a keyword first.', 'error');
+                return;
+            }
+
+            container.innerHTML = '';
+            const words = kw.split(/\s+/);
+            const primary = words[0];
+
+            const suggestions = [];
+
+            // Pattern 1: Prefixes
+            prefixes.forEach(p => {
+                suggestions.push(p + primary.charAt(0).toUpperCase() + primary.slice(1).toLowerCase());
+            });
+
+            // Pattern 2: Suffixes
+            suffixes.forEach(s => {
+                suggestions.push(primary.charAt(0).toUpperCase() + primary.slice(1).toLowerCase() + s);
+            });
+
+            // Display grid cards
+            suggestions.forEach(name => {
+                const card = document.createElement('div');
+                card.style.background = 'var(--bg-main)';
+                card.style.border = '1px solid var(--border-light)';
+                card.style.borderRadius = 'var(--radius-sm)';
+                card.style.padding = '1rem';
+                card.style.display = 'flex';
+                card.style.flexDirection = 'column';
+                card.style.gap = '0.5rem';
+
+                let domainHtml = '';
+                if (showDomains) {
+                    const dom = name.toLowerCase() + '.com';
+                    domainHtml = `<div style="font-size:0.8rem; color:var(--accent-secondary); font-family:monospace; display:flex; justify-content:space-between; align-items:center;">
+                        <span>${dom}</span>
+                        <a href="https://www.godaddy.com/domainsearch/find?domainToCheck=${dom}" target="_blank" style="color:var(--accent-primary); text-decoration:none; font-size:0.75rem;">Buy &rarr;</a>
+                    </div>`;
+                }
+
+                card.innerHTML = `
+                    <div style="font-weight:700; font-size:1.1rem; color:var(--text-primary); display:flex; justify-content:space-between; align-items:center;">
+                        <span>${name}</span>
+                        <button onclick="copyName('${name}')" style="background:transparent; border:none; color:var(--accent-primary); font-size:0.75rem; cursor:pointer;">Copy</button>
+                    </div>
+                    ${domainHtml}
+                `;
+                container.appendChild(card);
+            });
+
+            showToast('Generated brand name suggestions!', 'success');
+        }
+
+        function copyName(name) {
+            navigator.clipboard.writeText(name).then(() => {
+                showToast('Brand name copied!', 'success');
+            });
+        }
+    </script>
+</body>
+</html>

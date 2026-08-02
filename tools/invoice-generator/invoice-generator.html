@@ -1,0 +1,855 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Invoice Generator Online â€” Custom Invoice Maker | RankifyTools</title>
+    <meta name="description" content="Generate professional invoices online for free. Custom logo uploader, dynamic item ledgers, GST calculations, and vector PDF print downloads.">
+    <meta name="keywords" content="free invoice generator, online invoice maker, invoice template creator, save invoice pdf, b2b billing sheet creator, gst invoice generator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/invoice-generator/invoice-generator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/invoice-generator.html">
+    <meta property="og:title" content="Free Invoice Generator Online â€” Custom Invoice Maker">
+    <meta property="og:description" content="Generate billing ledgers with dynamic calculations, GST treatments, and save invoice vector PDFs instantly.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <style>
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 900px) {
+            .split-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .config-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .config-card h2 {
+            font-size: 1.15rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 0.5rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .input-group label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .input-group select, .input-group input[type="text"], .input-group input[type="number"], .input-group textarea {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.6rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+            width: 100%;
+        }
+        .item-row {
+            border: 1px solid var(--border-light);
+            background: rgba(0,0,0,0.15);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        .remove-row-btn {
+            position: absolute;
+            top: 0.4rem;
+            right: 0.4rem;
+            background: var(--error);
+            border: none;
+            color: #fff;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.72rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+        }
+        
+        /* --- Invoice Preview Container --- */
+        .preview-pane {
+            position: sticky;
+            top: 80px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .invoice-sheet {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            color: #1a1a24;
+            padding: 2.2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            text-align: left;
+            min-height: 750px;
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 1.2rem;
+        }
+        .invoice-meta-table {
+            width: auto;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .invoice-meta-table td {
+            padding: 0.25rem 0.6rem;
+        }
+        .bill-coords {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            font-size: 0.88rem;
+        }
+        .bill-block h4 {
+            margin: 0 0 0.4rem 0;
+            color: #555;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.5px;
+        }
+        .billing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.88rem;
+        }
+        .billing-table th, .billing-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #f1f2f6;
+        }
+        .billing-table th {
+            background: #f8f9fa;
+            font-weight: 700;
+            color: #333;
+            text-align: left;
+        }
+        .totals-block {
+            align-self: flex-end;
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            font-size: 0.88rem;
+            border-top: 2px solid #1a1a24;
+            padding-top: 0.8rem;
+        }
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* Print Overrides */
+        @media print {
+            header, footer, .breadcrumbs, .hero, .config-card, .ad-container, .preview-pane h3, #btn-print, .related-links, .mobile-menu-toggle {
+                display: none !important;
+            }
+            body {
+                background: #fff !important;
+            }
+            .main-content {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .split-layout {
+                grid-template-columns: 1fr !important;
+            }
+            .invoice-sheet {
+                border: none !important;
+                box-shadow: none !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">â€º</span>
+            <a href="../index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">Invoice Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Invoice Generator</h1>
+            <p>Generate professional invoices for client billing. Add line items, compute tax rates dynamically, apply Indian GST options (CGST/SGST/IGST + GSTIN), and save as PDF vector sheets.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="split-layout" style="max-width: 1100px; margin: 0 auto;">
+            
+            <!-- Left panel Config forms -->
+            <div>
+                <!-- Invoice Details -->
+                <div class="config-card">
+                    <h2>1. Invoice Details</h2>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="inv-logo">Logo Upload</label>
+                            <input type="file" id="inv-logo" accept="image/*" onchange="handleLogoUpload(this)" style="background:var(--bg-dark); color:#fff; border:1px solid var(--border-light); padding:0.4rem; font-size:0.8rem;">
+                        </div>
+                        <div class="input-group">
+                            <label for="inv-num">Invoice #</label>
+                            <input type="text" id="inv-num" value="INV-2026-001" oninput="updateInvoice()">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="inv-date">Date Issued</label>
+                            <input type="text" id="inv-date" value="2026-07-25" oninput="updateInvoice()">
+                        </div>
+                        <div class="input-group">
+                            <label for="inv-due">Due Date</label>
+                            <input type="text" id="inv-due" value="2026-08-25" oninput="updateInvoice()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Addresses -->
+                <div class="config-card">
+                    <h2>2. Billing Coordinates</h2>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="bill-from-name">Sender Business</label>
+                            <input type="text" id="bill-from-name" value="Your Company Ltd" oninput="updateInvoice()">
+                            <textarea id="bill-from-addr" rows="2" style="margin-top:0.4rem;" placeholder="Address" oninput="updateInvoice()">123 Tech Lane, CA</textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="bill-to-name">Client Business</label>
+                            <input type="text" id="bill-to-name" value="Acme Corp" oninput="updateInvoice()">
+                            <textarea id="bill-to-addr" rows="2" style="margin-top:0.4rem;" placeholder="Address" oninput="updateInvoice()">456 Enterprise Way, NV</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Line Items -->
+                <div class="config-card">
+                    <h2>3. Line Items</h2>
+                    <div id="items-container">
+                        <!-- Dynamic Ledger Items -->
+                    </div>
+                    <button type="button" class="control-btn" style="padding:0.4rem 1.2rem; font-size:0.82rem;" onclick="addItemRow()">âž• Add Item</button>
+                </div>
+
+                <!-- Extras & GST -->
+                <div class="config-card">
+                    <h2>4. Tax & Adjustments</h2>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="inv-tax">Tax Rate (%)</label>
+                            <input type="number" id="inv-tax" min="0" max="100" value="18" oninput="updateInvoice()">
+                        </div>
+                        <div class="input-group">
+                            <label for="inv-discount">Discount (%)</label>
+                            <input type="number" id="inv-discount" min="0" max="100" value="0" oninput="updateInvoice()">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 1rem; border-top: 1px solid var(--border-light); padding-top: 1rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-weight: 600;">
+                            <input type="checkbox" id="gst-enable" onchange="toggleGSTFields()"> Enable GST Options (India compliance)
+                        </label>
+                    </div>
+
+                    <div id="gst-fields-wrapper" style="display: none; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="gst-sender-gstin">Sender GSTIN</label>
+                                <input type="text" id="gst-sender-gstin" placeholder="e.g. 07AAAAA1111A1Z1" oninput="updateInvoice()">
+                            </div>
+                            <div class="input-group">
+                                <label for="gst-client-gstin">Client GSTIN</label>
+                                <input type="text" id="gst-client-gstin" placeholder="e.g. 07BBBBB2222B2Z2" oninput="updateInvoice()">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="gst-treatment">GST Treatment</label>
+                                <select id="gst-treatment" onchange="updateInvoice()">
+                                    <option value="intra" selected>Intrastate (CGST + SGST)</option>
+                                    <option value="inter">Interstate (IGST)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; margin-top: 1.8rem;">
+                                    <input type="checkbox" id="gst-show-hsn" onchange="toggleHSNFields()"> Show HSN/SAC Column
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right panel Visual print sheet -->
+            <div>
+                <div class="preview-pane">
+                    <h3 style="font-size:1rem; color:var(--text-primary); border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; width:100%;">Invoice Sheet Preview</h3>
+                    
+                    <div style="display:flex; justify-content:flex-end; width:100%; margin-bottom:1rem;">
+                        <button type="button" id="btn-print" onclick="window.print()" style="padding:0.5rem 1.4rem; background:var(--success); color:#fff; font-weight:700; border:none; border-radius:var(--radius-sm); cursor:pointer; font-size:0.85rem;">ðŸ–¨ï¸ Save PDF / Print Invoice</button>
+                    </div>
+
+                    <!-- Printable A4 Invoice Box -->
+                    <div id="invoice-sheet" class="invoice-sheet">
+                        <!-- Dynamic Invoice Content -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 1100px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Free B2B Invoice Generator Online</h2>
+            <p>Drafting customer bills, calculating project costs, and generating clean invoice ledger breakdowns shouldn't require subscribing to accounting programs or using slow web templates that inject developer watermarks. Our free **Invoice Generator** compiles professional invoices locally. By entering quantities and discount parameters, grand totals compute instantly. Export files as clean vectors using the browser print overlay.</p>
+
+            <h3>GST Compliant Invoice Creation</h3>
+            <p>For Indian freelancers and businesses, standard taxation structures apply. By checking **Enable GST Options**, you can include your business's GSTIN and the client's GSTIN. Under CGST/SGST treatment, taxes divide equally between central and state buckets, while interstate transactions display a single unified IGST tax row. Optional HSN/SAC code lists can be specified on each item ledger row.</p>
+
+            <h3>How to Save Invoices as PDFs:</h3>
+            <ul>
+                <li><strong>Fill Details:</strong> Input company logo headers, billing locations, due dates, and tax settings.</li>
+                <li><strong>Add Line Items:</strong> Type item names, rates, and quantities. Subtotals sum automatically.</li>
+                <li><strong>Print / Export:</strong> Click **Save PDF / Print**. In the destination menu select "Save as PDF", choosing portrait layout and standard scales.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/invoice-generator/invoice-generator.html">Invoice Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        let invoiceItems = [
+            { id: 1, desc: "Web Development Services", qty: 40, rate: 50, hsn: "9983" },
+            { id: 2, desc: "SaaS Application Hosting Setup", qty: 1, rate: 250, hsn: "9984" }
+        ];
+
+        let logoBase64 = '';
+
+        function handleLogoUpload(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                logoBase64 = e.target.result;
+                updateInvoice();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function toggleGSTFields() {
+            const showGst = document.getElementById('gst-enable').checked;
+            const wrapper = document.getElementById('gst-fields-wrapper');
+            wrapper.style.display = showGst ? 'flex' : 'none';
+            initLedgerRows();
+        }
+
+        function toggleHSNFields() {
+            initLedgerRows();
+        }
+
+        function initLedgerRows() {
+            const container = document.getElementById('items-container');
+            container.innerHTML = '';
+            
+            const showGst = document.getElementById('gst-enable').checked;
+            const showHsn = showGst && document.getElementById('gst-show-hsn').checked;
+
+            invoiceItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'item-row';
+                div.innerHTML = `
+                    <button type="button" class="remove-row-btn" onclick="removeItemRow(${item.id})">Remove</button>
+                    <div class="input-group" style="margin-bottom:0.6rem;">
+                        <label>Item Description</label>
+                        <input type="text" value="${item.desc}" oninput="updateItemField(${item.id}, 'desc', this.value)">
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group" style="${showHsn ? 'grid-column: span 1' : 'grid-column: span 2'}">
+                            <label>Quantity</label>
+                            <input type="number" min="1" value="${item.qty}" oninput="updateItemField(${item.id}, 'qty', parseFloat(this.value) || 0)">
+                        </div>
+                        <div class="input-group" style="${showHsn ? 'grid-column: span 1' : 'grid-column: span 2'}">
+                            <label>Rate ($)</label>
+                            <input type="number" min="0" value="${item.rate}" oninput="updateItemField(${item.id}, 'rate', parseFloat(this.value) || 0)">
+                        </div>
+                        ${showHsn ? `
+                        <div class="input-group">
+                            <label>HSN/SAC</label>
+                            <input type="text" value="${item.hsn || ''}" placeholder="e.g. 9983" oninput="updateItemField(${item.id}, 'hsn', this.value)">
+                        </div>
+                        ` : ''}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            updateInvoice();
+        }
+
+        function updateItemField(id, field, value) {
+            const item = invoiceItems.find(i => i.id === id);
+            if (item) {
+                item[field] = value;
+                updateInvoice();
+            }
+        }
+
+        function addItemRow() {
+            invoiceItems.push({
+                id: Date.now(),
+                desc: "",
+                qty: 1,
+                rate: 0,
+                hsn: ""
+            });
+            initLedgerRows();
+        }
+
+        function removeItemRow(id) {
+            if (invoiceItems.length <= 1) {
+                alert('You must have at least 1 invoice item!');
+                return;
+            }
+            invoiceItems = invoiceItems.filter(i => i.id !== id);
+            initLedgerRows();
+        }
+
+        // Render Invoice visual sheet
+        function updateInvoice() {
+            const invNum = document.getElementById('inv-num').value;
+            const invDate = document.getElementById('inv-date').value;
+            const invDue = document.getElementById('inv-due').value;
+
+            const fromName = document.getElementById('bill-from-name').value;
+            const fromAddr = document.getElementById('bill-from-addr').value;
+
+            const toName = document.getElementById('bill-to-name').value;
+            const toAddr = document.getElementById('bill-to-addr').value;
+
+            const taxRate = parseFloat(document.getElementById('inv-tax').value) || 0;
+            const discountRate = parseFloat(document.getElementById('inv-discount').value) || 0;
+
+            const showGst = document.getElementById('gst-enable').checked;
+            const showHsn = showGst && document.getElementById('gst-show-hsn').checked;
+
+            // Generate logo block
+            let logoHtml = '';
+            if (logoBase64) {
+                logoHtml = `<img src="${logoBase64}" style="max-height: 50px; max-width: 150px; display: block; margin-bottom: 0.5rem;">`;
+            }
+
+            // Generate GSTIN header blocks if present
+            let senderGstinBlock = '';
+            let clientGstinBlock = '';
+            if (showGst) {
+                const senderGstin = document.getElementById('gst-sender-gstin').value.trim();
+                const clientGstin = document.getElementById('gst-client-gstin').value.trim();
+                if (senderGstin) {
+                    senderGstinBlock = `<div style="font-size: 0.8rem; font-weight: bold; color: #1a1a24; margin-top: 0.2rem;">GSTIN: ${senderGstin}</div>`;
+                }
+                if (clientGstin) {
+                    clientGstinBlock = `<div style="font-size: 0.8rem; font-weight: bold; color: #1a1a24; margin-top: 0.2rem;">GSTIN: ${clientGstin}</div>`;
+                }
+            }
+
+            // Generate items ledger lines
+            let subtotal = 0;
+            let itemsHtml = '';
+            invoiceItems.forEach(item => {
+                const amount = item.qty * item.rate;
+                subtotal += amount;
+                itemsHtml += `
+                    <tr>
+                        <td>${item.desc || 'Unnamed Item'}</td>
+                        ${showHsn ? `<td>${item.hsn || '-'}</td>` : ''}
+                        <td>${item.qty}</td>
+                        <td>$${item.rate.toFixed(2)}</td>
+                        <td style="text-align:right;">$${amount.toFixed(2)}</td>
+                    </tr>
+                `;
+            });
+
+            // Math computations
+            const discountAmt = subtotal * (discountRate / 100);
+            const taxableAmt = subtotal - discountAmt;
+            const taxAmt = taxableAmt * (taxRate / 100);
+            const grandTotal = taxableAmt + taxAmt;
+
+            // Generate tax row HTML
+            let taxRowHtml = '';
+            if (showGst && taxAmt > 0) {
+                const treatment = document.getElementById('gst-treatment').value;
+                if (treatment === 'intra') {
+                    const halfRate = (taxRate / 2).toFixed(1).replace(/\.0$/, '');
+                    const halfAmt = taxAmt / 2;
+                    taxRowHtml = `
+                    <div class="totals-row">
+                        <span>CGST (${halfRate}%):</span>
+                        <span>$${halfAmt.toFixed(2)}</span>
+                    </div>
+                    <div class="totals-row">
+                        <span>SGST (${halfRate}%):</span>
+                        <span>$${halfAmt.toFixed(2)}</span>
+                    </div>
+                    `;
+                } else {
+                    const rateStr = taxRate.toFixed(1).replace(/\.0$/, '');
+                    taxRowHtml = `
+                    <div class="totals-row">
+                        <span>IGST (${rateStr}%):</span>
+                        <span>$${taxAmt.toFixed(2)}</span>
+                    </div>
+                    `;
+                }
+            } else if (taxAmt > 0) {
+                taxRowHtml = `
+                <div class="totals-row">
+                    <span>Tax (${taxRate}%):</span>
+                    <span>$${taxAmt.toFixed(2)}</span>
+                </div>
+                `;
+            }
+
+            const sheet = document.getElementById('invoice-sheet');
+            sheet.innerHTML = `
+                <!-- Top Header -->
+                <div class="invoice-header">
+                    <div>
+                        ${logoHtml}
+                        <h2 style="margin: 0; font-size: 1.4rem; color: #2c3e50;">${fromName}</h2>
+                        <div style="font-size: 0.8rem; color: #7f8c8d; margin-top: 0.2rem; white-space: pre-line;">${fromAddr}</div>
+                        ${senderGstinBlock}
+                    </div>
+                    <div style="text-align: right;">
+                        <h1 style="margin: 0; font-size: 1.8rem; font-weight: 700; color: #6366f1;">INVOICE</h1>
+                        <table class="invoice-meta-table" style="margin-top: 0.6rem; margin-left: auto;">
+                            <tr>
+                                <td style="font-weight: 700;">Invoice No:</td>
+                                <td>${invNum}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 700;">Date Issued:</td>
+                                <td>${invDate}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 700;">Due Date:</td>
+                                <td>${invDue}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Addresses Coordinates -->
+                <div class="bill-coords">
+                    <div class="bill-block">
+                        <h4>Billed To</h4>
+                        <div style="font-weight: 700; font-size: 0.95rem;">${toName}</div>
+                        <div style="font-size: 0.82rem; color: #555; margin-top: 0.2rem; white-space: pre-line;">${toAddr}</div>
+                        ${clientGstinBlock}
+                    </div>
+                </div>
+
+                <!-- Ledger Table -->
+                <table class="billing-table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            ${showHsn ? '<th style="width: 100px;">HSN/SAC</th>' : ''}
+                            <th style="width: 80px;">Qty</th>
+                            <th style="width: 100px;">Rate</th>
+                            <th style="width: 120px; text-align: right;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${itemsHtml}
+                    </tbody>
+                </table>
+
+                <!-- Totals section -->
+                <div class="totals-block">
+                    <div class="totals-row">
+                        <span>Subtotal:</span>
+                        <span>$${subtotal.toFixed(2)}</span>
+                    </div>
+                    ${discountAmt > 0 ? `
+                    <div class="totals-row" style="color: #c0392b;">
+                        <span>Discount (${discountRate}%):</span>
+                        <span>-$${discountAmt.toFixed(2)}</span>
+                    </div>
+                    ` : ''}
+                    ${taxRowHtml}
+                    <div class="totals-row" style="font-weight: 800; font-size: 1.1rem; border-top: 1px dashed #7f8c8d; padding-top: 0.4rem; color: #2c3e50;">
+                        <span>Grand Total:</span>
+                        <span>$${grandTotal.toFixed(2)}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            initLedgerRows();
+        });
+    </script>
+</body>
+</html>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <title>Invoice Generator Online Free â€” PDF Invoice Maker | RankifyTools</title>
+    <meta name="description" content="Generate professional invoices online free. Customize billing addresses, itemize services, calculate taxes, and print or download vector PDF receipts instantly.">
+    <meta name="keywords" content="invoice generator free online, free online invoice maker, professional bill creator, download pdf invoice">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/invoice-generator">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/invoice-generator">
+    <meta property="og:title" content="Invoice Generator Online Free | RankifyTools">
+    <meta property="og:description" content="Build professional invoices and download print-ready PDFs. 100% free.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Invoice Generator", "item": "https://free-online-seo-tools.vercel.app/invoice-generator"}
+      ]
+    }
+            header, footer, nav, .hero, .no-print {
+            body, .main-content {
+                color: #000 !important;
+            .invoice-wrapper {
+            input, textarea, select {
+                background: transparent !important;
+                color: #000 !important;
+    <script defer src="js/speed-insights.js"></script>
+    <header class="no-print">
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+        <nav class="breadcrumbs no-print" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+        <div class="hero no-print">
+            <h1>Invoice Generator Free Online</h1>
+            <p>Generate clean, professional receipts. Fill in the transaction details below and hit Print/Save to capture standard formatted invoice files.</p>
+        <div class="invoice-wrapper" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2rem; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Header Section -->
+            <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <span style="font-size:1.8rem; font-weight:700; color:var(--accent-primary);">INVOICE</span>
+                    <input type="text" value="#INV-2026-001" placeholder="Invoice Number" style="background:var(--bg-main); border:1px solid var(--border-light); padding:0.4rem; border-radius:var(--radius-sm); color:var(--text-primary); max-width:180px;">
+                <div style="text-align:right; display:flex; flex-direction:column; gap:0.4rem;">
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Date</label>
+                    <input type="date" id="invDate" style="background:var(--bg-main); border:1px solid var(--border-light); padding:0.4rem; border-radius:var(--radius-sm); color:var(--text-primary);">
+            <!-- Addresses Section -->
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1rem;">
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Sender (From)</label>
+                    <textarea placeholder="Your Company Name&#10;Street Address&#10;City, State, Zip&#10;Email / Phone" style="min-height:90px; background:var(--bg-main); border:1px solid var(--border-light); padding:0.6rem; border-radius:var(--radius-sm); color:var(--text-primary); resize:none;"></textarea>
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Client (Bill To)</label>
+                    <textarea placeholder="Client Name / Business&#10;Client Address&#10;City, State, Zip&#10;Client Email" style="min-height:90px; background:var(--bg-main); border:1px solid var(--border-light); padding:0.6rem; border-radius:var(--radius-sm); color:var(--text-primary); resize:none;"></textarea>
+            <!-- Items Table -->
+            <div style="overflow-x:auto; margin-top:1rem;">
+                <table style="width:100%; border-collapse:collapse; min-width:600px;">
+                        <tr style="border-bottom:2px solid var(--border-light); text-align:left;">
+                            <th style="padding:0.6rem; font-size:0.85rem; color:var(--text-secondary);">Description</th>
+                            <th style="padding:0.6rem; font-size:0.85rem; color:var(--text-secondary); width:80px;">Qty</th>
+                            <th style="padding:0.6rem; font-size:0.85rem; color:var(--text-secondary); width:120px;">Unit Price</th>
+                            <th style="padding:0.6rem; font-size:0.85rem; color:var(--text-secondary); width:120px;">Amount</th>
+                            <th class="no-print" style="padding:0.6rem; width:40px;"></th>
+                    <tbody id="itemRows">
+                        <tr style="border-bottom:1px solid var(--border-light);">
+                            <td style="padding:0.6rem;"><input type="text" placeholder="Item Name or Description" value="Consulting Services" style="width:100%; background:transparent; border:none; color:var(--text-primary);"></td>
+                            <td style="padding:0.6rem;"><input type="number" class="qty-field" value="10" min="0" oninput="calculateTotal()" style="width:100%; background:transparent; border:none; color:var(--text-primary);"></td>
+                            <td style="padding:0.6rem;"><input type="number" class="price-field" value="50" min="0" oninput="calculateTotal()" style="width:100%; background:transparent; border:none; color:var(--text-primary);"></td>
+                            <td style="padding:0.6rem; font-weight:600; color:var(--text-primary);" class="amount-field">$500.00</td>
+                            <td class="no-print" style="padding:0.6rem;"><button onclick="deleteRow(this)" style="background:transparent; border:none; color:#ef4444; cursor:pointer;">&times;</button></td>
+            <div class="no-print" style="margin-top:0.4rem;">
+                <button class="tool-btn" onclick="addRow()" style="font-size:0.8rem; padding:0.4rem 1rem;">âž• Add Item Row</button>
+            <!-- Total Calculations Section -->
+            <div style="display:flex; justify-content:flex-end; margin-top:1.5rem;">
+                <div style="width:300px; display:flex; flex-direction:column; gap:0.6rem;">
+                    <div style="display:flex; justify-content:space-between; font-size:0.95rem;">
+                        <span style="color:var(--text-secondary);">Subtotal:</span>
+                        <span id="subTotalDisplay" style="font-weight:600; color:var(--text-primary);">$500.00</span>
+                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.95rem;">
+                        <span style="color:var(--text-secondary);">Tax Rate (%):</span>
+                        <input type="number" id="taxRate" value="10" min="0" max="100" oninput="calculateTotal()" style="width:60px; text-align:right; background:var(--bg-main); border:1px solid var(--border-light); padding:0.2rem; border-radius:var(--radius-sm); color:var(--text-primary);">
+                    <div style="display:flex; justify-content:space-between; font-size:0.95rem;">
+                        <span style="color:var(--text-secondary);">Tax Amount:</span>
+                        <span id="taxDisplay" style="font-weight:600; color:var(--text-primary);">$50.00</span>
+                    <div style="display:flex; justify-content:space-between; border-top:2px solid var(--border-light); padding-top:0.6rem; font-size:1.15rem; font-weight:700;">
+                        <span style="color:var(--text-primary);">Total Due:</span>
+                        <span id="totalDisplay" style="color:var(--accent-primary);">$550.00</span>
+            <!-- Print Actions Section -->
+            <div class="no-print" style="display:flex; justify-content:flex-end; gap:0.6rem; margin-top:2rem;">
+                <button class="tool-btn" onclick="window.print()" style="background:var(--accent-primary); border-color:var(--accent-primary); color:#fff; font-weight:700;">ðŸ–¨ï¸ Print / Save to PDF</button>
+    <footer class="no-print">
+                    <h4>Calculators</h4>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+    <script src="js/main.js" defer></script>
+        function addRow() {
+            const table = document.getElementById('itemRows');
+            const row = document.createElement('tr');
+            row.style.borderBottom = '1px solid var(--border-light)';
+            row.innerHTML = `
+                <td style="padding:0.6rem;"><input type="text" placeholder="Item Name or Description" style="width:100%; background:transparent; border:none; color:var(--text-primary);"></td>
+                <td style="padding:0.6rem;"><input type="number" class="qty-field" value="1" min="0" oninput="calculateTotal()" style="width:100%; background:transparent; border:none; color:var(--text-primary);"></td>
+                <td style="padding:0.6rem;"><input type="number" class="price-field" value="0" min="0" oninput="calculateTotal()" style="width:100%; background:transparent; border:none; color:var(--text-primary);"></td>
+                <td style="padding:0.6rem; font-weight:600; color:var(--text-primary);" class="amount-field">$0.00</td>
+                <td class="no-print" style="padding:0.6rem;"><button onclick="deleteRow(this)" style="background:transparent; border:none; color:#ef4444; cursor:pointer;">&times;</button></td>
+            table.appendChild(row);
+            calculateTotal();
+        function deleteRow(btn) {
+            btn.closest('tr').remove();
+            calculateTotal();
+        function calculateTotal() {
+            const rows = document.querySelectorAll('#itemRows tr');
+            rows.forEach(row => {
+                const qty = parseFloat(row.querySelector('.qty-field').value) || 0;
+                const price = parseFloat(row.querySelector('.price-field').value) || 0;
+                const amount = qty * price;
+                row.querySelector('.amount-field').innerText = '$' + amount.toFixed(2);
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+            const taxVal = subtotal * (taxRate / 100);
+            const total = subtotal + taxVal;
+            document.getElementById('subTotalDisplay').innerText = '$' + subtotal.toFixed(2);
+            document.getElementById('taxDisplay').innerText = '$' + taxVal.toFixed(2);
+            document.getElementById('totalDisplay').innerText = '$' + total.toFixed(2);
+        window.addEventListener('load', () => {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('invDate').value = today;
+            calculateTotal();

@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter & Resume Summary Generator | RankifyTools</title>
+    <meta name="description" content="Generate professional cover letters and resume summaries instantly. Free cover letter generator with customizable job roles, skill inputs, and tones.">
+    <meta name="keywords" content="cover letter generator free, resume summary generator ai, professional cv letters maker">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/cover-letter-generator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/cover-letter-generator">
+    <meta property="og:title" content="Cover Letter & Resume Summary Generator | RankifyTools">
+    <meta property="og:description" content="Generate customized cover letters and bio summaries instantly online. Free.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Cover Letter Generator", "item": "https://free-online-seo-tools.vercel.app/cover-letter-generator"}
+      ]
+    }
+    </script>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Cover Letter Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Cover Letter & Resume Summary Generator</h1>
+            <p>Generate highly structured, professional cover letters or resume profiles based on your target role, core qualifications, and background stats.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Input Form -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Configuration Form</h2>
+                
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label for="jobTitle" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Target Job Title</label>
+                    <input type="text" id="jobTitle" value="Frontend Engineer" placeholder="e.g. Project Manager, Frontend Engineer" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                </div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="companyName" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Company Name</label>
+                        <input type="text" id="companyName" value="Stripe" placeholder="e.g. Stripe, Google" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="tone" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Tone of Voice</label>
+                        <select id="tone" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary); outline:none;">
+                            <option value="Professional" selected>Professional</option>
+                            <option value="Creative">Creative / Enthusiastic</option>
+                            <option value="Confident">Confident</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label for="keySkills" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Core Skill & Experience</label>
+                    <input type="text" id="keySkills" value="React, responsive CSS design, and optimization" placeholder="e.g. 5 years of project management, React, Python" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                </div>
+
+                <div style="display:flex; gap:0.6rem;">
+                    <button class="tool-btn" style="flex:1; background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="generateDocument('letter')">⚡ Cover Letter</button>
+                    <button class="tool-btn" style="flex:1; background:var(--accent-secondary); border-color:var(--accent-secondary); color:#fff;" onclick="generateDocument('summary')">📝 Resume Summary</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: Output Document -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 250px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:0.9rem; color:var(--text-secondary); font-weight:600;">Generated Output</span>
+                    <button class="tool-btn" onclick="copyDocument()" style="font-size:0.75rem; padding:0.3rem 0.6rem;">📋 Copy Document</button>
+                </div>
+                <textarea id="docOutput" readonly style="width: 100%; min-height: 280px; background: transparent; border: none; color: var(--text-primary); font-family: monospace; font-size: 0.95rem; line-height: 1.5; resize: vertical; outline: none; border-top:1px solid var(--border-light); padding-top:1rem;"></textarea>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        function generateDocument(type) {
+            const role = document.getElementById('jobTitle').value.trim() || "Applicant";
+            const company = document.getElementById('companyName').value.trim() || "Target Company";
+            const tone = document.getElementById('tone').value;
+            const skills = document.getElementById('keySkills').value.trim() || "relevant skills";
+
+            let outputText = '';
+
+            if (type === 'letter') {
+                if (tone === 'Professional') {
+                    outputText = `Dear Hiring Manager,
+
+I am writing to express my enthusiastic interest in the ${role} position at ${company}. With a strong background in ${skills}, I am confident in my ability to make an immediate impact on your engineering operations.
+
+Throughout my career, I have dedicated myself to refining my expertise in these key domains, ensuring that all projects I contribute to meet high-performance standards. I admire ${company}'s commitment to engineering excellence and value creation, and I look forward to the opportunity to contribute.
+
+Thank you for your time and consideration.
+
+Sincerely,
+[Your Name]`;
+                } else if (tone === 'Creative') {
+                    outputText = `Hello ${company} Team!
+
+I've been following your journey for quite some time, so when I saw the opening for a ${role}, I knew I had to apply! My skillset in ${skills} aligns perfectly with the creative challenges your team tackles.
+
+I love building products that stand out, and I am excited about the prospect of bringing my innovative background to ${company}. Let's make something amazing together!
+
+Warmly,
+[Your Name]`;
+                } else {
+                    outputText = `Dear Recruiting Lead,
+
+I am applying for the ${role} opening at ${company} because my skill profile in ${skills} is a precise match for the technical milestones your team is aiming to achieve.
+
+I bring a track record of driving metrics, solving code complexities, and delivering production-ready applications. I am excited to bring this results-driven mindset to ${company}.
+
+Best regards,
+[Your Name]`;
+                }
+            } else {
+                // Resume summary
+                if (tone === 'Professional') {
+                    outputText = `Dedicated and analytical ${role} with extensive experience leveraging ${skills}. Proven track record of optimizing product features and collaborating across divisions to achieve company milestones at ${company}.`;
+                } else if (tone === 'Creative') {
+                    outputText = `Creative, forward-thinking ${role} driven by a passion for design and coding. Highly proficient in ${skills}, bringing unique, user-centric approaches to building interactive systems at ${company}.`;
+                } else {
+                    outputText = `Results-oriented ${role} specializing in ${skills}. Confident leader with a proven history of executing complex architectural deployments and boosting project delivery cycles.`;
+                }
+            }
+
+            document.getElementById('docOutput').value = outputText;
+            showToast('Document generated!', 'success');
+        }
+
+        function copyDocument() {
+            const val = document.getElementById('docOutput').value;
+            if (!val) return;
+            navigator.clipboard.writeText(val).then(() => {
+                showToast('Document copied to clipboard!', 'success');
+            });
+        }
+
+        window.addEventListener('load', () => generateDocument('letter'));
+    </script>
+</body>
+</html>

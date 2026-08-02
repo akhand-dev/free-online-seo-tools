@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator India â€” Convert CTC to In-Hand Salary | RankifyTools</title>
+    <meta name="description" content="Free CTC to In-Hand salary calculator. Calculate monthly take-home salary, EPF deductions, professional tax, gratuity, and income tax brackets in India.">
+    <meta name="keywords" content="salary calculator India, ctc to in hand salary calculator, calculate monthly take home pay, epf gratuity deduction calculator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/salary-calculator/salary-calculator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/salary-calculator.html">
+    <meta property="og:title" content="Salary Calculator India â€” CTC to Take-Home | RankifyTools">
+    <meta property="og:description" content="Calculate your monthly net take-home salary after PF, Tax, and Gratuity deductions locally.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Salary Calculator", "item": "https://free-online-seo-tools.vercel.app/tools/salary-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Salary Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/salary-calculator.html",
+      "description": "Convert annual Cost to Company (CTC) into monthly in-hand net salary after PF, Professional tax, and Income tax deductions.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">Salary Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Salary Calculator (CTC to In-Hand)</h1>
+            <p>Compute your monthly net take-home salary. Convert annual CTC to in-hand pay after deducting EPF, Professional Tax, Gratuity, and Income Taxes.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Inputs -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">1. Salary Breakdown inputs</h2>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Gross Annual CTC (â‚¹)</label>
+                    <input type="number" id="annualCtc" value="900000" oninput="calculateInHand()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">EPF Contribution Model</label>
+                    <select id="epfType" onchange="calculateInHand()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <option value="12">Standard 12% of Basic</option>
+                        <option value="1800">Fixed â‚¹1,800 / Month Limit</option>
+                        <option value="0">None / Opt Out</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Gratuity Deducted (typically 4.81% of basic)</label>
+                    <select id="gratuityDeduct" onchange="calculateInHand()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <option value="yes">Yes, Deduct from CTC</option>
+                        <option value="no">No, Exclude</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Professional Tax (PT - â‚¹ / Month)</label>
+                    <input type="number" id="profTax" value="200" oninput="calculateInHand()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+            </div>
+
+            <!-- Right Panel: Paycheck Breakdown -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">2. Monthly Salary Slip</h2>
+
+                <div style="text-align:center; padding:1.2rem; background:rgba(16,185,129,0.1); border:1px solid #10b981; border-radius:var(--radius-md);">
+                    <div style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.3rem;">Monthly In-Hand Salary (Take-Home)</div>
+                    <div id="monthlyTakeHome" style="font-size:2rem; font-weight:bold; color:#10b981;">â‚¹0</div>
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.9rem; margin-top:0.5rem;">
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Monthly Gross CTC</span>
+                        <span id="monthlyCtc" style="font-weight:600;">â‚¹0</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Basic Salary (50% of CTC)</span>
+                        <span id="basicSalary" style="font-weight:600;">â‚¹0</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; color:#ef4444;">
+                        <span>Employee EPF contribution</span>
+                        <span id="epfDeduct" style="font-weight:600;">-â‚¹0</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; color:#ef4444;">
+                        <span>Gratuity Deduction</span>
+                        <span id="gratuityDeductVal" style="font-weight:600;">-â‚¹0</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; color:#ef4444;">
+                        <span>Professional Tax (PT)</span>
+                        <span id="ptDeduct" style="font-weight:600;">-â‚¹0</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; color:#ef4444;">
+                        <span>Monthly Income Tax (TDS - New Regime)</span>
+                        <span id="itDeduct" style="font-weight:600;">-â‚¹0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>Difference Between CTC and In-Hand Salary</h2>
+            <p>Your <strong>CTC (Cost to Company)</strong> is the gross annual expenditure a company spends on an employee. It is not equivalent to your monthly take-home salary due to statutory contributions and taxes:</p>
+            <ul>
+                <li><strong>Basic Salary:</strong> Core salary base (usually 40%-50% of CTC).</li>
+                <li><strong>EPF Deductions:</strong> 12% of basic salary is saved into the Employee Provident Fund.</li>
+                <li><strong>Professional Tax:</strong> A state-level direct tax (generally capped around â‚¹200 monthly).</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/tools/salary-calculator/salary-calculator.html">Salary Calculator</a></li>
+                        <li><a href="/tools/income-tax-calculator/income-tax-calculator.html">Income Tax Calculator</a></li>
+                        <li><a href="/tools/sip-calculator/sip-calculator.html">SIP Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function calculateInHand() {
+            const annualCtc = parseFloat(document.getElementById('annualCtc').value) || 0;
+            const epfType = document.getElementById('epfType').value;
+            const gratuityOption = document.getElementById('gratuityDeduct').value;
+            const pt = parseFloat(document.getElementById('profTax').value) || 0;
+
+            const monthlyCtc = annualCtc / 12;
+
+            // Basic Salary typically = 50% of CTC
+            const basicMonthly = monthlyCtc * 0.50;
+
+            // EPF deduction
+            let epfMonthly = 0;
+            if (epfType === '12') {
+                epfMonthly = basicMonthly * 0.12;
+            } else if (epfType === '1800') {
+                epfMonthly = Math.min(1800, basicMonthly * 0.12);
+            }
+
+            // Gratuity deduction (4.81% of basic)
+            let gratuityMonthly = 0;
+            if (gratuityOption === 'yes') {
+                gratuityMonthly = basicMonthly * 0.0481;
+            }
+
+            // --- Income Tax (TDS) under New Tax Regime ---
+            // Standard deduction = 75,000
+            const annualTaxable = Math.max(0, annualCtc - 75000);
+            let annualTax = 0;
+
+            if (annualTaxable > 700000) {
+                // New Tax Slabs
+                if (annualTaxable > 1500000) {
+                    annualTax += (annualTaxable - 1500000) * 0.30;
+                    annualTax += 300000 * 0.20;
+                    annualTax += 200000 * 0.15;
+                    annualTax += 300000 * 0.10;
+                    annualTax += 400000 * 0.05;
+                } else if (annualTaxable > 1200000) {
+                    annualTax += (annualTaxable - 1200000) * 0.20;
+                    annualTax += 200000 * 0.15;
+                    annualTax += 300000 * 0.10;
+                    annualTax += 400000 * 0.05;
+                } else if (annualTaxable > 1000000) {
+                    annualTax += (annualTaxable - 1000000) * 0.15;
+                    annualTax += 300000 * 0.10;
+                    annualTax += 400000 * 0.05;
+                } else if (annualTaxable > 700000) {
+                    annualTax += (annualTaxable - 700000) * 0.10;
+                    annualTax += 400000 * 0.05;
+                } else if (annualTaxable > 300000) {
+                    annualTax += (annualTaxable - 300000) * 0.05;
+                }
+            }
+
+            // Cess (4%)
+            const totalAnnualTax = annualTax * 1.04;
+            const monthlyTax = totalAnnualTax / 12;
+
+            // In-Hand Take Home Calculation
+            const takeHome = Math.max(0, monthlyCtc - epfMonthly - gratuityMonthly - pt - monthlyTax);
+
+            // Display Results
+            document.getElementById('monthlyTakeHome').textContent = formatINR(takeHome);
+            document.getElementById('monthlyCtc').textContent = formatINR(monthlyCtc);
+            document.getElementById('basicSalary').textContent = formatINR(basicMonthly);
+            document.getElementById('epfDeduct').textContent = '- ' + formatINR(epfMonthly);
+            document.getElementById('gratuityDeductVal').textContent = '- ' + formatINR(gratuityMonthly);
+            document.getElementById('ptDeduct').textContent = '- ' + formatINR(pt);
+            document.getElementById('itDeduct').textContent = '- ' + formatINR(monthlyTax);
+        }
+
+        function formatINR(num) {
+            return 'â‚¹' + num.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+        }
+
+        window.addEventListener('load', calculateInHand);
+    </script>
+</body>
+</html>
+
+    <title>Salary Calculator After Tax â€” CTC to In-Hand Salary | RankifyTools</title>
+    <meta name="description" content="Calculate your monthly net take-home salary after tax deductions. Free CTC to in-hand salary calculator with EPF, professional tax, and income tax brackets.">
+    <meta name="keywords" content="salary calculator after tax, ctc to in hand salary calculator, calculate monthly take home pay, net salary calculator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/salary-calculator">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/salary-calculator">
+    <meta property="og:title" content="Salary Calculator After Tax | RankifyTools">
+    <meta property="og:description" content="Calculate your monthly net take-home salary after PF and tax deductions locally. Privacy first.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+        {"@type": "ListItem", "position": 3, "name": "Salary Calculator", "item": "https://free-online-seo-tools.vercel.app/salary-calculator"}
+      "name": "Salary Calculator After Tax",
+      "url": "https://free-online-seo-tools.vercel.app/salary-calculator",
+      "description": "Convert annual Cost to Company (CTC) into monthly in-hand net salary after tax and PF deductions.",
+      "applicationCategory": "DesignApplication",
+    <script defer src="js/speed-insights.js"></script>
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+            <h1>Salary Calculator After Tax</h1>
+            <p>Compute your monthly net take-home salary. Convert annual CTC to in-hand pay after deducting EPF, Professional Tax, and Income Taxes.</p>
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Salary Details</h2>
+                
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label for="ctc" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Annual CTC / Gross Salary ($)</label>
+                    <input type="number" id="ctc" value="60000" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="pfRate" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">EPF / Pension Contribution (%)</label>
+                        <input type="number" id="pfRate" value="4.0" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="taxRate" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Estimated Tax Rate (%)</label>
+                        <input type="number" id="taxRate" value="12.0" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                <button class="tool-btn" style="background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="calculateSalary()">âš¡ Calculate In-Hand Salary</button>
+            <!-- Right Panel: Results -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 250px; justify-content: center;">
+                <div id="resultsWrapper" style="display:flex; flex-direction:column; gap:1rem; text-align:center;">
+                    <div>
+                        <span style="font-size:0.9rem; color:var(--text-secondary);">Monthly Net In-Hand Salary</span>
+                        <div id="monthlyInhand" style="font-size:2.2rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">$0.00</div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                        <div>
+                            <span style="font-size:0.85rem; color:var(--text-secondary);">Monthly PF Deducted</span>
+                            <div id="pfValue" style="font-size:1.25rem; font-weight:600; color:var(--text-primary); margin-top:0.2rem;">$0.00</div>
+                        </div>
+                        <div>
+                            <span style="font-size:0.85rem; color:var(--text-secondary);">Monthly Tax Paid</span>
+                            <div id="taxValue" style="font-size:1.25rem; font-weight:600; color:var(--text-primary); margin-top:0.2rem;">$0.00</div>
+                        </div>
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>The Mathematics of Gross vs Net Salary</h2>
+            <p>Annual cost-to-company (CTC) structures differ significantly from take-home liquid cash. Deductions for pensions and tax structures must be deducted to find net values:</p>
+                <li><strong>Gross Salary:</strong> Total annual compensation package before any pension or tax declarations.</li>
+                <li><strong>Net Take-Home:</strong> The actual liquid currency deposited in your banking accounts monthly after mandatory deductions.</li>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+    <script src="js/main.js" defer></script>
+        function calculateSalary() {
+            const ctc = parseFloat(document.getElementById('ctc').value) || 0;
+            const pfRate = parseFloat(document.getElementById('pfRate').value) || 0;
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+            const monthlyGross = ctc / 12;
+            const pfDeduction = (pfRate / 100) * monthlyGross;
+            const taxDeduction = (taxRate / 100) * monthlyGross;
+            const netInhand = monthlyGross - pfDeduction - taxDeduction;
+            document.getElementById('monthlyInhand').innerText = `$${netInhand.toFixed(2)}`;
+            document.getElementById('pfValue').innerText = `$${pfDeduction.toFixed(2)}`;
+            document.getElementById('taxValue').innerText = `$${taxDeduction.toFixed(2)}`;
+            showToast('Salary calculations complete!', 'success');
+        window.addEventListener('load', calculateSalary);

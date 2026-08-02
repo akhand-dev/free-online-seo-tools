@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break-Even Point Calculator — Cost & Sales Volume Solver | RankifyTools</title>
+    <meta name="description" content="Calculate your business break-even point in units and sales value. Enter fixed costs, variable costs, and selling prices to generate interactive financial tables.">
+    <meta name="keywords" content="break even calculator, break-even point, fixed costs variable costs, sales margin volume, business break even formula">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/break-even-calculator/break-even-calculator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/break-even-calculator.html">
+    <meta property="og:title" content="Break-Even Point Calculator | RankifyTools">
+    <meta property="og:description" content="Calculate break-even units, revenue metrics, contribution margins, and display interactive sales interval charts.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Break-even Calculator", "item": "https://free-online-seo-tools.vercel.app/tools/break-even-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Break-even Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/break-even-calculator.html",
+      "description": "Determine your business break-even points, unit thresholds, and revenue margins instantly.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+
+    <style>
+        .split-pane {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .split-pane {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+        .breakdown-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+        .breakdown-table th, .breakdown-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border-light);
+            text-align: left;
+        }
+        .breakdown-table th {
+            color: var(--text-secondary);
+            font-weight: 700;
+        }
+        .breakdown-table tr.breakeven-row {
+            background: rgba(99, 102, 241, 0.15);
+            border-left: 3px solid var(--accent-primary);
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Break-even Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Break-even Point Calculator</h1>
+            <p>Determine the exact sales volume and revenue threshold needed to cover your total business costs. Create interactive forecast projections instantly.</p>
+        </div>
+
+        <div style="max-width: 950px; margin: 2rem auto 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem;">
+            <div class="split-pane">
+                
+                <!-- Inputs -->
+                <div style="display:flex; flex-direction:column; gap:1.2rem;">
+                    <div class="input-group">
+                        <label style="font-weight:600;">Total Fixed Costs ($)</label>
+                        <input type="number" id="fixed-costs" value="10000" step="any" min="0" oninput="calculateBreakEven()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <small style="color:var(--text-secondary); font-size:0.75rem;">Rent, salaries, administration overhead, etc.</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label style="font-weight:600;">Variable Cost per Unit ($)</label>
+                        <input type="number" id="unit-variable-cost" value="20" step="any" min="0" oninput="calculateBreakEven()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <small style="color:var(--text-secondary); font-size:0.75rem;">Raw materials, manufacturing labor, unit packaging, etc.</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label style="font-weight:600;">Selling Price per Unit ($)</label>
+                        <input type="number" id="unit-price" value="50" step="any" min="0" oninput="calculateBreakEven()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        <small style="color:var(--text-secondary); font-size:0.75rem;">Final price charged to customers for one item.</small>
+                    </div>
+                </div>
+
+                <!-- Parameters Summary Outputs -->
+                <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.2rem; display:flex; flex-direction:column; gap:0.6rem;">
+                    <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem; color:var(--accent-primary);">Marginal Parameters</h3>
+                    
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Unit Contribution Margin</span>
+                        <span id="out-unit-margin" style="font-weight:600;">$30.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Contribution Margin Ratio</span>
+                        <span id="out-ratio" style="font-weight:600;">60.00%</span>
+                    </div>
+
+                    <div style="margin-top:0.8rem; border-top:1px solid var(--border-light); padding-top:0.8rem;">
+                        <h4 style="font-size:0.9rem; color:var(--accent-secondary); margin-bottom:0.4rem;">Break-Even Thresholds</h4>
+                        <div style="display:flex; justify-content:space-between; font-size:1.15rem; font-weight:bold; margin-bottom:0.4rem;">
+                            <span>Break-Even Units</span>
+                            <span id="out-be-units" style="color:var(--text-primary);">334 units</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:1.15rem; font-weight:bold;">
+                            <span>Break-Even Sales</span>
+                            <span id="out-be-sales" style="color:var(--success);">$16,666.67</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Volume Forecast Breakdown Table -->
+            <div style="margin-top:2.5rem; border-top: 1px solid var(--border-light); padding-top:2rem;">
+                <h3 style="font-size:1.1rem; color:var(--text-primary); margin-bottom:0.4rem;">Unit Volume Profit & Loss Breakdown</h3>
+                <p style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:1rem;">See how fixed costs, cumulative variable costs, and sales volumes impact net business profits.</p>
+                <div style="overflow-x: auto;">
+                    <table class="breakdown-table">
+                        <thead>
+                            <tr>
+                                <th>Volume (Units)</th>
+                                <th>Sales Revenue</th>
+                                <th>Fixed Cost</th>
+                                <th>Variable Cost</th>
+                                <th>Total Cost</th>
+                                <th>Net Profit/Loss</th>
+                            </tr>
+                        </thead>
+                        <tbody id="breakdown-rows">
+                            <!-- Dynamic rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.75; color: var(--text-primary);">
+            <h2>How to Calculate Your Business Break-Even Point</h2>
+            <p>The <strong>Break-Even Point (BEP)</strong> is the sales milestone where a business's total revenue equals its total expenses. At this point, the business makes zero profit and incurs zero loss. Computing the break-even threshold is a critical step in business planning to determine if a pricing strategy or product venture is viable.</p>
+
+            <h3>The Formulas:</h3>
+            <ol>
+                <li><strong>Contribution Margin per Unit:</strong> The amount of money each unit sold contributes towards covering fixed overhead costs.
+                    <br><code>Contribution Margin = Selling Price - Variable Cost</code>
+                </li>
+                <li><strong>Break-Even Units:</strong> The number of items you must sell to break even.
+                    <br><code>Break-Even Units = Total Fixed Costs / Contribution Margin per Unit</code>
+                </li>
+                <li><strong>Break-Even Sales ($):</strong> The gross revenue amount you must earn to break even.
+                    <br><code>Break-Even Sales = Break-Even Units * Unit Selling Price</code>
+                </li>
+            </ol>
+
+            <h3>Fixed vs Variable Costs:</h3>
+            <ul>
+                <li><strong>Fixed Costs:</strong> Continuous business expenses that do not change regardless of how many units you manufacture or sell. Examples: warehouse rent, base office salaries, business insurance, and equipment leasing.</li>
+                <li><strong>Variable Costs:</strong> Transactional expenses that scale directly with production volumes. Examples: product materials, packaging shipping labels, credit card processor fees, and direct manufacturing labor wages.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/invoice-generator/invoice-generator.html">Invoice Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function calculateBreakEven() {
+            const fixed = parseFloat(document.getElementById('fixed-costs').value) || 0;
+            const variable = parseFloat(document.getElementById('unit-variable-cost').value) || 0;
+            const price = parseFloat(document.getElementById('unit-price').value) || 0;
+
+            const unitMargin = price - variable;
+            const ratio = price > 0 ? (unitMargin / price) * 100 : 0;
+
+            document.getElementById('out-unit-margin').textContent = '$' + unitMargin.toFixed(2);
+            document.getElementById('out-ratio').textContent = ratio.toFixed(2) + '%';
+
+            let beUnits = 0;
+            let beSales = 0;
+
+            if (unitMargin > 0) {
+                beUnits = Math.ceil(fixed / unitMargin);
+                beSales = beUnits * price;
+                document.getElementById('out-be-units').textContent = beUnits.toLocaleString() + ' units';
+                document.getElementById('out-be-sales').textContent = '$' + beSales.toFixed(2);
+            } else {
+                document.getElementById('out-be-units').textContent = 'Infinite (Price ≤ Cost)';
+                document.getElementById('out-be-sales').textContent = 'N/A';
+            }
+
+            // Generate breakdown intervals
+            const tbody = document.getElementById('breakdown-rows');
+            tbody.innerHTML = '';
+
+            if (unitMargin <= 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:var(--error); padding: 1.5rem 0;">Selling price must be greater than variable cost to reach a break-even threshold.</td></tr>';
+                return;
+            }
+
+            const steps = [
+                Math.round(beUnits * 0.5),
+                Math.round(beUnits * 0.75),
+                beUnits,
+                Math.round(beUnits * 1.25),
+                Math.round(beUnits * 1.5)
+            ];
+
+            // Filter out duplicate steps (in case beUnits is very small)
+            const uniqueSteps = [...new Set(steps)].sort((a,b) => a-b);
+
+            uniqueSteps.forEach(units => {
+                const revenue = units * price;
+                const totalVar = units * variable;
+                const totalCost = fixed + totalVar;
+                const netProfit = revenue - totalCost;
+
+                const tr = document.createElement('tr');
+                if (units === beUnits) {
+                    tr.className = 'breakeven-row';
+                }
+
+                let profitCell = '';
+                if (netProfit < 0) {
+                    profitCell = `<span style="color:#e74c3c; font-weight:600;">-$${Math.abs(netProfit).toFixed(2)}</span>`;
+                } else if (netProfit > 0) {
+                    profitCell = `<span style="color:var(--success); font-weight:600;">+$${netProfit.toFixed(2)}</span>`;
+                } else {
+                    profitCell = `<span style="color:var(--text-primary); font-weight:700;">$0.00 (Break-Even)</span>`;
+                }
+
+                tr.innerHTML = `
+                    <td style="font-weight:600;">${units.toLocaleString()}</td>
+                    <td>$${revenue.toFixed(2)}</td>
+                    <td>$${fixed.toFixed(2)}</td>
+                    <td>$${totalVar.toFixed(2)}</td>
+                    <td>$${totalCost.toFixed(2)}</td>
+                    <td>${profitCell}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateBreakEven();
+        });
+    </script>
+</body>
+</html>

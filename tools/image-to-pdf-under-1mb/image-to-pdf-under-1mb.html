@@ -1,0 +1,499 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF Under 1MB Free — Convert JPG to PDF | RankifyTools</title>
+    <meta name="description" content="Convert images (JPG, PNG, WebP) to PDF under 1MB online for free. Reorder pages, select margins, and compress files locally inside your browser.">
+    <meta name="keywords" content="image to pdf under 1mb, convert jpg to pdf 1mb, merge photos to pdf online free, secure image pdf compiler">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/image-to-pdf-under-1mb">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/image-to-pdf-under-1mb">
+    <meta property="og:title" content="Convert Image to PDF Under 1MB Online | RankifyTools">
+    <meta property="og:description" content="Compile images into a single PDF document under 1MB. Private local browser converter.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Image to PDF Under 1MB", "item": "https://free-online-seo-tools.vercel.app/image-to-pdf-under-1mb"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image to PDF Under 1MB Converter",
+      "url": "https://free-online-seo-tools.vercel.app/image-to-pdf-under-1mb",
+      "description": "Convert and compile multiple images into a single PDF file below 1MB utilizing browser canvas compression.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the tool make sure the PDF is under 1MB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If the original images are large, the tool automatically scales down and compresses them via a canvas using progressive quality ratios before compiling them with jsPDF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I reorder my images before creating the PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our user interface shows preview cards for each uploaded image. You can reorder them or delete specific pages before downloading the PDF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my document images uploaded to a web server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, all file processing, image rendering, compression, and PDF packaging are performed locally in your browser. Your data is 100% secure."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        .image-previews { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .preview-card { position: relative; border: 1px solid var(--border-light); border-radius: var(--radius-sm); overflow: hidden; background: var(--bg-main); height: 120px; display: flex; align-items: center; justify-content: center; }
+        .preview-card img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .preview-card .delete-btn { position: absolute; top: 4px; right: 4px; background: rgba(239, 68, 68, 0.85); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
+        .preview-card .order-badge { position: absolute; bottom: 4px; left: 4px; background: rgba(99, 102, 241, 0.9); color: white; font-size: 0.75rem; padding: 2px 6px; border-radius: var(--radius-sm); font-weight: bold; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Image to PDF Under 1MB</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Image to PDF Under 1MB</h1>
+            <p>Convert and compile multiple images into a single PDF document under 1MB. Reorder pages, customize margins, and compress files locally.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Upload & Settings -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--accent-primary);">1. Upload Images</h2>
+                    
+                    <div id="dropZone" style="border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 2rem 1rem; text-align: center; background: rgba(255,255,255,0.02); cursor: pointer; transition: all 0.3s ease;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">📸</span>
+                        <p style="margin: 0 0 0.5rem 0; font-weight: 500;">Drag & Drop Images here</p>
+                        <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">or click to browse files (JPEG, PNG, WebP)</p>
+                        <input type="file" id="fileInput" multiple accept="image/jpeg, image/png, image/webp" style="display: none;">
+                    </div>
+                </div>
+
+                <div>
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--accent-primary);">2. Document Layout Options</h2>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Page Size</label>
+                            <select id="pageSize" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                                <option value="a4">A4 (210 x 297 mm)</option>
+                                <option value="letter">US Letter (8.5 x 11 in)</option>
+                                <option value="fit">Fit Image Size</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Orientation</label>
+                            <select id="orientation" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                                <option value="portrait">Portrait</option>
+                                <option value="landscape">Landscape</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Margins</label>
+                            <select id="margin" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                                <option value="0">No Margins (0mm)</option>
+                                <option value="10" selected>Small Margins (10mm)</option>
+                                <option value="20">Large Margins (20mm)</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">PDF Filename</label>
+                            <input type="text" id="pdfName" value="document-under-1mb.pdf" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Image Manager & Export -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 420px;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">3. PDF Output Manager</h2>
+
+                <div id="emptyState" style="text-align:center; padding:3rem 1rem; color:var(--text-secondary);">
+                    <span style="font-size:3rem; display:block; margin-bottom:1rem;">📂</span>
+                    No images uploaded yet. Select files on the left to begin.
+                </div>
+
+                <div id="previewArea" style="display:none; flex-direction:column; gap:1rem; flex:1;">
+                    <div style="font-size:0.85rem; color:var(--text-secondary);">
+                        Uploaded Images: <strong id="imageCount">0</strong>
+                    </div>
+                    <div class="image-previews" id="imagePreviews">
+                        <!-- Preview cards will render here -->
+                    </div>
+
+                    <div style="margin-top:auto; padding-top:1rem; display:flex; gap:1rem;">
+                        <button class="btn-primary" onclick="generatePDF()" style="flex:1; font-weight:600; padding:0.8rem 1.5rem;">Compile PDF (< 1MB) 📄</button>
+                        <button class="tool-btn" onclick="clearAll()" style="color:#ef4444; border-color:rgba(239,68,68,0.2);">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>Guide to Convert Image to PDF Under 1MB Free</h2>
+            <p>Whether you are merging receipts, scans of passport pages, educational marksheets, or certificates, many online portals specify that your combined upload must be in PDF format and stay under a strict size threshold, typically requiring you to <strong>image to pdf under 1mb</strong>. Our online utility handles this challenge directly inside your browser.</p>
+
+            <h3>The Importance of Compressing Image-Heavy PDFs</h3>
+            <p>PDF files containing raw images can grow in size, often reaching 10MB to 50MB. This causes errors when uploading to government portals (like visa portals, job applications, or university admission pages). Our tool resolves this issue by automatically resizing and compressing your images using local canvases before compiling them into the PDF, keeping the final output under 1MB while preserving legibility.</p>
+
+            <h3>How the 1MB Target PDF Generator Works</h3>
+            <p>The conversion process is executed locally in your browser using the following steps:</p>
+            <ol>
+                <li><strong>Image Loading:</strong> Reads files (JPG, PNG, WebP) locally into HTML Image objects.</li>
+                <li><strong>Dynamic Resizing:</strong> If the cumulative size of your images is high, the canvas resizes each image down to a maximum width (e.g. 1500px) and applies lossy JPEG compression (e.g. 70% quality).</li>
+                <li><strong>jsPDF Packaging:</strong> Embeds the compressed JPEGs as pages within the PDF document.</li>
+            </ol>
+            <p>This method maintains document legibility for text scans while keeping the file size small.</p>
+
+            <h3>Tips for Creating Small, High-Quality PDFs</h3>
+            <ul>
+                <li><strong>Crop Page Margins:</strong> Crop out empty margins or dark background borders from your document photos before compiling. This saves data space.</li>
+                <li><strong>Ensure Adequate Lighting:</strong> Take document photos in bright, even lighting. Shadows and noise add unnecessary file size.</li>
+            </ul>
+        </article>
+
+        <!-- FAQs Section -->
+        <div class="faq-section reveal">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <button class="faq-question">How can I make sure my image PDF is under 1MB?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Our tool automatically compresses your images using HTML5 Canvas before generating the PDF, ensuring the file size stays below 1MB.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I compile multiple image formats into one PDF?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes, you can upload a mix of JPEG, PNG, and WebP images, and the tool will compile them into a single PDF.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Are my documents uploaded to a server?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No. The entire conversion is executed locally on your device. Your sensitive files and documents are never sent over the internet.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const emptyState = document.getElementById('emptyState');
+        const previewArea = document.getElementById('previewArea');
+        const imagePreviews = document.getElementById('imagePreviews');
+        const imageCountEl = document.getElementById('imageCount');
+
+        let imageFiles = []; // holds objects: { id, name, file, dataUrl }
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--accent-primary)'; });
+        dropZone.addEventListener('dragleave', () => { dropZone.style.borderColor = 'var(--border-light)'; });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--border-light)';
+            if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (!file.type.startsWith('image/')) return;
+                
+                const id = Date.now() + Math.random().toString(36).substring(2, 9);
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imageFiles.push({
+                        id,
+                        name: file.name,
+                        file,
+                        dataUrl: e.target.result
+                    });
+                    renderPreviews();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function renderPreviews() {
+            if (imageFiles.length === 0) {
+                emptyState.style.display = 'block';
+                previewArea.style.display = 'none';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            previewArea.style.display = 'flex';
+            imageCountEl.textContent = imageFiles.length;
+
+            let html = '';
+            imageFiles.forEach((img, idx) => {
+                html += `
+                    <div class="preview-card">
+                        <img src="${img.dataUrl}" alt="Preview">
+                        <span class="order-badge">Page ${idx + 1}</span>
+                        <button class="delete-btn" onclick="deleteImage('${img.id}')">✕</button>
+                    </div>
+                `;
+            });
+            imagePreviews.innerHTML = html;
+        }
+
+        function deleteImage(id) {
+            imageFiles = imageFiles.filter(img => img.id !== id);
+            renderPreviews();
+        }
+
+        function clearAll() {
+            imageFiles = [];
+            fileInput.value = '';
+            renderPreviews();
+        }
+
+        async function generatePDF() {
+            if (imageFiles.length === 0) return;
+
+            const { jsPDF } = window.jspdf;
+            const pdfSize = document.getElementById('pageSize').value;
+            const orientation = document.getElementById('orientation').value;
+            const margin = parseFloat(document.getElementById('margin').value);
+            const pdfName = document.getElementById('pdfName').value || 'document.pdf';
+
+            // Create document
+            let doc = new jsPDF({
+                orientation: orientation,
+                unit: 'mm',
+                format: pdfSize === 'fit' ? 'a4' : pdfSize
+            });
+
+            // Target max size per image is 1MB divided by the number of pages, with a safety buffer
+            const targetBytes = (900 * 1024) / imageFiles.length;
+
+            for (let idx = 0; idx < imageFiles.length; idx++) {
+                const imgData = imageFiles[idx];
+                
+                // Add page for subsequent elements
+                if (idx > 0) {
+                    doc.addPage();
+                }
+
+                // Compress image to target size
+                const compressedDataUrl = await getCompressedImage(imgData.dataUrl, targetBytes);
+                
+                // Read dimensions
+                const dimensions = await getImageDimensions(compressedDataUrl);
+
+                let pdfPageWidth = doc.internal.pageSize.getWidth();
+                let pdfPageHeight = doc.internal.pageSize.getHeight();
+
+                if (pdfSize === 'fit') {
+                    // Set page size to fit image dimensions in mm (72 DPI approx)
+                    const imgWidthMm = dimensions.width * 0.264583;
+                    const imgHeightMm = dimensions.height * 0.264583;
+                    doc.setPage(idx + 1);
+                    doc.internal.pageSize.width = imgWidthMm + (margin * 2);
+                    doc.internal.pageSize.height = imgHeightMm + (margin * 2);
+                    pdfPageWidth = imgWidthMm + (margin * 2);
+                    pdfPageHeight = imgHeightMm + (margin * 2);
+                }
+
+                const printableWidth = pdfPageWidth - (margin * 2);
+                const printableHeight = pdfPageHeight - (margin * 2);
+
+                // Fit image proportionally
+                let renderWidth = printableWidth;
+                let renderHeight = (dimensions.height * renderWidth) / dimensions.width;
+
+                if (renderHeight > printableHeight) {
+                    renderHeight = printableHeight;
+                    renderWidth = (dimensions.width * renderHeight) / dimensions.height;
+                }
+
+                const xOffset = margin + (printableWidth - renderWidth) / 2;
+                const yOffset = margin + (printableHeight - renderHeight) / 2;
+
+                doc.addImage(compressedDataUrl, 'JPEG', xOffset, yOffset, renderWidth, renderHeight);
+            }
+
+            doc.save(pdfName);
+        }
+
+        function getCompressedImage(dataUrl, targetBytes) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = function() {
+                    let canvas = document.createElement('canvas');
+                    let ctx = canvas.getContext('2d');
+                    let scale = 1.0;
+                    let quality = 0.75;
+
+                    function compress() {
+                        canvas.width = Math.round(img.width * scale);
+                        canvas.height = Math.round(img.height * scale);
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                        canvas.toBlob((blob) => {
+                            if (!blob || blob.size <= targetBytes || scale < 0.1) {
+                                const reader = new FileReader();
+                                reader.onloadend = () => resolve(reader.result);
+                                reader.readAsDataURL(blob || new Blob());
+                            } else {
+                                if (quality > 0.2) {
+                                    quality -= 0.1;
+                                } else {
+                                    scale *= 0.8;
+                                    quality = 0.75;
+                                }
+                                compress();
+                            }
+                        }, 'image/jpeg', quality);
+                    }
+                    compress();
+                };
+                img.src = dataUrl;
+            });
+        }
+
+        function getImageDimensions(dataUrl) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve({ width: img.width, height: img.height });
+                img.src = dataUrl;
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://img.youtube.com; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Thumbnail Downloader Online â€” Save YouTube Covers HD | RankifyTools</title>
+    <meta name="description" content="Download YouTube video thumbnails in maximum HD quality (1080p, 720p, 480p) online for free. Just paste the video link to save cover images instantly.">
+    <meta name="keywords" content="youtube thumbnail downloader, save youtube covers hd, extract video thumbnail, get youtube thumbnail, youtube shorts downloader">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/youtube-thumbnail-downloader/youtube-thumbnail-downloader.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/youtube-thumbnail-downloader.html">
+    <meta property="og:title" content="YouTube Thumbnail Downloader Online â€” Save YouTube Covers HD">
+    <meta property="og:description" content="Extract and save YouTube cover screenshots locally in high resolution. 100% free tool.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <style>
+        .downloader-card {
+            max-width: 750px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+        }
+        .url-form {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .url-input {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-sm);
+            flex-grow: 1;
+            outline: none;
+            font-size: 1rem;
+        }
+        .url-input:focus {
+            border-color: var(--accent-primary);
+        }
+        .thumbnails-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        @media (min-width: 550px) {
+            .thumbnails-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .thumb-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            text-align: center;
+        }
+        .thumb-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+            display: block;
+        }
+        .res-lbl {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">â€º</span>
+            <a href="../index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">YouTube Thumbnail Downloader</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>YouTube Thumbnail Downloader</h1>
+            <p>Save YouTube cover images in maximum HD resolution. Paste your video or shorts link to fetch covers instantly.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="downloader-card">
+            
+            <div class="url-form">
+                <input type="text" id="yt-url" class="url-input" placeholder="Paste YouTube Video or Shorts URL (e.g. https://www.youtube.com/watch?v=...)">
+                <button type="button" onclick="fetchThumbnails()" style="padding:0.75rem 1.8rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:700; cursor:pointer; font-size:0.95rem;">Get Images</button>
+            </div>
+
+            <div class="thumbnails-grid" id="thumbs-grid" style="display: none;">
+                <!-- HD Max -->
+                <div class="thumb-card">
+                    <span class="res-lbl">Maximum Resolution (HD 1280x720)</span>
+                    <img id="img-max" class="thumb-img" src="" alt="HD Thumbnail">
+                    <a id="btn-max" class="secondary" style="padding:0.5rem 1.2rem; text-decoration:none; font-size:0.85rem; display:block;" href="" target="_blank" download>Open Full Image</a>
+                </div>
+
+                <!-- SD Standard -->
+                <div class="thumb-card">
+                    <span class="res-lbl">Standard Definition (SD 640x480)</span>
+                    <img id="img-sd" class="thumb-img" src="" alt="SD Thumbnail">
+                    <a id="btn-sd" class="secondary" style="padding:0.5rem 1.2rem; text-decoration:none; font-size:0.85rem; display:block;" href="" target="_blank" download>Open Full Image</a>
+                </div>
+
+                <!-- Medium -->
+                <div class="thumb-card">
+                    <span class="res-lbl">Medium Definition (480x360)</span>
+                    <img id="img-hq" class="thumb-img" src="" alt="Medium Thumbnail">
+                    <a id="btn-hq" class="secondary" style="padding:0.5rem 1.2rem; text-decoration:none; font-size:0.85rem; display:block;" href="" target="_blank" download>Open Full Image</a>
+                </div>
+
+                <!-- Default -->
+                <div class="thumb-card">
+                    <span class="res-lbl">Default Quality (320x180)</span>
+                    <img id="img-mq" class="thumb-img" src="" alt="Default Thumbnail">
+                    <a id="btn-mq" class="secondary" style="padding:0.5rem 1.2rem; text-decoration:none; font-size:0.85rem; display:block;" href="" target="_blank" download>Open Full Image</a>
+                </div>
+            </div>
+
+            <!-- Instructions fallback -->
+            <div id="instructions" style="display:none; margin-top:1.5rem; text-align:center; font-size:0.88rem; color:var(--text-secondary);">
+                ðŸ’¡ <strong>Download instructions:</strong> Click "Open Full Image" to open it in a new tab, then right-click (desktop) or long-press (mobile) and select "Save Image As".
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 750px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Save YouTube Thumbnail Images Free</h2>
+            <p>Content creators, graphic designers, and blog editors frequently need to extract cover thumbnails from YouTube videos for reference, presentation slides, or related articles. Our **YouTube Thumbnail Downloader** extracts direct static cover streams without third-party redirects. Pasting a valid link queries the public Google CDN to capture assets instantly.</p>
+
+            <h3>Supported Video Links:</h3>
+            <ul>
+                <li><strong>Desktop Link:</strong> <code>https://www.youtube.com/watch?v=VIDEO_ID</code></li>
+                <li><strong>Mobile Link:</strong> <code>https://youtu.be/VIDEO_ID</code></li>
+                <li><strong>Shorts Video:</strong> <code>https://www.youtube.com/shorts/VIDEO_ID</code></li>
+                <li><strong>Embed Screen:</strong> <code>https://www.youtube.com/embed/VIDEO_ID</code></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/youtube-thumbnail-downloader/youtube-thumbnail-downloader.html">Thumbnail Downloader</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function getYouTubeId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|shorts\/)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        function fetchThumbnails() {
+            const urlVal = document.getElementById('yt-url').value.trim();
+            if (!urlVal) {
+                alert('Please paste a YouTube URL!');
+                return;
+            }
+
+            const videoId = getYouTubeId(urlVal);
+            if (!videoId) {
+                alert('Invalid YouTube URL! Please double check.');
+                return;
+            }
+
+            // Set images sources
+            document.getElementById('img-max').src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+            document.getElementById('img-sd').src = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+            document.getElementById('img-hq').src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+            document.getElementById('img-mq').src = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+
+            // Set button links
+            document.getElementById('btn-max').href = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+            document.getElementById('btn-sd').href = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+            document.getElementById('btn-hq').href = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+            document.getElementById('btn-mq').href = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+
+            // Show elements
+            document.getElementById('thumbs-grid').style.display = 'grid';
+            document.getElementById('instructions').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
+    <title>YouTube Thumbnail Downloader Online Free â€” Save Video Covers | RankifyTools</title>
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/youtube-thumbnail-downloader">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/youtube-thumbnail-downloader">
+    <meta property="og:title" content="YouTube Thumbnail Downloader Online Free | RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+        .downloader-card { max-width: 750px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .url-form { display: flex; gap: 0.8rem; margin-bottom: 1.5rem; }
+        .url-input { background: var(--bg-dark); border: 1px solid var(--border-light); color: var(--text-primary); padding: 0.75rem 1rem; border-radius: var(--radius-sm); flex-grow: 1; outline: none; font-size: 1rem; }
+        .url-input:focus { border-color: var(--accent-primary); }
+        .thumbnails-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+        @media (min-width: 550px) { .thumbnails-grid { grid-template-columns: 1fr 1fr; } }
+        .thumb-card { background: var(--bg-dark); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem; display: flex; flex-direction: column; gap: 0.8rem; text-align: center; }
+        .thumb-img { max-width: 100%; height: auto; border-radius: var(--radius-sm); border: 1px solid var(--border-light); display: block; }
+        .res-lbl { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; }
+    <script defer src="js/speed-insights.js"></script>
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+                <button type="button" onclick="fetchThumbnails()" class="btn-primary" style="padding:0.75rem 1.8rem; font-weight:700; cursor:pointer; font-size:0.95rem;">Get Images</button>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                    <h4>Calculators</h4>
+                        <li><a href="/sip-calculator-india">SIP Calculator</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                    <h4>Utilities</h4>
+                        <li><a href="/merge-pdf-online-free">Merge PDF</a></li>
+                        <li><a href="/split-pdf-pages-online">Split PDF</a></li>
+    <script src="js/main.js" defer></script>

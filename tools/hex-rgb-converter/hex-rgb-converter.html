@@ -1,0 +1,524 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEX ↔ RGB Color Converter Online | RankifyTools</title>
+    <meta name="description" content="Convert HEX color codes to RGB/RGBA, and RGB values to HEX format. Instantly view live color previews, HSL codes, and copy clean CSS declarations.">
+    <meta name="keywords" content="hex to rgb converter, rgb to hex, rgba converter, color code converter, hex to hsl, css color tool">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/hex-rgb-converter/hex-rgb-converter.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/hex-rgb-converter.html">
+    <meta property="og:title" content="HEX ↔ RGB Color Converter Online">
+    <meta property="og:description" content="Convert between HEX and RGB color formats instantly in your browser with real-time preview and HSL export.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <style>
+        .converter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .converter-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+        }
+        .preview-box {
+            height: 180px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            transition: background-color 0.15s ease;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            padding: 1rem;
+        }
+        .preview-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .preview-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.3rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .color-inputs-row {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+        .color-inputs-row div {
+            flex: 1;
+        }
+        .color-inputs-row label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .color-inputs-row input {
+            width: 100%;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.6rem;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            outline: none;
+        }
+        .results-list {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-light);
+            padding: 0.6rem 1rem;
+            border-radius: var(--radius-sm);
+        }
+        .result-item span {
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: var(--accent-secondary);
+        }
+        .result-item label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://free-online-seo-tools.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://free-online-seo-tools.vercel.app/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "HEX ↔ RGB Converter",
+          "item": "https://free-online-seo-tools.vercel.app/tools/hex-rgb-converter.html"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "HEX RGB Converter",
+      "url": "https://free-online-seo-tools.vercel.app/tools/hex-rgb-converter.html",
+      "description": "Convert HEX color codes to RGB/RGBA values and vice versa locally in your web browser.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">›</span>
+            <a href="../index.html">Tools</a><span class="separator">›</span>
+            <span class="current">HEX ↔ RGB Converter</span>
+        </nav>
+        
+        <div class="hero" style="margin-bottom:1.5rem;">
+            <h1>HEX ↔ RGB Color Converter</h1>
+            <p>Convert HEX hexadecimals to RGB color codes and vice versa. Live visual updates, alpha channels, and HSL formats supported.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="tool-interface" style="max-width: 960px; margin: 0 auto;">
+            
+            <!-- Live Preview Block -->
+            <div id="preview" class="preview-box" style="background-color: #6366f1;">
+                <p id="preview-color-text" class="preview-text" style="color: #ffffff;">#6366F1</p>
+                <p id="preview-contrast-text" class="preview-desc" style="color: #ffffff;">rgb(99, 102, 241)</p>
+            </div>
+
+            <div class="converter-grid">
+                <!-- HEX Panel -->
+                <div class="converter-card">
+                    <h2 style="font-size:1.15rem; margin-bottom:1.2rem; color:var(--accent-primary); border-bottom:1px solid var(--border-light); padding-bottom:0.5rem;">HEX Input</h2>
+                    <div class="control-item">
+                        <label for="hex-input" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600; display:block; margin-bottom:0.4rem;">Enter HEX Code</label>
+                        <input type="text" id="hex-input" value="#6366f1" placeholder="#FFFFFF or 6366f1" oninput="convertFromHex()" style="width:100%; background:var(--bg-dark); border:1px solid var(--border-light); color:var(--text-primary); padding:0.75rem; border-radius:var(--radius-sm); outline:none; font-family:monospace; font-size:1.1rem;">
+                    </div>
+                    <div id="hex-error" style="color:var(--error); font-size:0.82rem; margin-top:0.4rem; display:none;">Invalid HEX Color format.</div>
+                </div>
+
+                <!-- RGB Panel -->
+                <div class="converter-card">
+                    <h2 style="font-size:1.15rem; margin-bottom:1.2rem; color:var(--accent-primary); border-bottom:1px solid var(--border-light); padding-bottom:0.5rem;">RGB/RGBA Input</h2>
+                    <div class="color-inputs-row">
+                        <div>
+                            <label for="rgb-r">Red (R)</label>
+                            <input type="number" id="rgb-r" min="0" max="255" value="99" oninput="convertFromRgb()">
+                        </div>
+                        <div>
+                            <label for="rgb-g">Green (G)</label>
+                            <input type="number" id="rgb-g" min="0" max="255" value="102" oninput="convertFromRgb()">
+                        </div>
+                        <div>
+                            <label for="rgb-b">Blue (B)</label>
+                            <input type="number" id="rgb-b" min="0" max="255" value="241" oninput="convertFromRgb()">
+                        </div>
+                        <div>
+                            <label for="rgb-a">Alpha (A)</label>
+                            <input type="number" id="rgb-a" min="0" max="1" step="0.1" value="1" oninput="convertFromRgb()">
+                        </div>
+                    </div>
+                    <div id="rgb-error" style="color:var(--error); font-size:0.82rem; margin-top:0.4rem; display:none;">Ensure RGB values are 0-255 and Alpha is 0-1.</div>
+                </div>
+            </div>
+
+            <!-- Calculated formats -->
+            <div style="background:var(--bg-card); border: 1px solid var(--border-light); border-radius:var(--radius-lg); padding: 1.5rem;">
+                <h3 style="font-size:1rem; margin-bottom:1rem; color:var(--text-primary);">Alternative Formats</h3>
+                <div class="results-list">
+                    <div class="result-item">
+                        <label>CSS Hex</label>
+                        <div>
+                            <span id="res-hex">#6366f1</span>
+                            <button onclick="copyToClipboard(document.getElementById('res-hex').innerText, this)" class="secondary" style="padding:0.25rem 0.6rem; font-size:0.75rem; margin-left:1rem;">Copy</button>
+                        </div>
+                    </div>
+                    <div class="result-item">
+                        <label>CSS RGB/RGBA</label>
+                        <div>
+                            <span id="res-rgb">rgb(99, 102, 241)</span>
+                            <button onclick="copyToClipboard(document.getElementById('res-rgb').innerText, this)" class="secondary" style="padding:0.25rem 0.6rem; font-size:0.75rem; margin-left:1rem;">Copy</button>
+                        </div>
+                    </div>
+                    <div class="result-item">
+                        <label>CSS HSL</label>
+                        <div>
+                            <span id="res-hsl">hsl(239, 84%, 67%)</span>
+                            <button onclick="copyToClipboard(document.getElementById('res-hsl').innerText, this)" class="secondary" style="padding:0.25rem 0.6rem; font-size:0.75rem; margin-left:1rem;">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 960px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Understanding HEX and RGB Color Codes</h2>
+            <p>Web styles and graphical assets utilize different alphanumeric formulas to express colors. Programmers typically reference **HEX values** (hexadecimal notation starting with a pound sign) in CSS files, while photo editing, native software, and UI design suites often display **RGB (Red, Green, Blue) coordinates**. Our free online **HEX ↔ RGB Converter** lets you instantly swap color codes dynamically inside your web browser.</p>
+
+            <h3>How to Convert Colors Locally:</h3>
+            <p>Translate formats seamlessly with instant visual feedback:</p>
+            <ul>
+                <li><strong>HEX to RGB:</strong> Enter any 3, 6, or 8-digit hexadecimal string (with or without a leading <code>#</code>) into the HEX field. The RGB values update instantly.</li>
+                <li><strong>RGB to HEX:</strong> Adjust the Red, Green, Blue, and opacity Alpha sliders/boxes in the RGB pane. The computed HEX hash will recalculate instantly.</li>
+                <li><strong>Alpha Channel Support:</strong> Support for opacity/transparency controls. Entering an 8-character hex code (e.g. <code>#6366f180</code>) yields an `rgba()` declaration, reflecting 50% opacity.</li>
+                <li><strong>Visual Preview Box:</strong> The live preview box shifts in color as you type. It automatically adjusts its content text color using a relative luminance check to maintain legible contrast.</li>
+            </ul>
+        </section>
+
+        <div class="faq-section" style="max-width: 960px; margin: 3rem auto 0 auto;">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">What is the difference between HEX and RGB color formats?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        HEX is a base-16 hexadecimal representation of colors (e.g., #FFFFFF for white). RGB represents colors based on intensity values of Red, Green, and Blue from 0 to 255 (e.g., rgb(255, 255, 255)). They translate to the exact same color, but use different notation styles.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Does this converter handle color opacity and transparency?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes, our tool fully supports alpha transparency channels. It translates HEX alpha notations (8 characters like #FFFFFF80 for 50% opacity) into CSS <code>rgba(255, 255, 255, 0.5)</code> declarations.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Are color conversions handled securely?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes, all code parsing and mathematics take place directly in your browser using local client-side JavaScript. No data is sent to external servers, providing full privacy and instant results.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/hex-rgb-converter/hex-rgb-converter.html">HEX ↔ RGB Converter</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        // Convert RGB to HSL
+        function rgbToHsl(r, g, b) {
+            r /= 255; g /= 255; b /= 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+
+            if (max === min) {
+                h = s = 0; // achromatic
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+            return {
+                h: Math.round(h * 360),
+                s: Math.round(s * 100),
+                l: Math.round(l * 100)
+            };
+        }
+
+        // Relative Luminance to calculate optimal text color (contrast check)
+        function getContrastYIQ(r, g, b) {
+            const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+            return (yiq >= 128) ? '#000000' : '#ffffff';
+        }
+
+        function hexToRgb(hex) {
+            // Remove '#'
+            hex = hex.replace(/^#/, '');
+
+            // Support shorthand
+            if (hex.length === 3) {
+                hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+            } else if (hex.length === 4) {
+                hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2] + hex[3] + hex[3];
+            }
+
+            if (hex.length !== 6 && hex.length !== 8) {
+                return null;
+            }
+
+            const r = parseInt(hex.substring(0, 2), 16);
+            const g = parseInt(hex.substring(2, 4), 16);
+            const b = parseInt(hex.substring(4, 6), 16);
+            let a = 1.0;
+
+            if (hex.length === 8) {
+                a = Math.round((parseInt(hex.substring(6, 8), 16) / 255) * 100) / 100;
+            }
+
+            if (isNaN(r) || isNaN(g) || isNaN(b) || isNaN(a)) {
+                return null;
+            }
+
+            return { r, g, b, a };
+        }
+
+        function rgbToHexStr(r, g, b, a) {
+            const rHex = r.toString(16).padStart(2, '0');
+            const gHex = g.toString(16).padStart(2, '0');
+            const bHex = b.toString(16).padStart(2, '0');
+            let aHex = '';
+            if (a < 1.0) {
+                aHex = Math.round(a * 255).toString(16).padStart(2, '0');
+            }
+            return `#${rHex}${gHex}${bHex}${aHex}`;
+        }
+
+        function updateUi(r, g, b, a, source) {
+            const hex = rgbToHexStr(r, g, b, a);
+            const rgbStr = a < 1.0 ? `rgba(${r}, ${g}, ${b}, ${a})` : `rgb(${r}, ${g}, ${b})`;
+            const hslObj = rgbToHsl(r, g, b);
+            const hslStr = `hsl(${hslObj.h}, ${hslObj.s}%, ${hslObj.l}%)`;
+
+            // Update Preview block
+            const preview = document.getElementById('preview');
+            const previewText = document.getElementById('preview-color-text');
+            const previewDesc = document.getElementById('preview-contrast-text');
+            
+            preview.style.backgroundColor = rgbaStyleString(r, g, b, a);
+            previewText.innerText = hex.toUpperCase();
+            previewDesc.innerText = rgbStr;
+
+            const contrastColor = getContrastYIQ(r, g, b);
+            previewText.style.color = contrastColor;
+            previewDesc.style.color = contrastColor;
+
+            // Update Input fields if not originating from that source
+            if (source !== 'hex') {
+                document.getElementById('hex-input').value = hex;
+            }
+            if (source !== 'rgb') {
+                document.getElementById('rgb-r').value = r;
+                document.getElementById('rgb-g').value = g;
+                document.getElementById('rgb-b').value = b;
+                document.getElementById('rgb-a').value = a;
+            }
+
+            // Update Results block
+            document.getElementById('res-hex').innerText = hex;
+            document.getElementById('res-rgb').innerText = rgbStr;
+            document.getElementById('res-hsl').innerText = hslStr;
+
+            // Clear errors
+            document.getElementById('hex-error').style.display = 'none';
+            document.getElementById('rgb-error').style.display = 'none';
+        }
+
+        function rgbaStyleString(r, g, b, a) {
+            return `rgba(${r}, ${g}, ${b}, ${a})`;
+        }
+
+        function convertFromHex() {
+            const input = document.getElementById('hex-input').value.trim();
+            const rgb = hexToRgb(input);
+            if (rgb) {
+                updateUi(rgb.r, rgb.g, rgb.b, rgb.a, 'hex');
+            } else {
+                document.getElementById('hex-error').style.display = 'block';
+            }
+        }
+
+        function convertFromRgb() {
+            const r = parseInt(document.getElementById('rgb-r').value);
+            const g = parseInt(document.getElementById('rgb-g').value);
+            const b = parseInt(document.getElementById('rgb-b').value);
+            const a = parseFloat(document.getElementById('rgb-a').value);
+
+            if (isNaN(r) || r < 0 || r > 255 ||
+                isNaN(g) || g < 0 || g > 255 ||
+                isNaN(b) || b < 0 || b > 255 ||
+                isNaN(a) || a < 0 || a > 1) {
+                document.getElementById('rgb-error').style.display = 'block';
+                return;
+            }
+
+            updateUi(r, g, b, a, 'rgb');
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            convertFromHex();
+        });
+    </script>
+</body>
+</html>

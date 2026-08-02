@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator Men & Women — BMI Calculator KG CM | RankifyTools</title>
+    <meta name="description" content="Calculate your Body Mass Index (BMI) online for men and women using kilograms (kg) and centimeters (cm). Evaluate weight categories and view healthy weight tables.">
+    <meta name="keywords" content="bmi calculator kg cm, bmi calculator men women, body mass index calculator, calculate healthy weight range">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/bmi-calculator-men-women">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/bmi-calculator-men-women">
+    <meta property="og:title" content="BMI Calculator Men & Women — Metric & Imperial | RankifyTools">
+    <meta property="og:description" content="Find your body mass index instantly using metric kg/cm controls. Dedicated advice for men and women.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "BMI Calculator Men & Women", "item": "https://free-online-seo-tools.vercel.app/bmi-calculator-men-women"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BMI Calculator Men & Women",
+      "url": "https://free-online-seo-tools.vercel.app/bmi-calculator-men-women",
+      "description": "Evaluate Body Mass Index using metric units (kg and cm) or imperial units for men and women.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the standard BMI formula for kg and cm?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The BMI formula is weight in kilograms divided by height in meters squared: BMI = kg / (cm / 100)^2."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are BMI ranges different for men and women?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The mathematical BMI formula is identical for men and women. However, body fat distributions and muscular density vary, so interpreting results may differ between genders."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a healthy BMI score?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "According to the World Health Organization (WHO), a BMI score between 18.5 and 24.9 is considered normal or healthy for adults."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+        .unit-toggle { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+        .toggle-btn { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-light); padding: 0.4rem 0.8rem; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.85rem; font-weight: 500; }
+        .toggle-btn.active { background: var(--accent-primary); border-color: var(--accent-primary); }
+        .gender-select { display: flex; gap: 1rem; margin-bottom: 1.2rem; }
+        .gender-label { display: flex; align-items: center; gap: 0.4rem; font-weight: 500; cursor: pointer; }
+        .bmi-gauge { height: 12px; border-radius: 6px; background: linear-gradient(to right, #60a5fa 0% 18.5%, #34d399 18.5% 25%, #fbbf24 25% 30%, #f87171 30% 100%); margin: 1.5rem 0 0.5rem 0; position: relative; }
+        .bmi-pointer { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid var(--accent-primary); position: absolute; top: -2px; transform: translateX(-50%); transition: left 0.3s ease; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">BMI Calculator Men & Women</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>BMI Calculator Men & Women</h1>
+            <p>Determine your Body Mass Index (BMI) using metric (kg and cm) or imperial inputs. Review health zones and custom weight classifications.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Inputs -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">1. Measurement Inputs</h2>
+
+                <div class="unit-toggle">
+                    <button class="toggle-btn active" id="metricToggle" onclick="switchUnit('metric')">Metric (kg / cm)</button>
+                    <button class="toggle-btn" id="imperialToggle" onclick="switchUnit('imperial')">Imperial (lbs / ft-in)</button>
+                </div>
+
+                <div class="gender-select">
+                    <label class="gender-label">
+                        <input type="radio" name="gender" value="male" checked onchange="calculateBMI()"> Male
+                    </label>
+                    <label class="gender-label">
+                        <input type="radio" name="gender" value="female" onchange="calculateBMI()"> Female
+                    </label>
+                </div>
+
+                <!-- Metric inputs -->
+                <div id="metricInputs">
+                    <div class="input-group" style="margin-bottom:1rem;">
+                        <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Height (cm)</label>
+                        <input type="number" id="heightCm" value="175" oninput="calculateBMI()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    </div>
+                    <div class="input-group">
+                        <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Weight (kg)</label>
+                        <input type="number" id="weightKg" value="70" oninput="calculateBMI()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    </div>
+                </div>
+
+                <!-- Imperial inputs -->
+                <div id="imperialInputs" style="display:none;">
+                    <div class="input-group" style="margin-bottom:1rem; display:flex; gap:0.5rem;">
+                        <div style="flex:1;">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Height (ft)</label>
+                            <input type="number" id="heightFt" value="5" oninput="calculateBMI()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        </div>
+                        <div style="flex:1;">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Height (in)</label>
+                            <input type="number" id="heightIn" value="9" oninput="calculateBMI()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Weight (lbs)</label>
+                        <input type="number" id="weightLbs" value="154" oninput="calculateBMI()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Results -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 380px;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">2. Health Estimation</h2>
+
+                <div style="text-align:center; padding:1.5rem 0;">
+                    <div style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px;">Your Body Mass Index (BMI)</div>
+                    <div id="bmiValue" style="font-size:3.5rem; font-weight:800; color:var(--accent-secondary); margin:0.4rem 0;">22.9</div>
+                    <div id="bmiCategory" style="font-size:1.25rem; font-weight:700; color:#34d399;">Normal Weight</div>
+                </div>
+
+                <div class="bmi-gauge">
+                    <div class="bmi-pointer" id="bmiPointer" style="left: 45%;"></div>
+                </div>
+
+                <div id="healthyWeightText" style="font-size:0.85rem; color:var(--text-secondary); text-align:center;">
+                    Healthy weight range: 56.7 kg - 76.2 kg
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>Understanding the BMI Calculator Men & Women (kg & cm)</h2>
+            <p>Body Mass Index (BMI) is a widely recognized weight-to-height ratio estimation method used to gauge body weight status. Our online free <strong>BMI Calculator Men & Women</strong> is optimized for both metric inputs using kilograms (kg) and centimeters (cm) and imperial units. It provides instant evaluations to identify whether you fall in the underweight, normal weight, overweight, or obese ranges.</p>
+
+            <h3>How BMI is Calculated Math</h3>
+            <p>The BMI formula scales an individual's weight against their height using a simple division calculation. The equations for both unit systems are listed below:</p>
+
+            <h4>1. Metric System (kg and cm)</h4>
+            <p>In the metric system, height must be converted from centimeters to meters before squaring:</p>
+            <pre><code>BMI = weight (kg) / [height (cm) / 100]^2</code></pre>
+            <p><em>Example:</em> For an individual weighing 70 kg and standing 175 cm tall, the calculation is: 70 / (1.75 * 1.75) = 70 / 3.0625 = 22.86 BMI.</p>
+
+            <h4>2. Imperial System (lbs and inches)</h4>
+            <p>If you prefer using pounds and feet, the height in inches is squared, and a conversion factor of 703 is applied:</p>
+            <pre><code>BMI = [weight (lbs) / height (inches)^2] * 703</code></pre>
+
+            <h3>WHO Weight Categories & Health Ranges</h3>
+            <p>According to World Health Organization (WHO) benchmarks, BMI values correlate with distinct fitness categories:</p>
+            <ul>
+                <li><strong>Underweight (BMI below 18.5):</strong> May indicate nutritional gaps or metabolic issues. Focus on balanced calorie increases.</li>
+                <li><strong>Normal Weight (BMI 18.5 to 24.9):</strong> Indicates a healthy balance between weight and height, correlated with lower cardiovascular risks.</li>
+                <li><strong>Overweight (BMI 25.0 to 29.9):</strong> Suggests carrying excess weight. Balanced dieting and regular cardio activities are recommended.</li>
+                <li><strong>Obese (BMI 30.0 and above):</strong> High proportion of body fat, increasing risks for chronic conditions like hypertension and type 2 diabetes.</li>
+            </ul>
+
+            <h3>Differences in BMI Interpretation for Men vs. Women</h3>
+            <p>Although the mathematical formula for BMI is identical for all adults, interpreting the results benefits from gender-specific context:</p>
+            <ul>
+                <li><strong>Muscle Mass Differences:</strong> Men typically possess higher muscle density than women. Because muscle tissue is heavier than fat tissue, highly active men or athletes might register as "overweight" even with exceptionally low body fat.</li>
+                <li><strong>Body Fat Distribution:</strong> Women naturally require a higher body fat percentage for hormonal balance and reproductive health. Fat distribution also differs, with women storing fat more around hips/thighs, and men around the waist (abdominal fat), which carries higher heart health risks.</li>
+            </ul>
+        </article>
+
+        <!-- FAQs Section -->
+        <div class="faq-section reveal">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <button class="faq-question">What is a normal BMI score for adults?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        A normal or healthy BMI score is defined as falling between 18.5 and 24.9 for both adult men and women.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is BMI accurate for bodybuilders and athletes?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        BMI does not distinguish between muscle mass and fat mass. Bodybuilders with high muscle mass can register as overweight or obese, despite having very low body fat.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What are the metric inputs for this BMI calculator?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        The metric inputs are weight in kilograms (kg) and height in centimeters (cm).
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How does gender selection affect the BMI calculation?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        The core mathematical formula remains the same, but the tool provides gender-specific insights, health tips, and customized healthy weight ranges for men and women.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        let currentUnit = 'metric';
+
+        function switchUnit(unit) {
+            currentUnit = unit;
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            if (unit === 'metric') {
+                document.getElementById('metricToggle').classList.add('active');
+                document.getElementById('metricInputs').style.display = 'block';
+                document.getElementById('imperialInputs').style.display = 'none';
+            } else {
+                document.getElementById('imperialToggle').classList.add('active');
+                document.getElementById('metricInputs').style.display = 'none';
+                document.getElementById('imperialInputs').style.display = 'block';
+            }
+            calculateBMI();
+        }
+
+        function calculateBMI() {
+            let weight = 0; // in kg
+            let height = 0; // in meters
+
+            if (currentUnit === 'metric') {
+                const heightCm = parseFloat(document.getElementById('heightCm').value) || 0;
+                const weightKg = parseFloat(document.getElementById('weightKg').value) || 0;
+                height = heightCm / 100;
+                weight = weightKg;
+            } else {
+                const heightFt = parseFloat(document.getElementById('heightFt').value) || 0;
+                const heightIn = parseFloat(document.getElementById('heightIn').value) || 0;
+                const weightLbs = parseFloat(document.getElementById('weightLbs').value) || 0;
+
+                const totalInches = (heightFt * 12) + heightIn;
+                height = totalInches * 0.0254; // convert to meters
+                weight = weightLbs * 0.453592; // convert to kg
+            }
+
+            if (height <= 0 || weight <= 0) return;
+
+            const bmi = weight / (height * height);
+
+            // Position pointer on gauge (15 BMI to 35 BMI mapped to 0% to 100%)
+            let pointerPct = ((bmi - 15) / (35 - 15)) * 100;
+            pointerPct = Math.max(0, Math.min(100, pointerPct));
+
+            // Categories
+            let category = '';
+            let color = '';
+            if (bmi < 18.5) {
+                category = 'Underweight';
+                color = '#60a5fa';
+            } else if (bmi >= 18.5 && bmi < 25.0) {
+                category = 'Normal Weight';
+                color = '#34d399';
+            } else if (bmi >= 25.0 && bmi < 30.0) {
+                category = 'Overweight';
+                color = '#fbbf24';
+            } else {
+                category = 'Obese';
+                color = '#f87171';
+            }
+
+            // Ideal weights range (WHO 18.5 - 24.9)
+            const minWeight = 18.5 * (height * height);
+            const maxWeight = 24.9 * (height * height);
+
+            // Render output
+            document.getElementById('bmiValue').textContent = bmi.toFixed(1);
+            document.getElementById('bmiCategory').textContent = category;
+            document.getElementById('bmiCategory').style.color = color;
+            document.getElementById('bmiPointer').style.left = `${pointerPct}%`;
+            document.getElementById('bmiPointer').style.borderColor = color;
+
+            if (currentUnit === 'metric') {
+                document.getElementById('healthyWeightText').textContent = `Healthy weight range: ${minWeight.toFixed(1)} kg - ${maxWeight.toFixed(1)} kg`;
+            } else {
+                const minWeightLbs = minWeight / 0.453592;
+                const maxWeightLbs = maxWeight / 0.453592;
+                document.getElementById('healthyWeightText').textContent = `Healthy weight range: ${minWeightLbs.toFixed(1)} lbs - ${maxWeightLbs.toFixed(1)} lbs`;
+            }
+        }
+
+        window.addEventListener('load', calculateBMI);
+    </script>
+</body>
+</html>

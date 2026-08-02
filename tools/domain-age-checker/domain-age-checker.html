@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://s0.wp.com; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com https://api.allorigins.win https://rdap.org https://*.rdap.org;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Age Checker — Free WHOIS Domain Age Tool | RankifyTools</title>
+    <meta name="description" content="Check the age of any domain name instantly. Discover domain registration date, expiry date, registry server details, and registrar name. 100% Free online tool.">
+    <meta name="keywords" content="domain age checker, check domain age, whois domain age, domain creation date, domain age checker free, website age checker">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/domain-age-checker">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/domain-age-checker">
+    <meta property="og:title" content="Domain Age Checker — Free WHOIS Lookup Tool | RankifyTools">
+    <meta property="og:description" content="Calculate the exact age of any website domain. View domain age in years, months, and days with registration and expiry schedules.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Domain Age Checker", "item": "https://free-online-seo-tools.vercel.app/domain-age-checker"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Domain Age Checker",
+      "url": "https://free-online-seo-tools.vercel.app/domain-age-checker",
+      "description": "Calculate exact website/domain age and fetch registry parameters utilizing public RDAP databases.",
+      "applicationCategory": "SEOApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <style>
+        .result-card { background: var(--bg-main); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem; }
+        .result-row { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border-light); padding-bottom: 0.5rem; font-size: 0.9rem; }
+        .result-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .result-lbl { color: var(--text-secondary); }
+        .result-val { color: var(--text-primary); font-weight: 600; }
+        .age-highlight { text-align: center; padding: 1.5rem; background: rgba(var(--accent-secondary-rgb), 0.05); border-radius: var(--radius-md); border: 1px solid rgba(var(--accent-secondary-rgb), 0.15); margin-bottom: 1rem; }
+        .age-val { font-size: 2rem; font-weight: 800; color: var(--accent-secondary); margin-top: 0.5rem; }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Domain Age Checker</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Domain Age Checker</h1>
+            <p>Determine the trust score of any domain. Check the registration dates, upcoming expiry schedules, and registration history in real-time.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Input Domain -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Enter Domain Name</h2>
+                
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                    <input type="text" id="domainInput" placeholder="e.g. google.com" style="flex:1; min-width:200px; padding:0.8rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-md); color:var(--text-primary);">
+                    <button class="tool-btn" onclick="checkDomainAge()" id="checkBtn">Calculate Domain Age</button>
+                </div>
+                
+                <p style="font-size:0.75rem; color:var(--text-secondary); margin:0;">Note: Queries direct registry network databases (RDAP) for exact metadata. Domain age calculations are computed instantly.</p>
+            </div>
+
+            <!-- Right Panel: Results -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Domain Age Details</h2>
+
+                <div id="resultsContainer" style="display:none;">
+                    <div class="age-highlight">
+                        <div style="font-size:0.8rem; color:var(--text-secondary); text-transform:uppercase; font-weight:600;">Calculated Age</div>
+                        <div class="age-val" id="ageOutput">-</div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-row">
+                            <span class="result-lbl">Domain Name:</span>
+                            <span class="result-val" id="resDomain">-</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-lbl">Created Date:</span>
+                            <span class="result-val" id="resCreated">-</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-lbl">Expiration Date:</span>
+                            <span class="result-val" id="resExpiry">-</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-lbl">Last Updated:</span>
+                            <span class="result-val" id="resUpdated">-</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-lbl">Registrar Name:</span>
+                            <span class="result-val" id="resRegistrar">-</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-lbl">WHOIS Status:</span>
+                            <span class="result-val" id="resStatus" style="font-size: 0.8rem;">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="placeholderText" style="text-align:center; padding:3rem 0; color:var(--text-secondary); font-style:italic;">
+                    Enter a domain and run query to view trust parameters.
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>How Domain Age Influences Search Engine Rankings</h2>
+            <p>Domain age refers to the length of time a website URL has been registered and active. When auditing competing websites or assessing search engine optimization potential, age is a critical off-page metric.</p>
+
+            <h3>Is Domain Age a Direct Ranking Factor?</h3>
+            <p>Google has clarified that domain age itself is not a direct primary ranking signal. However, it is closely correlated with search trust and rank authority. Older domains have spent years building backlinks, gaining organic CTR patterns, publishing content updates, and establishing historical credibility. This gives older domains a natural advantage over newly created URLs, which Google often reviews in a "sandbox" period to ensure legitimacy.</p>
+
+            <h3>How WHOIS and RDAP Registrations Work</h3>
+            <p>Registration metrics are managed by the Registration Data Access Protocol (RDAP) and WHOIS registries. Whenever a domain is purchased, the registrar records creation timestamps, expiration milestones, and structural owner details. Our free online utility queries these public RDAP nodes directly from your browser to pull exact calendar statistics, helping you calculate exactly how long a site has been registered.</p>
+
+            <h3>Applications of Domain Age Checkers</h3>
+            <ul>
+                <li><strong>Competitor Auditing:</strong> Check your competitors' ages to understand their authority base.</li>
+                <li><strong>Expiring Domain Hunting:</strong> Identify when premium domains expire to register them.</li>
+                <li><strong>Website Purchases:</strong> Validate domains on broker markets to prevent spam history scams.</li>
+            </ul>
+        </article>
+
+        <!-- FAQs Section -->
+        <div class="faq-section reveal">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <button class="faq-question">What is the difference between WHOIS and RDAP?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        WHOIS is the traditional protocol used to query databases that store the registered users or assignees of an Internet resource. RDAP (Registration Data Access Protocol) is the modern replacement for WHOIS, designed to return structured JSON data with secure, standardized access permissions.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Why does the tool sometimes show 'Not Found' for country TLDs?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Certain country code Top-Level Domains (ccTLDs like `.in`, `.co.uk`, or `.de`) enforce strict privacy rules and restrict automated RDAP querying. If a ccTLD blocks RDAP, you can verify it by clicking standard WHOIS lookup search alternatives.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Does checking a domain name affect its registration status?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No. Querying domain details is a read-only lookup process. It does not alter registration parameters or trigger registry purchases.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        const domainInput = document.getElementById('domainInput');
+        const checkBtn = document.getElementById('checkBtn');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const placeholderText = document.getElementById('placeholderText');
+
+        const ageOutput = document.getElementById('ageOutput');
+        const resDomain = document.getElementById('resDomain');
+        const resCreated = document.getElementById('resCreated');
+        const resExpiry = document.getElementById('resExpiry');
+        const resUpdated = document.getElementById('resUpdated');
+        const resRegistrar = document.getElementById('resRegistrar');
+        const resStatus = document.getElementById('resStatus');
+
+        async function checkDomainAge() {
+            let domain = domainInput.value.trim().toLowerCase();
+            if(!domain) {
+                showToast('Please enter a valid domain name', 'error');
+                return;
+            }
+
+            // Remove protocol and sub-paths if pasted
+            domain = domain.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
+            if (!domain.includes('.')) {
+                showToast('Please specify a valid domain suffix (e.g. google.com)', 'error');
+                return;
+            }
+
+            checkBtn.disabled = true;
+            checkBtn.innerText = 'Analyzing...';
+            placeholderText.style.display = 'none';
+            resultsContainer.style.display = 'none';
+
+            try {
+                // RDAP query with proxy bypass to avoid CORS
+                const rdapUrl = `https://rdap.org/domain/${domain}`;
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rdapUrl)}`;
+                
+                const res = await fetch(proxyUrl);
+                if (!res.ok) throw new Error('Query error');
+                const data = await res.json();
+                
+                if(!data.contents || data.contents.includes('"status": 404') || data.contents.includes('error 404')) {
+                    throw new Error('Domain not found in RDAP index');
+                }
+
+                const json = JSON.parse(data.contents);
+                
+                // Extract dates
+                let createdDate = null;
+                let expiryDate = null;
+                let updatedDate = null;
+                let registrar = 'Unknown';
+
+                if (json.events) {
+                    json.events.forEach(event => {
+                        const action = event.eventAction;
+                        const dateStr = event.eventDate;
+                        if (action === 'registration') createdDate = new Date(dateStr);
+                        if (action === 'expiration') expiryDate = new Date(dateStr);
+                        if (action === 'last changed') updatedDate = new Date(dateStr);
+                    });
+                }
+
+                // If registrar not directly found, check entities
+                if (json.entities) {
+                    json.entities.forEach(ent => {
+                        if (ent.roles && ent.roles.includes('registrar')) {
+                            if (ent.vcardArray && ent.vcardArray[1]) {
+                                const fnEntry = ent.vcardArray[1].find(item => item[0] === 'fn');
+                                if (fnEntry) registrar = fnEntry[3];
+                            }
+                        }
+                    });
+                }
+
+                if(!createdDate) {
+                    throw new Error('Could not find registration events. Try another TLD.');
+                }
+
+                // Fill values
+                resDomain.innerText = domain;
+                resCreated.innerText = createdDate.toLocaleDateString();
+                resExpiry.innerText = expiryDate ? expiryDate.toLocaleDateString() : 'N/A';
+                resUpdated.innerText = updatedDate ? updatedDate.toLocaleDateString() : 'N/A';
+                resRegistrar.innerText = registrar;
+                resStatus.innerText = json.status ? json.status.join(', ') : 'Active';
+
+                // Age Calculation
+                const now = new Date();
+                let diffYears = now.getFullYear() - createdDate.getFullYear();
+                let diffMonths = now.getMonth() - createdDate.getMonth();
+                let diffDays = now.getDate() - createdDate.getDate();
+
+                if (diffDays < 0) {
+                    diffMonths -= 1;
+                    // Get days in previous month
+                    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+                    diffDays += prevMonth;
+                }
+                if (diffMonths < 0) {
+                    diffYears -= 1;
+                    diffMonths += 12;
+                }
+
+                let ageText = '';
+                if(diffYears > 0) {
+                    ageText += `${diffYears} Yr${diffYears > 1 ? 's' : ''} `;
+                }
+                if(diffMonths > 0) {
+                    ageText += `${diffMonths} Mo${diffMonths > 1 ? 's' : ''} `;
+                }
+                ageText += `${diffDays} Day${diffDays > 1 ? 's' : ''}`;
+                
+                ageOutput.innerText = ageText.trim();
+                resultsContainer.style.display = 'block';
+                showToast('Domain WHOIS details parsed successfully!', 'success');
+            } catch(e) {
+                showToast(e.message || 'Error querying registrar server. Try .com/org domains.', 'error');
+                placeholderText.innerText = 'Could not retrieve registry WHOIS details. Try another domain extension.';
+                placeholderText.style.display = 'block';
+            } finally {
+                checkBtn.disabled = false;
+                checkBtn.innerText = 'Calculate Domain Age';
+            }
+        }
+    </script>
+</body>
+</html>

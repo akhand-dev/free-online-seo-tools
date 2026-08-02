@@ -1,0 +1,804 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Chat Generator Online â€” WhatsApp & Instagram Mockup Maker | RankifyTools</title>
+    <meta name="description" content="Generate fake WhatsApp and Instagram chat screenshot mockups online. Customize names, messages, timestamps, read statuses, and export as high-quality PNGs. 100% free.">
+    <meta name="keywords" content="fake chat generator, whatsapp mock chat maker, instagram fake text generator, fake chat screenshot, conversation simulator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/fake-chat-generator/fake-chat-generator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/fake-chat-generator.html">
+    <meta property="og:title" content="Fake Chat Generator Online â€” WhatsApp & Instagram Mockup Maker">
+    <meta property="og:description" content="Create customized WhatsApp or Instagram mock messages instantly. Add text, images, set statuses, and export as PNG.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <!-- html2canvas via cdnjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 850px) {
+            .split-layout {
+                grid-template-columns: 1.1fr 1fr;
+            }
+        }
+        .config-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .config-card h2 {
+            font-size: 1.15rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 0.5rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .input-group label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .input-group select, .input-group input[type="text"], .input-group textarea {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.6rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+            width: 100%;
+        }
+        .phone-frame-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* --- Mockup Phone styling --- */
+        .phone-mockup {
+            width: 360px;
+            height: 640px;
+            border: 12px solid #1a1a24;
+            border-radius: var(--radius-xl);
+            background: #efeae2; /* WhatsApp chat background default */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #000;
+        }
+        .phone-mockup.instagram-style {
+            background: #ffffff;
+            color: #000;
+        }
+        /* WhatsApp Header styling */
+        .mock-header {
+            background: #075e54;
+            color: #fff;
+            padding: 0.5rem 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+        .phone-mockup.instagram-style .mock-header {
+            background: #ffffff;
+            color: #000;
+            border-bottom: 1px solid #dbdbdb;
+            box-shadow: none;
+        }
+        .mock-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #ccc;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        .mock-user-info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .mock-user-name {
+            font-weight: bold;
+            font-size: 0.92rem;
+        }
+        .mock-user-status {
+            font-size: 0.72rem;
+            opacity: 0.85;
+        }
+        .phone-mockup.instagram-style .mock-user-status {
+            color: #262626;
+            opacity: 0.6;
+        }
+        /* Chat Body */
+        .mock-chat-body {
+            flex-grow: 1;
+            padding: 0.8rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23efeae2" width="100" height="100"/></svg>');
+        }
+        .phone-mockup.instagram-style .mock-chat-body {
+            background: #ffffff;
+        }
+        /* Bubbles */
+        .bubble {
+            max-width: 75%;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.85rem;
+            border-radius: var(--radius-sm);
+            line-height: 1.4;
+            position: relative;
+            word-wrap: break-word;
+        }
+        /* WhatsApp styles */
+        .bubble.wa-me {
+            background: #d9fdd3;
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        .bubble.wa-them {
+            background: #ffffff;
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        /* Instagram styles */
+        .bubble.ig-me {
+            background: #3797f0;
+            color: #fff;
+            align-self: flex-end;
+            border-radius: 18px;
+            border-bottom-right-radius: 4px;
+        }
+        .bubble.ig-them {
+            background: #efefef;
+            color: #000;
+            align-self: flex-start;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+        }
+        .bubble-meta {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.2rem;
+            font-size: 0.68rem;
+            color: #667781;
+            margin-top: 0.25rem;
+            text-align: right;
+        }
+        .bubble.ig-me .bubble-meta {
+            color: rgba(255,255,255,0.7);
+        }
+        .bubble-img {
+            max-width: 100%;
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+        /* Mock input footer */
+        .mock-footer {
+            background: #f0f2f5;
+            padding: 0.4rem 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .phone-mockup.instagram-style .mock-footer {
+            background: #ffffff;
+            border-top: 1px solid #dbdbdb;
+        }
+        .mock-input-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 0.4rem 0.8rem;
+            flex-grow: 1;
+            font-size: 0.85rem;
+            color: #8f8f8f;
+            border: 1px solid #e0e0e0;
+        }
+        .phone-mockup.instagram-style .mock-input-box {
+            border-radius: 24px;
+        }
+        .message-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.25);
+            border: 1px solid var(--border-light);
+            padding: 0.5rem 0.8rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.4rem;
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">â€º</span>
+            <a href="../index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">Fake Chat Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Fake Chat Generator</h1>
+            <p>Create WhatsApp or Instagram style mock conversations. Set users, type messages, upload images, and export clean PNG screenshots.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="split-layout" style="max-width: 1000px; margin: 0 auto;">
+            
+            <!-- Left pane config -->
+            <div>
+                <!-- Styling choice -->
+                <div class="config-card">
+                    <h2>1. Choose Chat Style</h2>
+                    <div class="input-group">
+                        <label for="chat-style">Mock Style</label>
+                        <select id="chat-style" onchange="updateStyle()">
+                            <option value="whatsapp">WhatsApp Style</option>
+                            <option value="instagram">Instagram Style</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Header Options -->
+                <div class="config-card">
+                    <h2>2. Chat Header Details</h2>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="header-name">Partner Name</label>
+                            <input type="text" id="header-name" value="Jane Doe" oninput="updateHeader()">
+                        </div>
+                        <div class="input-group">
+                            <label for="header-status">Status text</label>
+                            <input type="text" id="header-status" value="online" oninput="updateHeader()">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Partner Avatar</label>
+                        <input type="file" id="avatar-input" accept="image/*" onchange="handleAvatar(this)" style="background:var(--bg-dark); color:#fff; border:1px solid var(--border-light); padding:0.4rem; font-size:0.8rem;">
+                    </div>
+                </div>
+
+                <!-- Add Message -->
+                <div class="config-card">
+                    <h2>3. Add Message</h2>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="msg-sender">Sender</label>
+                            <select id="msg-sender">
+                                <option value="me">Me (Right bubble)</option>
+                                <option value="them">Them (Left bubble)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="msg-time">Timestamp</label>
+                            <input type="text" id="msg-time" value="10:45 AM">
+                        </div>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 1rem;">
+                        <label for="msg-text">Message Content</label>
+                        <textarea id="msg-text" rows="3" placeholder="Enter message text..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Attach Image (Optional)</label>
+                            <input type="file" id="msg-img-input" accept="image/*" style="background:var(--bg-dark); color:#fff; border:1px solid var(--border-light); padding:0.4rem; font-size:0.8rem;">
+                        </div>
+                        <div class="input-group">
+                            <label for="msg-status">WhatsApp Read Status</label>
+                            <select id="msg-status">
+                                <option value="read">Read (Blue checks)</option>
+                                <option value="delivered">Delivered (Grey checks)</option>
+                                <option value="sent">Sent (Single check)</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 1.2rem;">
+                        <button type="button" onclick="addMessage()" style="padding:0.6rem 1.8rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:700; cursor:pointer;">âž• Add Message</button>
+                    </div>
+                </div>
+
+                <!-- Message List management -->
+                <div class="config-card">
+                    <h2>Manage Messages</h2>
+                    <div id="message-list-manager">
+                        <p style="font-size:0.85rem; color:var(--text-secondary);">No messages added yet.</p>
+                    </div>
+                    <div style="margin-top:1rem; text-align:center;">
+                        <button type="button" onclick="clearChat()" class="secondary" style="padding:0.5rem 1.2rem; font-size:0.85rem;">Clear All Messages</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right phone preview -->
+            <div class="phone-frame-wrapper">
+                <div style="position: sticky; top: 80px; text-align: center;">
+                    <div id="phone-frame" class="phone-mockup">
+                        
+                        <!-- Header -->
+                        <div class="mock-header" id="mock-header">
+                            <div class="mock-avatar" id="avatar-frame">ðŸ‘¤</div>
+                            <div class="mock-user-info">
+                                <span class="mock-user-name" id="preview-name">Jane Doe</span>
+                                <span class="mock-user-status" id="preview-status">online</span>
+                            </div>
+                        </div>
+
+                        <!-- Chat Area -->
+                        <div class="mock-chat-body" id="chat-body">
+                            <!-- Messages generated here -->
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="mock-footer" id="mock-footer">
+                            <div class="mock-input-box" id="mock-footer-txt">Type a message...</div>
+                        </div>
+
+                    </div>
+
+                    <!-- Screenshot action -->
+                    <div style="margin-top: 1.5rem;">
+                        <button type="button" onclick="downloadScreenshot()" style="padding:0.75rem 2.2rem; background:var(--success); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:700; cursor:pointer;">ðŸ’¾ Download Chat Mockup (PNG)</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 1000px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>WhatsApp & Instagram Chat Simulator Online</h2>
+            <p>Creating digital message mockups is extremely useful for authors planning script graphics, marketers drafting social advertisements, or creators compiling scenario templates. Our free **Fake Chat Generator** simulates WhatsApp and Instagram UI displays directly in your local browser. Because it runs purely on client-side JS without uploading databases, your conversation details remain private.</p>
+
+            <h3>How to Build Mock Dialogues:</h3>
+            <ul>
+                <li><strong>Select Layout Style:</strong> Swap between WhatsApp and Instagram view templates. All fonts, background wallpapers, header shades, and status checks update instantly.</li>
+                <li><strong>Setup User Headers:</strong> Edit the partner name (e.g. Jane Doe), choose statuses (typing, online, or custom timestamps), and upload a custom partner avatar image.</li>
+                <li><strong>Construct Conversations:</strong> Type message text, upload photo files if needed, set timestamps, choose tick checkmarks (for WhatsApp), and click **Add Message**.</li>
+                <li><strong>Re-order and Manage:</strong> Review the message manager to remove items or clear the stack easily.</li>
+                <li><strong>Download Screenshot:</strong> Tap **Download Chat Mockup** to run `html2canvas` locally, converting the preview frame into a high-resolution PNG file.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/fake-chat-generator/fake-chat-generator.html">Fake Chat Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        let messages = [];
+        let partnerAvatarUrl = '';
+
+        function updateStyle() {
+            const style = document.getElementById('chat-style').value;
+            const phone = document.getElementById('phone-frame');
+            
+            phone.className = 'phone-mockup ' + (style === 'instagram' ? 'instagram-style' : '');
+            
+            // Header updates
+            const header = document.getElementById('mock-header');
+            const footerTxt = document.getElementById('mock-footer-txt');
+            
+            if (style === 'instagram') {
+                header.style.color = '#000';
+                footerTxt.innerText = 'Message...';
+            } else {
+                header.style.color = '#fff';
+                footerTxt.innerText = 'Type a message...';
+            }
+
+            renderMessages();
+        }
+
+        function updateHeader() {
+            const name = document.getElementById('header-name').value;
+            const status = document.getElementById('header-status').value;
+            
+            document.getElementById('preview-name').innerText = name;
+            document.getElementById('preview-status').innerText = status;
+        }
+
+        function handleAvatar(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                partnerAvatarUrl = e.target.result;
+                const avatar = document.getElementById('avatar-frame');
+                avatar.innerHTML = `<img src="${partnerAvatarUrl}" style="width:100%; height:100%; object-fit:cover;">`;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function addMessage() {
+            const sender = document.getElementById('msg-sender').value;
+            const time = document.getElementById('msg-time').value;
+            const text = document.getElementById('msg-text').value;
+            const status = document.getElementById('msg-status').value;
+            const imgInput = document.getElementById('msg-img-input');
+
+            if (!text.trim() && !imgInput.files[0]) return;
+
+            const message = {
+                id: Date.now(),
+                sender: sender,
+                time: time,
+                text: text,
+                status: status,
+                imgUrl: ''
+            };
+
+            if (imgInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    message.imgUrl = e.target.result;
+                    messages.push(message);
+                    renderMessages();
+                    imgInput.value = '';
+                    document.getElementById('msg-text').value = '';
+                };
+                reader.readAsDataURL(imgInput.files[0]);
+            } else {
+                messages.push(message);
+                renderMessages();
+                document.getElementById('msg-text').value = '';
+            }
+        }
+
+        function renderMessages() {
+            const chatBody = document.getElementById('chat-body');
+            const manager = document.getElementById('message-list-manager');
+            const style = document.getElementById('chat-style').value;
+
+            chatBody.innerHTML = '';
+            
+            if (messages.length === 0) {
+                manager.innerHTML = '<p style="font-size:0.85rem; color:var(--text-secondary);">No messages added yet.</p>';
+                return;
+            }
+
+            manager.innerHTML = '';
+
+            messages.forEach((msg, idx) => {
+                // RENDER CHAT BUBBLE
+                const isMe = msg.sender === 'me';
+                const bubble = document.createElement('div');
+                
+                let bubbleClass = '';
+                if (style === 'whatsapp') {
+                    bubbleClass = isMe ? 'bubble wa-me' : 'bubble wa-them';
+                } else {
+                    bubbleClass = isMe ? 'bubble ig-me' : 'bubble ig-them';
+                }
+                bubble.className = bubbleClass;
+
+                // Image content if present
+                let imgHtml = '';
+                if (msg.imgUrl) {
+                    imgHtml = `<img src="${msg.imgUrl}" class="bubble-img">`;
+                }
+
+                // Checkmarks status helper
+                let checks = '';
+                if (style === 'whatsapp' && isMe) {
+                    if (msg.status === 'read') checks = '<span style="color:#34b7f1;">âœ“âœ“</span>';
+                    else if (msg.status === 'delivered') checks = '<span style="color:#8696a0;">âœ“âœ“</span>';
+                    else if (msg.status === 'sent') checks = '<span style="color:#8696a0;">âœ“</span>';
+                }
+
+                bubble.innerHTML = `
+                    ${imgHtml}
+                    ${msg.text ? `<div>${msg.text.replace(/\n/g, '<br>')}</div>` : ''}
+                    <div class="bubble-meta">
+                        <span>${msg.time}</span>
+                        ${checks}
+                    </div>
+                `;
+                chatBody.appendChild(bubble);
+
+                // RENDER MANAGER ITEM
+                const item = document.createElement('div');
+                item.className = 'message-list-item';
+                item.innerHTML = `
+                    <span style="font-size:0.8rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:80%;">
+                        <strong>${isMe ? 'Me' : 'Them'}:</strong> ${msg.text || '[Image]'}
+                    </span>
+                    <button type="button" onclick="removeMessage(${msg.id})" style="background:var(--error); border:none; color:#fff; padding:0.25rem 0.5rem; font-size:0.75rem; border-radius:var(--radius-sm); cursor:pointer;">Delete</button>
+                `;
+                manager.appendChild(item);
+            });
+
+            // Scroll chat to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function removeMessage(id) {
+            messages = messages.filter(m => m.id !== id);
+            renderMessages();
+        }
+
+        function clearChat() {
+            messages = [];
+            renderMessages();
+        }
+
+        function downloadScreenshot() {
+            const frame = document.getElementById('phone-frame');
+            html2canvas(frame, {
+                useCORS: true,
+                scale: 2 // High resolution scale
+            }).then(canvas => {
+                const url = canvas.toDataURL('image/png');
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'chat-mockup.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            updateStyle();
+            updateHeader();
+        });
+    </script>
+</body>
+</html>
+
+    <title>Fake Chat Generator Online â€” WhatsApp & Instagram Mockups | RankifyTools</title>
+    <meta name="description" content="Generate fake WhatsApp and Instagram chat screenshot mockups online. Customize names, messages, timestamps, read statuses, and export as PNG.">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/fake-chat-generator">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/fake-chat-generator">
+    <meta property="og:title" content="Fake Chat Generator Online | RankifyTools">
+    <meta property="og:description" content="Create customized WhatsApp or Instagram mock messages instantly. Add text, set statuses, and export as PNG.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+        .split-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 850px) { .split-layout { grid-template-columns: 1.1fr 1fr; } }
+        .config-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.2rem; }
+        .config-card h2 { font-size: 1.15rem; color: var(--accent-primary); margin-bottom: 1rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+        .input-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .input-group label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; }
+        .input-group select, .input-group input[type="text"], .input-group textarea { background: var(--bg-dark); border: 1px solid var(--border-light); color: var(--text-primary); padding: 0.6rem; border-radius: var(--radius-sm); outline: none; width: 100%; }
+        .phone-frame-wrapper { display: flex; justify-content: center; align-items: center; }
+        .phone-mockup { width: 360px; height: 640px; border: 12px solid #1a1a24; border-radius: var(--radius-xl); background: #efeae2; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-lg); position: relative; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #000; }
+        .phone-mockup.instagram-style { background: #ffffff; color: #000; }
+        .mock-header { background: #075e54; color: #fff; padding: 0.5rem 0.8rem; display: flex; align-items: center; gap: 0.6rem; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+        .phone-mockup.instagram-style .mock-header { background: #ffffff; color: #000; border-bottom: 1px solid #dbdbdb; box-shadow: none; }
+        .mock-avatar { width: 36px; height: 36px; border-radius: 50%; background: #ccc; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #fff; }
+        .mock-user-info { display: flex; flex-direction: column; flex-grow: 1; }
+        .mock-user-name { font-weight: bold; font-size: 0.92rem; }
+        .mock-user-status { font-size: 0.72rem; opacity: 0.85; }
+        .phone-mockup.instagram-style .mock-user-status { color: #262626; opacity: 0.6; }
+        .mock-chat-body { flex-grow: 1; padding: 0.8rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.6rem; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23efeae2" width="100" height="100"/></svg>'); }
+        .phone-mockup.instagram-style .mock-chat-body { background: #ffffff; }
+        .bubble { max-width: 75%; padding: 0.5rem 0.75rem; font-size: 0.85rem; border-radius: var(--radius-sm); line-height: 1.4; position: relative; word-wrap: break-word; }
+        .bubble.wa-me { background: #d9fdd3; align-self: flex-end; border-bottom-right-radius: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+        .bubble.wa-them { background: #ffffff; align-self: flex-start; border-bottom-left-radius: 0; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+        .bubble.ig-me { background: #3797f0; color: #fff; align-self: flex-end; border-radius: 18px; border-bottom-right-radius: 4px; }
+        .bubble.ig-them { background: #efefef; color: #000; align-self: flex-start; border-radius: 18px; border-bottom-left-radius: 4px; }
+        .bubble-meta { display: flex; justify-content: flex-end; align-items: center; gap: 0.2rem; font-size: 0.68rem; color: #667781; margin-top: 0.25rem; text-align: right; }
+        .bubble.ig-me .bubble-meta { color: rgba(255,255,255,0.7); }
+        .mock-footer { background: #f0f2f5; padding: 0.4rem 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+        .phone-mockup.instagram-style .mock-footer { background: #ffffff; border-top: 1px solid #dbdbdb; }
+        .mock-input-box { background: #ffffff; border-radius: 20px; padding: 0.4rem 0.8rem; flex-grow: 1; font-size: 0.85rem; color: #8f8f8f; border: 1px solid #e0e0e0; }
+    <script defer src="js/speed-insights.js"></script>
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+            <h1>Fake Chat Generator Online</h1>
+            <p>Generate fake WhatsApp and Instagram chat screenshot mockups online. Customize names, messages, timestamps, read statuses, and export as PNG.</p>
+        <div class="split-layout" style="max-width: 1050px; margin: 2rem auto 0 auto;">
+            <!-- Config controls -->
+                    <h2>1. General Settings</h2>
+                            <label for="chat-style">Chat Application</label>
+                            <select id="chat-style" onchange="toggleStyle()">
+                                <option value="whatsapp">WhatsApp</option>
+                                <option value="instagram">Instagram</option>
+                            <label for="contact-name">Contact Name</label>
+                            <input type="text" id="contact-name" value="Jane Doe" oninput="updateHeader()">
+                            <label for="contact-status">Status (Online, Typing)</label>
+                            <input type="text" id="contact-status" value="online" oninput="updateHeader()">
+                    <h2>2. Add Message Bubble</h2>
+                        <label for="message-sender">Sender</label>
+                        <select id="message-sender">
+                            <option value="me">Me (Right / Green)</option>
+                            <option value="them">Them (Left / White)</option>
+                        <label for="message-text">Message Text</label>
+                        <textarea id="message-text" rows="3" placeholder="Type mock message text here..."></textarea>
+                            <label for="message-time">Timestamp</label>
+                            <input type="text" id="message-time" value="12:05 PM">
+                            <label for="message-status">WhatsApp Status ticks</label>
+                            <select id="message-status">
+                                <option value="sent">âœ“ Sent</option>
+                                <option value="delivered">âœ“âœ“ Delivered</option>
+                                <option value="read" selected>âœ“âœ“ Read (Blue)</option>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <button type="button" class="btn-primary" onclick="addMessageBubble()" style="padding: 0.6rem 1.5rem;">Add Message ðŸ’¬</button>
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <button type="button" onclick="exportMockup()" class="btn-primary" style="padding: 0.8rem 2.2rem; font-weight:700; background:var(--success);">Export Screenshot (PNG) ðŸ“·</button>
+            <!-- Preview Screen -->
+                <div id="phone-container" class="phone-mockup">
+                    <div class="mock-header">
+                        <div class="mock-avatar">ðŸ‘¤</div>
+                        <div class="mock-user-info">
+                            <span class="mock-user-name" id="mock-name">Jane Doe</span>
+                            <span class="mock-user-status" id="mock-status">online</span>
+                    <div class="mock-chat-body" id="chat-body-area">
+                        <!-- Messages render here -->
+                        <div class="bubble wa-them">
+                            Hey! Are you free today?
+                            <div class="bubble-meta"><span>12:00 PM</span></div>
+                        <div class="bubble wa-me">
+                            Yeah, what's up?
+                            <div class="bubble-meta"><span>12:01 PM</span> <span style="color:#53bdeb;">âœ“âœ“</span></div>
+                    <div class="mock-footer">
+                        <div class="mock-input-box">Type a message</div>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+                    <h4>Calculators</h4>
+                        <li><a href="/sip-calculator-india">SIP Calculator</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                    <h4>Utilities</h4>
+                        <li><a href="/merge-pdf-online-free">Merge PDF</a></li>
+                        <li><a href="/split-pdf-pages-online">Split PDF</a></li>
+    <script src="js/main.js" defer></script>
+        function toggleStyle() {
+            const container = document.getElementById('phone-container');
+            container.className = 'phone-mockup ' + (style === 'instagram' ? 'instagram-style' : '');
+            const bubbles = document.querySelectorAll('.bubble');
+            bubbles.forEach(b => {
+                const isMe = b.classList.contains('wa-me') || b.classList.contains('ig-me');
+                b.className = 'bubble ' + (style === 'instagram' ? (isMe ? 'ig-me' : 'ig-them') : (isMe ? 'wa-me' : 'wa-them'));
+            document.getElementById('mock-name').innerText = document.getElementById('contact-name').value;
+            document.getElementById('mock-status').innerText = document.getElementById('contact-status').value;
+        function addMessageBubble() {
+            const sender = document.getElementById('message-sender').value;
+            const text = document.getElementById('message-text').value.trim();
+            const time = document.getElementById('message-time').value.trim();
+            const status = document.getElementById('message-status').value;
+            const app = document.getElementById('chat-style').value;
+            if (!text) {
+                alert('Please enter some message text.');
+            const bubble = document.createElement('div');
+            const isMe = sender === 'me';
+            bubble.className = 'bubble ' + (app === 'instagram' ? (isMe ? 'ig-me' : 'ig-them') : (isMe ? 'wa-me' : 'wa-them'));
+            let metaHtml = `<span>${time}</span>`;
+            if (isMe && app === 'whatsapp') {
+                let check = 'âœ“';
+                let color = 'inherit';
+                if (status === 'delivered') check = 'âœ“âœ“';
+                if (status === 'read') { check = 'âœ“âœ“'; color = '#53bdeb'; }
+                metaHtml += ` <span style="color:${color};">${check}</span>`;
+            bubble.innerHTML = `${text}<div class="bubble-meta">${metaHtml}</div>`;
+            document.getElementById('chat-body-area').appendChild(bubble);
+            document.getElementById('message-text').value = '';
+        function exportMockup() {
+            const node = document.getElementById('phone-container');
+            html2canvas(node, { useCORS: true, backgroundColor: null }).then(canvas => {

@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Image Background Free — Transparent PNG Maker | RankifyTools</title>
+    <meta name="description" content="Remove image background free online. Erase backgrounds, key out chroma green screens or white backdrops, and download transparent PNG files locally.">
+    <meta name="keywords" content="remove image background free, transparent background maker, white background remover, crop background from photo, magic wand transparency canvas">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/remove-image-background-free">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/remove-image-background-free">
+    <meta property="og:title" content="Remove Image Background Free — Make PNGs Transparent | RankifyTools">
+    <meta property="og:description" content="Erase backgrounds and make images transparent instantly. Privacy-first, local browser tool.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Remove Image Background Free", "item": "https://free-online-seo-tools.vercel.app/remove-image-background-free"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Remove Image Background Free Online Tool",
+      "url": "https://free-online-seo-tools.vercel.app/remove-image-background-free",
+      "description": "Erase backgrounds and key out solid backdrops locally in your browser. Generates transparent PNGs.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the Magic Wand tool remove backgrounds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Magic Wand uses a flood-fill algorithm that evaluates pixel colors starting where you click. It marks matching pixels transparent based on your selected tolerance level."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I remove a solid white background from my logo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, select the 'Color Keyer' tool, choose white as your target color, adjust the tolerance if needed, and click 'Remove Color' to make the background transparent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my uploaded photos secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our background remover operates 100% locally in your web browser. None of your photos are uploaded to any server or shared with third parties."
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+        .canvas-container { position: relative; border: 2px dashed var(--border-light); border-radius: var(--radius-lg); background: repeating-conic-gradient(#1c1c24 0% 25%, #2a2a35 0% 50%) 50% / 20px 20px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 380px; }
+        canvas { max-width: 100%; max-height: 500px; display: block; cursor: crosshair; }
+        .editor-tools { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem; padding: 0.8rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: var(--radius-md); }
+        .tool-btn { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-light); padding: 0.5rem 1rem; border-radius: var(--radius-sm); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-weight: 500; font-size: 0.9rem; }
+        .tool-btn.active { background: var(--accent-primary); border-color: var(--accent-primary); }
+    </style>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Remove Image Background Free</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Remove Image Background Free</h1>
+            <p>Erase background backdrops and generate transparent PNGs instantly. Use the Magic Wand flood-fill or select target colors to erase.</p>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+            <!-- Dropzone -->
+            <div id="dropzone" style="border: 2px dashed var(--border-light); border-radius: var(--radius-lg); padding: 3rem 1.5rem; text-align: center; cursor: pointer; transition: all 0.3s; background: var(--bg-card);">
+                <span style="font-size: 3.5rem; display: block; margin-bottom: 1rem;">✂️</span>
+                <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Drag and drop your image here</p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Supports JPG, PNG, WebP up to 10MB</p>
+                <button type="button" class="btn-primary" style="pointer-events:none;">Browse Image</button>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            </div>
+
+            <!-- Editor Interface -->
+            <div id="editorArea" style="display: none; flex-direction: column; gap: 1rem;">
+                <div class="editor-tools">
+                    <button class="tool-btn active" id="wandToolBtn" onclick="setTool('wand')">🪄 Magic Wand</button>
+                    <button class="tool-btn" id="keyToolBtn" onclick="setTool('key')">🎨 Color Keyer</button>
+                    
+                    <div style="display:flex; align-items:center; gap:0.6rem; border-left:1px solid var(--border-light); padding-left:0.8rem; margin-left:0.4rem;">
+                        <span style="font-size:0.85rem; color:var(--text-secondary);">Tolerance:</span>
+                        <input type="range" id="toleranceSlider" min="0" max="150" value="35" style="width:120px; cursor:pointer;" oninput="updateTolerance(this.value)">
+                        <span id="toleranceVal" style="font-size:0.85rem; font-weight:bold;">35</span>
+                    </div>
+
+                    <div id="keyColorPicker" style="display:none; align-items:center; gap:0.5rem; border-left:1px solid var(--border-light); padding-left:0.8rem; margin-left:0.4rem;">
+                        <span style="font-size:0.85rem; color:var(--text-secondary);">Target Color:</span>
+                        <input type="color" id="keyColor" value="#ffffff" style="cursor:pointer; border:none; padding:0; width:30px; height:30px; background:none;">
+                        <button class="btn-primary" onclick="applyColorKey()" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Remove Color</button>
+                    </div>
+
+                    <div style="margin-left:auto; display:flex; gap:0.6rem;">
+                        <button class="tool-btn" onclick="resetCanvas()" style="color:#ef4444; border-color:rgba(239,68,68,0.2);">Reset</button>
+                        <button class="btn-primary" onclick="downloadPNG()" style="font-weight:600;">Download PNG</button>
+                    </div>
+                </div>
+
+                <div class="canvas-container">
+                    <canvas id="editorCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>Guide to Remove Image Background Free Online</h2>
+            <p>Creating transparent images is an essential step for web designers, digital creators, and e-commerce sellers. Whether you are creating clean product mockups for marketplaces, designing avatars, or making banners, you frequently need to <strong>remove image background free</strong>. Our local browser utility delivers transparent results in seconds without uploading files to third-party servers.</p>
+
+            <h3>Why Local Client-Side Background Removal is Better</h3>
+            <p>Standard online background removers require you to upload your images to remote servers, where automated AI tools process them. This is slow, requires constant internet connections, and raises privacy concerns if you are working with corporate logos, private photos, or personal documents. Our tool executes all pixel evaluations locally inside your browser using the HTML5 Canvas API, ensuring complete privacy.</p>
+
+            <h3>How to Use the Magic Wand & Color Keyer</h3>
+            <p>Our editor provides two convenient methods for creating transparency:</p>
+            
+            <h4>1. 🪄 The Magic Wand Tool</h4>
+            <p>The Magic Wand uses a flood-fill algorithm that evaluates neighboring pixels when you click on the image. It marks matching pixels transparent based on a tolerance slider:</p>
+            <ul>
+                <li><strong>Low Tolerance (0-20):</strong> Erases only pixels that are an exact color match to where you clicked. Useful for sharp, clean edges.</li>
+                <li><strong>High Tolerance (30-80):</strong> Erases a wider range of similar shades. Perfect for backgrounds with slight gradients or lighting changes.</li>
+            </ul>
+
+            <h4>2. 🎨 The Color Keyer Tool</h4>
+            <p>If your photo features a solid green backdrop (chroma key) or a studio white background, the Color Keyer is the most efficient choice. Pick your target color, set your tolerance, and click "Remove Color". The tool will instantly key out that specific color across the entire image.</p>
+        </article>
+
+        <!-- FAQs Section -->
+        <div class="faq-section reveal">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="faq-item">
+                <button class="faq-question">How can I make my image background transparent for free?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Drag and drop your photo into the workspace above, select the Magic Wand tool, and click on the background area you wish to remove. Download the result as a transparent PNG file.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What is a transparent PNG file?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        A transparent PNG is an image format that supports alpha channel transparency. This allows your logos or products to sit cleanly on top of web backgrounds, solid colors, or other images.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is my image uploaded to external servers?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No. The entire background removal, pixel flood-fill, and PNG packaging are processed locally in your browser. None of your files are sent over the internet.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const editorArea = document.getElementById('editorArea');
+        const canvas = document.getElementById('editorCanvas');
+        const ctx = canvas.getContext('editorCanvas').getContext('2d');
+
+        let originalImage = null;
+        let currentTool = 'wand';
+        let tolerance = 35;
+
+        dropzone.addEventListener('click', () => fileInput.click());
+        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.style.borderColor = 'var(--accent-primary)'; });
+        dropzone.addEventListener('dragleave', () => { dropzone.style.borderColor = 'var(--border-light)'; });
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.style.borderColor = 'var(--border-light)';
+            if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) handleFile(e.target.files[0]);
+        });
+
+        function handleFile(file) {
+            if (!file.type.startsWith('image/')) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                originalImage = new Image();
+                originalImage.onload = function() {
+                    dropzone.style.display = 'none';
+                    editorArea.style.display = 'flex';
+                    initCanvas();
+                };
+                originalImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function initCanvas() {
+            canvas.width = originalImage.width;
+            canvas.height = originalImage.height;
+            ctx.drawImage(originalImage, 0, 0);
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            document.getElementById('wandToolBtn').classList.toggle('active', tool === 'wand');
+            document.getElementById('keyToolBtn').classList.toggle('active', tool === 'key');
+            document.getElementById('keyColorPicker').style.display = tool === 'key' ? 'flex' : 'none';
+        }
+
+        function updateTolerance(val) {
+            tolerance = parseInt(val);
+            document.getElementById('toleranceVal').textContent = val;
+        }
+
+        // Magic Wand Click
+        canvas.addEventListener('click', (e) => {
+            if (currentTool !== 'wand') return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = Math.round(((e.clientX - rect.left) / rect.width) * canvas.width);
+            const y = Math.round(((e.clientY - rect.top) / rect.height) * canvas.height);
+
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+            const targetIdx = (y * canvas.width + x) * 4;
+
+            const targetR = data[targetIdx];
+            const targetG = data[targetIdx+1];
+            const targetB = data[targetIdx+2];
+            const targetA = data[targetIdx+3];
+
+            if (targetA === 0) return; // already transparent
+
+            // Flood fill matching pixels
+            const visited = new Uint8Array(canvas.width * canvas.height);
+            const queue = [[x, y]];
+
+            while (queue.length > 0) {
+                const curr = queue.shift();
+                const cx = curr[0];
+                const cy = curr[1];
+                const idx = (cy * canvas.width + cx) * 4;
+
+                if (cx < 0 || cx >= canvas.width || cy < 0 || cy >= canvas.height) continue;
+                if (visited[cy * canvas.width + cx]) continue;
+
+                const r = data[idx];
+                const g = data[idx+1];
+                const b = data[idx+2];
+                const a = data[idx+3];
+
+                const colorMatch = Math.abs(r - targetR) <= tolerance &&
+                                   Math.abs(g - targetG) <= tolerance &&
+                                   Math.abs(b - targetB) <= tolerance &&
+                                   Math.abs(a - targetA) <= tolerance;
+
+                if (colorMatch) {
+                    data[idx+3] = 0; // set alpha to 0
+                    visited[cy * canvas.width + cx] = 1;
+
+                    // Add neighbors to queue
+                    queue.push([cx + 1, cy]);
+                    queue.push([cx - 1, cy]);
+                    queue.push([cx, cy + 1]);
+                    queue.push([cx, cy - 1]);
+                }
+            }
+
+            ctx.putImageData(imgData, 0, 0);
+        });
+
+        function applyColorKey() {
+            if (!originalImage) return;
+
+            const hex = document.getElementById('keyColor').value;
+            const targetR = parseInt(hex.slice(1, 3), 16);
+            const targetG = parseInt(hex.slice(3, 5), 16);
+            const targetB = parseInt(hex.slice(5, 7), 16);
+
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+
+            for (let i = 0; i < data.length; i += 4) {
+                const r = data[i];
+                const g = data[i+1];
+                const b = data[i+2];
+
+                if (Math.abs(r - targetR) <= tolerance &&
+                    Math.abs(g - targetG) <= tolerance &&
+                    Math.abs(b - targetB) <= tolerance) {
+                    data[i+3] = 0; // transparent
+                }
+            }
+
+            ctx.putImageData(imgData, 0, 0);
+        }
+
+        function downloadPNG() {
+            canvas.toBlob((blob) => {
+                if (!blob) return;
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'transparent-image.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }, 'image/png');
+        }
+
+        function resetCanvas() {
+            if (originalImage) {
+                ctx.drawImage(originalImage, 0, 0);
+            }
+        }
+
+        function resetEditor() {
+            originalImage = null;
+            fileInput.value = '';
+            dropzone.style.display = 'block';
+            editorArea.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

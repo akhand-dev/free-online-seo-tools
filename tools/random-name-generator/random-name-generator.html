@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Name Generator Online â€” Free Baby & Character Name Maker | RankifyTools</title>
+    <meta name="description" content="Generate random names online for free. Custom settings for gender, name origin (English, French, Spanish, German, Japanese, Fantasy), middle names, and bulk downloads.">
+    <meta name="keywords" content="random name generator, baby name generator, character name creator, bulk fantasy names, custom name combinations">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/random-name-generator/random-name-generator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/random-name-generator.html">
+    <meta property="og:title" content="Random Name Generator Online â€” Free Baby & Character Name Maker">
+    <meta property="og:description" content="Create custom names across multiple origins instantly. Batch text download, 100% private.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <style>
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .option-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .option-item label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .option-item select, .option-item input[type="number"] {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.6rem;
+            border-radius: var(--radius-sm);
+            outline: none;
+            width: 100%;
+        }
+        .results-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: none;
+        }
+        .names-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+        .name-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            padding: 0.6rem 1rem;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+        }
+        .name-card button {
+            background: none;
+            border: none;
+            color: var(--accent-secondary);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.2rem;
+        }
+        .name-card button:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">â€º</span>
+            <a href="../index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">Random Name Generator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Random Name Generator</h1>
+            <p>Generate bulk lists of random names. Configure gender, origins, include middle names and last names, and copy or download results.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="tool-interface" style="max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem;">
+            
+            <div class="options-grid">
+                <div class="option-item">
+                    <label for="name-gender">Gender Filter</label>
+                    <select id="name-gender">
+                        <option value="all">All (Mixed)</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                
+                <div class="option-item">
+                    <label for="name-origin">Name Origin</label>
+                    <select id="name-origin">
+                        <option value="english">English / American</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="french">French</option>
+                        <option value="german">German</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="fantasy">Fantasy / Sci-Fi</option>
+                    </select>
+                </div>
+
+                <div class="option-item">
+                    <label for="name-qty">Quantity</label>
+                    <input type="number" id="name-qty" min="1" max="100" value="10">
+                </div>
+            </div>
+
+            <!-- Checkbox details -->
+            <div style="display:flex; gap:1.5rem; justify-content:center; align-items:center; margin-bottom:1.5rem;">
+                <label style="display:flex; gap:0.4rem; align-items:center; cursor:pointer;">
+                    <input type="checkbox" id="include-middle"> Include Middle Name
+                </label>
+                <label style="display:flex; gap:0.4rem; align-items:center; cursor:pointer;">
+                    <input type="checkbox" id="include-surname" checked> Include Last Name
+                </label>
+            </div>
+
+            <!-- Generate CTA -->
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <button type="button" onclick="generateNames()" style="padding:0.75rem 2.2rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:700; cursor:pointer;">ðŸŽ² Generate Random Names</button>
+            </div>
+
+            <!-- Results container -->
+            <div class="results-container" id="results-frame">
+                <h3 style="font-size:1.05rem; color:var(--text-primary); border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; margin:0;">Generated Names</h3>
+                
+                <div class="names-list" id="names-output">
+                    <!-- Dynamic Name Cards -->
+                </div>
+
+                <div style="margin-top: 1.5rem; display:flex; gap:0.6rem; justify-content:center;">
+                    <button type="button" onclick="copyAllNames()" style="padding:0.5rem 1.5rem; font-size:0.88rem; background:var(--accent-secondary); color:#000; font-weight:600; border:none; border-radius:var(--radius-sm); cursor:pointer;">ðŸ“‹ Copy All</button>
+                    <button type="button" onclick="downloadNamesTxt()" class="secondary" style="padding:0.5rem 1.5rem; font-size:0.88rem;">ðŸ’¾ Download TXT</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 800px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Offline Random Name Generator</h2>
+            <p>Whether you're writing a novel, choosing a baby name, coding mock databases with dummy client logs, or inventing gamer tags, finding naming structures shouldn't require logging into complex tracking platforms. Our online **Random Name Generator** compiles combinations locally. Everything remains run inside your browser, operating 100% offline.</p>
+
+            <h3>Supported Naming Profiles:</h3>
+            <ul>
+                <li><strong>English / American:</strong> Popular Anglo-Saxon profiles (e.g. Liam Smith, Emma Johnson).</li>
+                <li><strong>Spanish:</strong> Harmonious Hispanic combinations (e.g. Mateo Rodriguez, Sofia Gomez).</li>
+                <li><strong>French:</strong> Graceful Francophone naming templates (e.g. Lucas Dubois, ChloÃ© Martin).</li>
+                <li><strong>German:</strong> Strong Germanic structures (e.g. Jonas MÃ¼ller, Emma Schmidt).</li>
+                <li><strong>Japanese:</strong> Beautiful Romanized Japanese titles (e.g. Haruto Sato, Sakura Takahashi).</li>
+                <li><strong>Fantasy:</strong> Cosmic/Mystical name combos for RPG games and worldbuilding (e.g. Elidor Stormweaver, Vaelen Dawnbringer).</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/random-name-generator/random-name-generator.html">Random Name Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        const nameData = {
+            english: {
+                male: ["Liam", "Noah", "Oliver", "James", "William", "Benjamin", "Lucas", "Henry", "Alexander", "Mason", "Michael", "Ethan", "Daniel", "Jacob", "Logan", "Jackson", "Levi", "Sebastian", "Jack", "Owen"],
+                female: ["Olivia", "Emma", "Charlotte", "Amelia", "Sophia", "Isabella", "Ava", "Mia", "Evelyn", "Harper", "Luna", "Camila", "Gianna", "Elizabeth", "Eleanor", "Ella", "Abigail", "Sofia", "Avery", "Scarlett"],
+                middle: ["James", "John", "William", "Thomas", "Marie", "Grace", "Rose", "Elizabeth", "Anne", "Lynn", "Jane", "Lee", "David", "Michael", "Joseph", "May", "Hope", "Faith", "Joy", "Alan"],
+                last: ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin"]
+            },
+            spanish: {
+                male: ["Mateo", "Santiago", "MatÃ­as", "SebastiÃ¡n", "Alejandro", "Leonardo", "Diego", "Samuel", "Daniel", "JoaquÃ­n", "TomÃ¡s", "Gabriel", "Lucas", "MartÃ­n", "NicolÃ¡s", "AndrÃ©s", "Felipe", "Manuel", "BenjamÃ­n", "Emilio"],
+                female: ["SofÃ­a", "Valentina", "Isabella", "Camila", "Luciana", "Mariana", "Victoria", "Gabriela", "Martina", "Daniela", "Elena", "Natalia", "Renata", "Juliana", "Catalina", "Valeria", "Sara", "Andrea", "Camila", "Clara"],
+                middle: ["Maria", "Jose", "Luis", "Antonio", "Angel", "Javier", "Fernanda", "Isabel", "Alejandra", "Belen", "Carmen", "Pilar", "Ramon", "Francisco", "Ignacio", "Teresa", "Elena", "Dolores", "Mercedes", "Juana"],
+                last: ["Rodriguez", "Gomez", "Gonzalez", "Fernandez", "Lopez", "Diaz", "Martinez", "Perez", "Garcia", "Sanchez", "Romero", "Alvarez", "Torres", "Ruiz", "Ramirez", "Flores", "Acosta", "Medina", "Herrera", "Castro"]
+            },
+            french: {
+                male: ["Gabriel", "LÃ©o", "RaphaÃ«l", "Arthur", "Louis", "Lucas", "Emma", "Jules", "Hugo", "MaÃ«l", "Liam", "Ethan", "Paul", "Nathan", "Thomas", "Noah", "Victor", "Antoine", "ClÃ©ment", "Gaspard"],
+                female: ["Jade", "Louise", "Emma", "Alice", "Ambre", "Lina", "Rose", "ChloÃ©", "Mia", "LÃ©a", "Anna", "Mila", "Julia", "Elena", "Manon", "ZoÃ©", "InÃ¨s", "Lola", "Sarah", "Camille"],
+                middle: ["Jean", "Pierre", "RenÃ©", "Jacques", "Marie", "Jeanne", "Louise", "Claude", "Charles", "Paul", "Henri", "Michel", "Anne", "FranÃ§oise", "Marguerite", "FranÃ§ois", "Georges", "Yvonne", "Germaine", "AndrÃ©e"],
+                last: ["Martin", "Bernard", "Thomas", "Petit", "Robert", "Richard", "Durand", "Dubois", "Moreau", "Laurent", "Simon", "Michel", "Lefebvre", "Leroy", "Roux", "David", "Bertrand", "Morel", "Fournier", "Girard"]
+            },
+            german: {
+                male: ["Noah", "Matteo", "Leon", "Finn", "Paul", "Elias", "Emil", "Luka", "Louis", "Ben", "Jonas", "Felix", "Henry", "Maximilian", "Theo", "Lukas", "Anton", "Liam", "David", "Milan"],
+                female: ["Emilia", "Mia", "Sophia", "Emma", "Hannah", "Lina", "Mila", "Ella", "Klara", "Marie", "Lea", "Luisa", "Ida", "Leni", "Sofia", "Lia", "Maja", "Anna", "Frieda", "Charlotte"],
+                middle: ["Hans", "Karl", "Otto", "Fritz", "Elisabeth", "Maria", "Margarete", "Walter", "Wilhelm", "Heinrich", "Gertrud", "Anna", "Ursula", "Werner", "Gerhard", "Hermann", "Dieter", "Martha", "Hildegard", "Ilse"],
+                last: ["MÃ¼ller", "Schmidt", "Schneider", "Fischer", "Weber", "Meyer", "Wagner", "Becker", "Schulz", "Hoffmann", "SchÃ¤fer", "Koch", "Bauer", "Richter", "Klein", "Wolf", "SchrÃ¶der", "Neumann", "Schwarz", "Zimmermann"]
+            },
+            japanese: {
+                male: ["Haruto", "Yuto", "Riku", "Haru", "Sora", "Kaito", "Asahi", "Yuki", "Ren", "Itsuki", "Hiroto", "Minato", "Hinata", "Ritsu", "Souma", "Yamato", "Tatsuki", "Ryo", "Hayato", "Kouki"],
+                female: ["Sakura", "Himari", "Akari", "Mei", "Yua", "Aoi", "Ichika", "Rin", "Kanna", "Hina", "Sana", "Koharu", "Sara", "Rio", "Yuzuki", "Mio", "Tsumugi", "Yui", "An", "Shiori"],
+                middle: ["Ken", "Shin", "Toru", "Yoshi", "Hiro", "Koji", "Yuka", "Mai", "Kei", "Nao", "Jun", "Rei", "Mami", "Yoko", "Miki", "Aya", "Emi", "Rina", "Shou", "Sota"],
+                last: ["Sato", "Suzuki", "Takahashi", "Tanaka", "Watanabe", "Ito", "Yamamoto", "Nakamura", "Kobayashi", "Kato", "Yoshida", "Yamada", "Sasaki", "Yamaguchi", "Matsumoto", "Inoue", "Kimura", "Hayashi", "Shimizu", "Yamazaki"]
+            },
+            fantasy: {
+                male: ["Elidor", "Vaelen", "Thorne", "Garrick", "Zephyr", "Alistair", "Kaelen", "Balthazar", "Darian", "Corvus", "Ignis", "Rune", "Orion", "Lucius", "Fenrir", "Sylas", "Caelum", "Drakon", "Ragnar", "Valerius"],
+                female: ["Lyra", "Seraphina", "Aria", "Elysia", "Morgana", "Valeria", "Aurelia", "Freya", "Lilith", "Celeste", "Nyx", "Ember", "Nova", "Thalia", "Vespera", "Zelda", "Maeve", "Iris", "Selene", "Isolde"],
+                middle: ["Storm", "Shadow", "Frost", "Iron", "Gold", "Silver", "Fire", "Ash", "Void", "Star", "Leaf", "Sun", "Moon", "Dawn", "Dusk", "Wind", "Flame", "Stone", "Thorn", "Wolf"],
+                last: ["Stormweaver", "Dawnbringer", "Shadowflame", "Ironclad", "Silveroak", "Vortex", "Frostwhisper", "Ashgrove", "Wildrunner", "Nightshade", "Starfall", "Suncrest", "Thornhart", "Wyrmslayer", "Goldcrest", "Runic", "Blackwood", "Windrider", "Steelheart", "Stonebreaker"]
+            }
+        };
+
+        let activeNames = [];
+
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generateNames() {
+            const gender = document.getElementById('name-gender').value;
+            const origin = document.getElementById('name-origin').value;
+            const qty = parseInt(document.getElementById('name-qty').value) || 10;
+            const incMiddle = document.getElementById('include-middle').checked;
+            const incLast = document.getElementById('include-surname').checked;
+
+            const dataset = nameData[origin];
+            activeNames = [];
+
+            for (let i = 0; i < qty; i++) {
+                let firstList = [];
+                if (gender === 'all') {
+                    firstList = dataset.male.concat(dataset.female);
+                } else {
+                    firstList = dataset[gender];
+                }
+
+                const first = getRandomElement(firstList);
+                const middle = incMiddle ? getRandomElement(dataset.middle) : '';
+                const last = incLast ? getRandomElement(dataset.last) : '';
+
+                const full = [first, middle, last].filter(n => n !== '').join(' ');
+                activeNames.push(full);
+            }
+
+            renderNames();
+        }
+
+        function renderNames() {
+            const container = document.getElementById('results-frame');
+            const list = document.getElementById('names-output');
+
+            list.innerHTML = '';
+            container.style.display = 'block';
+
+            activeNames.forEach((name, idx) => {
+                const card = document.createElement('div');
+                card.className = 'name-card';
+                card.innerHTML = `
+                    <span>${name}</span>
+                    <button type="button" onclick="copyName('${name.replace(/'/g, "\\'")}', this)">Copy</button>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        function copyName(name, btn) {
+            navigator.clipboard.writeText(name).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                btn.style.color = 'var(--success)';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.color = 'var(--accent-secondary)';
+                }, 1000);
+            });
+        }
+
+        function copyAllNames() {
+            const txt = activeNames.join('\n');
+            navigator.clipboard.writeText(txt).then(() => {
+                alert('All names copied to clipboard!');
+            });
+        }
+
+        function downloadNamesTxt() {
+            const txt = activeNames.join('\n');
+            const blob = new Blob([txt], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'generated-names.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <title>Random Name Generator â€“ Create Unique Names Instantly | RankifyTools</title>
+    <meta name="description" content="Generate random names, usernames, and identities instantly for free. Support for multiple origins, fantasy names, genders, and bulk downloads.">
+    <meta name="keywords" content="random name generator, baby name generator, character name creator, fantasy names">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/random-name-generator">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/random-name-generator">
+    <meta property="og:title" content="Random Name Generator â€“ Create Unique Names Instantly">
+    <meta property="og:description" content="Generate random names and usernames instantly for free.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+        .option-item { display: flex; flex-direction: column; gap: 0.4rem; }
+        .option-item label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; }
+            background: var(--bg-dark); border: 1px solid var(--border-light); color: var(--text-primary);
+            padding: 0.6rem; border-radius: var(--radius-sm); outline: none; width: 100%;
+        .results-container { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem; display: none; }
+        .names-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.8rem; margin-top: 1.2rem; max-height: 350px; overflow-y: auto; padding-right: 0.5rem; }
+        .name-card { display: flex; justify-content: space-between; align-items: center; background: var(--bg-dark); border: 1px solid var(--border-light); padding: 0.6rem 1rem; border-radius: var(--radius-sm); font-weight: 500; }
+        .name-card button { background: none; border: none; color: var(--accent-secondary); cursor: pointer; font-size: 0.8rem; font-weight: 600; padding: 0.2rem; }
+        .name-card button:hover { text-decoration: underline; }
+    <script defer src="js/speed-insights.js"></script>
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+                <button type="button" onclick="generateNames()" class="btn-primary" style="padding:0.75rem 2.2rem; font-weight:700;">ðŸŽ² Generate Random Names</button>
+                <div class="names-list" id="names-output"></div>
+                    <button type="button" onclick="copyAllNames()" class="btn-primary" style="padding:0.5rem 1.5rem; font-size:0.88rem;">ðŸ“‹ Copy All</button>
+                    <button type="button" onclick="downloadNamesTxt()" class="control-btn" style="padding:0.5rem 1.5rem; font-size:0.88rem;">ðŸ’¾ Download TXT</button>
+            <p>Our online **Random Name Generator** compiles combinations locally. Everything remains run inside your browser, operating 100% offline.</p>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+    <script src="js/main.js" defer></script>
+                setTimeout(() => { btn.innerText = originalText; }, 1000);

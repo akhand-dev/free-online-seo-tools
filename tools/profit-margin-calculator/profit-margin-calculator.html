@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gross Profit Margin Calculator â€” Markup & Profit Solver | RankifyTools</title>
+    <meta name="description" content="Calculate gross profit margin, markup percentage, cost price, and selling price. Access business math calculators with visual revenue cost breakdowns.">
+    <meta name="keywords" content="profit margin calculator, markup calculator, gross margin solver, cost selling price calculator, profit percentage formula">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/profit-margin-calculator/profit-margin-calculator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/profit-margin-calculator.html">
+    <meta property="og:title" content="Gross Profit Margin & Markup Calculator | RankifyTools">
+    <meta property="og:description" content="Calculate gross margins, markups, costs, and selling prices instantly with visual cost-to-revenue breakdowns.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Profit Margin Calculator", "item": "https://free-online-seo-tools.vercel.app/tools/profit-margin-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Profit Margin Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/profit-margin-calculator.html",
+      "description": "Calculate gross profit margins, markups, cost, and selling price variables instantly.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    
+    <style>
+        .tabs-header { display: flex; gap: 0.5rem; border-bottom: 2px solid var(--border-light); margin-bottom: 1.5rem; }
+        .tab-btn { background: none; border: none; padding: 0.8rem 1.5rem; color: var(--text-secondary); cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+        .tab-btn.active { color: var(--accent-primary); border-bottom: 2px solid var(--accent-primary); }
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .calculator-container {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+        .visual-bar-container {
+            width: 100%;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            display: flex;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .visual-cost-bar {
+            height: 100%;
+            background: #e74c3c;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: #fff;
+            font-weight: 600;
+        }
+        .visual-profit-bar {
+            height: 100%;
+            background: var(--success);
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: #fff;
+            font-weight: 600;
+        }
+        .legend-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            margin-right: 6px;
+        }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">Profit Margin Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Profit Margin Calculator</h1>
+            <p>Compute gross profit margins, markups, cost structures, and selling prices instantly. Toggle calculation modes to analyze margins based on different business variables.</p>
+        </div>
+
+        <div style="max-width: 900px; margin: 2rem auto 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem;">
+            <!-- Mode Tabs -->
+            <div class="tabs-header">
+                <button type="button" class="tab-btn active" onclick="switchMode('margin-markup')">ðŸ“Š Find Margin & Markup</button>
+                <button type="button" class="tab-btn" onclick="switchMode('find-sp-margin')">ðŸ’° Find Price via Margin</button>
+                <button type="button" class="tab-btn" onclick="switchMode('find-sp-markup')">ðŸ“ˆ Find Price via Markup</button>
+            </div>
+
+            <div class="calculator-container">
+                <!-- Inputs Section -->
+                <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                    
+                    <!-- Mode 1 Inputs -->
+                    <div id="mode-margin-markup-inputs" class="inputs-pane">
+                        <div class="form-row" style="grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="input-group">
+                                <label style="font-weight: 600;">Cost of Item ($)</label>
+                                <input type="number" id="cost-1" value="100" step="any" min="0" oninput="calculateMarginMarkup()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            </div>
+                            <div class="input-group">
+                                <label style="font-weight: 600;">Selling Price / Revenue ($)</label>
+                                <input type="number" id="revenue-1" value="150" step="any" min="0" oninput="calculateMarginMarkup()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mode 2 Inputs -->
+                    <div id="mode-find-sp-margin-inputs" class="inputs-pane" style="display: none;">
+                        <div class="form-row" style="grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="input-group">
+                                <label style="font-weight: 600;">Cost of Item ($)</label>
+                                <input type="number" id="cost-2" value="100" step="any" min="0" oninput="calculateSPFromMargin()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            </div>
+                            <div class="input-group">
+                                <label style="font-weight: 600;">Gross Profit Margin (%)</label>
+                                <input type="number" id="margin-2" value="33.33" step="any" min="0" max="99.99" oninput="calculateSPFromMargin()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mode 3 Inputs -->
+                    <div id="mode-find-sp-markup-inputs" class="inputs-pane" style="display: none;">
+                        <div class="form-row" style="grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="input-group">
+                                <label style="font-weight: 600;">Cost of Item ($)</label>
+                                <input type="number" id="cost-3" value="100" step="any" min="0" oninput="calculateSPFromMarkup()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            </div>
+                            <div class="input-group">
+                                <label style="font-weight: 600;">Markup (%)</label>
+                                <input type="number" id="markup-3" value="50" step="any" min="0" oninput="calculateSPFromMarkup()" style="width:100%; padding:0.6rem; background:var(--bg-dark); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Outputs Section -->
+                <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.2rem; display:flex; flex-direction:column; gap:0.8rem;">
+                    <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem; color:var(--accent-primary);">Calculation Results</h3>
+                    
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Cost price</span>
+                        <span id="out-cost" style="font-weight:600;">$100.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Selling price</span>
+                        <span id="out-sp" style="font-weight:600;">$150.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Gross Profit</span>
+                        <span id="out-profit" style="font-weight:600; color:var(--success);">$50.00</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Gross Margin</span>
+                        <span id="out-margin" style="font-weight:700;">33.3%</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                        <span style="color:var(--text-secondary);">Markup Rate</span>
+                        <span id="out-markup" style="font-weight:700;">50.0%</span>
+                    </div>
+
+                    <!-- Visual chart progress -->
+                    <div style="margin-top:0.4rem;">
+                        <span style="color:var(--text-secondary); font-size:0.82rem; font-weight:600;">Revenue Structure Ratio:</span>
+                        <div class="visual-bar-container">
+                            <div id="cost-bar" class="visual-cost-bar" style="width: 66.7%;">Cost</div>
+                            <div id="profit-bar" class="visual-profit-bar" style="width: 33.3%;">Profit</div>
+                        </div>
+                        <div style="display:flex; gap:1.2rem; font-size:0.78rem; margin-top:0.4rem; justify-content:center;">
+                            <div>
+                                <span class="legend-indicator" style="background:#e74c3c;"></span>Cost: <span id="lbl-cost-pct">66.7%</span>
+                            </div>
+                            <div>
+                                <span class="legend-indicator" style="background:var(--success);"></span>Profit Margin: <span id="lbl-profit-pct">33.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.75; color: var(--text-primary);">
+            <h2>Understanding Margin vs Markup</h2>
+            <p>Although business owners often use the terms <strong>Margin</strong> and <strong>Markup</strong> interchangeably, they represent two different pricing metrics. Knowing the mathematical difference between them is vital for setting prices that ensure profitability:</p>
+            
+            <ul>
+                <li><strong>Profit Margin:</strong> Represents profit as a percentage of the <em>selling price</em>. It is computed as:
+                    <br><code>Margin (%) = ((Selling Price - Cost) / Selling Price) * 100</code>
+                </li>
+                <li><strong>Markup:</strong> Represents the ratio of profit to the <em>cost price</em> (how much the price is increased to reach selling value). It is computed as:
+                    <br><code>Markup (%) = ((Selling Price - Cost) / Cost) * 100</code>
+                </li>
+            </ul>
+
+            <h3>Why the Difference Matters:</h3>
+            <p>If you purchase an item for $100 and want to achieve a **30% Profit Margin**, setting a 30% markup is a common error. A 30% markup sets your selling price to $130, which actually yields a gross profit margin of only **23.1%** ($30 profit divided by $130 revenue). To target a true 30% margin, your selling price must be **$142.86** ($100 Cost / (1 - 0.30)).</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/invoice-generator/invoice-generator.html">Invoice Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        let currentActiveMode = 'margin-markup';
+
+        function switchMode(mode) {
+            currentActiveMode = mode;
+            
+            // Switch tabs active state
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const index = ['margin-markup', 'find-sp-margin', 'find-sp-markup'].indexOf(mode);
+            document.querySelectorAll('.tab-btn')[index].classList.add('active');
+
+            // Hide/Show input wrappers
+            document.getElementById('mode-margin-markup-inputs').style.display = (mode === 'margin-markup') ? 'block' : 'none';
+            document.getElementById('mode-find-sp-margin-inputs').style.display = (mode === 'find-sp-margin') ? 'block' : 'none';
+            document.getElementById('mode-find-sp-markup-inputs').style.display = (mode === 'find-sp-markup') ? 'block' : 'none';
+
+            // Run calculations for the selected tab
+            if (mode === 'margin-markup') calculateMarginMarkup();
+            if (mode === 'find-sp-margin') calculateSPFromMargin();
+            if (mode === 'find-sp-markup') calculateSPFromMarkup();
+        }
+
+        function updateOutputs(cost, sp, profit, margin, markup) {
+            document.getElementById('out-cost').textContent = '$' + cost.toFixed(2);
+            document.getElementById('out-sp').textContent = '$' + sp.toFixed(2);
+            document.getElementById('out-profit').textContent = '$' + profit.toFixed(2);
+            document.getElementById('out-margin').textContent = margin.toFixed(2) + '%';
+            document.getElementById('out-markup').textContent = markup.toFixed(2) + '%';
+
+            // Update visual progress bars
+            const costBar = document.getElementById('cost-bar');
+            const profitBar = document.getElementById('profit-bar');
+            const lblCost = document.getElementById('lbl-cost-pct');
+            const lblProfit = document.getElementById('lbl-profit-pct');
+
+            if (sp <= 0) {
+                costBar.style.width = '100%';
+                profitBar.style.width = '0%';
+                lblCost.textContent = '100.0%';
+                lblProfit.textContent = '0.0%';
+                costBar.textContent = 'Cost';
+                profitBar.textContent = '';
+                return;
+            }
+
+            const costPct = (cost / sp) * 100;
+            const profitPct = (profit / sp) * 100;
+
+            costBar.style.width = costPct.toFixed(1) + '%';
+            profitBar.style.width = profitPct.toFixed(1) + '%';
+
+            lblCost.textContent = costPct.toFixed(1) + '%';
+            lblProfit.textContent = profitPct.toFixed(1) + '%';
+
+            costBar.textContent = costPct > 12 ? 'Cost' : '';
+            profitBar.textContent = profitPct > 12 ? 'Profit' : '';
+        }
+
+        function calculateMarginMarkup() {
+            const cost = parseFloat(document.getElementById('cost-1').value) || 0;
+            const revenue = parseFloat(document.getElementById('revenue-1').value) || 0;
+
+            const profit = revenue - cost;
+            const margin = revenue > 0 ? (profit / revenue) * 100 : 0;
+            const markup = cost > 0 ? (profit / cost) * 100 : 0;
+
+            updateOutputs(cost, revenue, profit, margin, markup);
+        }
+
+        function calculateSPFromMargin() {
+            const cost = parseFloat(document.getElementById('cost-2').value) || 0;
+            const marginVal = parseFloat(document.getElementById('margin-2').value) || 0;
+
+            let sp = 0;
+            if (marginVal < 100) {
+                sp = cost / (1 - (marginVal / 100));
+            }
+            const profit = sp - cost;
+            const markup = cost > 0 ? (profit / cost) * 100 : 0;
+
+            updateOutputs(cost, sp, profit, marginVal, markup);
+        }
+
+        function calculateSPFromMarkup() {
+            const cost = parseFloat(document.getElementById('cost-3').value) || 0;
+            const markupVal = parseFloat(document.getElementById('markup-3').value) || 0;
+
+            const sp = cost * (1 + (markupVal / 100));
+            const profit = sp - cost;
+            const margin = sp > 0 ? (profit / sp) * 100 : 0;
+
+            updateOutputs(cost, sp, profit, margin, markupVal);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateMarginMarkup();
+        });
+    </script>
+</body>
+</html>
+
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/profit-margin-calculator">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/profit-margin-calculator">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+        {"@type": "ListItem", "position": 3, "name": "Profit Margin Calculator", "item": "https://free-online-seo-tools.vercel.app/profit-margin-calculator"}
+      "url": "https://free-online-seo-tools.vercel.app/profit-margin-calculator",
+        .calculator-container { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 768px) { .calculator-container { grid-template-columns: 1.2fr 1fr; } }
+        .visual-bar-container { width: 100%; height: 24px; background: rgba(255, 255, 255, 0.08); border-radius: var(--radius-sm); overflow: hidden; display: flex; margin-top: 1rem; margin-bottom: 0.5rem; }
+        .visual-cost-bar { height: 100%; background: #e74c3c; transition: width 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #fff; font-weight: 600; }
+        .visual-profit-bar { height: 100%; background: var(--success); transition: width 0.3s ease; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #fff; font-weight: 600; }
+        .legend-indicator { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; }
+    <script defer src="js/speed-insights.js"></script>
+        <section class="seo-content" style="max-width: 900px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <p>Although business owners often use the terms <strong>Margin</strong> and <strong>Markup</strong> interchangeably, they represent two different pricing metrics.</p>
+        </section>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+    <script src="js/main.js" defer></script>

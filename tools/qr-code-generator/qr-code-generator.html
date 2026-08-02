@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free QR Code Generator & Scanner â€” Create or Decode QR Online | RankifyTools</title>
+    <meta name="description" content="Generate high-resolution QR codes without watermarks, or scan/decode existing QR codes online using your camera or file upload. 100% free and private.">
+    <meta name="keywords" content="qr code generator scanner, free qr code maker, scan qr code online, webcam qr decoder, no watermark qr creator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/qr-code-generator/qr-code-generator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/qr-code-generator.html">
+    <meta property="og:title" content="Free QR Code Generator & Scanner â€” Local browser tool | RankifyTools">
+    <meta property="og:description" content="Create water-mark free QR codes or decode files & camera streams natively in your browser. 100% private.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "QR Code Generator & Scanner", "item": "https://free-online-seo-tools.vercel.app/tools/qr-code-generator.html"}
+      ]
+    }
+    </script>
+
+    <!-- Local QR Code generation & decoding libraries via CDNJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+    
+    <style>
+        .tabs-header { display: flex; gap: 0.5rem; border-bottom: 2px solid var(--border-light); margin-bottom: 1.5rem; }
+        .tab-btn { background: none; border: none; padding: 0.8rem 1.5rem; color: var(--text-secondary); cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+        .tab-btn.active { color: var(--accent-primary); border-bottom: 2px solid var(--accent-primary); }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">QR Code Generator & Scanner</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>QR Code Generator & Scanner</h1>
+            <p>Generate high-quality QR codes without watermarks, or scan and decode QR codes instantly using your device's camera or by uploading a file. Private client-side processing.</p>
+        </div>
+
+        <div style="max-width: 750px; margin: 2rem auto 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem;">
+            <!-- Tabs Navigation -->
+            <div class="tabs-header">
+                <button type="button" class="tab-btn active" onclick="switchTab('generate')">âž• Generate QR</button>
+                <button type="button" class="tab-btn" onclick="switchTab('scan')">ðŸ” Scan / Decode QR</button>
+            </div>
+
+            <!-- Tab 1: Generate QR -->
+            <div id="generatePane" class="tab-pane active" style="text-align: center;">
+                <div class="input-group" style="text-align: left; margin-bottom: 1.2rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Text or URL</label>
+                    <input type="text" id="qrInput" value="https://free-online-seo-tools.vercel.app/" placeholder="Enter text or URL to generate QR" oninput="generateQRCode()" style="width:100%; padding:0.7rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                </div>
+
+                <div style="margin: 2rem 0; display: inline-block; background: #fff; padding: 1.2rem; border-radius: var(--radius-md); box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                    <div id="qrcodeCanvas"></div>
+                </div>
+
+                <div>
+                    <button type="button" onclick="downloadQRCode()" style="padding: 0.8rem 1.8rem; background: var(--accent-secondary); color: #fff; border: none; border-radius: var(--radius-md); font-weight: 700; cursor: pointer;">
+                        â¬‡ Download PNG
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab 2: Scan QR -->
+            <div id="scanPane" class="tab-pane" style="display: none;">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin-bottom: 1.5rem;">
+                    <!-- Webcam Stream -->
+                    <div style="display:flex; flex-direction:column; gap:0.8rem;">
+                        <h3 style="margin:0; font-size:1.1rem; color:var(--accent-primary);">1. Scan via Camera</h3>
+                        <div id="qrReader" style="width: 100%; border: 1px solid var(--border-light); border-radius: var(--radius-md); background: rgba(0,0,0,0.2); overflow:hidden;"></div>
+                        <div style="display:flex; gap:0.5rem;">
+                            <button type="button" onclick="startCamera()" style="flex:1; padding:0.5rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); cursor:pointer; font-weight:600;">Start Camera</button>
+                            <button type="button" onclick="stopCamera()" style="flex:1; padding:0.5rem; background:var(--bg-main); color:var(--text-secondary); border:1px solid var(--border-light); border-radius:var(--radius-sm); cursor:pointer;">Stop</button>
+                        </div>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div style="display:flex; flex-direction:column; gap:0.8rem;">
+                        <h3 style="margin:0; font-size:1.1rem; color:var(--accent-primary);">2. Decode QR File</h3>
+                        <div id="fileZone" style="border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 2.2rem 1rem; text-align: center; background: rgba(255,255,255,0.02); cursor: pointer;" onclick="document.getElementById('qrFileInput').click()">
+                            <span style="font-size:2rem; display:block; margin-bottom:0.4rem;">ðŸ“·</span>
+                            <p style="margin:0; font-size:0.9rem;">Upload QR Code Image</p>
+                            <input type="file" id="qrFileInput" accept="image/*" style="display:none;" onchange="decodeFile(this)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scan Results -->
+                <div style="background: rgba(0,0,0,0.15); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.2rem; display:flex; flex-direction:column; gap:0.6rem;">
+                    <div style="font-weight:600; color:var(--accent-secondary);">Decoded Content:</div>
+                    <div id="decodedOutput" style="font-family:monospace; background:var(--bg-main); padding:0.8rem; border-radius:var(--radius-sm); min-height:40px; word-break:break-all; font-size:0.95rem; color:var(--text-secondary);">Waiting for scan...</div>
+                    <div style="display:flex; gap:0.5rem; margin-top:0.4rem;">
+                        <button type="button" onclick="copyDecoded()" style="padding:0.4rem 1rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); cursor:pointer;">Copy</button>
+                        <a id="decodedLink" href="#" target="_blank" style="display:none; padding:0.4rem 1rem; background:var(--accent-secondary); color:#fff; border-radius:var(--radius-sm); text-decoration:none;">Open URL &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>How to Generate and Scan QR Codes Online</h2>
+            <p>Our dual <strong>QR Code Generator & Scanner</strong> makes creating and decoding 2D barcodes simple. The utility compiles all instructions locally, making it 100% private. Your camera feed and files are never sent to external servers.</p>
+
+            <h3>How to Scan a QR Code:</h3>
+            <p>To scan a QR code, you can use either your device's camera or upload an image file:</p>
+            <ul>
+                <li><strong>Using Camera:</strong> Click "Start Camera", grant camera permissions when prompted, and point your webcam or mobile camera at the QR code. The scanner will automatically detect and extract the content.</li>
+                <li><strong>Using File Upload:</strong> Click the file upload container, select a photo or screenshot of a QR code from your local files, and the scanner will decode it instantly.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/qr-code-generator/qr-code-generator.html">QR Code Gen & Scan</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        let qrcodeInstance = null;
+        let html5QrCodeScanner = null;
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.style.display = 'none');
+            
+            if (tab === 'generate') {
+                document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+                document.getElementById('generatePane').style.display = 'block';
+                stopCamera();
+            } else {
+                document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+                document.getElementById('scanPane').style.display = 'block';
+            }
+        }
+
+        // --- GENERATE CODE ---
+        function generateQRCode() {
+            const input = document.getElementById('qrInput').value.trim();
+            const canvasDiv = document.getElementById('qrcodeCanvas');
+            canvasDiv.innerHTML = '';
+            
+            if (!input) return;
+
+            qrcodeInstance = new QRCode(canvasDiv, {
+                text: input,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        function downloadQRCode() {
+            const img = document.querySelector('#qrcodeCanvas img');
+            if (!img) return;
+
+            const link = document.createElement('a');
+            link.download = 'qrcode.png';
+            link.href = img.src;
+            link.click();
+        }
+
+        // --- SCAN CAMERA & FILES ---
+        function startCamera() {
+            html5QrCodeScanner = new Html5Qrcode("qrReader");
+            html5QrCodeScanner.start(
+                { facingMode: "environment" },
+                { fps: 10, qrbox: { width: 250, height: 250 } },
+                (decodedText) => {
+                    handleScanSuccess(decodedText);
+                    stopCamera();
+                },
+                (errorMessage) => {
+                    // Fail silently to avoid massive logs during framing
+                }
+            ).catch(err => {
+                alert("Webcam permission denied or unavailable: " + err);
+            });
+        }
+
+        function stopCamera() {
+            if (html5QrCodeScanner) {
+                html5QrCodeScanner.stop().then(() => {
+                    html5QrCodeScanner = null;
+                }).catch(err => console.log(err));
+            }
+        }
+
+        function decodeFile(input) {
+            if (input.files.length === 0) return;
+            const file = input.files[0];
+            const html5QrCode = new Html5Qrcode("qrReader");
+            
+            html5QrCode.scanFile(file, true)
+                .then(decodedText => {
+                    handleScanSuccess(decodedText);
+                })
+                .catch(err => {
+                    alert("No QR Code detected in this image. Try another file.");
+                });
+        }
+
+        function handleScanSuccess(text) {
+            const output = document.getElementById('decodedOutput');
+            const link = document.getElementById('decodedLink');
+            
+            output.textContent = text;
+            output.style.color = 'var(--text-primary)';
+
+            if (text.startsWith('http://') || text.startsWith('https://')) {
+                link.href = text;
+                link.style.display = 'inline-block';
+            } else {
+                link.style.display = 'none';
+            }
+        }
+
+        function copyDecoded() {
+            const text = document.getElementById('decodedOutput').textContent;
+            if (text === 'Waiting for scan...') return;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied decoded content to clipboard!');
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            generateQRCode();
+        });
+    </script>
+</body>
+</html>
+
+    <title>Free QR Code Generator â€“ Create QR Codes Instantly | RankifyTools</title>
+    <meta name="description" content="Generate QR codes for URLs, text, and more. Fast, free, and easy. No watermarks, completely client-side in-browser generation.">
+    <meta name="keywords" content="qr code generator, free qr generator, create qr code">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/qr-code-generator">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/qr-code-generator">
+    <meta property="og:title" content="Free QR Code Generator â€“ Create QR Codes Instantly">
+    <meta property="og:description" content="Generate QR codes instantly. Fast, free, and easy.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+        {"@type": "ListItem", "position": 3, "name": "QR Code Generator", "item": "https://free-online-seo-tools.vercel.app/qr-code-generator"}
+      "@type": "WebApplication",
+      "name": "QR Code Generator",
+      "url": "https://free-online-seo-tools.vercel.app/qr-code-generator",
+      "description": "Generate QR codes instantly.",
+      "applicationCategory": "Utility",
+      "operatingSystem": "All",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    <script defer src="js/speed-insights.js"></script>
+            <span class="current">QR Code Generator</span>
+        <section class="seo-content" style="max-width: 750px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>Free QR Code Generator</h2>
+            <p>Our dual **QR Code Generator & Scanner** makes creating and decoding 2D barcodes simple.</p>
+        </section>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities.</p>
+    <script src="js/main.js" defer></script>
+                (errorMessage) => {}

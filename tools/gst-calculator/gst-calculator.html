@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Calculator India — CGST, SGST & Gold GST Calculator | RankifyTools</title>
+    <meta name="description" content="Calculate GST in India. Add or remove GST with standard slabs (5%, 12%, 18%, 28%). Calculate 3% Gold GST with making charges and SGST/CGST breakdowns.">
+    <meta name="keywords" content="gst calculator india, cgst sgst calculator, gold gst calculator online, calculate gst on jewelry, gst inclusive exclusive calculator">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/gst-calculator/gst-calculator.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/gst-calculator.html">
+    <meta property="og:title" content="GST Calculator India — CGST, SGST & Gold GST | RankifyTools">
+    <meta property="og:description" content="Compute inclusive/exclusive tax rates, CGST/SGST breakdowns, and specialized 3% gold jewelry values.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "GST Calculator", "item": "https://free-online-seo-tools.vercel.app/tools/gst-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "GST Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/tools/gst-calculator.html",
+      "description": "Calculate CGST, SGST, IGST, and specialized Gold GST in India. Support inclusive/exclusive calculations.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <style>
+        .tabs-header { display: flex; gap: 0.5rem; border-bottom: 2px solid var(--border-light); margin-bottom: 1.5rem; }
+        .tab-btn { background: none; border: none; padding: 0.8rem 1.5rem; color: var(--text-secondary); cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+        .tab-btn.active { color: var(--accent-primary); border-bottom: 2px solid var(--accent-primary); }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+    </style>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">GST Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>GST Calculator India</h1>
+            <p>Compute goods and services tax (GST) for commercial goods under standard slabs, or toggle the specialized Gold calculator for jewelry values (CGST/SGST included).</p>
+        </div>
+
+        <div style="max-width: 750px; margin: 2rem auto 0 auto; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.8rem;">
+            <!-- Tabs Navigation -->
+            <div class="tabs-header">
+                <button type="button" class="tab-btn active" onclick="switchTab('standard')">📦 Standard Goods GST</button>
+                <button type="button" class="tab-btn" onclick="switchTab('gold')">✨ Gold Jewelry GST</button>
+            </div>
+
+            <!-- Tab 1: Standard Goods GST -->
+            <div id="standardPane" class="tab-pane active">
+                <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <!-- Controls -->
+                    <div style="display:flex; flex-direction:column; gap:1.2rem;">
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Amount (₹)</label>
+                            <input type="number" id="std_amount" value="10000" oninput="calculateStdGST()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        </div>
+
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Tax Slab Rate</label>
+                            <select id="std_slab" onchange="calculateStdGST()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                                <option value="5">5% (Essential Goods)</option>
+                                <option value="12">12% (Standard Slabs)</option>
+                                <option value="18" selected>18% (Services/General)</option>
+                                <option value="28">28% (Luxury Goods)</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Calculation Mode</label>
+                            <div style="display:flex; gap:1rem;">
+                                <label style="cursor:pointer; display:flex; align-items:center; gap:0.4rem;">
+                                    <input type="radio" name="std_mode" value="add" checked onclick="calculateStdGST()"> Add GST (Exclusive)
+                                </label>
+                                <label style="cursor:pointer; display:flex; align-items:center; gap:0.4rem;">
+                                    <input type="radio" name="std_mode" value="sub" onclick="calculateStdGST()"> Remove GST (Inclusive)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Outputs -->
+                    <div style="background:rgba(0,0,0,0.15); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.2rem; display:flex; flex-direction:column; gap:0.6rem;">
+                        <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem; color:var(--accent-primary);">Repayment Parameters</h3>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                            <span style="color:var(--text-secondary);">Base Amount</span>
+                            <span id="std_base" style="font-weight:600;">₹0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                            <span style="color:var(--text-secondary);">CGST (Central)</span>
+                            <span id="std_cgst" style="font-weight:600;">₹0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                            <span style="color:var(--text-secondary);">SGST (State)</span>
+                            <span id="std_sgst" style="font-weight:600;">₹0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                            <span style="color:var(--text-secondary);">Total GST Tax</span>
+                            <span id="std_total_tax" style="font-weight:600; color:var(--accent-secondary);">₹0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:1.15rem; font-weight:bold; margin-top:0.4rem;">
+                            <span>Gross Amount</span>
+                            <span id="std_gross">₹0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Gold Jewelry GST -->
+            <div id="goldPane" class="tab-pane" style="display: none;">
+                <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <!-- Controls -->
+                    <div style="display:flex; flex-direction:column; gap:1rem;">
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Gold Price (per 10g - ₹)</label>
+                            <input type="number" id="gold_10g_price" value="70000" oninput="calculateGoldGST()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        </div>
+
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Weight of Jewelry (grams)</label>
+                            <input type="number" id="gold_weight" value="15" oninput="calculateGoldGST()" style="width:100%; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                        </div>
+
+                        <div class="input-group">
+                            <label style="display:block; margin-bottom: 0.4rem; font-weight:600;">Making Charges</label>
+                            <div style="display:flex; gap:0.5rem;">
+                                <input type="number" id="making_charge" value="10" oninput="calculateGoldGST()" style="flex:1; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                                <select id="making_type" onchange="calculateGoldGST()" style="width:90px; padding:0.6rem; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+                                    <option value="pct">% Value</option>
+                                    <option value="fixed">₹ / gram</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Outputs -->
+                    <div style="background:rgba(0,0,0,0.15); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.2rem; display:flex; flex-direction:column; gap:0.6rem;">
+                        <h3 style="margin:0 0 0.5rem 0; font-size:1.1rem; color:var(--accent-primary);">Gold Price Breakdown</h3>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                            <span style="color:var(--text-secondary);">Net Gold Value</span>
+                            <span id="gold_net_val" style="font-weight:600;">₹0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                            <span style="color:var(--text-secondary);">Making Charges</span>
+                            <span id="gold_making_val" style="font-weight:600;">₹0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem;">
+                            <span style="color:var(--text-secondary);">GST Tax (3%)</span>
+                            <span id="gold_gst_val" style="font-weight:600; color:var(--accent-secondary);">₹0.00</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-light); padding-bottom:0.4rem; font-size: 0.85rem; opacity:0.8;">
+                            <span style="color:var(--text-secondary);">CGST (1.5%) / SGST (1.5%)</span>
+                            <span id="gold_sub_taxes">₹0.00 each</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:1.15rem; font-weight:bold; margin-top:0.4rem;">
+                            <span>Final Invoice Billing</span>
+                            <span id="gold_gross_val">₹0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="seo-article reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem; line-height: 1.7; color: var(--text-primary);">
+            <h2>Understanding GST Calculations in India</h2>
+            <p>The <strong>Goods and Services Tax (GST)</strong> is a unified, multi-stage, destination-based tax system introduced in India in 2017 to replace multiple indirect taxes. It splits tax collections into:
+                <ul>
+                    <li><strong>CGST (Central GST):</strong> Collected by the Central Government on intra-state supply.</li>
+                    <li><strong>SGST (State GST):</strong> Collected by the State Government on intra-state supply.</li>
+                    <li><strong>IGST (Integrated GST):</strong> Collected by the Central Government on inter-state transactions.</li>
+                </ul>
+            </p>
+
+            <h2>Gold GST Tax Structure:</h2>
+            <p>Gold purchasing behaves differently than general goods. Standard Gold GST is <strong>3%</strong>, which applies to both the gold value and making charges. An additional <strong>5% GST</strong> applies to making charges if jewelry crafting services are billed separately, but typically the standard rate covers the invoice value.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/gst-calculator/gst-calculator.html">GST Calculator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.style.display = 'none');
+            
+            if (tab === 'standard') {
+                document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+                document.getElementById('standardPane').classList.add('active');
+                document.getElementById('standardPane').style.display = 'block';
+                document.getElementById('goldPane').style.display = 'none';
+            } else {
+                document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+                document.getElementById('goldPane').classList.add('active');
+                document.getElementById('goldPane').style.display = 'block';
+                document.getElementById('standardPane').style.display = 'none';
+            }
+        }
+
+        // --- STANDARD GST ---
+        function calculateStdGST() {
+            const amount = parseFloat(document.getElementById('std_amount').value) || 0;
+            const rate = parseFloat(document.getElementById('std_slab').value) || 0;
+            const mode = document.querySelector('input[name="std_mode"]:checked').value;
+
+            let base, tax, gross;
+
+            if (mode === 'add') {
+                base = amount;
+                tax = (rate / 100) * base;
+                gross = base + tax;
+            } else {
+                gross = amount;
+                base = gross / (1 + (rate / 100));
+                tax = gross - base;
+            }
+
+            const cgst = tax / 2;
+            const sgst = tax / 2;
+
+            document.getElementById('std_base').textContent = formatINR(base);
+            document.getElementById('std_cgst').textContent = formatINR(cgst);
+            document.getElementById('std_sgst').textContent = formatINR(sgst);
+            document.getElementById('std_total_tax').textContent = formatINR(tax);
+            document.getElementById('std_gross').textContent = formatINR(gross);
+        }
+
+        // --- GOLD GST ---
+        function calculateGoldGST() {
+            const rate10g = parseFloat(document.getElementById('gold_10g_price').value) || 0;
+            const weight = parseFloat(document.getElementById('gold_weight').value) || 0;
+            const makingCharge = parseFloat(document.getElementById('making_charge').value) || 0;
+            const makingType = document.getElementById('making_type').value;
+
+            const ratePerGram = rate10g / 10;
+            const netGoldValue = ratePerGram * weight;
+
+            let makingChargesVal = 0;
+            if (makingType === 'fixed') {
+                makingChargesVal = makingCharge * weight;
+            } else {
+                makingChargesVal = (makingCharge / 100) * netGoldValue;
+            }
+
+            // Standard GST rate on Gold jewelry is 3% (applies to gold value + making charges)
+            const gstTax = (3 / 100) * (netGoldValue + makingChargesVal);
+            const grossBilling = netGoldValue + makingChargesVal + gstTax;
+
+            const subTaxes = gstTax / 2; // 1.5% CGST + 1.5% SGST
+
+            document.getElementById('gold_net_val').textContent = formatINR(netGoldValue);
+            document.getElementById('gold_making_val').textContent = formatINR(makingChargesVal);
+            document.getElementById('gold_gst_val').textContent = formatINR(gstTax);
+            document.getElementById('gold_sub_taxes').textContent = `${formatINR(subTaxes)} CGST / SGST each`;
+            document.getElementById('gold_gross_val').textContent = formatINR(grossBilling);
+        }
+
+        function formatINR(num) {
+            return '₹' + num.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        window.addEventListener('load', () => {
+            calculateStdGST();
+            calculateGoldGST();
+        });
+    </script>
+</body>
+</html>

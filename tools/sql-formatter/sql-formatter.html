@@ -1,0 +1,521 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Formatter Online â€” Free SQL Prettifier & Beautifier | RankifyTools</title>
+    <meta name="description" content="Format, beautify & minify SQL queries instantly in your browser. The best online SQL formatter and prettifier. 100% private, free, and secure.">
+    <meta name="keywords" content="sql formatter online, prettify sql, sql beautifier, format sql query free, offline sql formatting, sql minifier">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/sql-formatter/sql-formatter.html">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/sql-formatter.html">
+    <meta property="og:title" content="SQL Formatter Online â€” Free SQL Prettifier & Beautifier">
+    <meta property="og:description" content="Format and validate SQL statements locally in your browser. Complete data privacy.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://free-online-seo-tools.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://free-online-seo-tools.vercel.app/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SQL Formatter",
+          "item": "https://free-online-seo-tools.vercel.app/tools/sql-formatter.html"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SQL Formatter Online",
+      "url": "https://free-online-seo-tools.vercel.app/tools/sql-formatter.html",
+      "description": "Format, beautify & minify SQL queries instantly in your browser with 100% data privacy.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a><span class="separator">â€º</span>
+            <a href="../index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">SQL Formatter</span>
+        </nav>
+        
+        <div class="hero" style="margin-bottom:1.5rem;">
+            <h1>SQL Formatter Online</h1>
+            <p>Paste your messy SQL queries to format and beautify them, or compress them into a minified one-liner.</p>
+        </div>
+
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="tool-interface" style="max-width: 960px; margin: 0 auto;">
+            <div class="split-pane" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                <div>
+                    <label for="sql-input" style="display:block; margin-bottom:0.5rem; color:var(--text-secondary); font-weight:600;">Input SQL</label>
+                    <textarea id="sql-input" class="code-area" style="width:100%; min-height:380px; font-family:'Courier New', monospace; font-size:0.95rem; line-height:1.5; padding:0.8rem; background:rgba(0,0,0,0.25); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-md); resize:vertical;" placeholder="select id, name, email from users join orders on users.id = orders.user_id where orders.amount > 100 group by id;"></textarea>
+                </div>
+                <div>
+                    <label for="sql-output" style="display:block; margin-bottom:0.5rem; color:var(--text-secondary); font-weight:600;">Formatted SQL</label>
+                    <textarea id="sql-output" class="code-area" style="width:100%; min-height:380px; font-family:'Courier New', monospace; font-size:0.95rem; line-height:1.5; padding:0.8rem; background:rgba(0,0,0,0.25); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-md); resize:vertical;" readonly></textarea>
+                </div>
+            </div>
+
+            <div class="button-group" style="display:flex; flex-wrap:wrap; gap:0.8rem;">
+                <button type="button" onclick="beautifySQL()" style="padding:0.75rem 1.8rem; background:var(--accent-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:600; cursor:pointer; transition:var(--transition);">Beautify SQL</button>
+                <button type="button" onclick="minifySQL()" class="secondary" style="padding:0.75rem 1.8rem; background:var(--bg-card); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm); font-weight:600; cursor:pointer; transition:var(--transition);">Minify SQL</button>
+                <button type="button" onclick="copyToClipboard(document.getElementById('sql-output').value, this)" class="secondary" style="padding:0.75rem 1.8rem; background:var(--bg-card); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm); font-weight:600; cursor:pointer; transition:var(--transition);">Copy Code</button>
+                <button type="button" onclick="clearAll()" class="secondary" style="padding:0.75rem 1.8rem; background:var(--bg-card); color:var(--text-primary); border:1px solid var(--border-light); border-radius:var(--radius-sm); font-weight:600; cursor:pointer; transition:var(--transition);">Clear</button>
+            </div>
+        </div>
+
+        <div class="ad-container ad-rectangle" style="margin-top: 2rem;">[Ad Space]</div>
+
+        <section class="seo-content" style="max-width: 960px; margin: 3rem auto 0 auto; line-height:1.75;">
+            <h2>What is an Online SQL Formatter?</h2>
+            <p>Structured Query Language (SQL) statements can easily become dense, complex, and unreadable, particularly when loaded with multiple table joins, subqueries, group constraints, and complex filter clauses. Our **SQL Formatter Online** provides a premium, browser-native method to beautify, format, and organize raw SQL scripts automatically. Designed for developers, database administrators, and SEO professionals running technical data checks, this utility runs entirely in-browser, guaranteeing complete safety and data privacy.</p>
+
+            <h3>How to Beautify and Format SQL Code:</h3>
+            <p>Our formatter performs automatic code restructuring with a few basic controls:</p>
+            <ul>
+                <li><strong>Paste Query:</strong> Paste your unstructured, messy, or single-line SQL queries directly into the Input SQL text box.</li>
+                <li><strong>Beautify:</strong> Click the "Beautify SQL" button. The engine normalizes keywords to UPPERCASE, formats join clauses onto new lines, indent subqueries, and aligns operators for readability.</li>
+                <li><strong>Minify:</strong> Use "Minify SQL" to compress query structures into single-line formats for server payloads or configuration parameters.</li>
+                <li><strong>Copy & Export:</strong> Instantly copy your clean SQL syntax with the copy button or clean the pane using the clear action.</li>
+            </ul>
+
+            <h3>Key Benefits of Local Client-Side Formatting:</h3>
+            <ul>
+                <li><strong>Complete Privacy:</strong> Your database tables, query paths, and proprietary schemas never leaves your browser. Safe for production setups.</li>
+                <li><strong>Keyword Capitalization:</strong> Automatically capitalizes standard keywords (e.g. <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>JOIN</code>, <code>WHERE</code>, <code>GROUP BY</code>) for coding cleanliness.</li>
+                <li><strong>Indented Nested Clauses:</strong> Simplifies complex nested queries by inserting structured hierarchy and visual indentations.</li>
+            </ul>
+        </section>
+
+        <div class="faq-section" style="max-width: 960px; margin: 3rem auto 0 auto;">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Does this SQL Formatter send my database queries to any server?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No. Unlike many web converters, our SQL Formatter runs 100% inside your local web browser. None of the text you enter is sent to our servers, keeping your secure databases, structures, and schemas completely private.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Which database SQL dialets are supported by this prettifier?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        This utility supports general standard ANSI SQL structure rules, making it highly compatible with PostgreSQL, MySQL, SQL Server (T-SQL), SQLite, Oracle PL/SQL, and MariaDB queries.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">What rules does the beautifier follow when organizing SQL queries?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        It capitalizes standard ANSI SQL syntax keywords, places major clauses (like <code>FROM</code>, <code>WHERE</code>, <code>JOIN</code>, <code>GROUP BY</code>) on new lines, aligns operators, and indents nested subqueries using 2-space padding intervals.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Text Tools</h4>
+                    <ul>
+                        <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                        <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                        <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                        <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                        <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/sql-formatter/sql-formatter.html">SQL Formatter</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/meta-tag-generator/meta-tag-generator.html">Meta Tag Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64 Converter</a></li>
+                        <li><a href="/tools/utm-link-builder/utm-link-builder.html">UTM Builder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/blog/index.html">Blog</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+        const keywords = new Set([
+            'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'FROM', 'WHERE', 'AND', 'OR', 'JOIN', 
+            'LEFT', 'RIGHT', 'INNER', 'OUTER', 'ON', 'GROUP BY', 'ORDER BY', 'HAVING', 
+            'LIMIT', 'SET', 'VALUES', 'INTO', 'CREATE', 'TABLE', 'ALTER', 'DROP', 'INDEX', 
+            'UNION', 'ALL', 'CASE', 'WHEN', 'THEN', 'ELSE', 'END', 'AS', 'IN', 'EXISTS', 
+            'NOT', 'LIKE', 'NULL', 'IS', 'USING', 'WITH', 'CROSS'
+        ]);
+
+        const newlineKeywords = new Set([
+            'SELECT', 'FROM', 'WHERE', 'GROUP BY', 'ORDER BY', 'HAVING', 'LIMIT', 'JOIN', 
+            'LEFT JOIN', 'RIGHT JOIN', 'INNER JOIN', 'OUTER JOIN', 'UNION', 'SET', 'VALUES', 'INSERT INTO', 'UPDATE'
+        ]);
+
+        function tokenize(sql) {
+            // Regex to extract comments, strings, words/operators
+            const regex = /\s+|(--[^\n]*|\/\*[\s\S]*?\*\/)|("[^"]*"|'[^']*'|`[^`]*`)|([a-zA-Z_][a-zA-Z0-9_]*)|([0-9]+)|([(),;=<>!+\-/*%])/g;
+            let match;
+            const tokens = [];
+            
+            while ((match = regex.exec(sql)) !== null) {
+                const val = match[0];
+                const cleanVal = val.trim();
+                if (!cleanVal) continue; // Skip whitespace tokens
+                
+                // Classify token
+                if (match[1]) {
+                    tokens.push({ type: 'COMMENT', value: val });
+                } else if (match[2]) {
+                    tokens.push({ type: 'STRING', value: val });
+                } else if (match[3]) {
+                    tokens.push({ type: 'WORD', value: val });
+                } else if (match[4]) {
+                    tokens.push({ type: 'NUMBER', value: val });
+                } else if (match[5]) {
+                    tokens.push({ type: 'SYMBOL', value: val });
+                }
+            }
+            return tokens;
+        }
+
+        // Combines adjacent words that form composite keywords (e.g. GROUP + BY -> GROUP BY)
+        function combineCompositeKeywords(tokens) {
+            const result = [];
+            for (let i = 0; i < tokens.length; i++) {
+                const t = tokens[i];
+                if (t.type === 'WORD') {
+                    const next = tokens[i + 1];
+                    const valUpper = t.value.toUpperCase();
+                    
+                    if (valUpper === 'GROUP' && next && next.value.toUpperCase() === 'BY') {
+                        result.push({ type: 'WORD', value: 'GROUP BY' });
+                        i++;
+                    } else if (valUpper === 'ORDER' && next && next.value.toUpperCase() === 'BY') {
+                        result.push({ type: 'WORD', value: 'ORDER BY' });
+                        i++;
+                    } else if (valUpper === 'INSERT' && next && next.value.toUpperCase() === 'INTO') {
+                        result.push({ type: 'WORD', value: 'INSERT INTO' });
+                        i++;
+                    } else if (valUpper === 'DELETE' && next && next.value.toUpperCase() === 'FROM') {
+                        result.push({ type: 'WORD', value: 'DELETE FROM' });
+                        i++;
+                    } else if (valUpper === 'LEFT' && next && next.value.toUpperCase() === 'JOIN') {
+                        result.push({ type: 'WORD', value: 'LEFT JOIN' });
+                        i++;
+                    } else if (valUpper === 'RIGHT' && next && next.value.toUpperCase() === 'JOIN') {
+                        result.push({ type: 'WORD', value: 'RIGHT JOIN' });
+                        i++;
+                    } else if (valUpper === 'INNER' && next && next.value.toUpperCase() === 'JOIN') {
+                        result.push({ type: 'WORD', value: 'INNER JOIN' });
+                        i++;
+                    } else if (valUpper === 'OUTER' && next && next.value.toUpperCase() === 'JOIN') {
+                        result.push({ type: 'WORD', value: 'OUTER JOIN' });
+                        i++;
+                    } else {
+                        result.push(t);
+                    }
+                } else {
+                    result.push(t);
+                }
+            }
+            return result;
+        }
+
+        function formatSQLQuery(sql) {
+            const rawTokens = tokenize(sql);
+            const tokens = combineCompositeKeywords(rawTokens);
+            
+            let indentLevel = 0;
+            const tabStr = "  "; // 2 spaces
+            let formatted = "";
+            
+            function getIndent() {
+                return tabStr.repeat(indentLevel);
+            }
+
+            for (let i = 0; i < tokens.length; i++) {
+                const t = tokens[i];
+                const next = tokens[i + 1];
+                let val = t.value;
+
+                if (t.type === 'WORD') {
+                    const upperVal = val.toUpperCase();
+                    if (keywords.has(upperVal)) {
+                        val = upperVal; // Capitalize keywords
+                    }
+                    
+                    if (newlineKeywords.has(val)) {
+                        if (formatted.length > 0) {
+                            formatted = formatted.trimEnd() + "\n" + getIndent();
+                        }
+                    }
+                    
+                    formatted += val + " ";
+                } 
+                else if (t.type === 'SYMBOL') {
+                    if (val === '(') {
+                        // Check if this matches a subquery
+                        let isSubquery = false;
+                        for (let j = i + 1; j < Math.min(tokens.length, i + 8); j++) {
+                            if (tokens[j].type === 'WORD' && tokens[j].value.toUpperCase() === 'SELECT') {
+                                isSubquery = true;
+                                break;
+                            }
+                        }
+                        
+                        if (isSubquery) {
+                            indentLevel++;
+                            formatted += "(\n" + getIndent();
+                        } else {
+                            formatted += "(";
+                        }
+                    } 
+                    else if (val === ')') {
+                        // Check if corresponding open paren was subquery
+                        let isSubquery = false;
+                        let parenCount = 0;
+                        for (let j = i - 1; j >= 0; j--) {
+                            if (tokens[j].value === ')') parenCount++;
+                            if (tokens[j].value === '(') {
+                                if (parenCount > 0) {
+                                    parenCount--;
+                                } else {
+                                    for (let k = j + 1; k < Math.min(tokens.length, j + 8); k++) {
+                                        if (tokens[k].type === 'WORD' && tokens[k].value.toUpperCase() === 'SELECT') {
+                                            isSubquery = true;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if (isSubquery) {
+                            indentLevel = Math.max(0, indentLevel - 1);
+                            formatted = formatted.trimEnd() + "\n" + getIndent() + ")";
+                        } else {
+                            formatted = formatted.trimEnd() + ")";
+                        }
+                        
+                        if (next && next.value !== ',' && next.value !== ';' && next.value !== ')') {
+                            formatted += " ";
+                        }
+                    } 
+                    else if (val === ',') {
+                        formatted = formatted.trimEnd() + ", ";
+                    } 
+                    else if (val === ';') {
+                        formatted = formatted.trimEnd() + ";\n\n";
+                    } 
+                    else {
+                        formatted += val + " ";
+                    }
+                } 
+                else if (t.type === 'COMMENT') {
+                    if (val.startsWith('--')) {
+                        formatted += val + "\n" + getIndent();
+                    } else {
+                        formatted += val + " ";
+                    }
+                } 
+                else {
+                    formatted += val + " ";
+                }
+            }
+            
+            return formatted.trim().replace(/\n\s+\n/g, "\n");
+        }
+
+        function beautifySQL() {
+            const input = document.getElementById('sql-input').value;
+            const output = document.getElementById('sql-output');
+            if (!input.trim()) {
+                output.value = "";
+                return;
+            }
+            output.value = formatSQLQuery(input);
+        }
+
+        function minifySQL() {
+            const input = document.getElementById('sql-input').value;
+            const output = document.getElementById('sql-output');
+            if (!input.trim()) {
+                output.value = "";
+                return;
+            }
+            let min = input
+                .replace(/--.*$/gm, '') 
+                .replace(/\/\*[\s\S]*?\*\//g, '') 
+                .replace(/\s+/g, ' ') 
+                .trim();
+            output.value = min;
+        }
+
+        function clearAll() {
+            document.getElementById('sql-input').value = "";
+            document.getElementById('sql-output').value = "";
+        }
+    </script>
+</body>
+</html>
+
+    <title>SQL Formatter Online â€” Prettifier & Beautifier | RankifyTools</title>
+    <meta name="keywords" content="sql formatter online, prettify sql, sql beautifier, format sql query free, SQL formatter and beautifier">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/sql-formatter">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/sql-formatter">
+    <meta property="og:title" content="SQL Formatter & Beautifier Online | RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Schema Markup -->
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "SQL Formatter", "item": "https://free-online-seo-tools.vercel.app/sql-formatter"}
+      "name": "SQL Formatter",
+      "url": "https://free-online-seo-tools.vercel.app/sql-formatter",
+      "description": "Prettify, validate, and format SQL queries instantly in the browser.",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    <script defer src="js/speed-insights.js"></script>
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+        <div class="hero">
+            <h1>SQL Formatter and Beautifier</h1>
+            <p>Format, beautify, and minify your SQL query blocks. Capitalize query keywords, indent nested fields, and correct spacing instantly online.</p>
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Input -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Input SQL</h2>
+                <textarea id="sqlInput" placeholder="select id, name, email from users join orders on users.id = orders.user_id where orders.amount > 100 group by id;" style="width: 100%; min-height: 250px; font-family: monospace; font-size: 0.9rem; padding: 1rem; background: var(--bg-main); color: var(--text-primary); border: 1px solid var(--border-light); border-radius: var(--radius-sm); resize: vertical; line-height: 1.5;"></textarea>
+                <div style="display:flex; gap:1rem;">
+                    <button class="tool-btn" style="flex:1; background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="beautifySQL()">âš¡ Beautify SQL</button>
+                    <button class="tool-btn" style="background:var(--bg-main); border-color:var(--border-light);" onclick="minifySQL()">Minify</button>
+                    <button class="tool-btn" style="background:var(--bg-main); border-color:var(--border-light);" onclick="clearAll()">Clear</button>
+            <!-- Right Panel: Output -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 280px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin:0;">
+                    <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Prettified Output</h2>
+                    <button class="tool-btn" onclick="copyResult()" style="font-size:0.75rem; padding:0.3rem 0.6rem;">ðŸ“‹ Copy</button>
+                <textarea id="sqlOutput" readonly placeholder="Result will display here..." style="flex:1; width:100%; min-height:220px; font-family:monospace; font-size:0.9rem; padding:1rem; background:#0a0a10; color:var(--text-primary); border: 1px solid var(--border-light); border-radius:var(--radius-sm); resize:vertical; line-height:1.5;"></textarea>
+                    <h4>Calculators</h4>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+    <script src="js/main.js" defer></script>
+                if (!cleanVal) continue;
+            const tabStr = "  ";
+                        val = upperVal;
+            const input = document.getElementById('sqlInput').value;
+            if (!input.trim()) return;
+            document.getElementById('sqlOutput').value = formatSQLQuery(input);
+            showToast('SQL query beautified!', 'success');
+            const input = document.getElementById('sqlInput').value;
+            if (!input.trim()) return;
+            document.getElementById('sqlOutput').value = min;
+            showToast('SQL minified successfully!', 'success');
+            document.getElementById('sqlInput').value = "";
+            document.getElementById('sqlOutput').value = "";
+        function copyResult() {
+            const out = document.getElementById('sqlOutput');
+            if (!out.value) return;
+            navigator.clipboard.writeText(out.value).then(() => {
+                showToast('Output copied to clipboard!', 'success');
+            });

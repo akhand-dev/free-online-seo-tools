@@ -1,0 +1,634 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://api.qrserver.com; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer & Compressor Online â€” Free & Private | ToolNest</title>
+    <meta name="description" content="Resize and compress images online for free. Change dimensions, format (JPG, PNG, WebP), and quality. 100% private â€” runs in your browser. No upload to servers.">
+    <meta name="keywords" content="image resizer, resize image online, compress image, image compressor, reduce image size, resize photo online free, image optimizer">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/image-resizer/image-resizer.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="website"><meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/image-resizer.html"><meta property="og:title" content="Image Resizer & Compressor â€” Free Online Tool"><meta property="og:description" content="Resize, compress and convert images instantly. 100% private, runs in your browser."><meta property="og:site_name" content="ToolNest">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon.ico"><meta name="theme-color" content="#06060b">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Resizer & Compressor","url":"https://free-online-seo-tools.vercel.app/tools/image-resizer.html","applicationCategory":"MultimediaApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this image resizer free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no sign-up, watermarks, or hidden fees."}},{"@type":"Question","name":"Is my image data private?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. All processing happens locally in your browser. Your images are never uploaded to any server."}},{"@type":"Question","name":"What image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"You can upload PNG, JPG, WebP, GIF, BMP, and SVG images. Output formats include JPEG, PNG, and WebP."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"No hard limit. Since everything runs in your browser, the only constraint is your device's available memory."}}]}</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://free-online-seo-tools.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://free-online-seo-tools.vercel.app/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Image Resizer",
+          "item": "https://free-online-seo-tools.vercel.app/tools/image-resizer.html"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Resize and Compress Images",
+      "description": "Resize and compress images online for free. Change dimensions, format (JPG, PNG, WebP), and quality.",
+      "step": [
+        {"@type": "HowToStep", "name": "Upload Image", "text": "Drag and drop or browse to select your image file."},
+        {"@type": "HowToStep", "name": "Adjust Settings", "text": "Set target width, height, format, and quality to compress the file."},
+        {"@type": "HowToStep", "name": "Compress & Resize", "text": "Click the process button to compile the image locally using Canvas APIs."},
+        {"@type": "HowToStep", "name": "Download", "text": "Save the optimized image directly to your device."}
+      ]
+    }
+    </script>
+<!-- Vercel Speed Insights -->
+    <script defer src="../js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header>
+    <div class="container navbar">
+        <a href="/index.html" class="logo">ðŸªº Tool<span>Nest</span></a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li class="nav-search-wrapper">
+                <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                <div id="globalSearchResults" class="search-results-dropdown"></div>
+            </li>
+            <li><a href="/index.html">Tools</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+        </ul>
+    </div>
+</header>
+
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs"><a href="../index.html">Home</a><span class="separator">â€º</span><a href="../index.html">Tools</a><span class="separator">â€º</span><span class="current">Image Resizer</span></nav>
+        <div class="hero" style="margin-bottom:1.5rem;"><h1>Image Resizer & Compressor</h1><p>Resize, compress, and convert images instantly. All processing happens in your browser â€” your files never leave your device.</p></div>
+        <div class="ad-container ad-leaderboard">[Ad Space]</div>
+
+        <div class="tool-interface" style="max-width:900px;margin:0 auto;">
+            <!-- Upload Zone -->
+            <div id="drop-zone" style="border:2px dashed var(--border-light);border-radius:12px;padding:3rem;text-align:center;cursor:pointer;transition:var(--transition);margin-bottom:1.5rem;" onclick="document.getElementById('file-input').click();">
+                <div style="font-size:3rem;margin-bottom:1rem;">ðŸ–¼ï¸</div>
+                <p style="color:var(--text-primary);font-weight:600;margin:0;">Click to upload or drag & drop an image</p>
+                <p style="color:var(--text-secondary);font-size:0.8rem;margin-top:0.5rem;">PNG, JPG, WebP, GIF, BMP, SVG supported</p>
+                <input type="file" id="file-input" accept="image/*" style="display:none;">
+            </div>
+
+            <!-- Preview & Controls (hidden until image loaded) -->
+            <div id="editor-panel" style="display:none;">
+                <!-- Original Image Preview -->
+                <div style="text-align:center;margin-bottom:1.5rem;background:rgba(0,0,0,0.2);border-radius:var(--radius-md);padding:1rem;border:1px solid var(--border-light);">
+                    <img loading="lazy" decoding="async" id="img-preview" style="max-width:100%;max-height:300px;border-radius:8px;" alt="Original image preview">
+                    <p id="img-info" style="color:var(--text-secondary);font-size:0.85rem;margin:0.5rem 0 0;"></p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid" style="margin-bottom:1.5rem;">
+                    <div class="stat-box"><div class="stat-value" id="stat-orig-dims">â€”</div><div class="stat-label">Original Size</div></div>
+                    <div class="stat-box"><div class="stat-value" id="stat-orig-file">â€”</div><div class="stat-label">Original File</div></div>
+                    <div class="stat-box"><div class="stat-value" id="stat-new-dims">â€”</div><div class="stat-label">New Size</div></div>
+                    <div class="stat-box"><div class="stat-value" id="stat-new-file">â€”</div><div class="stat-label">New File</div></div>
+                    <div class="stat-box"><div class="stat-value" id="stat-savings" style="color:var(--success);">â€”</div><div class="stat-label">Savings</div></div>
+                </div>
+
+                <!-- Resize Controls -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                    <div class="input-group">
+                        <label for="resize-width">Width (px)</label>
+                        <input type="number" id="resize-width" min="1" max="10000" placeholder="Width">
+                    </div>
+                    <div class="input-group">
+                        <label for="resize-height">Height (px)</label>
+                        <input type="number" id="resize-height" min="1" max="10000" placeholder="Height">
+                    </div>
+                </div>
+                <div class="checkbox-group" style="margin-bottom:1rem;">
+                    <input type="checkbox" id="aspect-lock" checked>
+                    <label for="aspect-lock" style="cursor:pointer;">ðŸ”’ Lock Aspect Ratio</label>
+                </div>
+
+                <!-- Quick Presets -->
+                <div style="margin-bottom:1.5rem;">
+                    <label style="font-weight:500;font-size:0.95rem;margin-bottom:0.5rem;display:block;">Quick Resize</label>
+                    <div class="button-group">
+                        <button class="secondary" onclick="applyPercent(25)">25%</button>
+                        <button class="secondary" onclick="applyPercent(50)">50%</button>
+                        <button class="secondary" onclick="applyPercent(75)">75%</button>
+                        <button class="secondary" onclick="applyPercent(100)">100%</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:1.5rem;">
+                    <label style="font-weight:500;font-size:0.95rem;margin-bottom:0.5rem;display:block;">Common Widths</label>
+                    <div class="button-group">
+                        <button class="secondary" onclick="applyWidth(1920)">1920px</button>
+                        <button class="secondary" onclick="applyWidth(1280)">1280px</button>
+                        <button class="secondary" onclick="applyWidth(800)">800px</button>
+                        <button class="secondary" onclick="applyWidth(640)">640px</button>
+                        <button class="secondary" onclick="applyWidth(320)">320px</button>
+                    </div>
+                </div>
+
+                <!-- Format & Quality -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                    <div class="input-group">
+                        <label for="output-format">Output Format</label>
+                        <select id="output-format">
+                            <option value="image/jpeg">JPEG</option>
+                            <option value="image/png">PNG</option>
+                            <option value="image/webp">WebP</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="quality-group">
+                        <label for="quality-slider">Quality: <span id="quality-val">80</span>%</label>
+                        <input type="range" id="quality-slider" min="10" max="100" value="80" style="width:100%;accent-color:var(--accent-primary);margin-top:0.5rem;">
+                    </div>
+                </div>
+
+                <!-- Output Preview -->
+                <div id="output-preview" style="text-align:center;margin-bottom:1.5rem;background:rgba(0,0,0,0.2);border-radius:var(--radius-md);padding:1rem;border:1px solid var(--border-light);display:none;">
+                    <p style="font-weight:600;margin-bottom:0.5rem;">Resized Preview</p>
+                    <img loading="lazy" decoding="async" id="output-img" style="max-width:100%;max-height:300px;border-radius:8px;" alt="Resized image preview">
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group" style="justify-content:center;">
+                    <button onclick="processImage()" id="btn-resize" style="padding:0.8rem 2rem;font-size:1rem;">âš¡ Resize & Compress</button>
+                    <button onclick="downloadImage()" id="btn-download" class="secondary" style="display:none;padding:0.8rem 2rem;font-size:1rem;">â¬‡ Download</button>
+                    <button onclick="resetTool()" class="secondary">ðŸ”„ Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content -->
+        <section class="seo-content">
+            <h2>Free Online Image Resizer & Compressor</h2>
+            <p>Need to quickly resize a photo for social media, compress a large image for your website, or convert between image formats? Our Image Resizer & Compressor does it all â€” instantly and privately in your browser.</p>
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Resize by pixels or percentage</strong> â€” Set exact dimensions or use quick presets (25%, 50%, 75%).</li>
+                <li><strong>Compress without quality loss</strong> â€” Fine-tune JPEG and WebP quality from 10% to 100%.</li>
+                <li><strong>Convert formats</strong> â€” Switch between JPEG, PNG, and WebP output formats.</li>
+                <li><strong>100% private</strong> â€” All processing happens in your browser. Your images never leave your device.</li>
+            </ul>
+            <p>Related: <a href="tools/image-to-base64/image-to-base64.html">Image to Base64</a> | <a href="tools/file-converter/file-converter.html">File Format Converter</a> | <a href="tools/color-picker/color-picker.html">Color Picker</a></p>
+
+            <div class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item"><button class="faq-question">Is this image resizer free?</button><div class="faq-answer"><div class="faq-answer-inner">Yes, completely free with no sign-up, watermarks, or hidden fees. Use it as many times as you need.</div></div></div>
+                <div class="faq-item"><button class="faq-question">Is my image data private?</button><div class="faq-answer"><div class="faq-answer-inner">Absolutely. All processing happens locally in your browser using the HTML5 Canvas API. Your images are never uploaded to any server.</div></div></div>
+                <div class="faq-item"><button class="faq-question">What image formats are supported?</button><div class="faq-answer"><div class="faq-answer-inner">You can upload PNG, JPG/JPEG, WebP, GIF, BMP, and SVG images. Output formats include JPEG, PNG, and WebP.</div></div></div>
+                <div class="faq-item"><button class="faq-question">Is there a file size limit?</button><div class="faq-answer"><div class="faq-answer-inner">No hard limit. Since everything runs in your browser, the only constraint is your device's available memory. Most modern devices handle images up to 50MB+ without issues.</div></div></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="/index.html" class="logo">ðŸªº Tool<span>Nest</span></a>
+                <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for
+                    simple, fast & free online utilities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Text Tools</h4>
+                <ul>
+                    <li><a href="/tools/word-counter/word-counter.html">Word Counter</a></li>
+                    <li><a href="/tools/case-converter/case-converter.html">Case Converter</a></li>
+                    <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator.html">Lorem Ipsum</a></li>
+                    <li><a href="/tools/text-to-slug/text-to-slug.html">Text to Slug</a></li>
+                    <li><a href="/tools/markdown-preview/markdown-preview.html">Markdown Preview</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Dev Tools</h4>
+                <ul>
+                    <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder.html">Base64</a></li>
+                    <li><a href="/tools/hash-generator/hash-generator.html">Hash Generator</a></li>
+                    <li><a href="/tools/timestamp-converter/timestamp-converter.html">Timestamp</a></li>
+                    <li><a href="/tools/color-picker/color-picker.html">Color Picker</a></li>
+                    <li><a href="/tools/jwt-decoder/jwt-decoder.html">JWT Decoder</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/blog/index.html">Blog</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ToolNest â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+
+    <div class="cookie-banner">We use cookies to improve your experience. <a href="../privacy-policy.html">Privacy Policy</a> <button onclick="acceptCookies()">Accept</button></div>
+    <script src="../js/main.js" defer></script>
+    <script>
+    const fileIn=document.getElementById('file-input'),dropZone=document.getElementById('drop-zone'),editorPanel=document.getElementById('editor-panel'),imgPreview=document.getElementById('img-preview'),imgInfo=document.getElementById('img-info'),widthIn=document.getElementById('resize-width'),heightIn=document.getElementById('resize-height'),aspectLock=document.getElementById('aspect-lock'),formatSel=document.getElementById('output-format'),qualitySlider=document.getElementById('quality-slider'),qualityVal=document.getElementById('quality-val'),qualityGroup=document.getElementById('quality-group'),outputPreview=document.getElementById('output-preview'),outputImg=document.getElementById('output-img'),btnDownload=document.getElementById('btn-download');
+
+    let origImg=null,origW=0,origH=0,origFileSize=0,aspectRatio=1,outputBlob=null,origFileName='image';
+
+    // Drag & Drop
+    dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.style.borderColor='var(--accent-primary)';dropZone.style.background='rgba(99,102,241,0.05)';});
+    dropZone.addEventListener('dragleave',()=>{dropZone.style.borderColor='var(--border-light)';dropZone.style.background='';});
+    dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.style.borderColor='var(--border-light)';dropZone.style.background='';if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
+    fileIn.addEventListener('change',e=>{if(e.target.files[0])handleFile(e.target.files[0]);});
+
+    function handleFile(file){
+        if(!file.type.startsWith('image/')){showToast('Please select an image file','error');return;}
+        origFileSize=file.size;
+        origFileName=file.name.replace(/\.[^.]+$/,'');
+        const reader=new FileReader();
+        reader.onload=e=>{
+            const img=new Image();
+            img.onload=()=>{
+                origImg=img;origW=img.naturalWidth;origH=img.naturalHeight;aspectRatio=origW/origH;
+                imgPreview.src=e.target.result;
+                imgInfo.textContent=`${file.name} â€” ${origW} Ã— ${origH}px â€” ${formatBytes(origFileSize)}`;
+                widthIn.value=origW;heightIn.value=origH;
+                updateStats();
+                dropZone.style.display='none';
+                editorPanel.style.display='block';
+                outputPreview.style.display='none';
+                btnDownload.style.display='none';
+                showToast('Image loaded successfully!','success');
+            };
+            img.src=e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Aspect Ratio Lock
+    widthIn.addEventListener('input',()=>{
+        if(aspectLock.checked&&origImg){
+            heightIn.value=Math.round(parseInt(widthIn.value)/aspectRatio)||'';
+        }
+        updateStats();
+    });
+    heightIn.addEventListener('input',()=>{
+        if(aspectLock.checked&&origImg){
+            widthIn.value=Math.round(parseInt(heightIn.value)*aspectRatio)||'';
+        }
+        updateStats();
+    });
+
+    // Quality slider
+    qualitySlider.addEventListener('input',()=>{qualityVal.textContent=qualitySlider.value;});
+    formatSel.addEventListener('change',()=>{
+        qualityGroup.style.display=(formatSel.value==='image/png')?'none':'block';
+    });
+
+    // Presets
+    function applyPercent(pct){
+        if(!origImg)return;
+        widthIn.value=Math.round(origW*pct/100);
+        heightIn.value=Math.round(origH*pct/100);
+        updateStats();
+    }
+    function applyWidth(w){
+        if(!origImg)return;
+        widthIn.value=w;
+        if(aspectLock.checked)heightIn.value=Math.round(w/aspectRatio);
+        updateStats();
+    }
+
+    function updateStats(){
+        const sOrigDims=document.getElementById('stat-orig-dims'),sOrigFile=document.getElementById('stat-orig-file'),sNewDims=document.getElementById('stat-new-dims'),sNewFile=document.getElementById('stat-new-file'),sSavings=document.getElementById('stat-savings');
+        if(!origImg){sOrigDims.textContent='â€”';sOrigFile.textContent='â€”';sNewDims.textContent='â€”';sNewFile.textContent='â€”';sSavings.textContent='â€”';return;}
+        sOrigDims.textContent=`${origW}Ã—${origH}`;
+        sOrigFile.textContent=formatBytes(origFileSize);
+        const nw=parseInt(widthIn.value)||origW,nh=parseInt(heightIn.value)||origH;
+        sNewDims.textContent=`${nw}Ã—${nh}`;
+        // Estimate file size based on pixel ratio and quality
+        const pixelRatio=(nw*nh)/(origW*origH);
+        const q=(formatSel.value==='image/png')?1:(parseInt(qualitySlider.value)/100);
+        const est=Math.round(origFileSize*pixelRatio*q);
+        sNewFile.textContent='~'+formatBytes(est);
+        const saved=origFileSize>0?Math.round((1-est/origFileSize)*100):0;
+        sSavings.textContent=(saved>0?'+':'')+saved+'%';
+        sSavings.style.color=saved>0?'var(--success)':'var(--error)';
+    }
+
+    function processImage(){
+        if(!origImg){showToast('Upload an image first','error');return;}
+        const nw=parseInt(widthIn.value)||origW,nh=parseInt(heightIn.value)||origH;
+        const canvas=document.createElement('canvas');canvas.width=nw;canvas.height=nh;
+        const ctx=canvas.getContext('2d');
+        // Use high quality rendering
+        ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+        ctx.drawImage(origImg,0,0,nw,nh);
+        const format=formatSel.value;
+        const quality=(format==='image/png')?undefined:parseInt(qualitySlider.value)/100;
+        canvas.toBlob(blob=>{
+            if(!blob){showToast('Failed to process image','error');return;}
+            outputBlob=blob;
+            const url=URL.createObjectURL(blob);
+            outputImg.src=url;
+            outputPreview.style.display='block';
+            btnDownload.style.display='inline-flex';
+            // Update actual stats
+            const sNewFile=document.getElementById('stat-new-file'),sSavings=document.getElementById('stat-savings');
+            sNewFile.textContent=formatBytes(blob.size);
+            const saved=origFileSize>0?Math.round((1-blob.size/origFileSize)*100):0;
+            sSavings.textContent=saved+'%';
+            sSavings.style.color=saved>0?'var(--success)':'var(--error)';
+            showToast('Image resized successfully!','success');
+        },format,quality);
+    }
+
+    function downloadImage(){
+        if(!outputBlob){showToast('Process an image first','error');return;}
+        const nw=parseInt(widthIn.value)||origW,nh=parseInt(heightIn.value)||origH;
+        const ext=formatSel.value==='image/png'?'png':formatSel.value==='image/webp'?'webp':'jpg';
+        const a=document.createElement('a');a.href=URL.createObjectURL(outputBlob);
+        a.download=`${origFileName}_${nw}x${nh}.${ext}`;a.click();
+        showToast('Download started!','success');
+    }
+
+    function resetTool(){
+        origImg=null;outputBlob=null;origW=0;origH=0;origFileSize=0;
+        dropZone.style.display='block';editorPanel.style.display='none';
+        fileIn.value='';outputPreview.style.display='none';btnDownload.style.display='none';
+        updateStats();
+    }
+
+    function formatBytes(b){if(b===0)return '0 B';const k=1024,s=['B','KB','MB','GB'];const i=Math.floor(Math.log(b)/Math.log(k));return parseFloat((b/Math.pow(k,i)).toFixed(1))+' '+s[i];}
+    </script>
+</body>
+</html>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <title>Image Resizer â€” Resize to 100KB, Instagram & Passport Sizes | RankifyTools</title>
+    <meta name="description" content="Resize images online for free. Adjust height and width dimensions, compress images to 100KB, or crop to Instagram and passport size presets instantly.">
+    <meta name="keywords" content="image resizer for instagram, resize image for passport size, reduce image size for upload, resize image to 100kb online, photo resizer online">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/image-resizer">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/image-resizer">
+    <meta property="og:title" content="Image Resizer â€” Instagram & Passport Photo Maker | RankifyTools">
+    <meta property="og:description" content="Free secure image resizing portal. Adjust px dimensions, scale sizes, and optimize kb targets locally.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Schema Markup -->
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Image Resizer", "item": "https://free-online-seo-tools.vercel.app/image-resizer"}
+      "@type": "WebApplication",
+      "name": "Image Resizer",
+      "url": "https://free-online-seo-tools.vercel.app/image-resizer",
+      "description": "Resize and compress images to custom dimensions or preset sizes like Instagram and Passport pictures.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    <script defer src="js/speed-insights.js"></script>
+    
+        <div class="container navbar">
+            <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">â˜€ï¸</button></li>
+    </header>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">â€º</span>
+            <a href="/index.html">Tools</a><span class="separator">â€º</span>
+            <span class="current">Image Resizer</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Image Resizer Online</h1>
+            <p>Modify image dimensions easily. Convert pixel sizes, compress files to 100KB, or crop photos for Instagram layouts and passport standards.</p>
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Settings -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Upload & Resize Settings</h2>
+                
+                <div class="dropzone" id="dropzone" style="border: 2px dashed var(--border-light); border-radius: var(--radius-md); padding: 2rem; text-align: center; cursor: pointer;" onclick="document.getElementById('fileInput').click()">
+                    <span style="font-size: 2.2rem; display: block; margin-bottom: 0.5rem;">ðŸ“</span>
+                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;" id="dropzoneText">Drag & drop your image here or <span style="color: var(--accent-primary); font-weight: 600;">browse files</span></p>
+                    <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" style="display: none;" onchange="loadImage(event)">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="widthInput" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Width (px)</label>
+                        <input type="number" id="widthInput" placeholder="Width" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="heightInput" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Height (px)</label>
+                        <input type="number" id="heightInput" placeholder="Height" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <label for="presetSelect" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Preset Sizes</label>
+                    <select id="presetSelect" onchange="applyPreset()" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                        <option value="custom">Custom Dimensions</option>
+                        <option value="ig-square">Instagram Square (1080 x 1080)</option>
+                        <option value="ig-portrait">Instagram Portrait (1080 x 1350)</option>
+                        <option value="ig-story">Instagram Story (1080 x 1920)</option>
+                        <option value="passport-in">Indian Passport (350 x 350)</option>
+                        <option value="passport-us">US Passport (600 x 600)</option>
+                    </select>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                    <input type="checkbox" id="lockAspect" checked style="cursor:pointer;">
+                    <label for="lockAspect" style="font-size:0.85rem; color:var(--text-secondary); cursor:pointer; margin:0;">Lock Aspect Ratio</label>
+                <button class="tool-btn" style="background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="resizeImage()">âš¡ Resize Image</button>
+            <!-- Right Panel: Output Preview -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; align-items: center; justify-content: center; min-height: 320px;">
+                <div id="previewArea" style="display:none; flex-direction:column; gap:1rem; width:100%; align-items:center;">
+                    <img id="imagePreview" style="max-width:100%; max-height:240px; border-radius:var(--radius-sm); border:1px solid var(--border-light);">
+                    <span id="outputDetails" style="font-size:0.85rem; color:var(--text-secondary);"></span>
+                    <button class="tool-btn" id="downloadBtn" style="background:var(--accent-secondary); border-color:var(--accent-secondary); color:#fff;" onclick="downloadImage()">ðŸ“¥ Download Resized Image</button>
+                <div id="placeholderText" style="color:var(--text-secondary); font-style:italic; font-size:0.85rem;">Upload an image on the left to start resizing.</div>
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>The Importance of Proper Image Resizing</h2>
+            <p>Uploading raw photographs directly to web platforms can cause slow page speeds and formatting errors. Sizing your files correctly solves these issues:</p>
+                <li><strong>Social Media Presets:</strong> Layout templates for platforms like Instagram enforce specific aspect ratios (e.g., 1:1 square or 9:16 story profiles) to keep cards sharp.</li>
+                <li><strong>Government Portals (Passport Size):</strong> Identification platforms require small photo dimensions (e.g. 2 x 2 inches or 350x350 pixels) and small file limits (like 100KB).</li>
+        </article>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">âš¡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools â€” free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+    </footer>
+    <script src="js/main.js" defer></script>
+        const fileInput = document.getElementById('fileInput');
+        const widthInput = document.getElementById('widthInput');
+        const heightInput = document.getElementById('heightInput');
+        const presetSelect = document.getElementById('presetSelect');
+        const lockAspect = document.getElementById('lockAspect');
+        const previewArea = document.getElementById('previewArea');
+        const placeholderText = document.getElementById('placeholderText');
+        const imagePreview = document.getElementById('imagePreview');
+        const outputDetails = document.getElementById('outputDetails');
+        const dropzoneText = document.getElementById('dropzoneText');
+        let loadedImgSrc = null;
+        let originalFileName = "";
+        let originalAspect = 1.0;
+        let resizedBlobUrl = null;
+        function loadImage(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            originalFileName = file.name.split('.').slice(0, -1).join('.');
+            dropzoneText.innerText = `Loaded: ${file.name}`;
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = (e) => {
+                loadedImgSrc = e.target.result;
+                
+                const img = new Image();
+                img.src = loadedImgSrc;
+                img.onload = () => {
+                    originalAspect = img.naturalWidth / img.naturalHeight;
+                    widthInput.value = img.naturalWidth;
+                    heightInput.value = img.naturalHeight;
+                    
+                    imagePreview.src = loadedImgSrc;
+                    placeholderText.style.display = 'none';
+                    previewArea.style.display = 'flex';
+                    showToast('Image loaded successfully!', 'success');
+                };
+        // Link Inputs for Aspect Ratio
+        widthInput.addEventListener('input', () => {
+            if (lockAspect.checked && originalAspect) {
+                heightInput.value = Math.round(widthInput.value / originalAspect);
+            }
+        });
+        heightInput.addEventListener('input', () => {
+            if (lockAspect.checked && originalAspect) {
+                widthInput.value = Math.round(heightInput.value * originalAspect);
+            }
+        });
+        function applyPreset() {
+            const preset = presetSelect.value;
+            lockAspect.checked = false; // unlock when applying presets
+            switch (preset) {
+                case 'ig-square':
+                    widthInput.value = 1080;
+                    heightInput.value = 1080;
+                    break;
+                case 'ig-portrait':
+                    widthInput.value = 1080;
+                    heightInput.value = 1350;
+                    break;
+                case 'ig-story':
+                    widthInput.value = 1080;
+                    heightInput.value = 1920;
+                    break;
+                case 'passport-in':
+                    widthInput.value = 350;
+                    heightInput.value = 350;
+                    break;
+                case 'passport-us':
+                    widthInput.value = 600;
+                    heightInput.value = 600;
+                    break;
+            }
+        function resizeImage() {
+            if (!loadedImgSrc) {
+                showToast('Please upload an image first.', 'error');
+                return;
+            }
+            const w = parseInt(widthInput.value) || 100;
+            const h = parseInt(heightInput.value) || 100;
+            const img = new Image();
+            img.src = loadedImgSrc;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = w;
+                canvas.height = h;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, w, h);
+                canvas.toBlob((blob) => {
+                    if (resizedBlobUrl) {
+                        URL.revokeObjectURL(resizedBlobUrl);
+                    }
+                    resizedBlobUrl = URL.createObjectURL(blob);
+                    imagePreview.src = resizedBlobUrl;
+                    const sizeKb = (blob.size / 1024).toFixed(1);
+                    outputDetails.innerText = `New Size: ${w} x ${h}px &bull; File Weight: ~${sizeKb} KB`;
+                    showToast('Image resized successfully!', 'success');
+                }, 'image/jpeg', 0.9);
+        function downloadImage() {
+            if (!resizedBlobUrl) return;
+            const a = document.createElement('a');
+            a.href = resizedBlobUrl;
+            a.download = `${originalFileName}_resized.jpg`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+

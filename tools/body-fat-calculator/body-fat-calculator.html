@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Fat Calculator Online — Calculate Body Fat Percentage | RankifyTools</title>
+    <meta name="description" content="Calculate your body fat percentage online using the standard US Navy circumference method. Free, accurate, and instant biometric body fat index calculations.">
+    <meta name="keywords" content="body fat calculator online, body fat percentage calculator, navy body fat formula">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/body-fat-calculator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/body-fat-calculator">
+    <meta property="og:title" content="Body Fat Calculator Online | RankifyTools">
+    <meta property="og:description" content="Compute your body fat percentage using US Navy metrics instantly. Privacy first.">
+    <meta property="og:site_name" content="RankifyTools">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <meta name="theme-color" content="#06060b">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+    
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "Body Fat Calculator", "item": "https://free-online-seo-tools.vercel.app/body-fat-calculator"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Body Fat Calculator",
+      "url": "https://free-online-seo-tools.vercel.app/body-fat-calculator",
+      "description": "Calculate body fat percentage using US Navy body circumference specifications.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script defer src="js/speed-insights.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header>
+        <div class="container navbar">
+            <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search free SEO tools..." aria-label="Search tools" autocomplete="off">
+                    <div id="globalSearchResults" class="search-results-dropdown"></div>
+                </li>
+                <li><a href="/index.html">Tools</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/index.html">Home</a><span class="separator">›</span>
+            <a href="/index.html">Tools</a><span class="separator">›</span>
+            <span class="current">Body Fat Calculator</span>
+        </nav>
+        
+        <div class="hero">
+            <h1>Body Fat Calculator Online</h1>
+            <p>Compute your body fat percentage. Our calculator uses the standard US Navy Circumference Method to deliver instant body metrics.</p>
+        </div>
+
+        <div class="split-pane" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; margin-top: 2rem;">
+            <!-- Left Panel: Configurations -->
+            <div class="tool-interface" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem;">
+                <h2 style="font-size: 1.25rem; color: var(--accent-primary); margin:0;">Circumference Details</h2>
+                
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="gender" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Gender</label>
+                        <select id="gender" onchange="toggleHip()" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="height" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Height (cm)</label>
+                        <input type="number" id="height" value="175" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    </div>
+                </div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="neck" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Neck Circumference (cm)</label>
+                        <input type="number" id="neck" value="38" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <label for="waist" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Waist Circumference (cm)</label>
+                        <input type="number" id="waist" value="85" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                    </div>
+                </div>
+
+                <div id="hipWrapper" style="display:none; flex-direction:column; gap:0.4rem;">
+                    <label for="hip" style="font-size:0.85rem; color:var(--text-secondary); font-weight:600;">Hip Circumference (cm)</label>
+                    <input type="number" id="hip" value="95" style="padding:0.6rem; background:var(--bg-main); border:1px solid var(--border-light); border-radius:var(--radius-sm); color:var(--text-primary);">
+                </div>
+
+                <button class="tool-btn" style="background:var(--accent-primary); border-color:var(--accent-primary); color:#fff;" onclick="calculateBodyFat()">⚡ Calculate Body Fat</button>
+            </div>
+
+            <!-- Right Panel: Results -->
+            <div class="output-pane" style="background: var(--bg-card); padding: 1.8rem; border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 1.2rem; min-height: 250px; justify-content: center; text-align: center;">
+                <div id="resultsWrapper" style="display:flex; flex-direction:column; gap:1rem;">
+                    <div>
+                        <span style="font-size:0.9rem; color:var(--text-secondary);">Estimated Body Fat Percentage</span>
+                        <div id="bodyFatVal" style="font-size:2.2rem; font-weight:700; color:var(--accent-primary); margin-top:0.2rem;">0.0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Article -->
+        <article class="article-content reveal" style="margin-top: 4rem; border-top: 1px solid var(--border-light); padding-top: 3rem;">
+            <h2>The US Navy Circumference Method</h2>
+            <p>Body fat ratios are important indicators of cardiovascular health and general fitness levels. This calculator uses equations developed by the US Navy Medical Research Center to calculate percentages based on neck, waist, and hip boundaries:</p>
+            <ul>
+                <li><strong>Male:</strong> 495 / ( 1.0324 - 0.19077 * log10(waist - neck) + 0.15456 * log10(height) ) - 450</li>
+                <li><strong>Female:</strong> 495 / ( 1.29579 - 0.35004 * log10(waist + hip - neck) + 0.22100 * log10(height) ) - 450</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="/index.html" class="logo">⚡ Rankify<span>Tools</span></a>
+                    <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast & free online utilities. SEO tools, developer utilities, and productivity apps.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator-india">SIP Calculator India</a></li>
+                        <li><a href="/income-tax-calculator-india-2025">Income Tax Calculator</a></li>
+                        <li><a href="/gst-calculator-online-free">GST Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>SEO & Dev Tools</h4>
+                    <ul>
+                        <li><a href="/tools/xml-sitemap-generator/xml-sitemap-generator.html">Sitemap Generator</a></li>
+                        <li><a href="/tools/robots-txt-generator/robots-txt-generator.html">Robots.txt Generator</a></li>
+                        <li><a href="/tools/json-formatter/json-formatter.html">JSON Formatter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-service.html">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        function toggleHip() {
+            const gender = document.getElementById('gender').value;
+            const hipWrapper = document.getElementById('hipWrapper');
+            if (gender === 'female') {
+                hipWrapper.style.display = 'flex';
+            } else {
+                hipWrapper.style.display = 'none';
+            }
+        }
+
+        function calculateBodyFat() {
+            const gender = document.getElementById('gender').value;
+            const h = parseFloat(document.getElementById('height').value) || 0;
+            const neck = parseFloat(document.getElementById('neck').value) || 0;
+            const waist = parseFloat(document.getElementById('waist').value) || 0;
+            const hip = parseFloat(document.getElementById('hip').value) || 0;
+
+            if (h === 0 || neck === 0 || waist === 0) return;
+
+            let bf = 0;
+            if (gender === 'male') {
+                if (waist <= neck) return;
+                bf = 495 / (1.0324 - 0.19077 * Math.log10(waist - neck) + 0.15456 * Math.log10(h)) - 450;
+            } else {
+                if (hip === 0 || (waist + hip <= neck)) return;
+                bf = 495 / (1.29579 - 0.35004 * Math.log10(waist + hip - neck) + 0.22100 * Math.log10(h)) - 450;
+            }
+
+            document.getElementById('bodyFatVal').innerText = `${Math.max(0, bf).toFixed(1)}%`;
+            showToast('Body fat calculation complete!', 'success');
+        }
+
+        window.addEventListener('load', () => {
+            toggleHip();
+            calculateBodyFat();
+        });
+    </script>
+</body>
+</html>
