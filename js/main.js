@@ -1,5 +1,5 @@
-/**
- * RankifyTools — Global JavaScript v2.0
+﻿/**
+ * Asegya Toolkit — Global JavaScript v2.0
  * Mobile menu, toasts, scroll animations, back-to-top, cookie consent, FAQ accordion
  */
 document.addEventListener('DOMContentLoaded', () => {
