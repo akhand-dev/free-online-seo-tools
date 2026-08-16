@@ -1,7 +1,7 @@
-const CACHE_NAME = 'toolnest-cache-v1';
+﻿const CACHE_NAME = 'toolnest-cache-v1';
 const ASSETS_TO_CACHE = [
   '/',
-  '/index.html',
+  '/',
   '/css/style.css',
   '/js/main.js',
   '/favicon.ico',
