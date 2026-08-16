@@ -303,7 +303,7 @@
         if (title) tags.push(`<meta name="title" content="${title}">`);
         if (desc) tags.push(`<meta name="description" content="${desc}">`);
         if (keys) tags.push(`<meta name="keywords" content="${keys}">`);
-        if (url) tags.push(`<link rel="canonical" href="${url}">`);
+        if (url) tags.push(``);
         
         tags.push(`\\n<!-- Crawler Directives -->`);
         if (indexFollow) {
@@ -340,7 +340,7 @@
 </html>
 
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://s0.wp.com; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
-    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/meta-tag-generator">
+    
     <meta name="robots" content="index, follow">
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:url" content="https://free-online-seo-tools.vercel.app/meta-tag-generator">
