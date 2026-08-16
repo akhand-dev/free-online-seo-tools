@@ -1,5 +1,19 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/sales-tax-calculator-usa", "destination": "/tools/sales-tax-calculator-usa/sales-tax-calculator-usa", "permanent": true },
+    { "source": "/instagram-hashtag-generator", "destination": "/tools/instagram-hashtag-generator/instagram-hashtag-generator", "permanent": true },
+    { "source": "/text-summarizer-online", "destination": "/tools/text-summarizer-online/text-summarizer-online", "permanent": true },
+    { "source": "/cover-letter-generator", "destination": "/tools/cover-letter-generator/cover-letter-generator", "permanent": true },
+    { "source": "/paraphrasing-tool-free-no-login", "destination": "/tools/paraphrasing-tool-free-no-login/paraphrasing-tool-free-no-login", "permanent": true },
+    { "source": "/compress-image-to-200kb", "destination": "/tools/compress-image-to-200kb/compress-image-to-200kb", "permanent": true },
+    { "source": "/tools/ai-text-humanizer/ai-text-humanizer-free.html", "destination": "/tools/ai-text-humanizer-free/ai-text-humanizer-free", "permanent": true },
+    { "source": "/compress-image-to-20kb", "destination": "/tools/compress-image-to-20kb/compress-image-to-20kb", "permanent": true },
+    { "source": "/tools/json-formatter.html", "destination": "/tools/json-formatter/json-formatter", "permanent": true },
+    { "source": "/text-binary-converter", "destination": "/tools/text-binary-converter/text-binary-converter", "permanent": true },
+    { "source": "/dice-roller", "destination": "/tools/dice-roller/dice-roller", "permanent": true },
+    { "source": "/tools/cron-job-generator.html", "destination": "/tools/cron-job-generator/cron-job-generator", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/robots.txt",
