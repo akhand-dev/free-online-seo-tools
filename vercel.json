@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "redirects": [
+    { "source": "/backlink-checker", "destination": "/tools/backlink-checker/backlink-checker", "permanent": true },
+    { "source": "/keyword-density-checker", "destination": "/tools/keyword-density-checker/keyword-density-checker", "permanent": true },
+    { "source": "/meta-tag-generator", "destination": "/tools/meta-tag-generator/meta-tag-generator", "permanent": true },
+    { "source": "/xml-sitemap-generator", "destination": "/tools/xml-sitemap-generator/xml-sitemap-generator", "permanent": true },
+    { "source": "/word-counter", "destination": "/tools/word-counter/word-counter", "permanent": true },
+    { "source": "/word-counter-online-free", "destination": "/tools/word-counter-online-free/word-counter-online-free", "permanent": true },
     { "source": "/sales-tax-calculator-usa", "destination": "/tools/sales-tax-calculator-usa/sales-tax-calculator-usa", "permanent": true },
     { "source": "/instagram-hashtag-generator", "destination": "/tools/instagram-hashtag-generator/instagram-hashtag-generator", "permanent": true },
     { "source": "/text-summarizer-online", "destination": "/tools/text-summarizer-online/text-summarizer-online", "permanent": true },
