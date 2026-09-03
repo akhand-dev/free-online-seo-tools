@@ -18,7 +18,7 @@
 </IfModule>
 
 # Custom 404
-ErrorDocument 404 /gag/404.html
+ErrorDocument 404 /404.html
 
 # Security Headers
 <IfModule mod_headers.c>
