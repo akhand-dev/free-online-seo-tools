@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://api.qrserver.com; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Programmatically Generate UTM Source Codes for Email & Web Dev | ToolNest</title>
+    <meta name="description" content="Learn how to programmatically generate UTM source codes and build automated tracking links in JavaScript, TypeScript, and HTML email templates.">
+    <meta name="keywords" content="utm source code generator, utm string builder, programmatic utm generator, email tracking links, url searchparams utm">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/utm-link-builder/blog-utm-source-code-generator.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/utm-link-builder/blog-utm-source-code-generator.html">
+    <meta property="og:title" content="How to Programmatically Generate UTM Source Codes for Email & Web Dev">
+    <meta property="og:description" content="Learn how to programmatically generate UTM source codes and build automated tracking links in JavaScript, TypeScript, and HTML email templates.">
+    <meta property="og:site_name" content="ToolNest">
+    <meta property="article:published_time" content="2026-09-08">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Programmatically Generate UTM Source Codes for Email & Web Dev">
+    <meta name="twitter:description" content="Learn how to programmatically generate UTM source codes and build automated tracking links in JavaScript, TypeScript, and HTML email templates.">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="../../css/style.css" as="style">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .blog-post {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+        }
+        .blog-post-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .blog-post-meta {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .blog-tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        .blog-post-header h1 {
+            font-size: 2.3rem;
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #fff 40%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blog-post-intro {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .blog-post-body {
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        .blog-post-body h2 {
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1rem;
+            color: #fff;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .blog-post-body h3 {
+            font-size: 1.25rem;
+            margin: 1.8rem 0 0.8rem;
+            color: var(--accent-secondary);
+        }
+        .blog-post-body p {
+            margin-bottom: 1.3rem;
+        }
+        .blog-post-body ul, .blog-post-body ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        .blog-post-body li {
+            margin-bottom: 0.6rem;
+        }
+        .blog-post-body a {
+            color: var(--accent-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .blog-post-body a:hover {
+            color: var(--accent-secondary);
+        }
+        .info-box {
+            background: rgba(99, 102, 241, 0.08);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 2rem 0;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.8rem 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            background: var(--bg-surface);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        th {
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+            font-weight: 600;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        pre {
+            background: #090912;
+            border: 1px solid var(--border-light);
+            padding: 1.2rem 1.4rem;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace, Consolas, Courier New;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+            color: #e2e8f0;
+        }
+        code {
+            font-family: 'Fira Code', monospace, Consolas, Courier New;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #38bdf8;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+        .faq-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .faq-card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .faq-card p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Programmatically Generate UTM Source Codes for Email & Web Dev",
+      "description": "Learn how to programmatically generate UTM source codes and build automated tracking links in JavaScript, TypeScript, and HTML email templates.",
+      "url": "https://free-online-seo-tools.vercel.app/tools/utm-link-builder/blog-utm-source-code-generator.html",
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08",
+      "author": {"@type": "Organization", "name": "ToolNest Developer Team"},
+      "publisher": {"@type": "Organization", "name": "ToolNest", "url": "https://free-online-seo-tools.vercel.app"},
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://free-online-seo-tools.vercel.app/tools/utm-link-builder/blog-utm-source-code-generator.html"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://free-online-seo-tools.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://free-online-seo-tools.vercel.app/tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "UTM Link Builder",
+          "item": "https://free-online-seo-tools.vercel.app/tools/utm-link-builder.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Programmatic UTM Generator Guide",
+          "item": "https://free-online-seo-tools.vercel.app/tools/utm-link-builder/blog-utm-source-code-generator.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header>
+    <div class="container navbar">
+        <a href="/" class="logo">🪺 Tool<span>Nest</span></a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li class="nav-search-wrapper">
+                <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                <div id="globalSearchResults" class="search-results-dropdown"></div>
+            </li>
+            <li><a href="/">Tools</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+        </ul>
+    </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="separator">›</span>
+            <a href="/tools/">Tools</a><span class="separator">›</span>
+            <a href="https://free-online-seo-tools.vercel.app/tools/utm-link-builder.html">UTM Link Builder</a><span class="separator">›</span>
+            <span class="current">Programmatic UTM Generator Guide</span>
+        </nav>
+
+        <article class="blog-post">
+            <div class="blog-post-header">
+                <div class="blog-post-meta">
+                    September 8, 2026 &bull; 10 min read &bull; <span class="blog-tag">Web Development</span> <span class="blog-tag">Automation</span>
+                </div>
+                <h1>How to Programmatically Generate UTM Source Codes for Email & Web Dev</h1>
+                <p class="blog-post-intro">Marketing teams frequently request custom tracking links for emails, ad campaigns, newsletters, and partner syndication. Building these links by hand wastes engineering hours, invites human error, and litters your analytics dashboards with fragmented parameters. A single typo in an analytics parameter turns high-value traffic into unassigned noise.</p>
+            </div>
+
+            <div class="blog-post-body">
+                <div class="info-box">
+                    <strong>⚡ Developer Shortcut:</strong> Building an ad-hoc tracking link for a colleague? Skip the code editor and use our free web-based <a href="https://free-online-seo-tools.vercel.app/tools/utm-link-builder.html">utm source code generator</a> to format, validate, and copy production-ready URLs instantly.
+                </div>
+
+                <p>Writing an automated generator solves this problem permanently. This guide walks you through building a programmatic UTM link pipeline. You will learn the mechanics of RFC 3986 URL encoding, examine production-ready JavaScript and TypeScript implementations, explore transactional email link rewriting engines, and discover when to deploy a dedicated <a href="https://free-online-seo-tools.vercel.app/tools/utm-link-builder.html">utm source code generator</a> to empower your non-technical teammates.</p>
+
+                <h2>The Anatomy of a UTM Source Code and Tracking String</h2>
+                <p>A UTM (Urchin Tracking Module) parameter is a key-value pair appended to a destination URL query string. When a user clicks a tagged link, analytics platforms such as Google Analytics 4 (GA4), Mixpanel, and PostHog parse the query parameters from the HTTP request and bind those values to the visitor session.</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Required</th>
+                                <th>Purpose</th>
+                                <th>Production Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>utm_source</code></td>
+                                <td>Yes</td>
+                                <td>Identifies the referrer, platform, or vendor</td>
+                                <td><code>newsletter</code>, <code>github</code>, <code>customerio</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>utm_medium</code></td>
+                                <td>Yes</td>
+                                <td>Identifies the marketing or delivery mechanism</td>
+                                <td><code>email</code>, <code>cpc</code>, <code>in_app_banner</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>utm_campaign</code></td>
+                                <td>Yes</td>
+                                <td>Identifies the strategic initiative or promo</td>
+                                <td><code>2026_q3_developer_summit</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>utm_term</code></td>
+                                <td>No</td>
+                                <td>Identifies paid search keywords or audience targets</td>
+                                <td><code>json_parser_library</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>utm_content</code></td>
+                                <td>No</td>
+                                <td>Distinguishes creative variants or link placements</td>
+                                <td><code>cta_button_hero</code>, <code>footer_text_link</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>utm_id</code></td>
+                                <td>Optional</td>
+                                <td>Maps to a database campaign ID for cost uploads</td>
+                                <td><code>camp_98412</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>utm_source_platform</code></td>
+                                <td>Optional</td>
+                                <td>Specifies the buying platform (GA4 standard)</td>
+                                <td><code>dv360</code>, <code>google_ads</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>utm_creative_format</code></td>
+                                <td>Optional</td>
+                                <td>Describes the asset type (e.g., video, carousel)</td>
+                                <td><code>interactive_code_snippet</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>A clean, production-grade tracking link looks like this:</p>
+                <pre><code>https://example.com/docs/api?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=api_v2_launch&amp;utm_content=header_button</code></pre>
+
+                <p>When building an automated script, <code>utm_source</code> specifies the traffic origin. However, developers must treat the entire parameter suite as an indivisible atomic payload. Missing a required sibling parameter like <code>utm_medium</code> will cause reporting platforms to downgrade your campaign traffic to generic referral or <code>(not set)</code>.</p>
+
+                <h2>Why Manual Concatenation Destroys Data Integrity</h2>
+                <p>Naïve string concatenation is the primary cause of broken attribution tracking across web applications. Developers often write code that looks like this:</p>
+
+                <pre><code>// ANTIPATTERN: Never construct tracking URLs using string concatenation
+const badUrl = baseUrl + "?utm_source=" + source + "&amp;utm_medium=" + medium + "&amp;utm_campaign=" + campaign;</code></pre>
+
+                <p>This fragile approach triggers four severe failure modes in production:</p>
+
+                <h3>1. The Duplicate Query Delimiter Bug</h3>
+                <p>If <code>baseUrl</code> already contains query parameters (such as <code>https://example.com/search?category=dev</code>), appending another <code>?</code> creates an invalid URL:</p>
+                <pre><code>https://example.com/search?category=dev?utm_source=newsletter...</code></pre>
+                <p>Browsers treat everything after the second <code>?</code> as part of the value of <code>category</code>, completely hiding your UTM parameters from analytics parsers.</p>
+
+                <h3>2. Double Percent-Encoding</h3>
+                <p>If your campaign contains spaces, slashes, or ampersands (for instance, <code>Q3 Launch &amp; Updates</code>), raw concatenation breaks the query string. Conversely, running a URL through <code>encodeURIComponent()</code> multiple times converts <code>%20</code> into <code>%2520</code> and <code>&amp;</code> into <code>%26</code>. When GA4 inspects the page URL, it receives mangled parameter strings that split campaign metrics across multiple rows.</p>
+
+                <h3>3. Case-Sensitivity Fragmentation</h3>
+                <p>Web standards treat query parameter values as case-sensitive strings. If your newsletter script tags one email with <code>utm_source=Substack</code> and another with <code>utm_source=substack</code>, analytics reporting tools record them as two completely different traffic sources. Programmatic builders must normalize all keys and values to lowercase before emission.</p>
+
+                <h3>4. Hash Fragment Order Violations</h3>
+                <p>In single-page applications (SPAs) and anchor-navigated documentation, URLs often end with a hash fragment (such as <code>#installation</code>). If you append query parameters after the hash, HTTP servers and routers will not parse the query string. Query strings must precede the hash fragment:</p>
+                <pre><code>CORRECT:   https://example.com/docs?utm_source=email#installation
+INCORRECT: https://example.com/docs#installation?utm_source=email</code></pre>
+
+                <h2>Building a Programmatic UTM Generator in JavaScript and TypeScript</h2>
+                <p>To eliminate these edge cases, construct URLs using the native <code>URL</code> and <code>URLSearchParams</code> interfaces available in modern browsers and Node.js runtimes. These APIs automatically handle query delimiters, URL normalization, and RFC 3986 percent-encoding.</p>
+
+                <h3>TypeScript Implementation with Strict Typing</h3>
+                <pre><code>export interface UtmParameters {
+  source: string;
+  medium: string;
+  campaign: string;
+  term?: string;
+  content?: string;
+  id?: string;
+  sourcePlatform?: string;
+  creativeFormat?: string;
+}
+
+/**
+ * Sanitizes an input string: trims whitespace, replaces inner spaces with underscores,
+ * strips illegal characters, and enforces lowercase.
+ */
+function sanitizeUtmValue(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s\+/]+/g, '_')
+    .replace(/[^a-z0-9_\-\.]/g, '');
+}
+
+/**
+ * Appends normalized UTM tracking parameters to any valid base URL.
+ * Safely preserves existing parameters, subpaths, and hash fragments.
+ */
+export function buildUtmUrl(rawUrl: string, params: UtmParameters): string {
+  if (!rawUrl || typeof rawUrl !== 'string') {
+    throw new TypeError('A valid base URL string must be provided.');
+  }
+
+  if (!params.source || !params.medium || !params.campaign) {
+    throw new Error('Missing required UTM parameters: source, medium, and campaign are mandatory.');
+  }
+
+  // Parse destination URL
+  const parsedUrl = new URL(rawUrl);
+
+  // Map parameter definitions
+  const utmMap: Record&lt;string, string | undefined&gt; = {
+    utm_source: params.source,
+    utm_medium: params.medium,
+    utm_campaign: params.campaign,
+    utm_term: params.term,
+    utm_content: params.content,
+    utm_id: params.id,
+    utm_source_platform: params.sourcePlatform,
+    utm_creative_format: params.creativeFormat,
+  };
+
+  // Safely inject sanitized parameters into existing searchParams
+  Object.entries(utmMap).forEach(([key, value]) => {
+    if (value !== undefined &amp;&amp; value !== null &amp;&amp; value.trim() !== '') {
+      parsedUrl.searchParams.set(key, sanitizeUtmValue(value));
+    }
+  });
+
+  return parsedUrl.toString();
+}</code></pre>
+
+                <h3>Usage Example</h3>
+                <pre><code>const destination = 'https://developer.example.com/checkout?plan=enterprise#payment';
+
+const taggedLink = buildUtmUrl(destination, {
+  source: 'GitHub Readme',
+  medium: 'Developer Referral',
+  campaign: 'OpenSource Sponsor v1',
+  content: 'Top Badge Link',
+});
+
+console.log(taggedLink);
+// Output:
+// https://developer.example.com/checkout?plan=enterprise&amp;utm_source=github_readme&amp;utm_medium=developer_referral&amp;utm_campaign=opensource_sponsor_v1&amp;utm_content=top_badge_link#payment</code></pre>
+
+                <h2>Edge Middleware: Dynamic UTM Decoration</h2>
+                <p>In high-scale architectures (such as Next.js, Cloudflare Workers, or Fastly Compute), you can intercept outbound redirects or inbound API requests to append or enrich UTM tracking parameters at the network edge:</p>
+
+                <pre><code>export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+
+    if (url.pathname.startsWith('/out/')) {
+      const targetParam = url.searchParams.get('url');
+      if (!targetParam) {
+        return new Response('Missing target URL', { status: 400 });
+      }
+
+      try {
+        const outbound = new URL(targetParam);
+
+        outbound.searchParams.set('utm_source', 'docs_redirect_service');
+        outbound.searchParams.set('utm_medium', 'edge_redirect');
+        outbound.searchParams.set('utm_campaign', url.searchParams.get('cmp') || 'organic_developer_routing');
+
+        return Response.redirect(outbound.toString(), 302);
+      } catch (err) {
+        return new Response('Invalid target URL format', { status: 400 });
+      }
+    }
+
+    return fetch(request);
+  },
+};</code></pre>
+
+                <h2>Handling UTM Generation in HTML Email Engines</h2>
+                <p>Transactional email templates built in Handlebars, Liquid, or React Email introduce distinct challenges for UTM links:</p>
+
+                <h3>1. HTML Entity Escaping (&amp; vs &amp;amp;)</h3>
+                <p>In raw HTML source code, an ampersand inside an attribute must be written as <code>&amp;amp;</code>. Browsers and email clients parse <code>href="https://site.com?a=1&amp;amp;b=2"</code> and decode the entity to <code>&amp;</code> when making the HTTP GET request:</p>
+
+                <pre><code>&lt;!-- Correct HTML email markup --&gt;
+&lt;a href="https://example.com/pricing?utm_source=newsletter&amp;amp;utm_medium=email&amp;amp;utm_campaign=august_update" 
+   style="color: #0066cc; text-decoration: underline;"&gt;
+  View Updated Pricing
+&lt;/a&gt;</code></pre>
+
+                <h3>2. ESP Merge Tag Conflicts</h3>
+                <p>Email Service Providers (ESPs) like Mailchimp, SendGrid, and Klaviyo use merge tags for dynamic recipient data (such as <code>*|EMAIL|*</code> or <code>{{recipient.id}}</code>). If you place merge tags inside native URL parsing methods like <code>new URL()</code>, the parser may throw an error because characters like <code>*</code> or <code>|</code> violate URI formatting rules. Always generate your static base UTM parameters first, then interpolate ESP merge tags into the query string as raw tokens before dispatch.</p>
+
+                <h2>When to Hand-Code vs Deploying a Dedicated UTM Builder</h2>
+                <p>Writing custom TypeScript functions or edge middleware is ideal when URLs are created systematically inside software, such as sending transactional emails or dynamically generating share widgets. However, non-technical team members—such as content creators, affiliate managers, and marketing specialists—should not write scripts or manually edit parameters in text editors.</p>
+
+                <p>For routine campaigns, one-off social posts, and ad-hoc email blasts, teams achieve better compliance by using an online <a href="https://free-online-seo-tools.vercel.app/tools/utm-link-builder.html">utm string builder</a>. A dedicated browser-based utility validates parameter syntax, enforces lowercase strings, prevents duplicate query delimiters, and generates error-free links instantly.</p>
+
+                <h2>Unit Testing Your UTM Generator</h2>
+                <p>Never deploy link generation routines to production without automated tests. Use Jest or Vitest to verify edge cases:</p>
+
+                <pre><code>import { describe, it, expect } from 'vitest';
+import { buildUtmUrl } from './utmBuilder';
+
+describe('buildUtmUrl', () => {
+  it('correctly constructs a link with mandatory parameters', () => {
+    const result = buildUtmUrl('https://example.com/app', {
+      source: 'newsletter',
+      medium: 'email',
+      campaign: 'spring_sale',
+    });
+
+    expect(result).toBe('https://example.com/app?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=spring_sale');
+  });
+
+  it('preserves existing query parameters and appends UTM tags', () => {
+    const result = buildUtmUrl('https://example.com/search?q=devtools&amp;sort=asc', {
+      source: 'google',
+      medium: 'cpc',
+      campaign: 'developer_tools',
+    });
+
+    expect(result).toContain('q=devtools');
+    expect(result).toContain('sort=asc');
+    expect(result).toContain('utm_source=google');
+  });
+
+  it('keeps hash fragments at the end of the URL', () => {
+    const result = buildUtmUrl('https://example.com/docs#installation', {
+      source: 'twitter',
+      medium: 'social',
+      campaign: 'thread_promo',
+    });
+
+    expect(result).toBe('https://example.com/docs?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=thread_promo#installation');
+  });
+});</code></pre>
+
+                <h2>Production Deployment Checklist</h2>
+                <ul class="checklist">
+                    <li><strong>Protocol Check:</strong> Ensure base URLs use secure <code>https://</code> protocols rather than plain <code>http://</code>.</li>
+                    <li><strong>Redirect Testing:</strong> Test that server-side redirects (such as 301 or 302 rules) pass query parameters through to the final destination without truncating the query string.</li>
+                    <li><strong>Trailing Slash Consistency:</strong> Check whether your web server enforces trailing slashes before appending UTM parameters.</li>
+                    <li><strong>Internal Link Prohibition:</strong> Ensure internal links on your website never contain UTM parameters.</li>
+                    <li><strong>Real-Time Verification:</strong> Open your generated link in an incognito window and verify that the session appears with the expected source and medium in your analytics real-time dashboard.</li>
+                </ul>
+
+                <h2>Frequently Asked Questions (FAQ)</h2>
+
+                <div class="faq-card">
+                    <h3>What is the difference between a UTM source code generator and a UTM string builder?</h3>
+                    <p>A UTM source code generator typically refers to a script, API, or programmatic function that dynamically computes tracking parameters in code. A UTM string builder usually refers to an interactive web form or UI tool that helps marketers configure and export tagged URLs. Both approaches create identical query strings adhering to standard analytics conventions.</p>
+                </div>
+
+                <div class="faq-card">
+                    <h3>Can I use uppercase letters in UTM parameter values?</h3>
+                    <p>You should always avoid uppercase letters. Most analytics engines, including Google Analytics 4, are case-sensitive. If you use <code>Email</code>, <code>email</code>, and <code>EMAIL</code>, your analytics dashboard will report three separate lines for the same marketing channel. Standardize all parameters to lowercase.</p>
+                </div>
+
+                <div class="faq-card">
+                    <h3>Why does GA4 report my traffic as (not set)?</h3>
+                    <p>Traffic appears as (not set) when a session triggers an event without the required campaign parameters, or when a user lands on a page with malformed query parameters (such as <code>utm_soruce</code> instead of <code>utm_source</code>). Missing <code>utm_medium</code> while including <code>utm_source</code> can also prevent GA4 from categorizing the session into a default channel group.</p>
+                </div>
+
+                <div class="faq-card">
+                    <h3>Should I put UTM parameters on internal site links?</h3>
+                    <p>Never place UTM parameters on internal navigation links. Clicking an internal link with UTM parameters causes GA4 to end the current session and initiate a new session attributed to the internal link. This breaks conversion paths, inflates session counts, and destroys the true source attribution of the visit.</p>
+                </div>
+
+                <div class="faq-card">
+                    <h3>How do modern single-page apps (SPAs) handle UTM parameters?</h3>
+                    <p>In SPAs built with frameworks like Next.js, Remix, or Vue, the client-side router parses query parameters from <code>window.location.search</code> during the initial page load. You must ensure your router does not strip search parameters during client-side hydration or page rewrites before your analytics scripts record the page view.</p>
+                </div>
+
+                <div class="info-box" style="margin-top: 2.5rem;">
+                    <strong>Need an online generator?</strong> Use our free browser-based <a href="https://free-online-seo-tools.vercel.app/tools/utm-link-builder.html">UTM Link Builder &amp; String Generator</a> to produce clean, trackable URLs in seconds.
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="/" class="logo">🪺 Tool<span>Nest</span></a>
+                <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast &amp; free online utilities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Text Tools</h4>
+                <ul>
+                    <li><a href="/tools/word-counter/word-counter">Word Counter</a></li>
+                    <li><a href="/tools/case-converter/case-converter">Case Converter</a></li>
+                    <li><a href="/tools/lorem-ipsum-generator/lorem-ipsum-generator">Lorem Ipsum</a></li>
+                    <li><a href="/tools/text-to-slug/text-to-slug">Text to Slug</a></li>
+                    <li><a href="/tools/markdown-preview/markdown-preview">Markdown Preview</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Dev Tools</h4>
+                <ul>
+                    <li><a href="/tools/utm-link-builder/utm-link-builder">UTM Link Builder</a></li>
+                    <li><a href="/tools/json-formatter/json-formatter">JSON Formatter</a></li>
+                    <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder">Base64</a></li>
+                    <li><a href="/tools/hash-generator/hash-generator">Hash Generator</a></li>
+                    <li><a href="/tools/timestamp-converter/timestamp-converter">Timestamp</a></li>
+                    <li><a href="/tools/color-picker/color-picker">Color Picker</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ToolNest — free-online-seo-tools.vercel.app | <a href="/privacy-policy">Privacy</a> | <a href="/terms-of-service">Terms</a>
+        </div>
+    </div>
+    </footer>
+
+    <div class="cookie-banner">We use cookies to improve your experience. <a href="../../privacy-policy">Privacy Policy</a> <button onclick="acceptCookies()">Accept</button></div>
+    <script src="../../js/main.js" defer></script>
+</body>
+</html>
+
