@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://s0.wp.com; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Build a Backlink Checker Script in PHP: A Developer's Guide | RankifyTools</title>
+    <meta name="description" content="Learn how to build an automated PHP backlink checker script using cURL and DOMDocument. Extract anchor text, detect dofollow/nofollow attributes, and verify live backlinks.">
+    <meta name="keywords" content="backlink checker script, php backlink checker script, backlinks checker script, backlink analyzer, php dom crawler">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/backlink-checker/how-to-build-a-backlink-checker-script-in-php.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/backlink-checker/how-to-build-a-backlink-checker-script-in-php.html">
+    <meta property="og:title" content="How to Build a Backlink Checker Script in PHP: A Developer's Guide">
+    <meta property="og:description" content="Learn how to build an automated PHP backlink checker script using cURL and DOMDocument. Extract anchor text, detect dofollow/nofollow attributes, and verify live backlinks.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta property="article:published_time" content="2026-09-08">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Build a Backlink Checker Script in PHP: A Developer's Guide">
+    <meta name="twitter:description" content="Learn how to build an automated PHP backlink checker script using cURL and DOMDocument. Extract anchor text, detect dofollow/nofollow attributes, and verify live backlinks.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .blog-post {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+        }
+        .blog-post-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .blog-post-meta {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .blog-tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        .blog-post-header h1 {
+            font-size: 2.3rem;
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #fff 40%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blog-post-intro {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .blog-post-body {
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        .blog-post-body h2 {
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1rem;
+            color: #fff;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .blog-post-body h3 {
+            font-size: 1.25rem;
+            margin: 1.8rem 0 0.8rem;
+            color: var(--accent-secondary);
+        }
+        .blog-post-body p {
+            margin-bottom: 1.3rem;
+        }
+        .blog-post-body ul, .blog-post-body ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        .blog-post-body li {
+            margin-bottom: 0.6rem;
+        }
+        .blog-post-body a {
+            color: var(--accent-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .blog-post-body a:hover {
+            color: var(--accent-secondary);
+        }
+        .info-box {
+            background: rgba(99, 102, 241, 0.08);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 2rem 0;
+        }
+        pre {
+            background: #090912;
+            border: 1px solid var(--border-light);
+            padding: 1.2rem 1.4rem;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace, Consolas, Courier New;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+            color: #e2e8f0;
+        }
+        code {
+            font-family: 'Fira Code', monospace, Consolas, Courier New;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #38bdf8;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+        .faq-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .faq-card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .faq-card p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
+            border: 1px solid var(--accent-primary);
+            border-radius: var(--radius-md);
+            padding: 1.75rem 2rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent-primary);
+            color: #fff !important;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none !important;
+            margin-top: 1rem;
+            transition: opacity 0.2s ease;
+        }
+        .cta-btn:hover {
+            opacity: 0.9;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.8rem 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            background: var(--bg-surface);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        th {
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+            font-weight: 600;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Build a Backlink Checker Script in PHP: A Developer's Guide",
+      "description": "Learn how to build an automated PHP backlink checker script using cURL and DOMDocument. Extract anchor text, detect dofollow/nofollow attributes, and verify live backlinks.",
+      "url": "https://free-online-seo-tools.vercel.app/tools/backlink-checker/how-to-build-a-backlink-checker-script-in-php.html",
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08",
+      "author": {"@type": "Organization", "name": "RankifyTools Tech Team"},
+      "publisher": {"@type": "Organization", "name": "RankifyTools", "url": "https://free-online-seo-tools.vercel.app"},
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://free-online-seo-tools.vercel.app/tools/backlink-checker/how-to-build-a-backlink-checker-script-in-php.html"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 3, "name": "Backlink Checker", "item": "https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-checker"},
+        {"@type": "ListItem", "position": 4, "name": "PHP Backlink Checker Script Guide", "item": "https://free-online-seo-tools.vercel.app/tools/backlink-checker/how-to-build-a-backlink-checker-script-in-php.html"}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header>
+    <div class="container navbar">
+        <a href="/" class="logo">⚡ Rankify<span>Tools</span></a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li class="nav-search-wrapper">
+                <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                <div id="globalSearchResults" class="search-results-dropdown"></div>
+            </li>
+            <li><a href="/">Tools</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+        </ul>
+    </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="separator">›</span>
+            <a href="/tools/">Tools</a><span class="separator">›</span>
+            <a href="https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-checker">Backlink Checker</a><span class="separator">›</span>
+            <span class="current">PHP Backlink Checker Script Guide</span>
+        </nav>
+
+        <article class="blog-post">
+            <div class="blog-post-header">
+                <div class="blog-post-meta">
+                    September 8, 2026 &bull; 9 min read &bull; <span class="blog-tag">PHP Development</span> <span class="blog-tag">Technical SEO</span>
+                </div>
+                <h1>How to Build a Backlink Checker Script in PHP: A Developer's Guide</h1>
+                <p class="blog-post-intro">Whether you are running an outreach campaign, verifying sponsored guest posts, or auditing your site's inbound link health, knowing whether a backlink is alive, dofollow, and pointing to the right destination is critical. But doing it manually for hundreds of links is painful.</p>
+            </div>
+
+            <div class="blog-post-body">
+                <p>For developers, technical SEOs, and webmasters, the natural instinct is to write a script. Writing a lightweight <strong>backlink checker script</strong> in PHP allows you to automate the process of fetching remote URLs, parsing the Document Object Model (DOM), extracting anchor texts, and determining whether links pass PageRank or carry <code>rel="nofollow"</code> attributes.</p>
+
+                <p>However, web scraping in 2026 is fraught with technical obstacles: Cloudflare challenges, user-agent blocks, malformed HTML, redirect chains, and memory limits. In this developer guide, we will walk through building a robust <strong>php backlink checker script</strong>, explain the core parsing logic, and discuss the architectural limitations of self-hosted crawlers.</p>
+
+                <h2>The Anatomy of a Programmatic Backlink Verification Pipeline</h2>
+                <p>A reliable backlink verification script must perform four sequential operations:</p>
+                <ol>
+                    <li><strong>HTTP Request Dispatch:</strong> Fetch the external referring HTML page using cURL with realistic browser headers, timeout management, and redirect following.</li>
+                    <li><strong>DOM Tree Parsing:</strong> Load the raw HTML into a parser (such as PHP's native <code>DOMDocument</code> and <code>DOMXPath</code>) without crashing on unclosed tags.</li>
+                    <li><strong>Anchor Tag Extraction &amp; Matching:</strong> Query all <code>&lt;a&gt;</code> elements, inspect their <code>href</code> attributes against your target domain, and capture the clickable anchor text.</li>
+                    <li><strong>Link Attribute Audit:</strong> Inspect the <code>rel</code> attribute to determine whether the link is <code>dofollow</code>, <code>nofollow</code>, <code>sponsored</code>, or <code>ugc</code>.</li>
+                </ol>
+
+                <pre><code>            Programmatic Backlink Extraction Pipeline
+ ┌──────────────────────┐
+ │ Referring Page URL   │
+ └──────────┬───────────┘
+            │ cURL GET Request (Follow Redirects, Spoof User-Agent)
+            ▼
+ ┌─────────────────────────────────────────────────────────┐
+ │ HTTP Status 200 OK Response                             │
+ └──────────┬──────────────────────────────────────────────┘
+            │ Load into DOMDocument / XPath
+            ▼
+ ┌─────────────────────────────────────────────────────────┐
+ │ Query: //a[contains(@href, 'targetdomain.com')]         │
+ └──────────┬──────────────────────────────────────────────┘
+            │ Extract node attributes
+            ▼
+ ┌──────────────────────┬────────────────────────┬─────────┐
+ │ Anchor Text: "Tools" │ Rel: "dofollow"        │ Verified│
+ └──────────────────────┴────────────────────────┴─────────┘</code></pre>
+
+                <h2>Building the PHP Backlink Checker Script: Step-by-Step</h2>
+                <p>Below is a production-grade, object-oriented <strong>backlinks checker script</strong> demonstrating clean cURL execution and XPath querying:</p>
+
+                <pre><code>&lt;?php
+declare(strict_types=1);
+
+class BacklinkAnalyzer {
+    private string $targetDomain;
+    private int $timeout;
+    private string $userAgent;
+
+    public function __construct(string $targetDomain, int $timeout = 15) {
+        $this-&gt;targetDomain = strtolower(trim($targetDomain));
+        $this-&gt;timeout = $timeout;
+        $this-&gt;userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
+    }
+
+    /**
+     * Inspects a referring page for links to target domain.
+     */
+    public function inspectReferringPage(string $pageUrl): array {
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL =&gt; $pageUrl,
+            CURLOPT_RETURNTRANSFER =&gt; true,
+            CURLOPT_FOLLOWLOCATION =&gt; true,
+            CURLOPT_MAXREDIRS =&gt; 5,
+            CURLOPT_TIMEOUT =&gt; $this-&gt;timeout,
+            CURLOPT_USERAGENT =&gt; $this-&gt;userAgent,
+            CURLOPT_SSL_VERIFYPEER =&gt; true,
+            CURLOPT_ENCODING =&gt; 'gzip, deflate'
+        ]);
+
+        $html = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $effectiveUrl = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+        $error = curl_error($ch);
+        curl_close($ch);
+
+        if ($httpCode !== 200 || empty($html)) {
+            return [
+                'status' =&gt; 'error',
+                'http_code' =&gt; $httpCode,
+                'message' =&gt; "Failed to fetch URL. cURL Error: {$error}"
+            ];
+        }
+
+        return $this-&gt;parseHtmlForBacklinks((string)$html, $effectiveUrl);
+    }
+
+    private function parseHtmlForBacklinks(string $html, string $sourceUrl): array {
+        $dom = new DOMDocument();
+        // Suppress HTML5 parsing warnings on non-standard tags
+        libxml_use_internal_errors(true);
+        $dom-&gt;loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+        libxml_clear_errors();
+
+        $xpath = new DOMXPath($dom);
+        $links = $xpath-&gt;query('//a[@href]');
+        $matches = [];
+
+        foreach ($links as $link) {
+            /** @var DOMElement $link */
+            $href = trim($link-&gt;getAttribute('href'));
+            $rel = strtolower(trim($link-&gt;getAttribute('rel')));
+            $anchor = trim($link-&gt;textContent);
+
+            // Filter for target domain
+            if ($this-&gt;matchesTargetDomain($href)) {
+                $isNofollow = (bool)preg_match('/\b(nofollow|sponsored|ugc)\b/i', $rel);
+                $matches[] = [
+                    'href' =&gt; $href,
+                    'anchor_text' =&gt; $anchor ?: '[Empty / Image Link]',
+                    'rel' =&gt; $rel ?: 'dofollow',
+                    'is_dofollow' =&gt; !$isNofollow
+                ];
+            }
+        }
+
+        return [
+            'status' =&gt; 'success',
+            'referring_url' =&gt; $sourceUrl,
+            'backlinks_found' =&gt; count($matches),
+            'links' =&gt; $matches
+        ];
+    }
+
+    private function matchesTargetDomain(string $url): bool {
+        $host = parse_url($url, PHP_URL_HOST);
+        if (!$host) return false;
+        return str_contains(strtolower($host), $this-&gt;targetDomain);
+    }
+}
+
+// Example Usage:
+$checker = new BacklinkAnalyzer('free-online-seo-tools.vercel.app');
+$result = $checker-&gt;inspectReferringPage('https://example-blog.com/seo-resources');
+
+header('Content-Type: application/json');
+echo json_encode($result, JSON_PRETTY_PRINT);
+</code></pre>
+
+                <h2>Key Technical Considerations When Scraping Backlinks</h2>
+                <h3>1. Handling Malformed HTML5 Tags</h3>
+                <p>Standard PHP <code>DOMDocument::loadHTML()</code> was built around legacy HTML4/XML standards. When parsing modern HTML5 documents containing semantic elements like <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, or SVG snippets, it throws warnings. Always invoke <code>libxml_use_internal_errors(true)</code> and clear the error buffer to prevent your script output from breaking.</p>
+
+                <h3>2. Relative vs. Protocol-Relative URLs</h3>
+                <p>Not all links in HTML start with <code>https://</code>. Authors frequently write relative paths (<code>/page</code>) or protocol-relative links (<code>//domain.com/path</code>). A complete <strong>backlink analyzer</strong> script must resolve relative links using the document's <code>&lt;base href="..."&gt;</code> tag or the referring URL's host origin.</p>
+
+                <h3>3. JavaScript-Rendered Content (SPAs)</h3>
+                <p>cURL only fetches the initial static HTML payload sent by the web server. If the target website is a Single Page Application built on React, Vue, or Angular that injects anchor tags dynamically via client-side JavaScript, a simple PHP script will see an empty <code>&lt;div id="root"&gt;&lt;/div&gt;</code> and miss the backlink entirely. Resolving this requires running headless Chromium via Puppeteer or Playwright.</p>
+
+                <h2>The Architectural Bottlenecks of Self-Hosted Scripts</h2>
+                <p>While coding a local script is an educational exercise, running custom crawlers in production introduces significant operational friction:</p>
+                <ul>
+                    <li><strong>WAF &amp; Bot Protection:</strong> Cloudflare, Datadome, and Akamai will block self-hosted VPS IP addresses with HTTP 403 Forbidden or CAPTCHA challenges after a few dozen requests.</li>
+                    <li><strong>Rotating Proxies &amp; Costs:</strong> Bypassing rate limits requires purchasing residential rotating proxy pools, easily running into hundreds of dollars per month.</li>
+                    <li><strong>Server Memory &amp; Concurrency:</strong> Parsing DOM trees for thousands of external web pages consumes significant PHP process memory, risking server crashes.</li>
+                </ul>
+
+                <div class="cta-banner">
+                    <h3 style="color:#fff;margin-top:0;">Skip the Code: Audit Backlinks in Your Browser</h3>
+                    <p style="color:var(--text-secondary);margin-bottom:0;">Analyze HTML source code, verify dofollow vs nofollow status, and extract anchor texts instantly with zero server setup.</p>
+                    <a href="https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-checker" class="cta-btn">Launch Free Backlink Checker &rarr;</a>
+                </div>
+
+                <p>If you want to skip building and maintaining custom scripts from scratch, you can use our free online <a href="https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-checker">Backlink Checker</a> tool to analyze link profiles instantly.</p>
+
+                <h2>Frequently Asked Questions (FAQ)</h2>
+                <div class="faq-card">
+                    <h3>Can PHP cURL check backlinks on JavaScript-heavy websites?</h3>
+                    <p>No. Standard cURL only downloads the static raw HTML document returned by the web server. If links are rendered dynamically by React, Vue, or client-side JavaScript, you must inspect the rendered DOM or use our in-browser <a href="https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-checker">Backlink Checker</a> to parse the live page markup.</p>
+                </div>
+
+                <div class="faq-card">
+                    <h3>How can a script detect if a backlink passes SEO PageRank?</h3>
+                    <p>A backlink passes PageRank if it is a standard hyperlink without restrictive <code>rel</code> attributes. If the tag contains <code>rel="nofollow"</code>, <code>rel="sponsored"</code>, or <code>rel="ugc"</code>, search engines treat the link as a non-endorsed connection that does not pass full link equity.</p>
+                </div>
+
+                <div class="faq-card">
+                    <h3>What is the best way to extract anchor text from image links?</h3>
+                    <p>When an anchor tag wraps an image (e.g., <code>&lt;a href="..."&gt;&lt;img src="..." alt="Keywords"&gt;&lt;/a&gt;</code>), Google Analytics and search crawlers treat the image's <code>alt</code> attribute as the anchor text. Your script should inspect child <code>&lt;img&gt;</code> tags and grab the <code>alt</code> property when text content is empty.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="/" class="logo">⚡ Rankify<span>Tools</span></a>
+                <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast &amp; free online utilities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>SEO Tools</h4>
+                <ul>
+                    <li><a href="/tools/backlink-checker/backlink-checker">Backlink Checker</a></li>
+                    <li><a href="/tools/keyword-density-checker/keyword-density-checker">Keyword Density</a></li>
+                    <li><a href="/tools/meta-tag-generator/meta-tag-generator">Meta Tag Generator</a></li>
+                    <li><a href="/tools/robots-txt-generator/robots-txt-generator">Robots.txt Generator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Developer Utilities</h4>
+                <ul>
+                    <li><a href="/tools/json-formatter/json-formatter">JSON Formatter</a></li>
+                    <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder">Base64</a></li>
+                    <li><a href="/tools/utm-link-builder/utm-link-builder">UTM Link Builder</a></li>
+                    <li><a href="/tools/code-diff-checker/code-diff-checker">Code Diff</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy">Privacy</a> | <a href="/terms-of-service">Terms</a>
+        </div>
+    </div>
+    </footer>
+
+    <div class="cookie-banner">We use cookies to improve your experience. <a href="/privacy-policy">Privacy Policy</a> <button onclick="acceptCookies()">Accept</button></div>
+    <script src="/js/main.js" defer></script>
+</body>
+</html>
+
