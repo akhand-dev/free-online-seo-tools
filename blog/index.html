@@ -24,11 +24,11 @@
 <!-- Vercel Speed Insights -->
     <script defer src="../js/speed-insights.js"></script>
 </head>
-<body>
+<body class="blog-page">
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <header>
     <div class="container navbar">
-        <a href="/" class="logo">⚡ Rankify<span>Tools</span></a>
+        <a href="../index.html" class="logo">⚡ Rankify<span>Tools</span></a>
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
             <span></span><span></span><span></span>
         </button>
@@ -37,58 +37,68 @@
                 <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
                 <div id="globalSearchResults" class="search-results-dropdown"></div>
             </li>
-            <li><a href="/">Tools</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="../index.html">Tools</a></li>
+            <li><a href="./index.html">Blog</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
             <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
         </ul>
     </div>
 </header>
 
 
-    <main class="main-content container" id="main-content">
-        <nav class="breadcrumbs"><a href="../index">Home</a><span class="separator">›</span><span class="current">Blog</span></nav>
-        <div class="hero"><h1>Blog & Tutorials</h1><p>Expert guides on SEO, web development, security, and making the most of our free tools.</p></div>
-        <div class="ad-container ad-leaderboard">[Ad Space]</div>
-        <div class="blog-grid">
-            <a href="how-to-build-campaign-links-utm-generator" class="blog-card reveal" style="border:1px solid rgba(99,102,241,0.3);">
-                <div style="font-size:2rem;margin-bottom:0.8rem;">🔗</div>
-                <h3>How to Build Campaign Links with a UTM String Generator</h3>
-                <p>Master UTM string building and generate source code links instantly for Google Analytics to track marketing campaigns.</p>
-                <div class="blog-meta">August 16, 2026 &bull; 6 min read</div>
-            </a>
-            <a href="virtual-dice-roller-tabletop-games-guide" class="blog-card reveal" style="border:1px solid rgba(99,102,241,0.3);">
+    <main class="main-content container blog-main" id="main-content">
+        <div class="blog-intro">
+            <div>
+                <span class="blog-kicker">The Rankify Journal</span>
+                <h1>Ideas that make<br><em>the web clearer.</em></h1>
+            </div>
+            <p>Practical guides, fresh perspectives, and useful tools for people who build, write, and grow online.</p>
+        </div>
+        <div class="blog-layout">
+            <div class="blog-feed">
+                <a href="how-to-build-campaign-links-utm-generator" class="featured-post reveal">
+                    <div class="featured-art"><span class="art-window"><span></span><b>utm_campaign</b><i>source / medium / content</i></span><span class="art-orb"></span></div>
+                    <div class="featured-copy">
+                        <span class="post-tag">Featured guide</span>
+                        <h2>Build campaign links that tell a better story</h2>
+                        <p>Learn how to use UTM parameters to understand where your audience comes from and what makes them click.</p>
+                        <span class="read-link">Read the guide <strong>↗</strong></span>
+                    </div>
+                </a>
+                <div class="section-heading"><h2>Latest stories</h2><a href="#all-posts">View all <span>→</span></a></div>
+                <div class="blog-grid" id="all-posts">
+            <a href="virtual-dice-roller-tabletop-games-guide" class="blog-card reveal"><div class="card-art art-dice">✦</div>
                 <div style="font-size:2rem;margin-bottom:0.8rem;">🎲</div>
                 <h3>How to Simulate Dice Rolls Online for Tabletop Games</h3>
                 <p>Roll virtual dice (D6) or RPG polyhedral dice (D20) online for board games and view roll logs.</p>
                 <div class="blog-meta">July 26, 2026 &bull; 6 min read</div>
             </a>
-            <a href="coin-flip-heads-tails-probability-guide" class="blog-card reveal" style="border:1px solid rgba(99,102,241,0.3);">
+            <a href="coin-flip-heads-tails-probability-guide" class="blog-card reveal"><div class="card-art art-coin">◐</div>
                 <div style="font-size:2rem;margin-bottom:0.8rem;">🪙</div>
                 <h3>Heads or Tails: Math & Fun of Flipping a Coin Online</h3>
                 <p>Learn about binary probability stats, flip virtual 3D coins, or execute bulk tosses online.</p>
                 <div class="blog-meta">July 26, 2026 &bull; 6 min read</div>
             </a>
-            <a href="how-to-analyze-backlinks-free-seo-tool" class="blog-card reveal" style="border:1px solid rgba(99,102,241,0.3);">
+            <a href="how-to-analyze-backlinks-free-seo-tool" class="blog-card reveal"><div class="card-art art-links">⌁</div>
                 <div style="font-size:2rem;margin-bottom:0.8rem;">🔗</div>
                 <h3>How to Check My Backlinks for Free & Perform Backlink Analysis [2026]</h3>
                 <p>Audit inbound backlinks, verify dofollow vs nofollow link juice, and inspect anchor text health to maximize organic rankings.</p>
                 <div class="blog-meta">Updated August 2026 &bull; 8 min read</div>
             </a>
-            <a href="how-to-check-domain-age-whois-history" class="blog-card reveal" style="border:1px solid rgba(99,102,241,0.3);">
+            <a href="how-to-check-domain-age-whois-history" class="blog-card reveal"><div class="card-art art-calendar">2026</div>
                 <div style="font-size:2rem;margin-bottom:0.8rem;">📅</div>
                 <h3>How to Check Domain Age & WHOIS History</h3>
                 <p>Query registration metadata parameters, check registrar servers, and calculate exact website age timelines.</p>
                 <div class="blog-meta">July 26, 2026 &bull; 6 min read</div>
             </a>
-            <a href="how-to-use-emojis-to-increase-seo-ctr" class="blog-card reveal" style="border:1px solid rgba(99,102,241,0.3);">
+            <a href="how-to-use-emojis-to-increase-seo-ctr" class="blog-card reveal"><div class="card-art art-emoji">✺</div>
                 <div style="font-size:2rem;margin-bottom:0.8rem;">😊</div>
                 <h3>How to Use Emojis to Increase SEO CTR: Practical Guide</h3>
                 <p>Add Unicode symbols and emojis to search snippet titles and descriptions to grow search click-through rates.</p>
                 <div class="blog-meta">July 26, 2026 &bull; 6 min read</div>
             </a>
-            <a href="how-to-check-keyword-density-free-seo-guide" class="blog-card reveal" style="border:1px solid rgba(99,102,241,0.3);">
+            <a href="how-to-check-keyword-density-free-seo-guide" class="blog-card reveal"><div class="card-art art-chart">↗</div>
                 <div style="font-size:2rem;margin-bottom:0.8rem;">📊</div>
                 <h3>How to Check Keyword Density for Free: Complete SEO Guide [2026]</h3>
                 <p>Learn how to calculate keyword density, audit single and multi-word phrase frequency, and avoid Google keyword stuffing penalties.</p>
@@ -226,6 +236,27 @@
                 <p>Learn what JSON is, why it's used in web development, and how to format it properly.</p>
                 <div class="blog-meta">May 8, 2026 &bull; 4 min read</div>
             </a>
+                </div>
+            </div>
+            <aside class="blog-sidebar">
+                <div class="sidebar-panel search-panel">
+                    <label for="blogSearch">Search the journal</label>
+                    <div class="blog-search"><input id="blogSearch" type="search" placeholder="Search articles..."><span>⌕</span></div>
+                </div>
+                <div class="sidebar-panel">
+                    <h3>Explore topics</h3>
+                    <a href="#all-posts" class="topic-row"><span class="topic-dot dot-blue"></span>SEO <b>12</b></a>
+                    <a href="#all-posts" class="topic-row"><span class="topic-dot dot-coral"></span>Web development <b>8</b></a>
+                    <a href="#all-posts" class="topic-row"><span class="topic-dot dot-green"></span>Productivity <b>6</b></a>
+                    <a href="#all-posts" class="topic-row"><span class="topic-dot dot-yellow"></span>Tools & ideas <b>5</b></a>
+                </div>
+                <div class="sidebar-panel newsletter-panel">
+                    <span class="newsletter-icon">✦</span>
+                    <h3>Useful ideas,<br>once a month.</h3>
+                    <p>A short note with our best guides and newest tools.</p>
+                    <a href="../contact" class="sidebar-button">Stay in the loop <span>→</span></a>
+                </div>
+            </aside>
         </div>
         <div class="ad-container ad-rectangle">[Ad Space]</div>
     </main>
