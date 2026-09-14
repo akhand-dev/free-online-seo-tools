@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Asegya Toolkit — Global JavaScript v2.0
  * Mobile menu, toasts, scroll animations, back-to-top, cookie consent, FAQ accordion
  */
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initServiceWorker();
   initGlobalSearch();
   initThemeToggle();
+  initHomepageInteractions();
 });
 
 /* ---- Service Worker ---- */
@@ -134,14 +135,132 @@ function acceptCookies() {
   if (banner) banner.classList.remove('show');
 }
 
-/* ---- Search Filter (homepage) ---- */
-function filterTools(query) {
+/* ---- Search & Category Filter (homepage) ---- */
+let currentActiveCategory = 'all';
+
+function updateToolVisibility() {
+  const searchInput = document.getElementById('toolSearch');
+  const q = searchInput ? searchInput.value.toLowerCase().trim() : '';
   const cards = document.querySelectorAll('.tool-card');
-  const q = query.toLowerCase().trim();
+  const resultBadge = document.getElementById('resultsCount');
+  let visibleCount = 0;
+
   cards.forEach(card => {
+    let cardCat = card.getAttribute('data-category');
+    if (!cardCat) {
+      // Inferred category from closest parent/section or previous heading
+      const parentGrid = card.closest('.tools-grid');
+      const prevHeading = parentGrid ? parentGrid.previousElementSibling : null;
+      const headingText = (prevHeading ? prevHeading.textContent : '').toLowerCase();
+      
+      if (headingText.includes('seo') || headingText.includes('marketing')) cardCat = 'seo';
+      else if (headingText.includes('developer')) cardCat = 'developer';
+      else if (headingText.includes('media') || headingText.includes('image') || headingText.includes('pdf')) cardCat = 'media';
+      else if (headingText.includes('financial') || headingText.includes('tax')) cardCat = 'calculators';
+      else if (headingText.includes('text') || headingText.includes('writing')) cardCat = 'content';
+      else if (headingText.includes('viral') || headingText.includes('social')) cardCat = 'social';
+      else if (headingText.includes('security')) cardCat = 'security';
+      else if (headingText.includes('math') || headingText.includes('daily')) cardCat = 'utilities';
+      else if (headingText.includes('business')) cardCat = 'calculators';
+      else cardCat = 'all';
+    }
+
     const text = card.textContent.toLowerCase();
-    card.style.display = text.includes(q) ? '' : 'none';
+    const matchesCat = (currentActiveCategory === 'all' || cardCat.includes(currentActiveCategory));
+    const matchesQuery = !q || text.includes(q);
+
+    if (matchesCat && matchesQuery) {
+      card.style.display = '';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
   });
+
+  if (resultBadge) {
+    resultBadge.textContent = `${visibleCount} result${visibleCount === 1 ? '' : 's'}`;
+  }
+
+  // Hide or show category titles based on whether any cards under them are visible
+  document.querySelectorAll('.category-title').forEach(title => {
+    const grid = title.nextElementSibling?.classList.contains('category-desc') 
+      ? title.nextElementSibling.nextElementSibling 
+      : title.nextElementSibling;
+    if (grid && grid.classList.contains('tools-grid')) {
+      const hasVisible = Array.from(grid.querySelectorAll('.tool-card')).some(c => c.style.display !== 'none');
+      title.style.display = hasVisible ? '' : 'none';
+      if (title.nextElementSibling?.classList.contains('category-desc')) {
+        title.nextElementSibling.style.display = hasVisible ? '' : 'none';
+      }
+      if (grid.nextElementSibling?.classList.contains('related-links')) {
+        grid.nextElementSibling.style.display = hasVisible ? '' : 'none';
+      }
+    }
+  });
+}
+
+function filterTools(query) {
+  updateToolVisibility();
+}
+
+function setCategoryFilter(category, btnElement) {
+  currentActiveCategory = category;
+  document.querySelectorAll('.filter-pill-btn').forEach(btn => btn.classList.remove('active'));
+  if (btnElement) {
+    btnElement.classList.add('active');
+  }
+  updateToolVisibility();
+}
+
+function setQuickSearch(tag) {
+  const searchInput = document.getElementById('toolSearch');
+  if (searchInput) {
+    searchInput.value = tag;
+    searchInput.focus();
+    updateToolVisibility();
+  }
+}
+
+/* ---- 3D Parallax & Keyboard Shortcut ---- */
+function initHomepageInteractions() {
+  const searchInput = document.getElementById('toolSearch');
+  const heroWrapper = document.querySelector('.hero-wrapper');
+  
+  // Shortcut '/' or 'Ctrl+/' to focus search
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.select();
+      }
+    }
+  });
+
+  // 3D Parallax Tilt Effect on mouse movement
+  if (heroWrapper) {
+    heroWrapper.addEventListener('mousemove', (e) => {
+      const shapes = heroWrapper.querySelectorAll('.floating-shape');
+      const rect = heroWrapper.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      shapes.forEach((shape, index) => {
+        const speed = (index + 1) * 15;
+        const rotate = (index + 1) * 8;
+        shape.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0) rotate3d(${y}, ${-x}, 0, ${rotate}deg)`;
+      });
+    });
+
+    heroWrapper.addEventListener('mouseleave', () => {
+      const shapes = heroWrapper.querySelectorAll('.floating-shape');
+      shapes.forEach(shape => {
+        shape.style.transform = '';
+      });
+    });
+  }
+
+  updateToolVisibility();
 }
 
 /* ---- Lazy Load AdSense ---- */
