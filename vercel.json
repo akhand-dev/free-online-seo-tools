@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "redirects": [
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/tools/jwt-decoder.html", "destination": "/tools/jwt-decoder/jwt-decoder", "permanent": true },
+    { "source": "/tools/jwt-decoder/jwt-decoder.html", "destination": "/tools/jwt-decoder/jwt-decoder", "permanent": true },
     { "source": "/tools/ai-text-humanizer/ai-text-humanizer-free.html", "destination": "/tools/ai-text-humanizer-free/ai-text-humanizer-free", "permanent": true },
     { "source": "/tools/ai-text-humanizer/ai-text-humanizer-free", "destination": "/tools/ai-text-humanizer-free/ai-text-humanizer-free", "permanent": true },
     { "source": "/tools/:tool.html", "destination": "/tools/:tool/:tool", "permanent": true },
