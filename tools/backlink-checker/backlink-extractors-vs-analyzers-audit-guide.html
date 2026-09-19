@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://s0.wp.com; connect-src 'self' https://region1.google-analytics.com https://vitals.vercel-insights.com;">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlink Extractors vs. Analyzers: What’s the Best Way to Audit Your Site? | RankifyTools</title>
+    <meta name="description" content="Discover the difference between raw backlink extractors and full backlink analyzer tools. Learn how to verify live links, inspect rel attributes, and streamline your link audits.">
+    <meta name="keywords" content="backlink extractor, backlink analyzer tool, backlink verifier, backlinks analyzer tool, backlink audit guide">
+    <link rel="canonical" href="https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-extractors-vs-analyzers-audit-guide.html">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-extractors-vs-analyzers-audit-guide.html">
+    <meta property="og:title" content="Backlink Extractors vs. Analyzers: What’s the Best Way to Audit Your Site?">
+    <meta property="og:description" content="Discover the difference between raw backlink extractors and full backlink analyzer tools. Learn how to verify live links, inspect rel attributes, and streamline your link audits.">
+    <meta property="og:site_name" content="RankifyTools">
+    <meta property="article:published_time" content="2026-09-08">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Backlink Extractors vs. Analyzers: What’s the Best Way to Audit Your Site?">
+    <meta name="twitter:description" content="Discover the difference between raw backlink extractors and full backlink analyzer tools. Learn how to verify live links, inspect rel attributes, and streamline your link audits.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="theme-color" content="#06060b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .blog-post {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+        }
+        .blog-post-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .blog-post-meta {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .blog-tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        .blog-post-header h1 {
+            font-size: 2.3rem;
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #fff 40%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blog-post-intro {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .blog-post-body {
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        .blog-post-body h2 {
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1rem;
+            color: #fff;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .blog-post-body h3 {
+            font-size: 1.25rem;
+            margin: 1.8rem 0 0.8rem;
+            color: var(--accent-secondary);
+        }
+        .blog-post-body p {
+            margin-bottom: 1.3rem;
+        }
+        .blog-post-body ul, .blog-post-body ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        .blog-post-body li {
+            margin-bottom: 0.6rem;
+        }
+        .blog-post-body a {
+            color: var(--accent-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .blog-post-body a:hover {
+            color: var(--accent-secondary);
+        }
+        .info-box {
+            background: rgba(99, 102, 241, 0.08);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 2rem 0;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 640px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .comparison-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+        .comparison-card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        .comparison-card ul {
+            margin: 0.8rem 0 0 1.2rem;
+            padding: 0;
+        }
+        pre {
+            background: #090912;
+            border: 1px solid var(--border-light);
+            padding: 1.2rem 1.4rem;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace, Consolas, Courier New;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+            color: #e2e8f0;
+        }
+        code {
+            font-family: 'Fira Code', monospace, Consolas, Courier New;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #38bdf8;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+        .faq-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .faq-card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .faq-card p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
+            border: 1px solid var(--accent-primary);
+            border-radius: var(--radius-md);
+            padding: 1.75rem 2rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent-primary);
+            color: #fff !important;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none !important;
+            margin-top: 1rem;
+            transition: opacity 0.2s ease;
+        }
+        .cta-btn:hover {
+            opacity: 0.9;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.8rem 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            background: var(--bg-surface);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        th {
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+            font-weight: 600;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Backlink Extractors vs. Analyzers: What’s the Best Way to Audit Your Site?",
+      "description": "Discover the difference between raw backlink extractors and full backlink analyzer tools. Learn how to verify live links, inspect rel attributes, and streamline your link audits.",
+      "url": "https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-extractors-vs-analyzers-audit-guide.html",
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08",
+      "author": {"@type": "Organization", "name": "RankifyTools Tech Team"},
+      "publisher": {"@type": "Organization", "name": "RankifyTools", "url": "https://free-online-seo-tools.vercel.app"},
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-extractors-vs-analyzers-audit-guide.html"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://free-online-seo-tools.vercel.app/"},
+        {"@type": "ListItem", "position": 3, "name": "Backlink Checker", "item": "https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-checker"},
+        {"@type": "ListItem", "position": 4, "name": "Backlink Extractors vs. Analyzers Guide", "item": "https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-extractors-vs-analyzers-audit-guide.html"}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header>
+    <div class="container navbar">
+        <a href="/" class="logo">⚡ Rankify<span>Tools</span></a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li class="nav-search-wrapper">
+                <input type="text" id="globalSearch" placeholder="Search tools..." aria-label="Search tools" autocomplete="off">
+                <div id="globalSearchResults" class="search-results-dropdown"></div>
+            </li>
+            <li><a href="/">Tools</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+        </ul>
+    </div>
+    </header>
+
+    <main class="main-content container" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="separator">›</span>
+            <a href="/tools/">Tools</a><span class="separator">›</span>
+            <a href="https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-checker">Backlink Checker</a><span class="separator">›</span>
+            <span class="current">Backlink Extractors vs. Analyzers Guide</span>
+        </nav>
+
+        <article class="blog-post">
+            <div class="blog-post-header">
+                <div class="blog-post-meta">
+                    September 8, 2026 &bull; 7 min read &bull; <span class="blog-tag">SEO Tools</span> <span class="blog-tag">Technical Audit</span>
+                </div>
+                <h1>Backlink Extractors vs. Analyzers: What’s the Best Way to Audit Your Site?</h1>
+                <p class="blog-post-intro">When evaluating backlink intelligence tools, developers and SEO specialists frequently conflate two fundamentally different categories: link extractors and link analyzers. Choosing the wrong utility can waste dozens of hours or lead to flawed optimization strategies.</p>
+            </div>
+
+            <div class="blog-post-body">
+                <p>Auditing inbound links is the cornerstone of off-page SEO, competitive research, and link acquisition verification. But as websites have evolved with single-page applications, dynamic DOM rendering, and complex rel attributes, simply parsing text files for URLs is no longer enough.</p>
+
+                <p>In this guide, we clarify the functional differences between a raw <strong>backlink extractor</strong> and a full <strong>backlink analyzer tool</strong>, compare real-world auditing workflows, and help you select the exact tooling required for your project.</p>
+
+                <h2>The Fundamental Distinction: Extraction vs. Analysis</h2>
+                <p>To understand why these tools produce completely different results, we need to inspect how they handle source documents at a technical level.</p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h3>1. Backlink Extractor</h3>
+                        <p style="color:var(--text-secondary);font-size:0.95rem;">A scraper or parser designed to harvest raw URL strings from a target document.</p>
+                        <ul>
+                            <li>Searches for <code>href="..."</code> attributes via Regex or simple DOM parsing.</li>
+                            <li>Dumps unstructured lists of outbound or internal links.</li>
+                            <li>Ignores HTTP headers, response codes, and canonical redirects.</li>
+                            <li>Fails to evaluate link equity attributes (e.g., nofollow, sponsored).</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h3>2. Backlink Analyzer</h3>
+                        <p style="color:var(--text-secondary);font-size:0.95rem;">A comprehensive diagnostic engine that validates link integrity, context, and SEO weight.</p>
+                        <ul>
+                            <li>Verifies live HTTP status codes (200 OK vs. 301 vs. 404).</li>
+                            <li>Extracts and classifies anchor text context and keywords.</li>
+                            <li>Parses <code>rel</code> values (dofollow, nofollow, sponsored, ugc).</li>
+                            <li>Validates robots meta tags and canonical headers.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Side-by-Side Comparison: Extractor vs. Analyzer</h2>
+                <p>The following breakdown highlights where basic extractors fall short and why a true <strong>backlinks analyzer tool</strong> is necessary for modern technical audits:</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Capability</th>
+                                <th>Raw Backlink Extractor</th>
+                                <th>Full Backlink Analyzer Tool</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>URL Harvesting</strong></td>
+                                <td>Fast string/regex matching of <code>href</code> attributes.</td>
+                                <td>Accurate DOM tree parsing including nested elements.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>HTTP Status Validation</strong></td>
+                                <td>None (assumes target page is reachable).</td>
+                                <td>Inspects HTTP headers (detects 301, 302, 404, 410, 500).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Link Equity &amp; Rel Detection</strong></td>
+                                <td>Often missing; treats all links equally.</td>
+                                <td>Accurately isolates dofollow, nofollow, sponsored, and ugc.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Anchor Text Categorization</strong></td>
+                                <td>Raw string export without context.</td>
+                                <td>Extracts visible inner text, image alt text, and semantic context.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>JavaScript / SPA Rendering</strong></td>
+                                <td>Fails on client-side JS rendered nodes.</td>
+                                <td>Can parse hydrated DOM nodes or execute headless crawls.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Redirect Chain Resolution</strong></td>
+                                <td>Stops at the initial href string.</td>
+                                <td>Follows 3xx redirects to the final canonical destination.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>The 3 Primary Backlink Auditing Workflows</h2>
+                <p>Depending on your technical skillset, budget, and campaign volume, SEO professionals typically rely on one of three distinct auditing workflows:</p>
+
+                <h3>1. Custom CLI Scripts (DIY Scrapers)</h3>
+                <p>Developers frequently write Python (using BeautifulSoup or Scrapy) or PHP cURL scripts to scrape links from competitor websites or partner blogs. While this provides maximum customization and local data ownership, it comes with heavy overhead: you must constantly manage user-agent rotation, proxy pools, Cloudflare bot-mitigation bypasses, and DOM schema updates.</p>
+
+                <h3>2. Enterprise SaaS SEO Suites</h3>
+                <p>Platforms like Ahrefs, Semrush, and Majestic crawl the entire web to maintain multi-billion-page backlink indexes. These tools are incredible for historical trend analysis and broad domain-level reporting. However, they are costly (ranging from $100 to over $500 monthly) and their web crawls can take days or weeks to index freshly published partner links or newly launched guest posts.</p>
+
+                <h3>3. Lightweight Real-Time Web Utilities</h3>
+                <p>When you simply need to verify whether a specific high-priority backlink is live, dofollow, and anchored with the correct text, firing up a bloated SaaS suite or spinning up a headless browser script is overkill. A fast, browser-accessible <strong>backlink verifier</strong> allows you to paste the referring URL, immediately fetch the live page, and audit the backlink status in under five seconds—without subscriptions or sign-ups.</p>
+
+                <div class="cta-banner">
+                    <h3 style="color:#fff;margin:0 0 0.5rem;font-size:1.35rem;">Need Instant Backlink Verification?</h3>
+                    <p style="color:var(--text-secondary);margin:0;max-width:580px;display:inline-block;">Test any live URL for inbound links, extract exact anchor text, and verify dofollow/nofollow status codes instantly with zero setup.</p>
+                    <div>
+                        <a href="https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-checker" class="cta-btn">Open Free Backlink Checker</a>
+                    </div>
+                </div>
+
+                <h2>Which Tool Should You Use? (Scenario-Based Decision Matrix)</h2>
+
+                <h3>Scenario A: Verifying Guest Posts and Outreach Placements</h3>
+                <p><strong>Verdict: Use a Backlink Analyzer / Verifier.</strong><br>
+                When you secure a guest post or press placement, you need to verify that the publishing website didn't stealthily insert a <code>rel="nofollow"</code> attribute, mistype your target URL (creating a 404), or inject an unintended anchor. A raw extractor will falsely tell you the link exists, while an analyzer confirms whether PageRank equity is actually flowing.</p>
+
+                <h3>Scenario B: Scraping Internal Architecture for URL Lists</h3>
+                <p><strong>Verdict: Use a Backlink Extractor.</strong><br>
+                If your goal is simply to harvest a list of all internal pages or image assets from a competitor's sitemap or archive page for further processing, a raw URL extractor is faster, lighter, and completely adequate.</p>
+
+                <h3>Scenario C: Identifying Broken Backlinks and 301 Chains</h3>
+                <p><strong>Verdict: Use a Backlink Analyzer.</strong><br>
+                Links change over time. Content gets moved, HTTPS certificates migrate, and CMS reorganizations break paths. An analyzer checks the server response of every link, exposing redirect hops that dilute equity and 404 errors that waste valuable link authority.</p>
+
+                <div class="info-box">
+                    <strong>Pro Tip for Technical SEOs:</strong> Never assume a link is active just because an extractor returns the string. Always verify the live HTTP status and header directives. A link pointing to a page blocked by <code>X-Robots-Tag: noindex</code> passes zero ranking benefit.
+                </div>
+
+                <h2>Conclusion: Moving from Raw Scraping to Actionable Insights</h2>
+                <p>Extracting links is merely the collection of strings; analyzing links is the foundation of strategic search ranking decisions. While basic extractors have their place in data-scraping pipelines, modern off-page SEO demands deep inspection of HTTP headers, rel attributes, and anchor diversity.</p>
+
+                <p>If you need a reliable, frictionless way to audit backlinks on demand, bookmark our free <a href="https://free-online-seo-tools.vercel.app/tools/backlink-checker/backlink-checker">Backlink Checker</a> to verify live links, inspect link attributes, and conduct fast audits directly from your browser.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-card">
+                    <h3>What is the difference between a backlink extractor and a backlink analyzer?</h3>
+                    <p>A backlink extractor simply scrapes raw URLs from a web page's HTML code. A backlink analyzer inspects the links further by checking live HTTP status codes, verifying dofollow vs. nofollow attributes, evaluating anchor text, and assessing link health.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>Can a backlink extractor tell if a link is dofollow or nofollow?</h3>
+                    <p>Most basic extractors only harvest the destination URL and ignore the &lt;a rel="..."&gt; attribute. A full backlink analyzer is required to parse and distinguish between dofollow, nofollow, sponsored, and ugc links.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>Why do enterprise backlink tools sometimes miss new links?</h3>
+                    <p>Enterprise SaaS tools like Ahrefs and Semrush rely on web crawlers that can take days or weeks to discover freshly published articles. A real-time backlink verifier crawls the specific URL on demand for instant confirmation.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>Do nofollow links still have value in SEO?</h3>
+                    <p>Yes. While nofollow links generally do not pass PageRank equity directly, they drive qualified referral traffic, enhance brand visibility, and create a natural, diversified link profile that search engines expect to see.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="/" class="logo">⚡ Rankify<span>Tools</span></a>
+                <p style="color:var(--text-secondary);margin-top:0.8rem;font-size:0.9rem;">Your go-to hub for simple, fast &amp; free online utilities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>SEO Tools</h4>
+                <ul>
+                    <li><a href="/tools/backlink-checker/backlink-checker">Backlink Checker</a></li>
+                    <li><a href="/tools/keyword-density-checker/keyword-density-checker">Keyword Density</a></li>
+                    <li><a href="/tools/meta-tag-generator/meta-tag-generator">Meta Tag Generator</a></li>
+                    <li><a href="/tools/robots-txt-generator/robots-txt-generator">Robots.txt Generator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Developer Utilities</h4>
+                <ul>
+                    <li><a href="/tools/json-formatter/json-formatter">JSON Formatter</a></li>
+                    <li><a href="/tools/base64-encoder-decoder/base64-encoder-decoder">Base64</a></li>
+                    <li><a href="/tools/utm-link-builder/utm-link-builder">UTM Link Builder</a></li>
+                    <li><a href="/tools/code-diff-checker/code-diff-checker">Code Diff</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 RankifyTools — free-online-seo-tools.vercel.app | <a href="/privacy-policy">Privacy</a> | <a href="/terms-of-service">Terms</a>
+        </div>
+    </div>
+    </footer>
+
+    <div class="cookie-banner">We use cookies to improve your experience. <a href="/privacy-policy">Privacy Policy</a> <button onclick="acceptCookies()">Accept</button></div>
+    <script src="/js/main.js" defer></script>
+</body>
+</html>
+
